@@ -106,6 +106,7 @@
       padding-right: 100px;
     }
   </style>
+
 </head>
 
 <body>
