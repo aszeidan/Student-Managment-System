@@ -64,4 +64,25 @@ class Admin
         $result = $this->dbconnect->selectquery($query);
         return $result;
     }
+
+    function addClass($class, $semester, $course, $teacher, $schedule)
+    {
+        $query =  "INSERT INTO class  (`ClassId`, `ClassName`, `SemesterId`, `CourseId`, `TeacherId`, `ScheduleId`) values (NULL,'" . $class . "','" . $semester . "','" . $course . "','" . $teacher . "','" . $schedule . "')";
+        $this->dbconnect->selectquery($query);
+    }
+
+    function checkClassIfExists($class, $semester, $course, $teacher, $schedule)
+    {
+        $query = "SELECT * FROM class WHERE ClassName='" . $class . "' 
+                                        and SemesterId='" . $semester . "' 
+                                        and CourseId='" . $course . "'    
+                                        and TeacherId='" . $teacher . "'  
+                                        and ScheduleId='" . $schedule . "' ";
+        $result = $this->dbconnect->selectquery($query);
+        if (count($result) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

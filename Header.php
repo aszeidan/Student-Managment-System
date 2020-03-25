@@ -39,5 +39,3 @@
 
 </nav>
 
-<body class="text-center  p-3 mb-2 bg-secondary "></body>
-</body>
