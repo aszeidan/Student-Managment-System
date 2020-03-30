@@ -24,4 +24,4 @@ $del_id = $_GET['id'];
 $deleteClass = $Admin->deleteClassById($del_id);
 
 
-header('Location:Registration.php');
+header('Location:Registration.php');?>

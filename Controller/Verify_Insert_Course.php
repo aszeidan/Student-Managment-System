@@ -6,7 +6,13 @@ require_once("DatabaseSMS.php");
 require_once('Model/Admin.php');
 $db = new DatabaseSMS();
 $Admin = new Admin($db);
-if (!isset($_POST["Classname"]) || !isset($_POST["semester"])) {
+if (
+    !isset($_POST["Classname"])
+    || !isset($_POST["semester"])
+    || !isset($_POST["Course"])
+    || !isset($_POST["teacher"])
+    || !isset($_POST["schedule"])
+) {
     die("Missing Parameters");
 }
 $class = $_POST["Classname"];

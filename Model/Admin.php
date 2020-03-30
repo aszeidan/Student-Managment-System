@@ -70,7 +70,12 @@ class Admin
         $query =  "INSERT INTO class  (`ClassId`, `ClassName`, `SemesterId`, `CourseId`, `TeacherId`, `ScheduleId`) values (NULL,'" . $class . "','" . $semester . "','" . $course . "','" . $teacher . "','" . $schedule . "')";
         $this->dbconnect->selectquery($query);
     }
-
+    
+    function updateClass($className, $semesterId, $courseId, $teacherId, $scheduleId, $id)
+    {
+        $query = "UPDATE `class` SET `ClassName` = '{$className}', `SemesterId` = '{$semesterId}', `CourseId` = '{$courseId}', `TeacherId` = '{$teacherId}', `ScheduleId` = '{$scheduleId}' WHERE `class`.`ClassId` = {$id};";
+        $this->dbconnect->executeQuery($query);
+    }
     function checkClassIfExists($class, $semester, $course, $teacher, $schedule)
     {
         $query = "SELECT * FROM class WHERE ClassName='" . $class . "' 
