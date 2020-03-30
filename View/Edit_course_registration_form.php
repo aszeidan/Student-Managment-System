@@ -31,7 +31,7 @@ $class = $Admin->getClassById($id);
             <div class="col-md-6 col-lg-6">
                 <br>
                 <h2>Edit Form</h2>
-                <form name=" editpage" action="Update_course_registration_form.php" method="GET">
+                <form name=" editpage" action="../Controller/Update_course_registration_form.php" method="GET">
                     <?php
                     $className = $class[0]["ClassName"];
                     $semesterId = $class[0]["SemesterId"];

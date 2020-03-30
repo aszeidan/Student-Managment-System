@@ -143,8 +143,8 @@ $class = $Admin->getClasses();
                                             <td><?php echo $class[$i]['CourseName']; ?> </td>
                                             <td><?php echo $class[$i]['TFirstName'] . " " . $class[$i]['TLastName']; ?> </td>
                                             <td><?php echo $class[$i]['Time']; ?> </td>
-                                            <td><a href="Delete_course_registration_form.php?id=<?php echo $class[$i]['ClassId']; ?>">Delete </a> </td>
-                                            <td><a href="Edit_course_registration_form.php?id=<?php echo $class[$i]['ClassId']; ?>">Edit </a> </td>
+                                            <td><a href="../Controller/Delete_course_registration_form.php?id=<?php echo $class[$i]['ClassId']; ?>">Delete </a> </td>
+                                            <td><a href="../View/Edit_course_registration_form.php?id=<?php echo $class[$i]['ClassId']; ?>">Edit </a> </td>
                                         </tr> <?php } ?>
                                 </table>
                             </div>
