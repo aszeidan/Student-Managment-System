@@ -1,6 +1,6 @@
 <?php
-require_once("DatabaseSMS.php");
-require_once('Model/Login.php');
+require_once("../Model/DatabaseSMS.php");
+require_once('../Model/Login.php');
 $db = new DatabaseSMS();
 $Login = new Login($db);
 if (!isset($_POST["uname"]) || !isset($_POST["psw"])) {
@@ -10,14 +10,14 @@ if (!isset($_POST["uname"]) || !isset($_POST["psw"])) {
 $user_name = $_POST["uname"];
 $password = $_POST["psw"];
 
-$Login = $Login->verifyLogin($user_name, $password);
 
-if ($login) {
+$user = $Login->verifyLogin($user_name, $password);
 
-    header("Location:SignIn.php");
-    
+if (count($user)) {
+    $_SEESION["usern"] = $user["UserName"];
+    $_SEESION["pass"] = $user["Password"];
+    header("Location:../View/Registration.php");
 } else {
-
     $Login->verifyLogin($user_name, $password);
-    header("Location:Registration.php");
+    header("Location:../View/SignIn.php?textmessage=Invalid Username or Password");
 }

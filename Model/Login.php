@@ -15,16 +15,13 @@ class Login
                              and Password='" . $password . "'";
 
         $result = $this->dbconnect->selectquery($query);
-        return $result;
 
         if (count($result) > 0) {
-            $_SEESION["usern"] = $result[0]["UserName"];
-            $_SEESION["pass"] = $result[0]["Password"];
-            echo "Successfully Logged In";
-            
+            $user = $result[0];
         } else {
-            echo "Invalid Login";
-            
+            $user = array();
         }
+
+        return $user;
     }
 }

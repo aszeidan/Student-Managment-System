@@ -6,8 +6,8 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-require_once('DatabaseSMS.php');
-require_once('Model/Admin.php');
+require_once('../Model/DatabaseSMS.php');
+require_once('../Model/Admin.php');
 $db = new DatabaseSMS();
 $Admin = new Admin($db);
 
@@ -51,7 +51,7 @@ $class = $Admin->getClasses();
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">Registration Form</h3>
 
-                                <form action="Verify_Insert_Course.php" method="POST">
+                                <form action="../Controller/Verify_Insert_Course.php" method="POST">
                                     <div class="row register-form mx-0 px-0 col-md-12">
                                         <div class="centering col-md-6">
                                             <div class="form-group">

@@ -2,8 +2,8 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-require_once("DatabaseSMS.php");
-require_once('Model/Admin.php');
+require_once('../Model/DatabaseSMS.php');
+require_once('../Model/Admin.php');
 $db = new DatabaseSMS();
 $Admin = new Admin($db);
 if (
@@ -25,9 +25,9 @@ $exists = $Admin->checkClassIfExists($class, $semester, $course, $teacher, $sche
 
 if ($exists) {
 
-    header("Location:Registration.php?result=Already Exist");
+    header("Location:../View/Registration.php?result=Already Exist");
 } else {
 
     $Admin->addClass($class, $semester, $course, $teacher, $schedule);
-    header("Location:Registration.php?result=Successfully Added");
+    header("Location:../View/Registration.php?result=Successfully Added");
 }

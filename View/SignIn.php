@@ -28,7 +28,7 @@ if (!isset($_SESSION)) {
                         <h3 class="register-heading">Sign In</h3>
                         <div class="row register-form mx-0 px-0 col-md-12">
                             <div class="centering col-md-6">
-                                <form action="Verify_Login.php" method="POST">
+                                <form action="../Controller/Verify_Login.php" method="POST">
                                     <div class="form-group">
 
                                         <input type="text" class="form-control" placeholder="123@example.com" value="" name="uname" required />
