@@ -58,11 +58,20 @@ class Admin
         return $result;
     }
 
-    function deleteClassById($del_id)
+   /*  function deleteClassById($del_id)
     {
         $query =  "DELETE from class where ClassId=" . $del_id;
         $result = $this->dbconnect->selectquery($query);
         return $result;
+    } */
+	 function deleteClassById($del_id)
+    {
+		// to delete the registration of a student on the requested class
+		$query1  = "DELETE from registration where ClassId=" .$del_id;
+        $query2 =  "DELETE from class where ClassId=" . $del_id ;
+        $result1 = $this->dbconnect->executeQuery($query1);
+		$result2 = $this->dbconnect->executeQuery($query2);
+		return $result2;
     }
 
     function addClass($class, $semester, $course, $teacher, $schedule)
