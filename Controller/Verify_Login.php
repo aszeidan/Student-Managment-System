@@ -19,7 +19,7 @@ if ($User->verifyLogin() == true) {
     $_SEESION["pass"] = $password;
     $_SEESION["id"] = $User->getId();
 
-    header("Location:../View/Registration.php");
+    header("Location:../View/Registration.pHp");
 } else {
     header("Location:../View/SignIn.php?textmessage=Invalid Username or Password");
 }

@@ -20,13 +20,17 @@ class DatabaseSMS
             die();
         }
     }
+    
+    function setQuery($query)
+    {
+        $this->query=$query;
+    }
 
 
-
-    public function executeQuery($query)
+    public function executeQuery()
     {
         $db_connection = $this->connectToDb();
-        $result = mysqli_query($db_connection, $query);
+        $result = mysqli_query($db_connection,$this->query);
 
         if ($result == false) {
             echo " Query Error" . mysqli_error($db_connection);
@@ -37,9 +41,9 @@ class DatabaseSMS
 
 
     // bta3mol execution w bterja3 btale3 l data
-    public function selectQuery($query)
+    public function selectQuery()
     {
-        $query_result = $this->executeQuery($query);
+        $query_result = $this->executeQuery();
         $resultArray = [];
         $resultArray = mysqli_fetch_all($query_result, MYSQLI_ASSOC);
         return $resultArray;

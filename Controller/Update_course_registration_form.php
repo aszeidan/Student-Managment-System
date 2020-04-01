@@ -23,7 +23,13 @@ $courseId = $_GET["Course"];
 $teacherId = $_GET["Teacher"];
 $scheduleId = $_GET["Schedule"];
 
-$updateClass = $Admin->updateClass($className, $semesterId, $courseId, $teacherId, $scheduleId, $id);
+$Admin->getId($id);
+$Admin->setClass($className);
+$Admin->setSemester($semesterId);
+$Admin->setCourse($courseId);
+$Admin->setTeacher($teacherId);
+$Admin->setSchedule($scheduleId);
+$updateClass = $Admin->updateClass();
 
 
 header('Location:../View/Registration.php');

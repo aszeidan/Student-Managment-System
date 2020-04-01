@@ -8,31 +8,69 @@ class Admin
         $this->dbconnect = $db;
     }
 
+    function setClass($class)
+    {
+        $this->class = $class;
+    }
+
+    function setSemester($semester)
+    {
+        $this->semester = $semester;
+    }
+
+    function setCourse($course)
+    {
+        $this->course = $course;
+    }
+
+    function setTeacher($teacher)
+    {
+        $this-> teacher = $teacher;
+    }
+
+    function setSchedule($schedule)
+    {
+        $this->schedule = $schedule;
+    }
+
+    function getId($id)
+    {
+        return $this->classId=$id;
+    }
+    function getDeletedId($del_id)
+    {
+        return $this->del_id=$del_id;
+    }
+
     function getSemesters()
     {
         $query = 'select * from semester';
-        $result = $this->dbconnect->selectquery($query);
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
         return $result;
     }
 
     function getCourses()
     {
         $query = 'select * from course';
-        $result = $this->dbconnect->selectquery($query);
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
         return $result;
     }
 
     function getTeachers()
     {
         $query = 'select * from teacher';
-        $result = $this->dbconnect->selectquery($query);
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
         return $result;
     }
 
     function getSchedules()
     {
         $query = 'select * from schedule';
-        $result = $this->dbconnect->selectquery($query);
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
         return $result;
     }
 
@@ -42,19 +80,21 @@ class Admin
                                 join semester on semester.SemesterId=class.SemesterId
                                 join teacher on teacher.TeacherId=class.TeacherId
                                 join schedule on schedule.ScheduleId=class.ScheduleId';
-        $result = $this->dbconnect->selectquery($query);
+        $this->dbconnect->setQuery($query);                       
+        $result = $this->dbconnect->selectquery();
         return $result;
     }
 
-    function getClassById($id)
+    function getClassById()
     {
         $query =  'select * from class 
                                 join course on course.CourseId=class.CourseId 
                                 join semester on semester.SemesterId=class.SemesterId
                                 join teacher on teacher.TeacherId=class.TeacherId
                                 join schedule on schedule.ScheduleId=class.ScheduleId 
-                                WHERE ClassId=' . $id;
-        $result = $this->dbconnect->selectquery($query);
+                                WHERE ClassId=' .$this->classId;
+        $this->dbconnect->setQuery($query); 
+        $result = $this->dbconnect->selectquery();
         return $result;
     }
 
@@ -64,36 +104,42 @@ class Admin
         $result = $this->dbconnect->selectquery($query);
         return $result;
     } */
-	 function deleteClassById($del_id)
+	 function deleteClassById()
     {
 		// to delete the registration of a student on the requested class
-		$query1  = "DELETE from registration where ClassId=" .$del_id;
-        $query2 =  "DELETE from class where ClassId=" . $del_id ;
-        $result1 = $this->dbconnect->executeQuery($query1);
-		$result2 = $this->dbconnect->executeQuery($query2);
+		$query1  = "DELETE from registration where ClassId=" .$this->del_id;
+        $query2 =  "DELETE from class where ClassId=" . $this->del_id ;
+        $this->dbconnect->setQuery($query1);
+        $result1 = $this->dbconnect->executeQuery();
+        $this->dbconnect->setQuery($query2);
+		$result2 = $this->dbconnect->executeQuery();
 		return $result2;
     }
 
-    function addClass($class, $semester, $course, $teacher, $schedule)
+    function addClass()
     {
-        $query =  "INSERT INTO class  (`ClassId`, `ClassName`, `SemesterId`, `CourseId`, `TeacherId`, `ScheduleId`) values (NULL,'" . $class . "','" . $semester . "','" . $course . "','" . $teacher . "','" . $schedule . "')";
-        $this->dbconnect->selectquery($query);
+        $query =  "INSERT INTO class  (`ClassId`, `ClassName`, `SemesterId`, `CourseId`, `TeacherId`, `ScheduleId`) values (NULL,'" . $this->class . "','" . $this->semester . "','" . $this->course . "','" . $this->teacher . "','" . $this->schedule . "')";
+        $this->dbconnect->setQuery($query);
+        $this->dbconnect->selectquery();
     }
     
-    function updateClass($className, $semesterId, $courseId, $teacherId, $scheduleId, $id)
+    function updateClass()
     {
-        $query = "UPDATE `class` SET `ClassName` = '{$className}', `SemesterId` = '{$semesterId}', `CourseId` = '{$courseId}', `TeacherId` = '{$teacherId}', `ScheduleId` = '{$scheduleId}' WHERE `class`.`ClassId` = {$id};";
-        $this->dbconnect->executeQuery($query);
+        $query = "UPDATE `class` SET `ClassName` = '{$this->class}', `SemesterId` = '{$this->semester}', `CourseId` = '{$this->course}', `TeacherId` = '{$this->teacher}', `ScheduleId` = '{$this->schedule}' WHERE `class`.`ClassId` = {$this->classId};";
+        $this->dbconnect->setQuery($query);
+        $this->dbconnect->executeQuery();
     }
-    function checkClassIfExists($class, $semester, $course, $teacher, $schedule)
+    function checkClassIfExists()
     {
-        $query = "SELECT * FROM class WHERE ClassName='" . $class . "' 
-                                        and SemesterId='" . $semester . "' 
-                                        and CourseId='" . $course . "'    
-                                        and TeacherId='" . $teacher . "'  
-                                        and ScheduleId='" . $schedule . "' ";
-        $result = $this->dbconnect->selectquery($query);
+        $query = "SELECT * FROM class WHERE ClassName='"  .$this->class. "' 
+                                        and SemesterId='" .$this->semester. "' 
+                                        and CourseId='"   .$this->course. "'    
+                                        and TeacherId='"  .$this->teacher. "'  
+                                        and ScheduleId='" .$this->schedule. "' ";
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
         if (count($result) > 0) {
+            $this->classId = $result[0]['ClassId'];
             return true;
         } else {
             return false;
