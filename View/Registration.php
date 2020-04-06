@@ -22,6 +22,36 @@ $schedule = $Admin->getSchedules();
 $class = $Admin->getClasses();
 
 ?>
+<script>
+/* first Way
+ $(document).ready(function(){
+  $("#delete").click(function(){
+	  $.get("Check_course_registration_form.php?id="+ classID, function(data, status){
+		  if(data==1){
+			    alert("The class is deleted");
+			}else{
+				var answer=confirm( "has been registred in this class, Are you sure you want to delete this class" );
+				if(answer){
+						$.get("Delete_course_registration_form.php?id="+ classID, function(data, status){});
+				}
+			}
+			);
+   });
+}); */
+
+function deleteClass(classID){
+	$.get("../Controller/Check_course_registration_form.php?id="+ classID, function(data, status){
+		  if(data==1){
+			    alert("The class is deleted");
+			}else{
+				var answer=confirm( "has been registred in this class, Are you sure you want to delete this class" );
+				if(answer){
+						$.get("../Controller/Delete_course_registration_form.php?id="+ classID, function(data, status){});
+				}
+			}
+	});
+}
+</script>
 
 <body>
     <div class=" register">
@@ -143,8 +173,8 @@ $class = $Admin->getClasses();
                                             <td><?php echo $class[$i]['CourseName']; ?> </td>
                                             <td><?php echo $class[$i]['TFirstName'] . " " . $class[$i]['TLastName']; ?> </td>
                                             <td><?php echo $class[$i]['Time']; ?> </td>
-                                            <td><a href="../Controller/Delete_course_registration_form.php?id=<?php echo $class[$i]['ClassId']; ?>">Delete </a> </td>
-                                            <td><a href="../View/Edit_course_registration_form.php?id=<?php echo $class[$i]['ClassId']; ?>">Edit </a> </td>
+                                            <td id="delete"><a  href="#"; onclick="deleteClass(<?php echo $class[$i]['ClassId']; ?> )" >Delete </a> </td>
+                                            <td ><a href="../View/Edit_course_registration_form.php?id=<?php echo $class[$i]['ClassId']; ?>">Edit </a> </td>
                                         </tr> <?php } ?>
                                 </table>
                             </div>

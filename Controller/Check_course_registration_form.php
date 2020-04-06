@@ -8,12 +8,16 @@ require_once('../Model/Admin.php');
 $db = new DatabaseSMS();
 $Admin = new Admin($db);
 
+
 $id = $_GET["id"];
 $Admin->getId($id);
-// 3arafet new variable ta jeeb l id mn ledit page
-$del_id = $_GET['id'];
-$Admin->getDeletedId($del_id);
-$deleteClass = $Admin->deleteClassById();
+$depencies = $Admin->isThereDependencies();
+if($depencies){
+	return 0;
+}else{
+	$deleteClass = $Admin->deleteClassById();
+	return 1;
+		
+}
 
-
-
+header('Location:../View/Registration.php');

@@ -98,12 +98,20 @@ class Admin
         return $result;
     }
 
-   /*  function deleteClassById($del_id)
+    function isThereDependencies()
     {
-        $query =  "DELETE from class where ClassId=" . $del_id;
-        $result = $this->dbconnect->selectquery($query);
-        return $result;
-    } */
+       $query  = "SELECT * from registration where ClassId=" .$this->del_id;
+	   $this->dbconnect->setQuery($query); 
+		$result = $this->dbconnect->selectquery();
+		
+		if(count($result)>0)
+		{
+			 return True;
+		}
+		else{
+			Return False;
+		}
+    }
 	 function deleteClassById()
     {
 		// to delete the registration of a student on the requested class

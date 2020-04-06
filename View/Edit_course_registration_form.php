@@ -23,6 +23,7 @@ $class = $Admin->getClassById($id);
 
 ?>
 
+
 <body class="text-center">
 
     <div class="container">
