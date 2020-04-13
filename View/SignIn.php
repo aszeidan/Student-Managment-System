@@ -2,14 +2,7 @@
 <html lang="en">
 
 <?php
-require_once('Header.php');
-if ($_COOKIE['isLoggedIn'] == true) {
-    header("Location:../View/Registration.php");
-}
-if (!isset($_SESSION)) {
-    session_start();
-    $_SESSION["ID"] = 0;
-}
+require_once('HeaderSignin.php');
 ?>
 
 <body>

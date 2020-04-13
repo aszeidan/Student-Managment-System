@@ -1,10 +1,3 @@
-<?php
-session_start();
-if (!((isset($_COOKIE['isLoggedIn']) && $_COOKIE['isLoggedIn'] == true) || isset($_SESSION["id"]))) {
-  header("location:../View/SignIn.php");
-}
-?>
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
