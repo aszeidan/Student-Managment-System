@@ -11,15 +11,13 @@ $db = new DatabaseSMS();
 $Admin = new Admin($db);
 
 $semester = $Admin->getSemesters();
-
 $course = $Admin->getCourses();
-
 $teacher = $Admin->getTeachers();
-
 $schedule = $Admin->getSchedules();
 
 $id = $_GET["id"];
-$class = $Admin->getClassById($id);
+$Admin->getId($id);
+$class = $Admin->getClassById();
 
 ?>
 
