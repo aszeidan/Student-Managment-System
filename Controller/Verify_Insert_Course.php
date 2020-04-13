@@ -21,13 +21,18 @@ $course = $_POST["Course"];
 $teacher = $_POST["teacher"];
 $schedule = $_POST["schedule"];
 
-$exists = $Admin->checkClassIfExists($class, $semester, $course, $teacher, $schedule);
+$Admin->setClass($class);
+$Admin->setSemester($semester);
+$Admin->setCourse($course);
+$Admin->setTeacher($teacher);
+$Admin->setSchedule($schedule);
 
-if ($exists) {
+
+if ($Admin->checkClassIfExists()==true) {
 
     header("Location:../View/Registration.php?result=Already Exist");
 } else {
 
-    $Admin->addClass($class, $semester, $course, $teacher, $schedule);
+    $Admin->addClass();
     header("Location:../View/Registration.php?result=Successfully Added");
 }

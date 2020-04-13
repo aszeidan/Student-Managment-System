@@ -17,11 +17,13 @@ $teacher = $Admin->getTeachers();
 $schedule = $Admin->getSchedules();
 
 $id = $_GET["id"];
-$class = $Admin->getClassById($id);
+$Admin->getId($id);
+$class = $Admin->getClassById();
 
 // 3arafet new variable ta jeeb l id mn ledit page
 $del_id = $_GET['id'];
-$deleteClass = $Admin->deleteClassById($del_id);
+$Admin->getDeletedId($del_id)
+$deleteClass = $Admin->deleteClassById();
 
 
 header('Location:../View/Registration.php');

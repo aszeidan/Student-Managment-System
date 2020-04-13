@@ -32,8 +32,8 @@ class User
         $query = "SELECT * FROM admin WHERE 
                                 UserName='" . $this->username . "' 
                              and Password='" . $this->password . "'";
-
-        $result = $this->dbconnect->selectquery($query);
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
 
         if (count($result) > 0) {
             $this->id = $result[0]['AdminId'];
