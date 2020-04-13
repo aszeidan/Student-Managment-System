@@ -17,7 +17,7 @@ $teacher = $Admin->getTeachers();
 $schedule = $Admin->getSchedules();
 
 $id = $_GET["id"];
-$Admin->getId($id);
+$Admin->getClassId($id);
 $class = $Admin->getClassById();
 
 // 3arafet new variable ta jeeb l id mn ledit page

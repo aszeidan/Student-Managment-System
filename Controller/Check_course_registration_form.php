@@ -10,7 +10,7 @@ $Admin = new Admin($db);
 
 
 $id = $_GET["id"];
-$Admin->getId($id);
+$Admin->getClassId($id);
 $depencies = $Admin->isThereDependencies();
 if($depencies){
 	return 0;

@@ -3,9 +3,27 @@
 class Admin
 {
     private $dbconnect;
+    private $username;
+    private $password;
+    private $id;
+
     function  __construct($db)
     {
         $this->dbconnect = $db;
+    }
+
+    function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
+    function setPassword($password)
+    {
+        $this->password = $password;
+    }
+    function getId()
+    {
+        return $this->id;
     }
 
     function setClass($class)
@@ -25,7 +43,7 @@ class Admin
 
     function setTeacher($teacher)
     {
-        $this-> teacher = $teacher;
+        $this->teacher = $teacher;
     }
 
     function setSchedule($schedule)
@@ -33,13 +51,13 @@ class Admin
         $this->schedule = $schedule;
     }
 
-    function getId($id)
+    function getClassId($id)
     {
-        return $this->classId=$id;
+        return $this->classId = $id;
     }
     function getDeletedId($del_id)
     {
-        return $this->del_id=$del_id;
+        return $this->del_id = $del_id;
     }
 
     function getSemesters()
@@ -80,7 +98,7 @@ class Admin
                                 join semester on semester.SemesterId=class.SemesterId
                                 join teacher on teacher.TeacherId=class.TeacherId
                                 join schedule on schedule.ScheduleId=class.ScheduleId';
-        $this->dbconnect->setQuery($query);                       
+        $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;
     }
@@ -92,28 +110,28 @@ class Admin
                                 join semester on semester.SemesterId=class.SemesterId
                                 join teacher on teacher.TeacherId=class.TeacherId
                                 join schedule on schedule.ScheduleId=class.ScheduleId 
-                                WHERE ClassId=' .$this->classId;
-        $this->dbconnect->setQuery($query); 
+                                WHERE ClassId=' . $this->classId;
+        $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;
     }
 
-   /*  function deleteClassById($del_id)
+    /*  function deleteClassById($del_id)
     {
         $query =  "DELETE from class where ClassId=" . $del_id;
         $result = $this->dbconnect->selectquery($query);
         return $result;
     } */
-	 function deleteClassById()
+    function deleteClassById()
     {
-		// to delete the registration of a student on the requested class
-		$query1  = "DELETE from registration where ClassId=" .$this->del_id;
-        $query2 =  "DELETE from class where ClassId=" . $this->del_id ;
+        // to delete the registration of a student on the requested class
+        $query1  = "DELETE from registration where ClassId=" . $this->del_id;
+        $query2 =  "DELETE from class where ClassId=" . $this->del_id;
         $this->dbconnect->setQuery($query1);
         $result1 = $this->dbconnect->executeQuery();
         $this->dbconnect->setQuery($query2);
-		$result2 = $this->dbconnect->executeQuery();
-		return $result2;
+        $result2 = $this->dbconnect->executeQuery();
+        return $result2;
     }
 
     function addClass()
@@ -122,7 +140,7 @@ class Admin
         $this->dbconnect->setQuery($query);
         $this->dbconnect->selectquery();
     }
-    
+
     function updateClass()
     {
         $query = "UPDATE `class` SET `ClassName` = '{$this->class}', `SemesterId` = '{$this->semester}', `CourseId` = '{$this->course}', `TeacherId` = '{$this->teacher}', `ScheduleId` = '{$this->schedule}' WHERE `class`.`ClassId` = {$this->classId};";
@@ -131,15 +149,31 @@ class Admin
     }
     function checkClassIfExists()
     {
-        $query = "SELECT * FROM class WHERE ClassName='"  .$this->class. "' 
-                                        and SemesterId='" .$this->semester. "' 
-                                        and CourseId='"   .$this->course. "'    
-                                        and TeacherId='"  .$this->teacher. "'  
-                                        and ScheduleId='" .$this->schedule. "' ";
+        $query = "SELECT * FROM class WHERE ClassName='"  . $this->class . "' 
+                                        and SemesterId='" . $this->semester . "' 
+                                        and CourseId='"   . $this->course . "'    
+                                        and TeacherId='"  . $this->teacher . "'  
+                                        and ScheduleId='" . $this->schedule . "' ";
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         if (count($result) > 0) {
             $this->classId = $result[0]['ClassId'];
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function verifyLogin()
+    {
+        $query = "SELECT * FROM admin WHERE 
+                                AEmail='" . $this->username . "' 
+                             and APassword='" . $this->password . "'";
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+
+        if (count($result) > 0) {
+            $this->id = $result[0]['AdminId'];
             return true;
         } else {
             return false;

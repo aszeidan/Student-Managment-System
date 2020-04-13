@@ -26,6 +26,13 @@ require_once('HeaderSignin.php');
                             <div class="centering col-md-6">
                                 <form action="../Controller/Verify_Login.php" method="POST">
                                     <div class="form-group">
+                                        <select class="custom-select" name="loginType" required>
+                                            <option value="student">Student Login</option>
+                                            <option value="teacher">Teacher Login</option>
+                                            <option value="admin">Admin Login</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
 
                                         <input type="text" class="form-control" placeholder="123@example.com" value="" name="uname" required />
                                     </div>

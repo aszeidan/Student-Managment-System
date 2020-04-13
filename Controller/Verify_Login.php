@@ -2,16 +2,39 @@
 session_start();
 $_SESSION = array();
 require_once("../Model/DatabaseSMS.php");
-require_once('../Model/User.php');
 $db = new DatabaseSMS();
-$User = new User($db);
-if (!isset($_POST["uname"]) || !isset($_POST["psw"])) {
+
+
+if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType"])) {
 
     die("Missing Parameters");
 }
+
+
 $username = $_POST["uname"];
 $password = $_POST["psw"];
+$loginType = $_POST["loginType"];
 
+switch ($loginType) {
+    case "student":
+        require_once('../Model/Student.php');
+        $User = new Student($db);
+        $pageLocation = "Registration.php";
+        break;
+    case "teacher":
+        require_once('../Model/Teacher.php');
+        $User = new Teacher($db);
+        $pageLocation = "Teacher_Profile.php";
+        break;
+    case "admin":
+        require_once('../Model/Admin.php');
+        $User = new Admin($db);
+        $pageLocation = "Registration.php";
+        break;
+
+    default:
+        die("Invalid Login Type");
+}
 $User->setUsername($username);
 $User->setPassword($password);
 
@@ -25,9 +48,10 @@ if ($User->verifyLogin() == true) {
     }
     $_SESSION["usern"] = $username;
     $_SESSION["pass"] = $password;
+    $_SESSION["loginType"] = $loginType;
     $_SESSION["id"] = $User->getId();
 
-    header("Location:../View/Registration.php");
+    header("Location:../View/" . $pageLocation);
 } else {
     header("Location:../View/SignIn.php?textmessage=Invalid Username or Password");
 }

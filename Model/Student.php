@@ -1,6 +1,6 @@
 <?php
 
-class User
+class Student
 {
     private $dbconnect;
     private $username;
@@ -29,14 +29,14 @@ class User
 
     function verifyLogin()
     {
-        $query = "SELECT * FROM admin WHERE 
-                                UserName='" . $this->username . "' 
-                             and Password='" . $this->password . "'";
+        $query = "SELECT * FROM student WHERE 
+                                SEmail='" . $this->username . "' 
+                             and SPassword='" . $this->password . "'";
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
 
         if (count($result) > 0) {
-            $this->id = $result[0]['AdminId'];
+            $this->id = $result[0]['StudentId'];
             return true;
         } else {
             return false;
