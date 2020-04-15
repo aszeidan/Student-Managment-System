@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!((isset($_COOKIE['isLoggedIn']) && $_COOKIE['isLoggedIn'] == true) || isset($_SESSION["id"]))) {
-  header("location:../View/SignIn.php");
+  //header("location:../View/SignIn.php");
 }
 ?>
 

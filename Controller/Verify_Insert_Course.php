@@ -28,7 +28,7 @@ $Admin->setTeacher($teacher);
 $Admin->setSchedule($schedule);
 
 
-if ($Admin->checkClassIfExists()==true) {
+if ($Admin->checkClassIfExists() == true) {
 
     header("Location:../View/Registration.php?result=Already Exist");
 } else {
