@@ -21,11 +21,6 @@ class Admin
     {
         $this->password = $password;
     }
-    function getId()
-    {
-        return $this->id;
-    }
-
     function setClass($class)
     {
         $this->class = $class;
