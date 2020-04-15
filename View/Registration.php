@@ -41,14 +41,20 @@ $class = $Admin->getClasses();
 
 function deleteClass(classID){
 	$.get("../Controller/Check_course_registration_form.php?id="+ classID, function(data, status){
-		  if(data==1){
+		var myResult = data;
+		if(myResult.error==0){
+		  if(myResult.result==1){
 			    alert("The class is deleted");
 			}else{
-				var answer=confirm( "has been registred in this class, Are you sure you want to delete this class" );
+				var answer=confirm( "There are has been registred in this class, Are you sure you want to delete this class" );
 				if(answer){
 						$.get("../Controller/Delete_course_registration_form.php?id="+ classID, function(data, status){});
 				}
 			}
+		}else{
+			alert("Erro Try Again");			
+		}
+
 	});
 }
 </script>

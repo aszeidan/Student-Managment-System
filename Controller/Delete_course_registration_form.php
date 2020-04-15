@@ -13,7 +13,7 @@ $Admin->getId($id);
 // 3arafet new variable ta jeeb l id mn ledit page
 $del_id = $_GET['id'];
 $Admin->getDeletedId($del_id);
-$deleteClass = $Admin->deleteClassById();
+//$deleteClass = $Admin->deleteClassById();
 
 
 
