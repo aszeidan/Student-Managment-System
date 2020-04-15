@@ -69,8 +69,8 @@ class Student
 
     function addStudent()
     {
-        $query =  "INSERT INTO student(`StudentID`, `SFirstName`, `SMiddleName`, `SLastName`, `SEmail`, `SPhone`, `SPassword`)  values (NULL,'" . $this->SFirstName . "','" . $this->SMiddleName . "','" . $this->SLastName . "','" . $this->SEmail . "','" . $this->SPhone . "','" . $this->SPassword . "')";
+        $query =  "INSERT INTO student( `SFirstName`, `SMiddleName`, `SLastName`, `SEmail`, `SPhone`, `SPassword`)  values ('" . $this->SFirstName . "','" . $this->SMiddleName . "','" . $this->SLastName . "','" . $this->SEmail . "','" . $this->SPhone . "','" . $this->SPassword . "')";
         $this->dbconnect->setQuery($query);
-        $this->dbconnect->selectquery();
+        $this->dbconnect->executeQuery();
     }
 }
