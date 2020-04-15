@@ -50,6 +50,7 @@ class Teacher
 
         $this->TPassword = password_hash($TPassword, PASSWORD_BCRYPT);
     }
+	
 
     function verifyLogin()
     {
@@ -71,5 +72,19 @@ class Teacher
         $query =  "INSERT INTO teacher (`TeacherId`, `TFirstName`, `TMiddleName`, `TLastName`, `TEmail`, `TMobileNum`, `TPassword`)  values (NULL,'" . $this->TFirstName . "','" . $this->TMiddleName . "','" . $this->TLastName . "','" . $this->TEmail . "','" . $this->TPhone . "','" . $this->TPassword . "')";
         $this->dbconnect->setQuery($query);
         $this->dbconnect->selectquery();
+    }
+
+
+	function getClassById()
+    {
+        $query =  'select * from class 
+                                join course on course.CourseId=class.CourseId 
+                                join semester on semester.SemesterId=class.SemesterId
+                                join schedule on schedule.ScheduleId=class.ScheduleId 
+                                WHERE TeacherId='.$this->id;
+		die($query);
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
     }
 }

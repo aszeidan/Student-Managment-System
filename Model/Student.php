@@ -53,7 +53,7 @@ class Student
 
     function verifyLogin()
     {
-        $query = "SELECS * FROM student WHERE 
+        $query = "SELECT * FROM student WHERE 
                                 SEmail='" . $this->username . "' 
                              and SPassword='" . $this->password . "'";
         $this->dbconnect->setQuery($query);

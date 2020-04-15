@@ -8,18 +8,20 @@ error_reporting(E_ALL);
 
 require_once('../Model/DatabaseSMS.php');
 require_once('../Model/Admin.php');
+require_once('../Model/Teacher.php');
 $db = new DatabaseSMS();
 $Admin = new Admin($db);
-
-$semester = $Admin->getSemesters();
+$Teacher = new Teacher($db);
 
 $course = $Admin->getCourses();
-
 $teacher = $Admin->getTeachers();
-
 $schedule = $Admin->getSchedules();
-
 $class = $Admin->getClasses();
+$semester = $Admin->getSemesters();
+
+$teacherClass = $Teacher->getClassById();
+
+
 
 ?>
 
@@ -42,7 +44,7 @@ $class = $Admin->getClasses();
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Registration Form</h3>
+                                <h3 class="register-heading">Teacher Profile</h3>
 
                                 <form action="Insert_Teacher.php" method="POST">
                                     <div class="row register-form mx-0 px-0">
@@ -67,11 +69,11 @@ $class = $Admin->getClasses();
                                                     </thead>
                                                     </span>
                                                     <?php
-                                                    for ($i = 0; $i < count($class); $i++) {
+                                                    for ($i = 0; $i < count($teacherClass); $i++) {
                                                     ?>
                                                         <tr>
-                                                            <td><?php echo $class[$i]['CourseName']; ?> </td>
-                                                            <td><?php echo $class[$i]['Time']; ?> </td>
+                                                            <td><?php echo $teacherClass[$i]['CourseName']; ?> </td>
+                                                            <td><?php echo $teacherClass[$i]['Time']; ?> </td>
                                                         </tr> <?php } ?>
                                                 </table>
                                             </div>
