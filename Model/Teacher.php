@@ -56,8 +56,7 @@ class Teacher
 		$query= "SELECT * from teacher WHERE TEmail='" . $this->username . "'";
 		$this->dbconnect->setQuery($query);
 		$result= $this->dbconnect->selectquery();
-		die($query);
-        return $this->id =$result[0]['TeacherId'];
+        return $result;
 		
     }
     function verifyLogin()
@@ -85,12 +84,13 @@ class Teacher
 
 	function getTeacherClassById()
     {
+		$teacherId= $this->getId();
         $query =  'select * from class 
                                 join course on course.CourseId=class.CourseId 
                                 join semester on semester.SemesterId=class.SemesterId
                                 join schedule on schedule.ScheduleId=class.ScheduleId 
-                                WHERE TeacherId=' . getId();
-		die($query);
+                                WHERE TeacherId=' . $teacherId[0]['TeacherId'];
+
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;

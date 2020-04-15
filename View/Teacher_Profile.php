@@ -11,12 +11,14 @@ require_once('../Model/Admin.php');
 require_once('../Model/Teacher.php');
 $db = new DatabaseSMS();
 $Admin = new Admin($db);
+$semester = $Admin->getSemesters();
 $Teacher = new Teacher($db);
 
 $course = $Admin->getCourses();
 $teacherID = $Teacher->getId();
-echo "the teacher id is".$teacherID;
+
 $teacherClass = $Teacher->getTeacherClassById();
+
 
 ?>
 
