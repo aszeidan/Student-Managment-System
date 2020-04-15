@@ -21,10 +21,12 @@ class Teacher
     {
         $this->password = $password;
     }
-    function getId()
+	
+    function setTeacherId($id)
     {
-        return $this->id;
+       $this->id = $id;
     }
+   
     function setTFirstName($TFirstName)
     {
         $this->TFirstName = $TFirstName;
@@ -47,11 +49,17 @@ class Teacher
     }
     function setTPassword($TPassword)
     {
-
         $this->TPassword = password_hash($TPassword, PASSWORD_BCRYPT);
     }
-	
-
+	 function getId()
+    {
+		$query= "SELECT * from teacher WHERE TEmail='" . $this->username . "'";
+		$this->dbconnect->setQuery($query);
+		$result= $this->dbconnect->selectquery();
+		die($query);
+        return $this->id =$result[0]['TeacherId'];
+		
+    }
     function verifyLogin()
     {
         $query = "SELECT * FROM teacher WHERE 
@@ -75,13 +83,13 @@ class Teacher
     }
 
 
-	function getClassById()
+	function getTeacherClassById()
     {
         $query =  'select * from class 
                                 join course on course.CourseId=class.CourseId 
                                 join semester on semester.SemesterId=class.SemesterId
                                 join schedule on schedule.ScheduleId=class.ScheduleId 
-                                WHERE TeacherId='.$this->id;
+                                WHERE TeacherId=' . getId();
 		die($query);
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();

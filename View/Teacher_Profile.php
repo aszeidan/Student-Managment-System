@@ -14,14 +14,9 @@ $Admin = new Admin($db);
 $Teacher = new Teacher($db);
 
 $course = $Admin->getCourses();
-$teacher = $Admin->getTeachers();
-$schedule = $Admin->getSchedules();
-$class = $Admin->getClasses();
-$semester = $Admin->getSemesters();
-
-$teacherClass = $Teacher->getClassById();
-
-
+$teacherID = $Teacher->getId();
+echo "the teacher id is".$teacherID;
+$teacherClass = $Teacher->getTeacherClassById();
 
 ?>
 

@@ -25,6 +25,11 @@ class Admin
     {
         $this->class = $class;
     }
+	  function getId()
+    {
+        return $this->id;
+    }
+
 
     function setSemester($semester)
     {
