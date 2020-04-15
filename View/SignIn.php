@@ -12,11 +12,7 @@ require_once('HeaderSignin.php');
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                 <h3>Welcome To Time Travel University</h3>
                 <p>If you’re looking for a transformative educational and life experience, AG is the right place for you. On this website you will find details on our admission policies and procedures, as well as the application process and deadlines.</p>
-                <div class="form-group">
-                    <form action="SignUp_Form.php" method="POST">
-                        <input type="submit" name="" value="SignUp" /><br />
-                    </form>
-                </div>
+
             </div>
             <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">

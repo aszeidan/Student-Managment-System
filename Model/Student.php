@@ -25,11 +25,35 @@ class Student
     {
         return $this->id;
     }
+    function setSFirstName($SFirstName)
+    {
+        $this->SFirstName = $SFirstName;
+    }
+    function setSmiddleName($SMiddleName)
+    {
+        $this->SMiddleName = $SMiddleName;
+    }
+    function setSLastName($SLastName)
+    {
+        $this->SLastName = $SLastName;
+    }
+    function setSPhone($SPhone)
+    {
+        $this->SPhone = $SPhone;
+    }
+    function setSEmail($SEmail)
+    {
+        $this->SEmail = $SEmail;
+    }
+    function setSPassword($SPassword)
+    {
 
+        $this->SPassword = password_hash($SPassword, PASSWORD_BCRYPT);
+    }
 
     function verifyLogin()
     {
-        $query = "SELECT * FROM student WHERE 
+        $query = "SELECS * FROM student WHERE 
                                 SEmail='" . $this->username . "' 
                              and SPassword='" . $this->password . "'";
         $this->dbconnect->setQuery($query);
@@ -41,5 +65,12 @@ class Student
         } else {
             return false;
         }
+    }
+
+    function addStudent()
+    {
+        $query =  "INSERT INTO student(`StudentID`, `SFirstName`, `SMiddleName`, `SLastName`, `SEmail`, `SPhone`, `SPassword`)  values (NULL,'" . $this->SFirstName . "','" . $this->SMiddleName . "','" . $this->SLastName . "','" . $this->SEmail . "','" . $this->SPhone . "','" . $this->SPassword . "')";
+        $this->dbconnect->setQuery($query);
+        $this->dbconnect->selectquery();
     }
 }

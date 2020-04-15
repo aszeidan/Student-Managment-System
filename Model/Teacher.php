@@ -25,7 +25,31 @@ class Teacher
     {
         return $this->id;
     }
+    function setTFirstName($TFirstName)
+    {
+        $this->TFirstName = $TFirstName;
+    }
+    function setTmiddleName($TMiddleName)
+    {
+        $this->TMiddleName = $TMiddleName;
+    }
+    function setTLastName($TLastName)
+    {
+        $this->TLastName = $TLastName;
+    }
+    function setTPhone($TPhone)
+    {
+        $this->TPhone = $TPhone;
+    }
+    function setTEmail($TEmail)
+    {
+        $this->TEmail = $TEmail;
+    }
+    function setTPassword($TPassword)
+    {
 
+        $this->TPassword = password_hash($TPassword, PASSWORD_BCRYPT);
+    }
 
     function verifyLogin()
     {
@@ -41,5 +65,11 @@ class Teacher
         } else {
             return false;
         }
+    }
+    function addTeacher()
+    {
+        $query =  "INSERT INTO teacher (`TeacherId`, `TFirstName`, `TMiddleName`, `TLastName`, `TEmail`, `TMobileNum`, `TPassword`)  values (NULL,'" . $this->TFirstName . "','" . $this->TMiddleName . "','" . $this->TLastName . "','" . $this->TEmail . "','" . $this->TPhone . "','" . $this->TPassword . "')";
+        $this->dbconnect->setQuery($query);
+        $this->dbconnect->selectquery();
     }
 }
