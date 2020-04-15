@@ -1,10 +1,12 @@
 <?php
+header("Content-Type: application/json; charset=UTF-8");
 session_start();
 $_SESSION = array();
 require_once('../Model/DatabaseSMS.php');
 $db = new DatabaseSMS();
 require_once('../Model/Student.php');
 $Student = new Student($db);
+$result=array();
 
 if (
     !isset($_POST["SFirstName"])
@@ -15,15 +17,28 @@ if (
     || !isset($_POST["SEmail"])
 
 ) {
-    die("Missing Parameters");
-  
+    $result["Error"]=1;
+    $result["Message"]="missing parameter";
+    die(json_encode($result));
 } 
-$TFirstName = $_POST["SFirstName"];
-$TMiddleName = $_POST["SMiddleName"];
-$TLastName = $_POST["SLastName"];
-$TPhone = $_POST["SPhone"];
-$TPassword = $_POST["SPassword"];
-$TEmail = $_POST["SEmail"];
+elseif(
+    !$_POST["SFirstName"]
+    || !$_POST["SMiddleName"]
+    || !$_POST["SLastName"]
+    || !$_POST["SPhone"]
+    || !$_POST["SPassword"]
+    || !$_POST["SEmail"]
+){
+    $result["Error"]=1;
+    $result["Message"]="empty value";
+    die(json_encode($result));
+}
+$SFirstName = $_POST["SFirstName"];
+$SMiddleName = $_POST["SMiddleName"];
+$SLastName = $_POST["SLastName"];
+$SPhone = $_POST["SPhone"];
+$SPassword = $_POST["SPassword"];
+$SEmail = $_POST["SEmail"];
 
 
         $Student->setSFirstName($SFirstName);
@@ -33,14 +48,11 @@ $TEmail = $_POST["SEmail"];
         $Student->setSPassword($SPassword);
         $Student->setSEmail($SEmail);
         $Student->addStudent();
-    
- 
+        
+       
+        $result["Error"]=0;
+        $result["Message"]="Successfully Added";
+        die(json_encode($result));
 
-/*if ($Teacher->checkClassIfExists() == true) {
 
-    header("Location:../View/Registration.php?result=Tlready Exist");
-} else {
 
-    $Teacher->addClass();
-    header("Location:../View/Registration.php?result=Successfully Tdded");
-}*/

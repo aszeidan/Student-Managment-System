@@ -28,31 +28,31 @@ require_once('Header.php');
                             <div class="row register-form mx-0 px-0">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="First Name *" name="TFirstName" value="" />
+                                        <input type="text" class="form-control" placeholder="First Name *" id="TFirstName" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Middle Name *" name="TMiddleName" value="" />
+                                        <input type="text" class="form-control" placeholder="Middle Name *" id="TMiddleName" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Last Name *" name="TLastName" value="" />
+                                        <input type="text" class="form-control" placeholder="Last Name *" id="TLastName" value="" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
 
                                     <div class="form-group">
-                                        <input type="text" minlength="8" maxlength="8" name="TPhone" class="form-control" placeholder="Your Phone *" value="" />
+                                        <input type="text" minlength="8" maxlength="8" id="TPhone" class="form-control" placeholder="Your Phone *" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Your Email *" name="TEmail" value="" />
+                                        <input type="email" class="form-control" placeholder="Your Email *" id="TEmail" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Password *" name="TPassword" id="Tpassword" value="" />
+                                        <input type="text" class="form-control" placeholder="Password *" id="TPassword" value="" />
                                         <div class="form-group">
                                             <input type="button" class="btnRegister" value="Generate" onClick="randomPassword(8,'TPassword');" tabindex="2">
                                         </div>
                                     </div>
 
-                                    <input type="submit" class="btnRegister" name="signUpStudent" value="Register" />
+                                    <input type="button" onClick="createTeacher()" class="btnRegister" name="signUpStudent" value="Register" />
 
                                 </div>
 
@@ -63,31 +63,34 @@ require_once('Header.php');
                             <div class="row register-form">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="First Name *" value="" name="SFirstName" />
+                                        <input type="text" class="form-control" placeholder="First Name *" value="" id="SFirstName" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Middle Name *" value="" name="SMiddleName" />
+                                        <input type="text" class="form-control" placeholder="Middle Name *" value="" id="SMiddleName" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Last Name *" value="" name="SLastName" />
+                                        <input type="text" class="form-control" placeholder="Last Name *" value="" id="SLastName" />
                                     </div>
 
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email *" value="" name="SEmail" />
+                                        <input type="email" class="form-control" placeholder="Email *" value="" id="SEmail" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" maxlength="8" minlength="8" class="form-control" placeholder="Phone *" value="" name="SPhone" />
+                                        <input type="text" maxlength="8" minlength="8" class="form-control" placeholder="Phone *" value="" id="SPhone" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password *" value="" id="Spassword" name="SPassword" />
+                                        <input type="text" class="form-control" placeholder="Password *" value="" id="SPassword"  />
                                     </div>
-
-                                    <input type="submit" class="btnRegister" value="Register" />
+                                    <div id="Message">
+                                       DHDFNVDNFVKLK
+                                    </div>
+                                    <input type="button" onClick="createStudent()" class="btnRegister" value="Register" />
                                     <div class="form-group">
                                         <input type="button" class="btnRegister" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2">
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -110,7 +113,26 @@ require_once('Header.php');
 
             document.getElementById(id).value = pass;
         }
-    </script>
+     function createStudent(){
+        var data = {
+                    SFirstName : $("#SFirstName").val(),
+                    SMiddleName : $("#SMiddleName").val(),
+                    SLastName : $("#SLastName").val(),
+                    SPhone : $("#SPhone").val(),
+                    SPassword : $("#SPassword").val(),
+                    SEmail : $("#SEmail").val()
+                };
+        $.post( "../Controller/Verify_SignUpStudent.php", data ,function(result){
+            if(result.Error){
+             $("#Message").html(result.Message);    
+            }
+            else{
+                $("#Message").html(result.Message); 
+            }
+        });
+
+     }
+     </script>
     <?php
     require_once('Footer.php'); ?>
 
