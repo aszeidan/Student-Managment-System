@@ -68,8 +68,8 @@ class Teacher
     }
     function addTeacher()
     {
-        $query =  "INSERT INTO teacher (`TeacherId`, `TFirstName`, `TMiddleName`, `TLastName`, `TEmail`, `TMobileNum`, `TPassword`)  values (NULL,'" . $this->TFirstName . "','" . $this->TMiddleName . "','" . $this->TLastName . "','" . $this->TEmail . "','" . $this->TPhone . "','" . $this->TPassword . "')";
+        $query =  "INSERT INTO teacher ( `TFirstName`, `TMiddleName`, `TLastName`, `TEmail`, `TMobileNum`, `TPassword`)  values ('" . $this->TFirstName . "','" . $this->TMiddleName . "','" . $this->TLastName . "','" . $this->TEmail . "','" . $this->TPhone . "','" . $this->TPassword . "')";
         $this->dbconnect->setQuery($query);
-        $this->dbconnect->selectquery();
+        $this->dbconnect->executeQuery();
     }
 }

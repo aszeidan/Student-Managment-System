@@ -21,11 +21,10 @@ require_once('Header.php');
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Student</a>
                     </li>
                 </ul>
-                <form action="../Controller/Verify_SignUp.php" method="POST">
+                <form action="../Controller/Verify_SignUpTeacher.php" method="POST">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" name="teacher" aria-labelledby="home-tab">
                             <h3 class="register-heading">Apply as a Teacher</h3>
-
                             <div class="row register-form mx-0 px-0">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -37,28 +36,28 @@ require_once('Header.php');
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Last Name *" name="TLastName" value="" />
                                     </div>
-
-
-
                                 </div>
                                 <div class="col-md-6">
 
                                     <div class="form-group">
-                                        <input type="text" minlength="8" maxlength="8" name="TPhone" class="form-control" placeholder="Your Phone *" name="phoneNumber" value="" />
+                                        <input type="text" minlength="8" maxlength="8" name="TPhone" class="form-control" placeholder="Your Phone *" value="" />
                                     </div>
                                     <div class="form-group">
                                         <input type="email" class="form-control" placeholder="Your Email *" name="TEmail" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Password *" name="TPassword" id="row_password" value="" />
+                                        <input type="text" class="form-control" placeholder="Password *" name="TPassword" id="Tpassword" value="" />
+                                        <div class="form-group">
+                                            <input type="button" class="btnRegister" value="Generate" onClick="randomPassword(8,'TPassword');" tabindex="2">
+                                        </div>
                                     </div>
-                                    <input type="submit" class="btnRegister" name="signUpStudent" value="Register" />
-                                </div>
 
+                                    <input type="submit" class="btnRegister" name="signUpStudent" value="Register" />
+
+                                </div>
 
                             </div>
                         </div>
-
                         <div class="tab-pane fade show" id="profile" role="tabpanel" name="student" aria-labelledby="profile-tab">
                             <h3 class="register-heading">Apply as a Student</h3>
                             <div class="row register-form">
@@ -82,13 +81,13 @@ require_once('Header.php');
                                         <input type="text" maxlength="8" minlength="8" class="form-control" placeholder="Phone *" value="" name="SPhone" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="button" class="btnRegister" value="Generate" onClick="randomPassword(8);" tabindex="2">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="Password *" value="" id="row_password" name="SPassword" />
+                                        <input type="password" class="form-control" placeholder="Password *" value="" id="Spassword" name="SPassword" />
                                     </div>
 
                                     <input type="submit" class="btnRegister" value="Register" />
+                                    <div class="form-group">
+                                        <input type="button" class="btnRegister" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -101,14 +100,15 @@ require_once('Header.php');
 
     </div>
     <script>
-        function randomPassword(length) {
+        function randomPassword(length, id) {
             var chars = "abcdefghijklmnopqrstuvwxyz!@#$%^&*()-+<>ABCDEFGHIJKLMNOP1234567890";
             var pass = "";
             for (var x = 0; x < length; x++) {
                 var i = Math.floor(Math.random() * chars.length);
                 pass += chars.charAt(i);
             }
-            document.getElementById('row_password').value = pass;
+
+            document.getElementById(id).value = pass;
         }
     </script>
     <?php
