@@ -7,23 +7,7 @@ require_once('../Model/DatabaseSMS.php');
 require_once('../Model/Admin.php');
 $db = new DatabaseSMS();
 $Admin = new Admin($db);
-
-$semester = $Admin->getSemesters();
-
-$course = $Admin->getCourses();
-
-$teacher = $Admin->getTeachers();
-
-$schedule = $Admin->getSchedules();
-
-$id = $_GET["id"];
-$Admin->getClassId($id);
-$class = $Admin->getClassById();
-
 // 3arafet new variable ta jeeb l id mn ledit page
 $del_id = $_GET['id'];
 $Admin->getDeletedId($del_id);
 $deleteClass = $Admin->deleteClassById();
-
-
-header('Location:../View/Registration.php');
