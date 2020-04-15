@@ -1,3 +1,4 @@
+
 <?php
 header("Content-Type: application/json; charset=UTF-8");
 try{
@@ -9,7 +10,6 @@ try{
 	require_once('../Model/Admin.php');
 	$db = new DatabaseSMS();
 	$Admin = new Admin($db);
-
 	$del_id = $_GET['id'];
 	$Admin->getDeletedId($del_id);
 
@@ -20,13 +20,11 @@ try{
 			$output["result"]="0";
 		}else{
 			$deleteClass = $Admin->deleteClassById();
-			$output["result"]="1";
-				
+			$output["result"]="1";			
 		}
 }catch(Exception $e)
 {
 	 $output["error"]='Caught exception: '. $e->getMessage();
 }
-
  echo json_encode($output);
 

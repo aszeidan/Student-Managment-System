@@ -2,11 +2,7 @@
 <html lang="en">
 
 <?php
-require_once('Header.php');
-if (!isset($_SESSION)) {
-    session_start();
-    $_SESSION["ID"] = 0;
-}
+require_once('HeaderSignin.php');
 ?>
 
 <body>
@@ -29,6 +25,13 @@ if (!isset($_SESSION)) {
                         <div class="row register-form mx-0 px-0 col-md-12">
                             <div class="centering col-md-6">
                                 <form action="../Controller/Verify_Login.php" method="POST">
+                                    <div class="form-group">
+                                        <select class="custom-select" name="loginType" required>
+                                            <option value="student">Student Login</option>
+                                            <option value="teacher">Teacher Login</option>
+                                            <option value="admin">Admin Login</option>
+                                        </select>
+                                    </div>
                                     <div class="form-group">
 
                                         <input type="text" class="form-control" placeholder="123@example.com" value="" name="uname" required />

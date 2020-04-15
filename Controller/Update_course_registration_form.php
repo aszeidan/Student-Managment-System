@@ -23,7 +23,7 @@ $courseId = $_GET["Course"];
 $teacherId = $_GET["Teacher"];
 $scheduleId = $_GET["Schedule"];
 
-$Admin->getId($id);
+$Admin->getClassId($id);
 $Admin->setClass($className);
 $Admin->setSemester($semesterId);
 $Admin->setCourse($courseId);
