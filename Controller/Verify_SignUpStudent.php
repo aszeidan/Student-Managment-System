@@ -6,7 +6,7 @@ require_once('../Model/DatabaseSMS.php');
 $db = new DatabaseSMS();
 require_once('../Model/Student.php');
 $Student = new Student($db);
-$result=array();
+$result = array();
 
 if (
     !isset($_POST["SFirstName"])
@@ -17,20 +17,19 @@ if (
     || !isset($_POST["SEmail"])
 
 ) {
-    $result["Error"]=1;
-    $result["Message"]="missing parameter";
+    $result["Error"] = 1;
+    $result["Message"] = "missing parameter";
     die(json_encode($result));
-} 
-elseif(
+} elseif (
     !$_POST["SFirstName"]
     || !$_POST["SMiddleName"]
     || !$_POST["SLastName"]
     || !$_POST["SPhone"]
     || !$_POST["SPassword"]
     || !$_POST["SEmail"]
-){
-    $result["Error"]=1;
-    $result["Message"]="empty value";
+) {
+    $result["Error"] = 1;
+    $result["Message"] = "empty value";
     die(json_encode($result));
 }
 $SFirstName = $_POST["SFirstName"];
@@ -41,18 +40,15 @@ $SPassword = $_POST["SPassword"];
 $SEmail = $_POST["SEmail"];
 
 
-        $Student->setSFirstName($SFirstName);
-        $Student->setSmiddleName($SMiddleName);
-        $Student->setSLastName($SLastName);
-        $Student->setSPhone($SPhone);
-        $Student->setSPassword($SPassword);
-        $Student->setSEmail($SEmail);
-        $Student->addStudent();
-        
-       
-        $result["Error"]=0;
-        $result["Message"]="Successfully Added";
-        die(json_encode($result));
+$Student->setSFirstName($SFirstName);
+$Student->setSmiddleName($SMiddleName);
+$Student->setSLastName($SLastName);
+$Student->setSPhone($SPhone);
+$Student->setSPassword($SPassword);
+$Student->setSEmail($SEmail);
+$Student->addStudent();
 
 
-
+$result["Error"] = 0;
+$result["Message"] = "Successfully Added";
+die(json_encode($result));
