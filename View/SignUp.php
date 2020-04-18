@@ -81,16 +81,16 @@ require_once('Header.php');
                                         <input type="text" maxlength="8" minlength="8" class="form-control" placeholder="Phone *" value="" id="SPhone" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Password *" value="" id="SPassword"  />
+                                        <input type="text" class="form-control" placeholder="Password *" value="" id="SPassword" />
                                     </div>
                                     <div id="Message">
-                                       DHDFNVDNFVKLK
+                                        DHDFNVDNFVKLK
                                     </div>
                                     <input type="button" onClick="createStudent()" class="btnRegister" value="Register" />
                                     <div class="form-group">
                                         <input type="button" class="btnRegister" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2">
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -113,26 +113,45 @@ require_once('Header.php');
 
             document.getElementById(id).value = pass;
         }
-     function createStudent(){
-        var data = {
-                    SFirstName : $("#SFirstName").val(),
-                    SMiddleName : $("#SMiddleName").val(),
-                    SLastName : $("#SLastName").val(),
-                    SPhone : $("#SPhone").val(),
-                    SPassword : $("#SPassword").val(),
-                    SEmail : $("#SEmail").val()
-                };
-        $.post( "../Controller/Verify_SignUpStudent.php", data ,function(result){
-            if(result.Error){
-             $("#Message").html(result.Message);    
-            }
-            else{
-                $("#Message").html(result.Message); 
-            }
-        });
 
-     }
-     </script>
+        function createStudent() {
+            var data = {
+                SFirstName: $("#SFirstName").val(),
+                SMiddleName: $("#SMiddleName").val(),
+                SLastName: $("#SLastName").val(),
+                SPhone: $("#SPhone").val(),
+                SPassword: $("#SPassword").val(),
+                SEmail: $("#SEmail").val()
+            };
+            $.post("../Controller/Verify_SignUpStudent.php", data, function(result) {
+                if (result.Error) {
+                    $("#Message").html(result.Message);
+                } else {
+                    $("#Message").html(result.Message);
+                }
+            });
+
+        }
+
+        function createTeacher() {
+            var data = {
+                TFirstName: $("#TFirstName").val(),
+                TMiddleName: $("#TMiddleName").val(),
+                TLastName: $("#TLastName").val(),
+                TPhone: $("#TPhone").val(),
+                TPassword: $("#TPassword").val(),
+                TEmail: $("#TEmail").val()
+            };
+            $.post("../Controller/Verify_SignUpTeacher.php", data, function(result) {
+                if (result.Error) {
+                    $("#Message").html(result.Message);
+                } else {
+                    $("#Message").html(result.Message);
+                }
+            });
+
+        }
+    </script>
     <?php
     require_once('Footer.php'); ?>
 
