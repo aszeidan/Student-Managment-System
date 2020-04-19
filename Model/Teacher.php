@@ -74,6 +74,19 @@ class Teacher
             return false;
         }
     }
+
+    function checkTeacherIfExists()
+    {
+        $query = "SELECT * FROM teacher WHERE TEmail='"  . $this->TEmail. "' ";
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        if (count($result) > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     function addTeacher()
     {
         $query =  "INSERT INTO teacher ( `TFirstName`, `TMiddleName`, `TLastName`, `TEmail`, `TMobileNum`, `TPassword`)  values ('" . $this->TFirstName . "','" . $this->TMiddleName . "','" . $this->TLastName . "','" . $this->TEmail . "','" . $this->TPhone . "','" . $this->TPassword . "')";

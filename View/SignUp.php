@@ -49,13 +49,13 @@ require_once('Header.php');
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" placeholder="Password*" id="TPassword" aria-label=" Recipient's username" aria-describedby="button-addon2">
                                             <div class="input-group-append">
-                                                <button class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2" type="button" id="button-addon2">Generate</button>
+                                                <button class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'TPassword');" tabindex="2" type="button" id="button-addon2">Generate</button>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="form-group" id="Message">
                                     </div>
-                                    <input type="button" onClick="createTeacher()" class="btnRegister" name="signUpStudent" value="Register" />
+                                    <input type="button" onClick="createTeacher()" class="btnRegister" value="Register" />
 
                                 </div>
 
@@ -89,12 +89,12 @@ require_once('Header.php');
                                             <div class="input-group-append">
                                                 <button class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2" type="button" id="button-addon2">Generate</button>
                                             </div>
-                                            <div class="spinner-border text-primary" role="status">
+                                           <div class="spinner-border text-primary" role="status">
                                                 <span class="sr-only">Loading...</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group" id="Message">
+                                    <div class="form-group" id="studentMessage">
                                     </div>
                                     <input type="button" onClick="createStudent()" class="btnRegister" value="Register" />
                                 </div>
@@ -129,7 +129,10 @@ require_once('Header.php');
                 SEmail: $("#SEmail").val()
             };
             $.post("../Controller/Verify_SignUpStudent.php", data, function(result) {
-                    $("#Message").html(result.Message);
+                    $("#studentMessage").html(result.Message); 
+                    setTimeout(() => { $("#studentMessage").html(" ");                      
+                    }, 4000);
+                   
             });
 
         }
@@ -145,6 +148,8 @@ require_once('Header.php');
             };
             $.post("../Controller/Verify_SignUpTeacher.php", data, function(result) {
                     $("#Message").html(result.Message);
+                    setTimeout(() => { $("#Message").html(" ");                      
+                    }, 4000);
             });
 
         }
