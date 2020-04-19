@@ -46,9 +46,14 @@ $Student->setSLastName($SLastName);
 $Student->setSPhone($SPhone);
 $Student->setSPassword($SPassword);
 $Student->setSEmail($SEmail);
-$Student->addStudent();
 
-
-$result["Error"] = 0;
-$result["Message"] = "Successfully Added";
-die(json_encode($result));
+if ($Student->checkStudentIfExists() == true) {
+    $result["Error"] = 0;
+    $result["Message"] = "This student is already registered";
+    die(json_encode($result));
+} else {
+    $Student->addStudent();
+    $result["Error"] = 0;
+    $result["Message"] = "Successfully Added";
+    die(json_encode($result));
+}

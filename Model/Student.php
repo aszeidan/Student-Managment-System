@@ -60,7 +60,19 @@ class Student
         $result = $this->dbconnect->selectquery();
 
         if (count($result) > 0) {
-            $this->id = $result[0]['StudentId'];
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function checkStudentIfExists()
+    {
+        $query = "SELECT * FROM class WHERE SEmail='"  . $this->SEmail. "' ";
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        if (count($result) > 0) {
+            $this->SFirstName= $result[0]['ClassId'];
             return true;
         } else {
             return false;
