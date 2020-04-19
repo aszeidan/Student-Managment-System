@@ -46,12 +46,15 @@ require_once('Header.php');
                                         <input type="email" class="form-control" placeholder="Your Email *" id="TEmail" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Password *" id="TPassword" value="" />
-                                        <div class="form-group">
-                                            <input type="button" class="btnRegister" value="Generate" onClick="randomPassword(8,'TPassword');" tabindex="2">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="Password*" id="TPassword" aria-label=" Recipient's username" aria-describedby="button-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2" type="button" id="button-addon2">Generate</button>
+                                            </div>
                                         </div>
                                     </div>
-
+                                    <div class="form-group" id="Message">
+                                    </div>
                                     <input type="button" onClick="createTeacher()" class="btnRegister" name="signUpStudent" value="Register" />
 
                                 </div>
@@ -71,26 +74,26 @@ require_once('Header.php');
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Last Name *" value="" id="SLastName" />
                                     </div>
-
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <input type="email" class="form-control" placeholder="Email *" value="" id="SEmail" />
                                     </div>
+
                                     <div class="form-group">
                                         <input type="text" maxlength="8" minlength="8" class="form-control" placeholder="Phone *" value="" id="SPhone" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Password *" value="" id="SPassword" />
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="Password*" id="SPassword" aria-label=" Recipient's username" aria-describedby="button-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2" type="button" id="button-addon2">Generate</button>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div id="Message">
-                                        DHDFNVDNFVKLK
+                                    <div class="form-group" id="Message">
                                     </div>
                                     <input type="button" onClick="createStudent()" class="btnRegister" value="Register" />
-                                    <div class="form-group">
-                                        <input type="button" class="btnRegister" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2">
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
