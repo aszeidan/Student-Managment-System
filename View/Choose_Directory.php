@@ -27,8 +27,10 @@ require_once('Header.php');
                                 <div class="form-group">
                                     <input type="button" class="btnRegister" value="SignUp" onClick="window.location.href='SignUp.php';" tabindex="2">
                                 </div>
-                            </div>                   
+                            </div>
+
                         </div>
+
                     </div>
                 </form>
             </div>
