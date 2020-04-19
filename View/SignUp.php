@@ -129,11 +129,7 @@ require_once('Header.php');
                 SEmail: $("#SEmail").val()
             };
             $.post("../Controller/Verify_SignUpStudent.php", data, function(result) {
-                if (result.Error) {
                     $("#Message").html(result.Message);
-                } else {
-                    $("#Message").html(result.Message);
-                }
             });
 
         }
@@ -148,11 +144,7 @@ require_once('Header.php');
                 TEmail: $("#TEmail").val()
             };
             $.post("../Controller/Verify_SignUpTeacher.php", data, function(result) {
-                if (result.Error) {
                     $("#Message").html(result.Message);
-                } else {
-                    $("#Message").html(result.Message);
-                }
             });
 
         }

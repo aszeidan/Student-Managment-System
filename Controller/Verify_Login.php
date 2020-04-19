@@ -29,7 +29,7 @@ switch ($loginType) {
     case "admin":
         require_once('../Model/Admin.php');
         $User = new Admin($db);
-        $pageLocation = "Registration.php";
+        $pageLocation = "Choose_Directory.php";
         break;
 
     default:
