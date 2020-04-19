@@ -49,8 +49,14 @@ $Teacher->setTLastName($TLastName);
 $Teacher->setTPhone($TPhone);
 $Teacher->setTPassword($TPassword);
 $Teacher->setTEmail($TEmail);
-$Teacher->addTeacher();
 
-$result["Error"] = 0;
-$result["Message"] = "Successfully Added";
-die(json_encode($result));
+if ($Teacher->checkTeacherIfExists() == true) {
+    $result["Error"] = 0;
+    $result["Message"] = "This teacher is already registered";
+    die(json_encode($result));
+} else {
+    $Teacher->addTeacher();
+    $result["Error"] = 0;
+    $result["Message"] = "Successfully Added";
+    die(json_encode($result));
+}

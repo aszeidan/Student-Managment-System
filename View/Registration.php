@@ -85,7 +85,7 @@ $class = $Admin->getClasses();
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Registration Form <?php echo $id;  ?></h3>
+                                <h3 class="register-heading">Registration Form </h3>
 
                                 <form action="../Controller/Verify_Insert_Course.php" method="POST">
                                     <div class="row register-form mx-0 px-0 col-md-12">
