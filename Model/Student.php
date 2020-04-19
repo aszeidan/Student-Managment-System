@@ -72,7 +72,6 @@ class Student
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         if (count($result) > 0) {
-            $this->SFirstName= $result[0]['ClassId'];
             return true;
         } else {
             return false;
