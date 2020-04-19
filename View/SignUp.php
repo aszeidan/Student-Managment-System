@@ -100,7 +100,6 @@ require_once('Header.php');
 
         </div>
     </div>
-
     </div>
     <script>
         function randomPassword(length, id) {
