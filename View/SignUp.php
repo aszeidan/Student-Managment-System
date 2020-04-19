@@ -89,6 +89,9 @@ require_once('Header.php');
                                             <div class="input-group-append">
                                                 <button class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2" type="button" id="button-addon2">Generate</button>
                                             </div>
+                                            <div class="spinner-border text-primary" role="status">
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="form-group" id="Message">
