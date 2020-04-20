@@ -12,16 +12,25 @@ require_once('../Model/Teacher.php');
 $db = new DatabaseSMS();
 $Admin = new Admin($db);
 $semester = $Admin->getSemesters();
+
 $Teacher = new Teacher($db);
-
 $course = $Admin->getCourses();
-$teacherID = $Teacher->getId();
-
-$teacherClass = $Teacher->getTeacherClassById();
 
 
 ?>
+<script>
 
+
+function getCoursesBySemester(SemesterId){
+	var semesterID=$("#classSemesterbyTeacher").val();
+	$.get("../Controller/getCourseBySemester.php?SemesterId="+ semesterID, function(data, status){
+		
+		 $("#classSemesterbyTeacher").html(data);  
+	});
+}
+
+
+</script>
 <body>
     <div class="register">
         <div class="row">
@@ -48,31 +57,17 @@ $teacherClass = $Teacher->getTeacherClassById();
                                         <div class="col-md-6">
 
                                             <div class="form-group">
-                                                <select class="custom-select" name="semester" required>
+                                                <select onChange="getCoursesBySemester()" class="custom-select" name="semester" required>
                                                     <option disabled value="" selected hidden>Select Semester</option>
                                                     <?php
                                                     for ($i = 0; $i < count($semester); $i++) {
                                                     ?>
-                                                        <option value="<?php echo $semester[$i]["SemesterId"] ?>"><?php echo $semester[$i]["SName"] ?></option>
+                                                        <option id="SemesterId" value="<?php echo $semester[$i]["SemesterId"] ?>"><?php echo $semester[$i]["SName"] ?></option>
                                                     <?php } ?>
                                                 </select>
                                             </div>
-                                            <div class="form-group">
-                                                <table border="5" class="table-hover table-bordered width:fit content" id="Registration_table">
-
-                                                    <thead class="table-primary">
-                                                        <th> Course </th>
-                                                        <th> Schedule </th>
-                                                    </thead>
-                                                    </span>
-                                                    <?php
-                                                    for ($i = 0; $i < count($teacherClass); $i++) {
-                                                    ?>
-                                                        <tr>
-                                                            <td><?php echo $teacherClass[$i]['CourseName']; ?> </td>
-                                                            <td><?php echo $teacherClass[$i]['Time']; ?> </td>
-                                                        </tr> <?php } ?>
-                                                </table>
+                                            <div id="classSemesterbyTeacher" class="form-group">
+                                                nnnnnn
                                             </div>
 
                                         </div>
@@ -92,10 +87,9 @@ $teacherClass = $Teacher->getTeacherClassById();
         </div>
     </div>
 
-
-    <?php
+    <?php	
     require_once('Footer.php'); ?>
 
-</body>
 
+</body>
 </html>

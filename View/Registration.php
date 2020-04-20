@@ -52,7 +52,7 @@ function deleteClass(classID){
 				}
 			}
 		}else{
-			alert("Erro Try Again");			
+			alert("Error Try Again");			
 		}
 
 	});
