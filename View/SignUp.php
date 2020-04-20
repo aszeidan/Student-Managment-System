@@ -46,13 +46,20 @@ require_once('Header.php');
                                         <input type="email" class="form-control" placeholder="Your Email *" id="TEmail" value="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Password *" id="TPassword" value="" />
-                                        <div class="form-group">
-                                            <input type="button" class="btnRegister" value="Generate" onClick="randomPassword(8,'TPassword');" tabindex="2">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="Password*" id="TPassword" aria-label=" Recipient's username" aria-describedby="button-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'TPassword');" tabindex="2" type="button" id="button-addon2">Generate</button>
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <input type="button" onClick="createTeacher()" class="btnRegister" name="signUpStudent" value="Register" />
+                                    <div class="form-group" id="Message">
+                                    </div>
+<<<<<<< HEAD
+                                    <input type="button" onClick="createTeacher()" class="btnRegister" name="signUpTeacher" value="Register" />
+=======
+                                    <input type="button" onClick="createTeacher()" class="btnRegister" value="Register" />
+>>>>>>> 0c01ae8ab2123c0dfe026e84893fa8bcc11b4f22
 
                                 </div>
 
@@ -71,26 +78,33 @@ require_once('Header.php');
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Last Name *" value="" id="SLastName" />
                                     </div>
-
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <input type="email" class="form-control" placeholder="Email *" value="" id="SEmail" />
                                     </div>
+
                                     <div class="form-group">
                                         <input type="text" maxlength="8" minlength="8" class="form-control" placeholder="Phone *" value="" id="SPhone" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Password *" value="" id="SPassword"  />
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="Password*" id="SPassword" aria-label=" Recipient's username" aria-describedby="button-addon2">
+                                            <div class="input-group-append">
+                                                <button class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2" type="sButton" id="button-addon2">Generate</button>
+                                            </div>
+<<<<<<< HEAD
+                                            <div class="spinner-border text-primary" role="status" id="loader">
+=======
+                                           <div class="spinner-border text-primary" role="status">
+>>>>>>> 0c01ae8ab2123c0dfe026e84893fa8bcc11b4f22
+                                                <span class="sr-only">Loading...</span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div id="Message">
-                                       DHDFNVDNFVKLK
+                                    <div class="form-group" id="studentMessage">
                                     </div>
-                                    <input type="button" onClick="createStudent()" class="btnRegister" value="Register" />
-                                    <div class="form-group">
-                                        <input type="button" class="btnRegister" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2">
-                                    </div>
-                                    
+                                    <input type="button" onClick="createStudent()" class="btnRegister" name="signUpStudent" value="Register" />
                                 </div>
                             </div>
                         </div>
@@ -100,7 +114,6 @@ require_once('Header.php');
 
         </div>
     </div>
-
     </div>
     <script>
         function randomPassword(length, id) {
@@ -113,26 +126,54 @@ require_once('Header.php');
 
             document.getElementById(id).value = pass;
         }
-     function createStudent(){
-        var data = {
-                    SFirstName : $("#SFirstName").val(),
-                    SMiddleName : $("#SMiddleName").val(),
-                    SLastName : $("#SLastName").val(),
-                    SPhone : $("#SPhone").val(),
-                    SPassword : $("#SPassword").val(),
-                    SEmail : $("#SEmail").val()
-                };
-        $.post( "../Controller/Verify_SignUpStudent.php", data ,function(result){
-            if(result.Error){
-             $("#Message").html(result.Message);    
-            }
-            else{
-                $("#Message").html(result.Message); 
-            }
-        });
 
-     }
-     </script>
+        function callSpinner() {
+            document.getElementById("#loader").style.display = "inline";
+        }
+
+        function createStudent() {
+            var data = {
+                SFirstName: $("#SFirstName").val(),
+                SMiddleName: $("#SMiddleName").val(),
+                SLastName: $("#SLastName").val(),
+                SPhone: $("#SPhone").val(),
+                SPassword: $("#SPassword").val(),
+                SEmail: $("#SEmail").val()
+            };
+            $.post("../Controller/Verify_SignUpStudent.php", data, function(result) {
+<<<<<<< HEAD
+                $("#Message").html(result.Message);
+=======
+                    $("#studentMessage").html(result.Message); 
+                    setTimeout(() => { $("#studentMessage").html(" ");                      
+                    }, 4000);
+                   
+>>>>>>> 0c01ae8ab2123c0dfe026e84893fa8bcc11b4f22
+            });
+
+        }
+
+        function createTeacher() {
+            var data = {
+                TFirstName: $("#TFirstName").val(),
+                TMiddleName: $("#TMiddleName").val(),
+                TLastName: $("#TLastName").val(),
+                TPhone: $("#TPhone").val(),
+                TPassword: $("#TPassword").val(),
+                TEmail: $("#TEmail").val()
+            };
+            $.post("../Controller/Verify_SignUpTeacher.php", data, function(result) {
+<<<<<<< HEAD
+                $("#Message").html(result.Message);
+=======
+                    $("#Message").html(result.Message);
+                    setTimeout(() => { $("#Message").html(" ");                      
+                    }, 4000);
+>>>>>>> 0c01ae8ab2123c0dfe026e84893fa8bcc11b4f22
+            });
+
+        }
+    </script>
     <?php
     require_once('Footer.php'); ?>
 

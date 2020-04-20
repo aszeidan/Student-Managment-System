@@ -1,10 +1,13 @@
 <?php
+header("Content-Type: application/json; charset=UTF-8");
 session_start();
 $_SESSION = array();
 require_once('../Model/DatabaseSMS.php');
 $db = new DatabaseSMS();
 require_once('../Model/Teacher.php');
 $Teacher = new Teacher($db);
+$result = array();
+
 
 if (
     !isset($_POST["TFirstName"])
@@ -15,10 +18,23 @@ if (
     || !isset($_POST["TEmail"])
 
 ) {
-    die("Missing Parameters");
+    $result["Error"] = 1;
+    $result["Message"] = "missing parameter";
+    die(json_encode($result));
 }
 
-
+else if (
+!$_POST["TFirstName"]
+|| !$_POST["TMiddleName"]
+|| !$_POST["TLastName"]
+|| !$_POST["TPhone"]
+|| !$_POST["TPassword"]
+|| !$_POST["TEmail"]
+ ) {
+    $result["Error"] = 1;
+    $result["Message"] = "empty value";
+    die(json_encode($result));
+}
 
 $TFirstName = $_POST["TFirstName"];
 $TMiddleName = $_POST["TMiddleName"];
@@ -27,24 +43,20 @@ $TPhone = $_POST["TPhone"];
 $TPassword = $_POST["TPassword"];
 $TEmail = $_POST["TEmail"];
 
-
-
 $Teacher->setTFirstName($TFirstName);
 $Teacher->setTmiddleName($TMiddleName);
 $Teacher->setTLastName($TLastName);
 $Teacher->setTPhone($TPhone);
 $Teacher->setTPassword($TPassword);
 $Teacher->setTEmail($TEmail);
-$Teacher->addTeacher();
-        
-       
 
-   
-/*if ($Teacher->checkClassIfExists() == true) {
-
-    header("Location:../View/Registration.php?result=Tlready Exist");
+if ($Teacher->checkTeacherIfExists() == true) {
+    $result["Error"] = 0;
+    $result["Message"] = "This teacher is already registered";
+    die(json_encode($result));
 } else {
-
-    $Teacher->addClass();
-    header("Location:../View/Registration.php?result=Successfully Tdded");
-}*/
+    $Teacher->addTeacher();
+    $result["Error"] = 0;
+    $result["Message"] = "Successfully Added";
+    die(json_encode($result));
+}
