@@ -1,7 +1,6 @@
 <?php
 session_start();
-	print_r($_SESSION);
-	die();
+
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
@@ -15,6 +14,7 @@ session_start();
 	$teacherClass = $Teacher->getTeacherClassById($_GET["SemesterId"]);
 
 
+
 ?>
 
 	<table border="5" class="table-hover table-bordered width:fit content" id="Registration_table">
@@ -26,9 +26,8 @@ session_start();
 		</span>
 		<?php
 		for ($i = 0; $i < count($teacherClass); $i++) {
-		?>
-			<tr>
-				<td><?php echo $teacherClass[$i]['CourseName']; ?> </td>
+		?>			<tr>
+				<td id="RegistredStudents"><a href="../View/RegistredStudents.php?ClassID=<?php echo $teacherClass[$i]['ClassId']; ?>"><?php echo $teacherClass[$i]['ClassName']; ?> </a> </td>
 				<td><?php echo $teacherClass[$i]['Time']; ?> </td>
 			</tr> <?php } ?>
 	</table>

@@ -96,8 +96,7 @@ class Teacher
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
     }
-
-
+	
 	function getTeacherClassById($semesterID)
     {
 		$teacherId= $this->id;
@@ -105,10 +104,21 @@ class Teacher
                                 join course on course.CourseId=class.CourseId 
                                 join semester on semester.SemesterId=class.SemesterId
                                 join schedule on schedule.ScheduleId=class.ScheduleId 
-                                WHERE TeacherId=' . $teacherId . ' and SemesterId=' .$semesterId;
-
+                                WHERE TeacherId=' . $teacherId . ' and class.SemesterId=' .$semesterID;
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
+        return $result;
+    }
+	function getStudentByClass($ClassID)
+    {
+        $query =  'select * from registration 
+                                join student on student.StudentId=registration.StudentId 
+                                join class on class.ClassId=registration.ClassId
+                                WHERE class.ClassId=' . $ClassID;
+								
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+
         return $result;
     }
 }

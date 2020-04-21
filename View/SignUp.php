@@ -54,12 +54,11 @@ require_once('Header.php');
                                         </div>
                                     </div>
                                     <div class="form-group" id="Message">
-                                    </div>
-<<<<<<< HEAD
+
                                     <input type="button" onClick="createTeacher()" class="btnRegister" name="signUpTeacher" value="Register" />
-=======
+
                                     <input type="button" onClick="createTeacher()" class="btnRegister" value="Register" />
->>>>>>> 0c01ae8ab2123c0dfe026e84893fa8bcc11b4f22
+
 
                                 </div>
 
@@ -93,11 +92,8 @@ require_once('Header.php');
                                             <div class="input-group-append">
                                                 <button class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2" type="sButton" id="button-addon2">Generate</button>
                                             </div>
-<<<<<<< HEAD
                                             <div class="spinner-border text-primary" role="status" id="loader">
-=======
                                            <div class="spinner-border text-primary" role="status">
->>>>>>> 0c01ae8ab2123c0dfe026e84893fa8bcc11b4f22
                                                 <span class="sr-only">Loading...</span>
                                             </div>
                                         </div>
@@ -141,14 +137,13 @@ require_once('Header.php');
                 SEmail: $("#SEmail").val()
             };
             $.post("../Controller/Verify_SignUpStudent.php", data, function(result) {
-<<<<<<< HEAD
+
                 $("#Message").html(result.Message);
-=======
+
                     $("#studentMessage").html(result.Message); 
                     setTimeout(() => { $("#studentMessage").html(" ");                      
                     }, 4000);
                    
->>>>>>> 0c01ae8ab2123c0dfe026e84893fa8bcc11b4f22
             });
 
         }
@@ -163,13 +158,13 @@ require_once('Header.php');
                 TEmail: $("#TEmail").val()
             };
             $.post("../Controller/Verify_SignUpTeacher.php", data, function(result) {
-<<<<<<< HEAD
+
                 $("#Message").html(result.Message);
-=======
+
                     $("#Message").html(result.Message);
                     setTimeout(() => { $("#Message").html(" ");                      
                     }, 4000);
->>>>>>> 0c01ae8ab2123c0dfe026e84893fa8bcc11b4f22
+
             });
 
         }

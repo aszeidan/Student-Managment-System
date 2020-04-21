@@ -7,27 +7,13 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 require_once('../Model/DatabaseSMS.php');
-require_once('../Model/Admin.php');
 require_once('../Model/Teacher.php');
 $db = new DatabaseSMS();
-$Admin = new Admin($db);
-$semester = $Admin->getSemesters();
 $Teacher = new Teacher($db);
+$courses = $Teacher->getStudentByClass($_GET["ClassID"]);
+
 
 ?>
-<script>
-
-
-function getCoursesBySemester(SemesterId){
-	var semesterID=$("#SemesterId").val();
-	$.get("../Controller/getCourseBySemester.php?SemesterId="+ semesterID, function(data, status){
-		
-		 $("#classSemesterbyTeacher").html(data);  
-	});
-}
-
-
-</script>
 <body>
     <div class="register">
         <div class="row">
@@ -47,27 +33,30 @@ function getCoursesBySemester(SemesterId){
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Teacher Profile</h3>
+                                <h3 class="register-heading">Registred Students</h3>
 
                                 <form action="Insert_Teacher.php" method="POST">
                                     <div class="row register-form mx-0 px-0">
                                         <div class="col-md-6">
+										<table border="5" class="table-hover table-bordered width:fit content" id="Registration_table">
 
-                                            <div class="form-group">
-                                                <select id="SemesterId" onChange="getCoursesBySemester()" class="custom-select" name="Semester" required>
-                                                    <option disabled value="" selected hidden>Select Semester</option>
-                                                    <?php
-                                                    for ($i = 0; $i < count($semester); $i++) {
-                                                    ?>
-                                                        <option value="<?php echo $semester[$i]["SemesterId"] ?>"><?php echo $semester[$i]["SName"] ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                            <div id="classSemesterbyTeacher" class="form-group">
-                                            </div>
-
+											<thead class="table-primary">
+												<th> Student Id </th>
+												<th> Student Name </th>
+												<th> Grade </th>
+											</thead>
+											</span>
+											<?php
+											for ($i = 0; $i < count($courses); $i++) {
+											?>
+												<tr>
+													<td><?php echo $courses[$i]['StudentId']; ?> </td>
+													<td><?php echo $courses[$i]['SFirstName']." ".$courses[$i]['SMiddleName'] ." ". $courses[$i]['SLastName']; ?> </td>
+													<td><?php echo $courses[$i]['Grade']; ?> </td>					
+													
+												</tr> <?php } ?>
+										</table>                                       
                                         </div>
-
                                     </div>
                                 </form>
                             </div>
