@@ -63,7 +63,7 @@ require_once('Header.php');
                         </div>
                         <div class="tab-pane fade show" id="profile" role="tabpanel" name="student" aria-labelledby="profile-tab">
                             <h3 class="register-heading">Apply as a Student</h3>
-                            <div class="row register-form">
+                            <div class="row register-form mx-0 px-0">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="First Name *" value="" id="SFirstName" />
@@ -133,7 +133,13 @@ require_once('Header.php');
                 SEmail: $("#SEmail").val()
             };
             $.post("../Controller/Verify_SignUpStudent.php", data, function(result) {
+
                 $("#Message").html(result.Message);
+
+                $("#studentMessage").html(result.Message);
+                setTimeout(() => {
+                    $("#studentMessage").html(" ");
+                }, 4000);
             });
 
         }
@@ -148,7 +154,12 @@ require_once('Header.php');
                 TEmail: $("#TEmail").val()
             };
             $.post("../Controller/Verify_SignUpTeacher.php", data, function(result) {
+
+
                 $("#Message").html(result.Message);
+                setTimeout(() => {
+                    $("#Message").html(" ");
+                }, 4000);
             });
 
         }
