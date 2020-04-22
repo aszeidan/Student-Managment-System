@@ -111,7 +111,9 @@ class Teacher
     }
 	function getStudentByClass($ClassID)
     {
-        $query =  'select * from registration 
+        $query =  'SELECT RegistrationId, registration.StudentId, registration.ClassId, MidtermGrade , AssignemetGrade, FinalGrade,
+								student.SFirstName, student.SMiddleName, student.SLastName,
+								MidtermGrade + AssignemetGrade + FinalGrade AS Grade FROM registration 
                                 join student on student.StudentId=registration.StudentId 
                                 join class on class.ClassId=registration.ClassId
                                 WHERE class.ClassId=' . $ClassID;
@@ -121,4 +123,29 @@ class Teacher
 
         return $result;
     }
+	
+	function setMidtermGrade($SMidtermGrade,$RegistrationId)
+	{
+        $query =  "UPDATE registration SET MidtermGrade=" . $SMidtermGrade." WHERE RegistrationId=".$RegistrationId ;
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
+		
+	}
+	function setAssignemetGrade($SAssignemetGrade, $RegistrationId)
+	{
+        $query =  "UPDATE registration SET SAssignemetGrade=" . $SAssignemetGrade." WHERE RegistrationId=".$RegistrationId ;
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
+		
+	}
+	function setFinalGrade($SFinalGrade, $RegistrationId)
+	{
+        $query =  "UPDATE registration SET SFinalGrade=" . $SFinalGrade." WHERE RegistrationId=".$RegistrationId ;
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
+		
+	}
 }

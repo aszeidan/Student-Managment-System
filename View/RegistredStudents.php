@@ -12,8 +12,29 @@ $db = new DatabaseSMS();
 $Teacher = new Teacher($db);
 $courses = $Teacher->getStudentByClass($_GET["ClassID"]);
 
-
 ?>
+<script>
+function saveGrades(RegistrationId) {
+            var data = {
+				RegistrationId: RegistrationId,
+                SMidtermGrade: $("#SMidtermGrade_"+RegistrationId).val(),
+                SAssignemetGrade: $("#SAssignemetGrade_"+RegistrationId).val(),
+                SFinalGrade: $("#SFinalGrade_"+RegistrationId).val(),
+            };
+			
+            $.post("../Controller/SaveGrades.php?", data, function(result, status) {
+
+                $("#GradeMessage").html(result.Message);
+
+                    $("#GradeMessage").html(result.Message);
+                    setTimeout(() => { $("#GradeMessage").html(" ");                      
+                    }, 4000);
+
+            });
+}
+
+</script>
+
 <body>
     <div class="register">
         <div class="row">
@@ -35,15 +56,19 @@ $courses = $Teacher->getStudentByClass($_GET["ClassID"]);
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">Registred Students</h3>
 
-                                <form action="Insert_Teacher.php" method="POST">
+                                <form action="../Controller/SaveGrades.php" method="POST">
                                     <div class="row register-form mx-0 px-0">
-                                        <div class="col-md-6">
+                                        <div class="col-md-12">
 										<table border="5" class="table-hover table-bordered width:fit content" id="Registration_table">
 
 											<thead class="table-primary">
 												<th> Student Id </th>
 												<th> Student Name </th>
+												<th> Midterm grade 30% </th>
+												<th> Assignemet Grade 20%</th>
+												<th> Final Grade 50% </th>
 												<th> Grade </th>
+												<th> Save </th>
 											</thead>
 											</span>
 											<?php
@@ -52,9 +77,42 @@ $courses = $Teacher->getStudentByClass($_GET["ClassID"]);
 												<tr>
 													<td><?php echo $courses[$i]['StudentId']; ?> </td>
 													<td><?php echo $courses[$i]['SFirstName']." ".$courses[$i]['SMiddleName'] ." ". $courses[$i]['SLastName']; ?> </td>
-													<td><?php echo $courses[$i]['Grade']; ?> </td>					
-													
-												</tr> <?php } ?>
+														<?php 
+													if($courses[$i]['MidtermGrade'] != 0)
+													{ ?>
+														<td><?php echo $courses[$i]['MidtermGrade']; ?> </td>
+														<?php 
+													}else
+													{ ?>
+														<td><input type="text" name="MidtermGrade" id="SMidtermGrade_<?php echo $courses[$i]['RegistrationId'] ;?>" value=""></td>
+													<?php
+													}	
+													if($courses[$i]['AssignemetGrade'] != 0)
+													{ ?>
+														<td><?php echo $courses[$i]['AssignemetGrade']; ?> </td>
+														<?php 
+													}else
+													{ ?>
+														<td><input type="text" name="AssignemetGrade" id="SAssignemetGrade_<?php echo $courses[$i]['RegistrationId'] ;?>"  value=""></td>
+														<?php
+													}
+													if($courses[$i]['FinalGrade'] != 0)
+													{ ?>
+														<td><?php echo $courses[$i]['FinalGrade']; ?> </td>
+														<?php 
+													}else
+													{ ?>
+														<td><input type="text"  name="FinalGrade" id="SFinalGrade_<?php echo $courses[$i]['RegistrationId'] ;?>" value=""></td>
+														<?php
+													}
+														?>			
+													<td><?php echo $courses[$i]['Grade']; ?> </td>	
+				
+													<td id="SaveGrades"><a href="#" ; onclick="saveGrades(<?php echo $courses[$i]['RegistrationId'] ;?>)">Save </a> </td>
+													<td><div class="form-group" id="GradeMessage">
+													</div></td>
+												</tr> 
+										<?php } ?>
 										</table>                                       
                                         </div>
                                     </div>
@@ -67,8 +125,6 @@ $courses = $Teacher->getStudentByClass($_GET["ClassID"]);
 
                 </div>
             </div>
-
-
         </div>
     </div>
 

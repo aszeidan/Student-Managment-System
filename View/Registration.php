@@ -37,7 +37,7 @@ $class = $Admin->getClasses();
 			}
 			);
    });
-});*/
+}); */
 
 function deleteClass(classID){
 	$.get("../Controller/Check_course_registration_form.php?id="+ classID, function(data, status){
