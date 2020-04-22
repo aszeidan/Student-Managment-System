@@ -51,14 +51,7 @@ class Teacher
     {
         $this->TPassword = password_hash($TPassword, PASSWORD_BCRYPT);
     }
-	 function getId()
-    {
-		$query= "SELECT * from teacher WHERE TEmail='" . $this->username . "'";
-		$this->dbconnect->setQuery($query);
-		$result= $this->dbconnect->selectquery();
-        return $result;
-		
-    }
+	
     function verifyLogin()
     {
         $query = "SELECT * FROM teacher WHERE 
@@ -73,6 +66,16 @@ class Teacher
         } else {
             return false;
         }
+    }
+	 function getId()
+    {
+		return $this->id ;
+		
+	/* 	$query= "SELECT * from teacher WHERE TEmail='" . $this->username . "'";
+		$this->dbconnect->setQuery($query);
+		$result= $this->dbconnect->selectquery();
+		die($result);
+        return $result; */	
     }
 
     function checkTeacherIfExists()
@@ -93,19 +96,29 @@ class Teacher
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
     }
-
-
-	function getTeacherClassById()
+	
+	function getTeacherClassById($semesterID)
     {
-		$teacherId= $this->getId();
+		$teacherId= $this->id;
         $query =  'select * from class 
                                 join course on course.CourseId=class.CourseId 
                                 join semester on semester.SemesterId=class.SemesterId
                                 join schedule on schedule.ScheduleId=class.ScheduleId 
-                                WHERE TeacherId=' . $teacherId[0]['TeacherId'];
-
+                                WHERE TeacherId=' . $teacherId . ' and class.SemesterId=' .$semesterID;
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
+        return $result;
+    }
+	function getStudentByClass($ClassID)
+    {
+        $query =  'select * from registration 
+                                join student on student.StudentId=registration.StudentId 
+                                join class on class.ClassId=registration.ClassId
+                                WHERE class.ClassId=' . $ClassID;
+								
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+
         return $result;
     }
 }

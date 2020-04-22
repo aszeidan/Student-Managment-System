@@ -54,8 +54,11 @@ require_once('Header.php');
                                         </div>
                                     </div>
                                     <div class="form-group" id="Message">
-                                    </div>
+
+                                    <input type="button" onClick="createTeacher()" class="btnRegister" name="signUpTeacher" value="Register" />
+
                                     <input type="button" onClick="createTeacher()" class="btnRegister" value="Register" />
+
 
                                 </div>
 
@@ -87,8 +90,9 @@ require_once('Header.php');
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" placeholder="Password*" id="SPassword" aria-label=" Recipient's username" aria-describedby="button-addon2">
                                             <div class="input-group-append">
-                                                <button class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2" type="button" id="button-addon2">Generate</button>
+                                                <button class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2" type="sButton" id="button-addon2">Generate</button>
                                             </div>
+                                            <div class="spinner-border text-primary" role="status" id="loader">
                                            <div class="spinner-border text-primary" role="status">
                                                 <span class="sr-only">Loading...</span>
                                             </div>
@@ -96,7 +100,7 @@ require_once('Header.php');
                                     </div>
                                     <div class="form-group" id="studentMessage">
                                     </div>
-                                    <input type="button" onClick="createStudent()" class="btnRegister" value="Register" />
+                                    <input type="button" onClick="createStudent()" class="btnRegister" name="signUpStudent" value="Register" />
                                 </div>
                             </div>
                         </div>
@@ -119,6 +123,10 @@ require_once('Header.php');
             document.getElementById(id).value = pass;
         }
 
+        function callSpinner() {
+            document.getElementById("#loader").style.display = "inline";
+        }
+
         function createStudent() {
             var data = {
                 SFirstName: $("#SFirstName").val(),
@@ -129,6 +137,9 @@ require_once('Header.php');
                 SEmail: $("#SEmail").val()
             };
             $.post("../Controller/Verify_SignUpStudent.php", data, function(result) {
+
+                $("#Message").html(result.Message);
+
                     $("#studentMessage").html(result.Message); 
                     setTimeout(() => { $("#studentMessage").html(" ");                      
                     }, 4000);
@@ -147,9 +158,13 @@ require_once('Header.php');
                 TEmail: $("#TEmail").val()
             };
             $.post("../Controller/Verify_SignUpTeacher.php", data, function(result) {
+
+                $("#Message").html(result.Message);
+
                     $("#Message").html(result.Message);
                     setTimeout(() => { $("#Message").html(" ");                      
                     }, 4000);
+
             });
 
         }
