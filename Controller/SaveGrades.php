@@ -14,7 +14,6 @@ $SFinalGrade = $_POST["SFinalGrade"];
 $RegistrationId = $_POST["RegistrationId"];
 
 
-
 if($SMidtermGrade){
 	$Teacher->setMidtermGrade($SMidtermGrade, $RegistrationId);
 }
@@ -24,10 +23,8 @@ if($SAssignemetGrade){
 if($SFinalGrade){
 	$Teacher->setFinalGrade($SFinalGrade, $RegistrationId);
 }
-
-
     $result["Error"] = 0;
     $result["Message"] = "Successfully Added";
-    die(json_encode($result));
-header("Location:../View/RegistredStudents.php?ClassID=".$_GET["ClassID"]);
-
+  
+header("Location:../View/RegistredStudents.php?ClassID=" .$_GET["ClassID"]);
+  die(json_encode($result));

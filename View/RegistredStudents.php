@@ -22,13 +22,15 @@ function saveGrades(RegistrationId) {
                 SFinalGrade: $("#SFinalGrade_"+RegistrationId).val(),
             };
 			
-            $.post("../Controller/SaveGrades.php?", data, function(result, status) {
+            $.post("../Controller/SaveGrades.php", data, function(result, status) {
 
                 $("#GradeMessage").html(result.Message);
 
                     $("#GradeMessage").html(result.Message);
+					
                     setTimeout(() => { $("#GradeMessage").html(" ");                      
                     }, 4000);
+					
 
             });
 }
@@ -55,8 +57,11 @@ function saveGrades(RegistrationId) {
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">Registred Students</h3>
-
+									
                                 <form action="../Controller/SaveGrades.php" method="POST">
+								<div class="form-group">
+                                        <input type="submit" class="btnRegister" value="Back" />
+                                    </div>	
                                     <div class="row register-form mx-0 px-0">
                                         <div class="col-md-12">
 										<table border="5" class="table-hover table-bordered width:fit content" id="Registration_table">
@@ -80,29 +85,29 @@ function saveGrades(RegistrationId) {
 														<?php 
 													if($courses[$i]['MidtermGrade'] != 0)
 													{ ?>
-														<td><?php echo $courses[$i]['MidtermGrade']; ?> </td>
+														<td name="SMidtermGrade" id="SMidtermGrade_<?php echo $courses[$i]['RegistrationId'] ;?>" ><?php echo $courses[$i]['MidtermGrade']; ?> </td>
 														<?php 
 													}else
 													{ ?>
-														<td><input type="text" name="MidtermGrade" id="SMidtermGrade_<?php echo $courses[$i]['RegistrationId'] ;?>" value=""></td>
+														<td> <input type="text" name="SMidtermGrade" id="SMidtermGrade_<?php echo $courses[$i]['RegistrationId'] ;?>" value=""></td>
 													<?php
 													}	
 													if($courses[$i]['AssignemetGrade'] != 0)
 													{ ?>
-														<td><?php echo $courses[$i]['AssignemetGrade']; ?> </td>
+														<td name="SAssignemetGrade" id="SAssignemetGrade_<?php echo $courses[$i]['RegistrationId'] ;?>"><?php echo $courses[$i]['AssignemetGrade']; ?> </td>
 														<?php 
 													}else
 													{ ?>
-														<td><input type="text" name="AssignemetGrade" id="SAssignemetGrade_<?php echo $courses[$i]['RegistrationId'] ;?>"  value=""></td>
+														<td><input type="text" name="SAssignemetGrade" id="SAssignemetGrade_<?php echo $courses[$i]['RegistrationId'] ;?>"  value=""></td>
 														<?php
 													}
 													if($courses[$i]['FinalGrade'] != 0)
 													{ ?>
-														<td><?php echo $courses[$i]['FinalGrade']; ?> </td>
+														<td  name="SFinalGrade" id="SFinalGrade_<?php echo $courses[$i]['RegistrationId'] ;?>"><?php echo $courses[$i]['FinalGrade']; ?> </td>
 														<?php 
 													}else
 													{ ?>
-														<td><input type="text"  name="FinalGrade" id="SFinalGrade_<?php echo $courses[$i]['RegistrationId'] ;?>" value=""></td>
+														<td><input type="text"  name="SFinalGrade" id="SFinalGrade_<?php echo $courses[$i]['RegistrationId'] ;?>" value=""></td>
 														<?php
 													}
 														?>			
@@ -113,9 +118,11 @@ function saveGrades(RegistrationId) {
 													</div></td>
 												</tr> 
 										<?php } ?>
-										</table>                                       
+										</table> 
+																		
                                         </div>
                                     </div>
+									
                                 </form>
                             </div>
 

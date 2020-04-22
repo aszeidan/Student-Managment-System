@@ -133,14 +133,14 @@ class Teacher
     }
     function setAssignemetGrade($SAssignemetGrade, $RegistrationId)
     {
-        $query =  "UPDATE registration SET SAssignemetGrade=" . $SAssignemetGrade . " WHERE RegistrationId=" . $RegistrationId;
+        $query =  "UPDATE registration SET AssignemetGrade=" . $SAssignemetGrade . " WHERE RegistrationId=" . $RegistrationId;
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;
     }
     function setFinalGrade($SFinalGrade, $RegistrationId)
     {
-        $query =  "UPDATE registration SET SFinalGrade=" . $SFinalGrade . " WHERE RegistrationId=" . $RegistrationId;
+        $query =  "UPDATE registration SET FinalGrade=" . $SFinalGrade . " WHERE RegistrationId=" . $RegistrationId;
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;
