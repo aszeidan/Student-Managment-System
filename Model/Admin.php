@@ -25,7 +25,7 @@ class Admin
     {
         $this->class = $class;
     }
-	  function getId()
+    function getId()
     {
         return $this->id;
     }
@@ -33,21 +33,50 @@ class Admin
 
     function setSemester($semester)
     {
+        if (!filter_var($semester, FILTER_VALIDATE_INT)) {
+            throw new Exception('Invalid Input.');
+        }
+        $result = $this->validateSemesterExist($semester);
+        if (!count($result)) {
+            throw new Exception('Semester Does not Exist.');
+        }
         $this->semester = $semester;
     }
 
     function setCourse($course)
     {
+        if (!filter_var($course, FILTER_VALIDATE_INT)) {
+            throw new Exception('Invalid Input.');
+        }
+        $result = $this->validateCourseExist($course);
+        if (!count($result)) {
+            throw new Exception('Course Does not Exist.');
+        }
         $this->course = $course;
     }
 
     function setTeacher($teacher)
     {
+        if (!filter_var($teacher, FILTER_VALIDATE_INT)) {
+            throw new Exception('Invalid Input.');
+        }
+        $result = $this->validateTeacherExist($teacher);
+        if (!count($result)) {
+            throw new Exception('Teacher Does not Exist.');
+        }
         $this->teacher = $teacher;
     }
 
     function setSchedule($schedule)
     {
+        if (!filter_var($schedule, FILTER_VALIDATE_INT)) {
+            throw new Exception('Invalid Input.');
+        }
+        $result = $this->validateScheduleExist($schedule);
+        if (!count($result)) {
+            throw new Exception('schedule Does not Exist.');
+        }
+
         $this->schedule = $schedule;
     }
 
@@ -67,10 +96,24 @@ class Admin
         $result = $this->dbconnect->selectquery();
         return $result;
     }
+    function validateSemesterExist($semester)
+    {
+        $query = 'select * from semester WHERE SemesterId=' . $semester;
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
+    }
 
     function getCourses()
     {
         $query = 'select * from course';
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
+    }
+    function validateCourseExist($course)
+    {
+        $query = 'select * from course WHERE CourseId=' . $course;
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;
@@ -83,10 +126,25 @@ class Admin
         $result = $this->dbconnect->selectquery();
         return $result;
     }
+    function validateTeacherExist($teacher)
+    {
+        $query = 'select * from teacher WHERE TeacherId=' . $teacher;
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
+    }
 
     function getSchedules()
     {
         $query = 'select * from schedule';
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
+    }
+
+    function  validateScheduleExist($schedule)
+    {
+        $query = 'select * from teacher WHERE TeacherId=' . $schedule;
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;
@@ -119,19 +177,17 @@ class Admin
 
     function isThereDependencies()
     {
-       $query  = "SELECT * from registration where ClassId=" .$this->del_id;
-	   $this->dbconnect->setQuery($query); 
-		$result = $this->dbconnect->selectquery();
-		
-		if(count($result)>0)
-		{
-			 return True;
-		}
-		else{
-			Return False;
-		}
+        $query  = "SELECT * from registration where ClassId=" . $this->del_id;
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+
+        if (count($result) > 0) {
+            return True;
+        } else {
+            return False;
+        }
     }
-	 function deleteClassById()
+    function deleteClassById()
     {
         // to delete the registration of a student on the requested class
         $query1  = "DELETE from registration where ClassId=" . $this->del_id;
@@ -188,7 +244,4 @@ class Admin
             return false;
         }
     }
-
-
-
 }

@@ -30,6 +30,7 @@ require_once('HeaderSignin.php');
                                     </div>
                                     <div class="form-group">
 
+
                                         <input type="text" class="form-control" placeholder="123@example.com" value="" name="uname" required />
                                     </div>
                                     <div class="form-group">
