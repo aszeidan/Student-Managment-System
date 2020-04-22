@@ -59,9 +59,7 @@ function saveGrades(RegistrationId) {
                                 <h3 class="register-heading">Registred Students</h3>
 									
                                 <form action="../Controller/SaveGrades.php" method="POST">
-								<div class="form-group">
-                                        <input type="submit" class="btnRegister" value="Back" />
-                                    </div>	
+									
                                     <div class="row register-form mx-0 px-0">
                                         <div class="col-md-12">
 										<table border="5" class="table-hover table-bordered width:fit content" id="Registration_table">
@@ -119,7 +117,9 @@ function saveGrades(RegistrationId) {
 												</tr> 
 										<?php } ?>
 										</table> 
-																		
+												<div class="form-group">
+                                        <input type="submit" class="btnRegister" value="Back" />
+                                    </div>						
                                         </div>
                                     </div>
 									
