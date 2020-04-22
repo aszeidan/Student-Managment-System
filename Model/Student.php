@@ -68,7 +68,6 @@ class Student
 
     function checkStudentIfExists()
     {
-        $query = "SELECT * FROM student WHERE SEmail='"  . $this->SEmail. "' ";
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         if (count($result) > 0) {
