@@ -10,6 +10,7 @@ try{
 	require_once('../Model/Admin.php');
 	$db = new DatabaseSMS();
 	$Admin = new Admi0 n($db);
+	$Admin = new Admin($db);
 	$del_id = $_GET['id'];
 	$Admin->getDeletedId($del_id);
 
