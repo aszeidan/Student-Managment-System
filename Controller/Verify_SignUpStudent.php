@@ -56,4 +56,11 @@ if ($Student->checkStudentIfExists() == true) {
     $result["Error"] = 0;
     $result["Message"] = "Successfully Added";
     die(json_encode($result));
+    /*$to =$_POST["SEmail"];
+    $subject = "Password";
+    $txt = "Your password is : ".$_POST["SPassword"]. " ";
+    $headers = "From: password@studentstutorial.com" . "\r\n" .
+                "CC: somebodyelse@example.com";
+    mail($to,$subject,$txt,$headers);*/
 }
+?>

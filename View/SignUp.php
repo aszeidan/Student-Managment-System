@@ -49,7 +49,7 @@ require_once('Header.php');
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" placeholder="Password*" id="TPassword" aria-label=" Recipient's username" aria-describedby="button-addon2">
                                             <div class="input-group-append">
-                                                <button class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'TPassword');" tabindex="2" type="button" id="button-addon2">Generate</button>
+                                                <input class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'TPassword');" tabindex="2" type="button" id="button-addon1" />
                                             </div>
                                         </div>
                                     </div>
@@ -87,20 +87,15 @@ require_once('Header.php');
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" placeholder="Password*" id="SPassword" aria-label=" Recipient's username" aria-describedby="button-addon2">
                                             <div class="input-group-append">
-                                                <button class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2" type="sButton" id="button-addon2">Generate</button>
-                                            </div>
-                                            <div class="spinner-border text-primary" role="status" id="loader">
-                                                <span class="sr-only">Loading...</span>
-                                            </div>
+                                                <input class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2" type="button" id="button-addon2" /> </div>
                                         </div>
+                                        <div class="form-group" id="studentMessage">
+                                        </div>
+                                        <input type="button" onClick="createStudent()" class="btnRegister" name="signUpStudent" value="Register" />
                                     </div>
-                                    <div class="form-group" id="studentMessage">
-                                    </div>
-                                    <input type="button" onClick="createStudent()" class="btnRegister" name="signUpStudent" value="Register" />
                                 </div>
                             </div>
                         </div>
-                    </div>
                 </form>
             </div>
 
