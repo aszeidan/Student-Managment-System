@@ -1,4 +1,5 @@
 <?php
+try {
 header("Content-Type: application/json; charset=UTF-8");
 session_start();
 $_SESSION = array();
@@ -59,4 +60,8 @@ if ($User->verifyLogin() == true) {
     $result["Error"] = 0;
     $result["Message"] = "Invalid Username or Password";
     die(json_encode($result));
+}
+} catch (Exception $e) {
+
+    header("Location:../View/SignIn.php?result=" . $e->getMessage());
 }

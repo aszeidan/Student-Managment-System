@@ -14,6 +14,13 @@ class Admin
 
     function setUsername($username)
     {
+        if (!filter_var($username, FILTER_VALIDATE_EMAIL)) {
+            throw new Exception('Invalid Input.');
+        }
+        $result = $this->validateEmailExist($username);
+        if (!count($result)) {
+            throw new Exception('Email Does not Exist.');
+        }
         $this->username = $username;
     }
 
@@ -144,7 +151,7 @@ class Admin
 
     function  validateScheduleExist($schedule)
     {
-        $query = 'select * from teacher WHERE TeacherId=' . $schedule;
+        $query = 'select * from schedule WHERE ScheduleId=' . $schedule;
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;
@@ -243,5 +250,13 @@ class Admin
         } else {
             return false;
         }
+    }
+
+    function  validateEmailExist($username)
+    {
+        $query = 'select * from admin WHERE AdminId=' . $username;
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
     }
 }
