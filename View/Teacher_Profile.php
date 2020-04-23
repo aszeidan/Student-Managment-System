@@ -17,18 +17,15 @@ $Teacher = new Teacher($db);
 
 ?>
 <script>
+    function getCoursesBySemester(SemesterId) {
+        var semesterID = $("#SemesterId").val();
+        $.get("../Controller/getCourseBySemester.php?SemesterId=" + semesterID, function(data, status) {
 
-
-function getCoursesBySemester(SemesterId){
-	var semesterID=$("#SemesterId").val();
-	$.get("../Controller/getCourseBySemester.php?SemesterId="+ semesterID, function(data, status){
-		
-		 $("#classSemesterbyTeacher").html(data);  
-	});
-}
-
-
+            $("#classSemesterbyTeacher").html(data);
+        });
+    }
 </script>
+
 <body>
     <div class="register">
         <div class="row">
@@ -36,7 +33,7 @@ function getCoursesBySemester(SemesterId){
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                 <h3>Welcome To Time Travel University</h3>
                 <P>We look forward to welcoming you to our campus soon!​</P>
-                <form action="SignIn.php" method="POST">
+                <form action="../Controller/Logout.php" method="POST">
                     <input type="submit" name="" value="SignOut" /><br />
                 </form>
             </div>
@@ -84,9 +81,10 @@ function getCoursesBySemester(SemesterId){
         </div>
     </div>
 
-    <?php	
+    <?php
     require_once('Footer.php'); ?>
 
 
 </body>
+
 </html>

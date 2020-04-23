@@ -11,6 +11,9 @@ require_once('Header.php');
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                 <h3>Welcome To AG University</h3>
                 <P>We look forward to welcoming you to our campus soon!​</P>
+                <form action="../Controller/Logout.php" method="POST">
+                    <input type="submit" name="" value="SignOut" /><br />
+                </form>
             </div>
             <div class="col-md-9 register-right">
 
