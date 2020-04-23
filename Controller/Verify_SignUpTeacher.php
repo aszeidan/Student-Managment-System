@@ -21,16 +21,14 @@ if (
     $result["Error"] = 1;
     $result["Message"] = "missing parameter";
     die(json_encode($result));
-}
-
-else if (
-!$_POST["TFirstName"]
-|| !$_POST["TMiddleName"]
-|| !$_POST["TLastName"]
-|| !$_POST["TPhone"]
-|| !$_POST["TPassword"]
-|| !$_POST["TEmail"]
- ) {
+} else if (
+    !$_POST["TFirstName"]
+    || !$_POST["TMiddleName"]
+    || !$_POST["TLastName"]
+    || !$_POST["TPhone"]
+    || !$_POST["TPassword"]
+    || !$_POST["TEmail"]
+) {
     $result["Error"] = 1;
     $result["Message"] = "empty value";
     die(json_encode($result));

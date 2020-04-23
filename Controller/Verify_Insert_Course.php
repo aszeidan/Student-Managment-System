@@ -1,5 +1,8 @@
 <?php
 try {
+    header("Content-Type: application/json; charset=UTF-8");
+    session_start();
+    $_SESSION = array();
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
@@ -7,6 +10,7 @@ try {
     require_once('../Model/Admin.php');
     $db = new DatabaseSMS();
     $Admin = new Admin($db);
+    $result = array();
 
     if (
         !isset($_POST["Classname"])
@@ -31,12 +35,14 @@ try {
 
 
     if ($Admin->checkClassIfExists() == true) {
-
-        header("Location:../View/Registration.php?result=Already Exist");
+        $result["Error"] = 0;
+        $result["Message"] = "Already Exist";
+        die(json_encode($result));
     } else {
-
         $Admin->addClass();
-        header("Location:../View/Registration.php?result=Successfully Added");
+        $result["Error"] = 0;
+        $result["Message"] = "Successfully Added";
+        die(json_encode($result));
     }
 } catch (Exception $e) {
 

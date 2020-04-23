@@ -1,9 +1,10 @@
 <?php
+header("Content-Type: application/json; charset=UTF-8");
 session_start();
 $_SESSION = array();
 require_once("../Model/DatabaseSMS.php");
 $db = new DatabaseSMS();
-
+$result = array();
 
 if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType"])) {
 
@@ -50,8 +51,12 @@ if ($User->verifyLogin() == true) {
     $_SESSION["pass"] = $password;
     $_SESSION["loginType"] = $loginType;
     $_SESSION["id"] = $User->getId();
-
+    $result["Error"] = 0;
+    $result["Message"] = "Success";
     header("Location:../View/" . $pageLocation);
+    die(json_encode($result));
 } else {
-    header("Location:../View/SignIn.php?textmessage=Invalid Username or Password");
+    $result["Error"] = 0;
+    $result["Message"] = "Invalid Username or Password";
+    die(json_encode($result));
 }

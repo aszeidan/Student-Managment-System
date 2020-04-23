@@ -53,7 +53,7 @@ require_once('Header.php');
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group" id="Message">
+                                    <div class="form-group" id="teacherMessage">
                                     </div>
                                     <input type="button" onClick="createTeacher()" class="btnRegister" name="signUpTeacher" value="Register" />
 
@@ -133,9 +133,6 @@ require_once('Header.php');
                 SEmail: $("#SEmail").val()
             };
             $.post("../Controller/Verify_SignUpStudent.php", data, function(result) {
-
-                $("#Message").html(result.Message);
-
                 $("#studentMessage").html(result.Message);
                 setTimeout(() => {
                     $("#studentMessage").html(" ");
@@ -156,9 +153,9 @@ require_once('Header.php');
             $.post("../Controller/Verify_SignUpTeacher.php", data, function(result) {
 
 
-                $("#Message").html(result.Message);
+                $("#teacherMessage").html(result.Message);
                 setTimeout(() => {
-                    $("#Message").html(" ");
+                    $("#teacherMessage").html(" ");
                 }, 4000);
             });
 

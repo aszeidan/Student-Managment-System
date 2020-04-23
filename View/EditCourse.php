@@ -115,10 +115,11 @@ $class = $Admin->getClassById();
                                                                             <?php } ?>
                                                                         </select>
                                                                     </div>
-                                                                    <?php if (isset($_GET["result"])) {
-                                                                        echo $_GET["result"];
-                                                                    } ?>
-                                                                    <input type="submit" class="btnRegister" value="Edit Course" />
+                                                                    <!-- <?php if (isset($_GET["result"])) {
+                                                                                echo $_GET["result"];
+                                                                            } ?> !-->
+                                                                    <div id="editMessage"></div>
+                                                                    <input type="submit" class="btnRegister" value="Edit Course" onClick="editCourse()" />
 
                                                                 </div>
 
@@ -138,6 +139,25 @@ $class = $Admin->getClassById();
         </div>
     </div>
     </div>
+    <script>
+        function editCourse() {
+            var data = {
+
+                class: $("#ClassName").val(),
+                semester: $("#Semester").val(),
+                course: $("#Course").val(),
+                teacher: $("#Teacher").val(),
+                schedule: $("#Schedule").val(),
+            };
+            $.post("../Controller/Registration.php", data, function(result) {
+                $("#editMessage").html(result.Message);
+                setTimeout(() => {
+                    $("#editMessage").html(" ");
+                }, 4000);
+            });
+
+        }
+    </script>
 
     <?php
     require_once('Footer.php');

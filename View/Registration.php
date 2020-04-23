@@ -136,10 +136,9 @@ $class = $Admin->getClasses();
 
                                                 </select>
                                             </div>
-                                            <?php if (isset($_GET["result"])) {
-                                                echo $_GET["result"];
-                                            } ?>
-                                            <input type="submit" class="btnRegister" value="Register" />
+                                            <div class="form-group" id="courseMessage">
+                                            </div>
+                                            <input type="submit" class="btnRegister" value="Register" onClick="createCourse()" />
 
                                         </div>
 
@@ -192,7 +191,24 @@ $class = $Admin->getClasses();
 
             </div>
         </div>
+        <script>
+            function createCourse() {
+                var data = {
+                    class: $("#Classname").val(),
+                    semester: $("#semester").val(),
+                    course: $("#Course").val(),
+                    teacher: $("#teacher").val(),
+                    schedule: $("#schedule").val(),
+                };
+                $.post("../Controller/Verify_insert_course.php", data, function(result) {
+                    $("#courseMessage").html(result.Message);
+                    setTimeout(() => {
+                        $("#courseMessage").html(" ");
+                    }, 4000);
+                });
 
+            }
+        </script>
 
         <?php
         require_once('Footer.php'); ?>
