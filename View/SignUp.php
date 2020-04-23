@@ -49,7 +49,7 @@ require_once('Header.php');
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" placeholder="Password*" id="TPassword" aria-label=" Recipient's username" aria-describedby="button-addon2">
                                             <div class="input-group-append">
-                                                <button class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'TPassword');" tabindex="2" type="button" id="button-addon2">Generate</button>
+                                                <input class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'TPassword');" tabindex="2" type="button" id="button-addon1"/>
                                             </div>
                                         </div>
                                     </div>
@@ -87,12 +87,7 @@ require_once('Header.php');
                                         <div class="input-group mb-3">
                                             <input type="text" class="form-control" placeholder="Password*" id="SPassword" aria-label=" Recipient's username" aria-describedby="button-addon2">
                                             <div class="input-group-append">
-                                                <button class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2" type="sButton" id="button-addon2">Generate</button>
-                                            </div>
-                                            <div class="spinner-border text-primary" role="status" id="loader">
-                                                <span class="sr-only">Loading...</span>
-                                            </div>
-                                        </div>
+                                                <input class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'SPassword');" tabindex="2"  type="button" id="button-addon2" />                                        </div>
                                     </div>
                                     <div class="form-group" id="studentMessage">
                                     </div>
@@ -134,9 +129,7 @@ require_once('Header.php');
             };
             $.post("../Controller/Verify_SignUpStudent.php", data, function(result) {
 
-                $("#Message").html(result.Message);
-
-                $("#studentMessage").html(result.Message);
+                 $("#studentMessage").html(result.Message);
                 setTimeout(() => {
                     $("#studentMessage").html(" ");
                 }, 4000);
@@ -153,10 +146,20 @@ require_once('Header.php');
                 TPassword: $("#TPassword").val(),
                 TEmail: $("#TEmail").val()
             };
-            $.post("../Controller/Verify_SignUpTeacher.php", data, function(result) {
-
-
-                $("#Message").html(result.Message);
+            var email = $("#TEmail").val();
+            var pass = $("#TPassword").val();
+            
+            $.post("../Controller/Verify_SignUpTeacher.php", data, function(result,email,pass) {
+                    /*if(result.Message=="Successfully Added"){
+                         var subject = "Password";
+                         var emailBody ="Your password is : "+pass+" ";
+                         die(json_encode(emailBody));
+                         document.getElementById("Message").innerHTML=emailBody;
+                         window.location = 'mailto:' + email + '?subject=' + subject + '&body=' +   emailBody;
+                    }
+                   /* var txt = {"email":email, "subject" = "Password", "emailBody" = "Your password is : "+pass+" "}
+                         var obj = JSON.parse(txt);*/
+               $("#Message").html(result.Message);
                 setTimeout(() => {
                     $("#Message").html(" ");
                 }, 4000);
