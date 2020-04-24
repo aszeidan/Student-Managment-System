@@ -137,7 +137,7 @@ $class = $Admin->getClasses();
                                             </div>
                                             <div class="form-group" id="courseMessage">
                                             </div>
-                                            <input type="submit" class="btnRegister" value="Register" onClick="createCourse()" />
+                                            <input type="submit" class="btnRegister" id="registerButton" value="Register" />
 
                                         </div>
 
@@ -191,23 +191,23 @@ $class = $Admin->getClasses();
             </div>
         </div>
         <script>
-            function createCourse() {
+            document.getElementById("registerButton").addEventListener("click", function(event) {
+                event.preventDefault();
                 var data = {
-                    class: $("#Classname").val(),
+                    Classname: $("#Classname").val(),
                     semester: $("#semester").val(),
-                    course: $("#Course").val(),
+                    Course: $("#Course").val(),
                     teacher: $("#teacher").val(),
                     schedule: $("#schedule").val(),
                 };
-                $.post("../Controller/Verify_insert_course.php", data, function(result) {
+
+                $.post("../Controller/Verify_Insert_Course.php", data, function(result) {
                     $("#courseMessage").html(result.Message);
                     setTimeout(() => {
                         $("#courseMessage").html(" ");
                     }, 4000);
                 });
-
-
-            }
+            });
         </script>
 
         <?php

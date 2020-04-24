@@ -59,15 +59,15 @@ $class = $Admin->getClassById();
                                                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                                         <h3 class="register-heading">Registration Form <?php echo $id;  ?></h3>
 
-                                                        <form action="../Controller/Verify_Insert_Course.php" method="POST">
+                                                        <form action="../Controller/Verify_Insert_Course.php" method="POST" class="form" id="form">
                                                             <div class="row register-form mx-0 px-0 col-md-12">
                                                                 <div class="centering col-md-6">
                                                                     <div class="form-group">
-                                                                        <input type="text" class="form-control" name="Classname" placeholder="Classname" value="" required>
+                                                                        <input type="text" class="form-control" id="Classname" name="Classname" placeholder="Classname" value="<?php echo $className ?>" required>
 
                                                                     </div>
                                                                     <div class="form-group">
-                                                                        <select class="custom-select" name="semester" required>
+                                                                        <select class="custom-select" name="semester" id="semester" required>
                                                                             <option disabled value="" selected hidden>Select Semester</option>
                                                                             <?php
                                                                             for ($i = 0; $i < count($semester); $i++) {
@@ -79,7 +79,7 @@ $class = $Admin->getClassById();
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group">
-                                                                        <select class="custom-select" name="Course" required>
+                                                                        <select class="custom-select" name="Course" id="Course" required>
                                                                             <option disabled value="" selected hidden>Select Course</option>
                                                                             <?php
                                                                             for ($i = 0; $i < count($course); $i++) {
@@ -91,7 +91,7 @@ $class = $Admin->getClassById();
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group">
-                                                                        <select class="custom-select" name="teacher" required>
+                                                                        <select class="custom-select" name="teacher" id="teacher" required>
                                                                             <option disabled value="" selected hidden>Select Instructor</option>
                                                                             <?php
                                                                             for ($i = 0; $i < count($teacher); $i++) {
@@ -104,7 +104,7 @@ $class = $Admin->getClassById();
                                                                         </select>
                                                                     </div>
                                                                     <div class="form-group">
-                                                                        <select class="custom-select" name="schedule" required>
+                                                                        <select class="custom-select" name="schedule" id="schedule" required>
                                                                             <option disabled value="" selected hidden>Schedule Time</option>
                                                                             <?php
                                                                             for ($i = 0; $i < count($schedule); $i++) {
@@ -119,7 +119,7 @@ $class = $Admin->getClassById();
                                                                                 echo $_GET["result"];
                                                                             } ?> !-->
                                                                     <div id="editMessage"></div>
-                                                                    <input type="submit" class="btnRegister" value="Edit Course" onClick="editCourse()" />
+                                                                    <input type="submit" class="btnRegister" value="Edit Course" id="editButton" />
 
                                                                 </div>
 
@@ -140,23 +140,23 @@ $class = $Admin->getClassById();
     </div>
     </div>
     <script>
-        function editCourse() {
+        document.getElementById("editButton").addEventListener("click", function(event) {
+            event.preventDefault();
             var data = {
-
-                class: $("#ClassName").val(),
-                semester: $("#Semester").val(),
-                course: $("#Course").val(),
-                teacher: $("#Teacher").val(),
-                schedule: $("#Schedule").val(),
+                Classname: $("#Classname").val(),
+                semester: $("#semester").val(),
+                Course: $("#Course").val(),
+                teacher: $("#teacher").val(),
+                schedule: $("#schedule").val(),
             };
-            $.post("../Controller/Registration.php", data, function(result) {
+
+            $.post("../Controller/Verify_Insert_Course.php", data, function(result) {
                 $("#editMessage").html(result.Message);
                 setTimeout(() => {
                     $("#editMessage").html(" ");
                 }, 4000);
             });
-
-        }
+        });
     </script>
 
     <?php

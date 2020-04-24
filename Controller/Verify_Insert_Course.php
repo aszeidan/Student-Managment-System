@@ -20,7 +20,8 @@ try {
         || !isset($_POST["schedule"])
     ) {
         $result["Error"] = 1;
-        $result["Message"] = "missing parameter";
+        $result["Message"] ="Missing Paramaeter";
+
         die(json_encode($result));
     } elseif (
         !$_POST["Classname"]
