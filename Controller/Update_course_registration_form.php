@@ -10,6 +10,28 @@ require_once('../Model/Admin.php');
 $db = new DatabaseSMS();
 $Admin = new Admin($db);
 $result = array();
+if (
+    isset($_POST["Classname"])
+    || isset($_POST["semester"])
+    || isset($_POST["Course"])
+    || isset($_POST["teacher"])
+    || isset($_POST["schedule"])
+) {
+    $result["Error"] = 1;
+    $result["Message"] = "missing parameter";
+    die(json_encode($result));
+} elseif (
+    $_POST["Classname"]
+    || $_POST["semester"]
+    || $_POST["Course"]
+    || $_POST["teacher"]
+    || $_POST["schedule"]
+) {
+    $result["Error"] = 1;
+    $result["Message"] = "empty value";
+    die(json_encode($result));
+}
+
 
 $semester = $Admin->getSemesters();
 $course = $Admin->getCourses();

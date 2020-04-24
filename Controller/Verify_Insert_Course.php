@@ -19,8 +19,21 @@ try {
         || !isset($_POST["teacher"])
         || !isset($_POST["schedule"])
     ) {
-        die("Missing Parameters");
+        $result["Error"] = 1;
+        $result["Message"] = "missing parameter";
+        die(json_encode($result));
+    } elseif (
+        !$_POST["Classname"]
+        || !$_POST["semester"]
+        || !$_POST["Course"]
+        || !$_POST["teacher"]
+        || !$_POST["schedule"]
+    ) {
+        $result["Error"] = 1;
+        $result["Message"] = "empty value";
+        die(json_encode($result));
     }
+
     $class = $_POST["Classname"];
     $semester = $_POST["semester"];
     $course = $_POST["Course"];
