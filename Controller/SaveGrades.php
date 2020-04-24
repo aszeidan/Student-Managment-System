@@ -13,7 +13,7 @@ $SAssignemetGrade = $_POST["SAssignemetGrade"];
 $SFinalGrade = $_POST["SFinalGrade"];
 $RegistrationId = $_POST["RegistrationId"];
 
-
+//check if there's a change on the text box of each grade, or still empty: if not empty save it, if empty dont do anything
 if($SMidtermGrade){
 	$Teacher->setMidtermGrade($SMidtermGrade, $RegistrationId);
 }

@@ -38,14 +38,16 @@ $class = $Admin->getClasses();
 			);
    });
 }); */
-
+// AJx function to delete class.
     function deleteClass(classID) {
         $.get("../Controller/Check_course_registration_form.php?id=" + classID, function(data, status) {
             var myResult = data;
+			//check if the choosen class has student regsitered on it
+			//if no
             if (myResult.error == 0) {
                 if (myResult.result == 1) {
                     alert("The class is deleted");
-                } else {
+                } else { //if yes
                     var answer = confirm("There are has been registred in this class, Are you sure you want to delete this class");
                     if (answer) {
                         $.get("../Controller/Delete_course_registration_form.php?id=" + classID, function(data, status) {});

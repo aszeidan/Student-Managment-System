@@ -14,6 +14,7 @@ $courses = $Teacher->getStudentByClass($_GET["ClassID"]);
 
 ?>
 <script>
+//ajax function that save grades of each student enrolled on the choosen class
 	function saveGrades(RegistrationId) {
 		var data = {
 			RegistrationId: RegistrationId,
