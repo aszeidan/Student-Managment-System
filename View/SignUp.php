@@ -146,8 +146,6 @@ require_once('Header.php');
                 TEmail: $("#TEmail").val()
             };
             $.post("../Controller/Verify_SignUpTeacher.php", data, function(result) {
-
-
                 $("#teacherMessage").html(result.Message);
                 setTimeout(() => {
                     $("#teacherMessage").html(" ");

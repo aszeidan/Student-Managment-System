@@ -63,4 +63,3 @@ if ($Student->checkStudentIfExists() == true) {
                 "CC: somebodyelse@example.com";
     mail($to,$subject,$txt,$headers);*/
 }
-?>
