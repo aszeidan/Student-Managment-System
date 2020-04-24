@@ -16,12 +16,16 @@ $courses = $Teacher->getStudentByClass($_GET["ClassID"]);
 <script>
 //ajax function that save grades of each student enrolled on the choosen class
 	function saveGrades(RegistrationId) {
-		var data = {
-			RegistrationId: RegistrationId,
-			SMidtermGrade: $("#SMidtermGrade_" + RegistrationId).val(),
-			SAssignemetGrade: $("#SAssignemetGrade_" + RegistrationId).val(),
-			SFinalGrade: $("#SFinalGrade_" + RegistrationId).val(),
-		};
+		if ($("#SMidtermGrade_" + RegistrationId).val()>30 || $("#SAssignemetGrade_" + RegistrationId).val()>20 || $("#SFinalGrade_" + RegistrationId).val()){
+			alert("The Midterm Grade should be less than 30, Assignemet Grade should be less than 20, and the Final Grade should be less than 50");
+			}else{
+			var data = {
+				RegistrationId: RegistrationId,
+				SMidtermGrade: $("#SMidtermGrade_" + RegistrationId).val(),
+				SAssignemetGrade: $("#SAssignemetGrade_" + RegistrationId).val(),
+				SFinalGrade: $("#SFinalGrade_" + RegistrationId).val(),
+			};
+		}
 
 		$.post("../Controller/SaveGrades.php", data, function(result, status) {
 
@@ -32,7 +36,7 @@ $courses = $Teacher->getStudentByClass($_GET["ClassID"]);
 			setTimeout(() => {
 				$("#GradeMessage").html(" ");
 			}, 4000);
-
+		location.reload();
 
 		});
 	}

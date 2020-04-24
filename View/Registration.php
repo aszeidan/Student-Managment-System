@@ -37,7 +37,7 @@ $class = $Admin->getClasses();
 			);
    });
 }); */
-// AJx function to delete class.
+// AJax function to delete class.
     function deleteClass(classID) {
         $.get("../Controller/Check_course_registration_form.php?id=" + classID, function(data, status) {
             var myResult = data;

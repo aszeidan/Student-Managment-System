@@ -23,6 +23,7 @@ $class = $Admin->getClasses();
 
 ?>
 
+
 <body>
     <div class=" register">
         <div class="row">
@@ -63,9 +64,9 @@ $class = $Admin->getClasses();
                                     ?>
                                         <tr>
                                             <td><?php echo $class[$i]['TFirstName'] . " " . $class[$i]['TLastName']; ?> </td>
-                                            <td><?php echo $class[$i]['Email']; ?> </td>
-                                            <td><?php echo $class[$i]['Number']; ?> </td>
-                                            <td><?php echo $class[$i]['courses']; ?> </td>
+                                            <td><?php echo $class[$i]['TEmail']; ?> </td>
+                                            <td><?php echo $class[$i]['TMobileNum']; ?> </td>
+                                            <td><?php echo $class[$i]['CourseName'] ."/" .$class[$i]['SName'] ; ?> </td>
                                             <td id="delete"><a href="#" ; onclick="deleteClass(<?php echo $class[$i]['ClassId']; ?> )">Delete </a> </td>
                                             <td><a href="../View/EditCourse.php?id=<?php echo $class[$i]['ClassId']; ?>">Edit </a> </td>
                                         </tr> <?php } ?>
