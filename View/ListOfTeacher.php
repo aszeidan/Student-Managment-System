@@ -46,7 +46,7 @@ $class = $Admin->getClasses();
                 </ul>
                 <div class="row col-md-2">
                     <ul>
-                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="#">Previous</a></li>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="Choose_Directory.php">Previous</a></li>
                     </ul>
                 </div>
                 <div class="tab-content" id="myTabContent">
@@ -62,6 +62,8 @@ $class = $Admin->getClasses();
                                         <th> Teacher's Email</th>
                                         <th> Teacher's PhoneNumber</th>
                                         <th> Courses/Semester</th>
+                                        <th> Delete </th>
+                                        <th> Edit </th>
                                     </thead>
                                     </span>
                                     <?php
