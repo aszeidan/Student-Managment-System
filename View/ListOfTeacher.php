@@ -23,6 +23,7 @@ $class = $Admin->getClasses();
 
 ?>
 
+
 <body>
     <div class=" register">
         <div class="row">
@@ -43,12 +44,17 @@ $class = $Admin->getClasses();
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Table</a>
                     </li>
                 </ul>
+                <div class="row col-md-2">
+                    <ul>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="#">Previous</a></li>
+                    </ul>
+                </div>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class=" register-form">
 
                             <div class="form-group">
-                                <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
+                                <table border ="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
 
                                     <thead class="table-primary">
 
@@ -63,9 +69,9 @@ $class = $Admin->getClasses();
                                     ?>
                                         <tr>
                                             <td><?php echo $class[$i]['TFirstName'] . " " . $class[$i]['TLastName']; ?> </td>
-                                            <td><?php echo $class[$i]['Email']; ?> </td>
-                                            <td><?php echo $class[$i]['Number']; ?> </td>
-                                            <td><?php echo $class[$i]['courses']; ?> </td>
+                                            <td><?php echo $class[$i]['TEmail']; ?> </td>
+                                            <td><?php echo $class[$i]['TMobileNum']; ?> </td>
+                                            <td><?php echo $class[$i]['CourseName'] ."/" .$class[$i]['SName'] ; ?> </td>
                                             <td id="delete"><a href="#" ; onclick="deleteClass(<?php echo $class[$i]['ClassId']; ?> )">Delete </a> </td>
                                             <td><a href="../View/EditCourse.php?id=<?php echo $class[$i]['ClassId']; ?>">Edit </a> </td>
                                         </tr> <?php } ?>

@@ -14,13 +14,18 @@ $courses = $Teacher->getStudentByClass($_GET["ClassID"]);
 
 ?>
 <script>
+//ajax function that save grades of each student enrolled on the choosen class
 	function saveGrades(RegistrationId) {
-		var data = {
-			RegistrationId: RegistrationId,
-			SMidtermGrade: $("#SMidtermGrade_" + RegistrationId).val(),
-			SAssignemetGrade: $("#SAssignemetGrade_" + RegistrationId).val(),
-			SFinalGrade: $("#SFinalGrade_" + RegistrationId).val(),
-		};
+		if ($("#SMidtermGrade_" + RegistrationId).val()>30 || $("#SAssignemetGrade_" + RegistrationId).val()>20 || $("#SFinalGrade_" + RegistrationId).val()){
+			alert("The Midterm Grade should be less than 30, Assignemet Grade should be less than 20, and the Final Grade should be less than 50");
+			}else{
+			var data = {
+				RegistrationId: RegistrationId,
+				SMidtermGrade: $("#SMidtermGrade_" + RegistrationId).val(),
+				SAssignemetGrade: $("#SAssignemetGrade_" + RegistrationId).val(),
+				SFinalGrade: $("#SFinalGrade_" + RegistrationId).val(),
+			};
+		}
 
 		$.post("../Controller/SaveGrades.php", data, function(result, status) {
 
@@ -31,7 +36,7 @@ $courses = $Teacher->getStudentByClass($_GET["ClassID"]);
 			setTimeout(() => {
 				$("#GradeMessage").html(" ");
 			}, 4000);
-
+		location.reload();
 
 		});
 	}
@@ -52,69 +57,76 @@ $courses = $Teacher->getStudentByClass($_GET["ClassID"]);
 
 				<div class="tab-content" id="myTabContent">
 					<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
-						</ul>
 						<div class="tab-content" id="myTabContent">
 							<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 								<h3 class="register-heading">Registred Students</h3>
 
 								<form action="../Controller/SaveGrades.php" method="POST">
+									<div class="row col-md-2">
+										<ul>
+											<li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="#">Previous</a></li>
+										</ul>
+									</div>
+									<div class=" register-form">
 
-									<div class="row register-form mx-0 px-0">
-										<div class="col-md-12">
-											<table border="5" class="table-hover table-bordered width:fit content" id="Registration_table">
+										<div class="form-group">
+											<div class="row register-form mx-0 px-0">
+												<div class="col-md-12">
+													<table border="5" class="table-hover table-bordered width:fit content" id="Registration_table">
 
-												<thead class="table-primary">
-													<th> Student Id </th>
-													<th> Student Name </th>
-													<th> Midterm grade 30% </th>
-													<th> Assignemet Grade 20%</th>
-													<th> Final Grade 50% </th>
-													<th> Grade </th>
-													<th> Save </th>
-												</thead>
-												</span>
-												<?php
-												for ($i = 0; $i < count($courses); $i++) {
-												?>
-													<tr>
-														<td><?php echo $courses[$i]['StudentId']; ?> </td>
-														<td><?php echo $courses[$i]['SFirstName'] . " " . $courses[$i]['SMiddleName'] . " " . $courses[$i]['SLastName']; ?> </td>
+														<thead class="table-primary">
+															<th> Student Id </th>
+															<th> Student Name </th>
+															<th> Midterm grade 30% </th>
+															<th> Assignemet Grade 20%</th>
+															<th> Final Grade 50% </th>
+															<th> Grade </th>
+															<th> Save </th>
+														</thead>
+														</span>
 														<?php
-														if ($courses[$i]['MidtermGrade'] != 0) { ?>
-															<td name="SMidtermGrade" id="SMidtermGrade_<?php echo $courses[$i]['RegistrationId']; ?>"><?php echo $courses[$i]['MidtermGrade']; ?> </td>
-														<?php
-														} else { ?>
-															<td> <input type="text" name="SMidtermGrade" id="SMidtermGrade_<?php echo $courses[$i]['RegistrationId']; ?>" value=""></td>
-														<?php
-														}
-														if ($courses[$i]['AssignemetGrade'] != 0) { ?>
-															<td name="SAssignemetGrade" id="SAssignemetGrade_<?php echo $courses[$i]['RegistrationId']; ?>"><?php echo $courses[$i]['AssignemetGrade']; ?> </td>
-														<?php
-														} else { ?>
-															<td><input type="text" name="SAssignemetGrade" id="SAssignemetGrade_<?php echo $courses[$i]['RegistrationId']; ?>" value=""></td>
-														<?php
-														}
-														if ($courses[$i]['FinalGrade'] != 0) { ?>
-															<td name="SFinalGrade" id="SFinalGrade_<?php echo $courses[$i]['RegistrationId']; ?>"><?php echo $courses[$i]['FinalGrade']; ?> </td>
-														<?php
-														} else { ?>
-															<td><input type="text" name="SFinalGrade" id="SFinalGrade_<?php echo $courses[$i]['RegistrationId']; ?>" value=""></td>
-														<?php
-														}
+														for ($i = 0; $i < count($courses); $i++) {
 														?>
-														<td><?php echo $courses[$i]['Grade']; ?> </td>
+															<tr>
+																<td><?php echo $courses[$i]['StudentId']; ?> </td>
+																<td><?php echo $courses[$i]['SFirstName'] . " " . $courses[$i]['SMiddleName'] . " " . $courses[$i]['SLastName']; ?> </td>
+																<?php
+																if ($courses[$i]['MidtermGrade'] != 0) { ?>
+																	<td name="SMidtermGrade" id="SMidtermGrade_<?php echo $courses[$i]['RegistrationId']; ?>"><?php echo $courses[$i]['MidtermGrade']; ?> </td>
+																<?php
+																} else { ?>
+																	<td> <input type="text" name="SMidtermGrade" id="SMidtermGrade_<?php echo $courses[$i]['RegistrationId']; ?>" value=""></td>
+																<?php
+																}
+																if ($courses[$i]['AssignemetGrade'] != 0) { ?>
+																	<td name="SAssignemetGrade" id="SAssignemetGrade_<?php echo $courses[$i]['RegistrationId']; ?>"><?php echo $courses[$i]['AssignemetGrade']; ?> </td>
+																<?php
+																} else { ?>
+																	<td><input type="text" name="SAssignemetGrade" id="SAssignemetGrade_<?php echo $courses[$i]['RegistrationId']; ?>" value=""></td>
+																<?php
+																}
+																if ($courses[$i]['FinalGrade'] != 0) { ?>
+																	<td name="SFinalGrade" id="SFinalGrade_<?php echo $courses[$i]['RegistrationId']; ?>"><?php echo $courses[$i]['FinalGrade']; ?> </td>
+																<?php
+																} else { ?>
+																	<td><input type="text" name="SFinalGrade" id="SFinalGrade_<?php echo $courses[$i]['RegistrationId']; ?>" value=""></td>
+																<?php
+																}
+																?>
+																<td><?php echo $courses[$i]['Grade']; ?> </td>
 
-														<td id="SaveGrades"><a href="#" ; onclick="saveGrades(<?php echo $courses[$i]['RegistrationId']; ?>)">Save </a> </td>
-														<td>
-															<div class="form-group" id="GradeMessage">
-															</div>
-														</td>
-													</tr>
-												<?php } ?>
-											</table>
-											<div class="form-group">
-												<input type="submit" class="btnRegister" value="Back" />
+																<td id="SaveGrades"><a href="#" ; onclick="saveGrades(<?php echo $courses[$i]['RegistrationId']; ?>)">Save </a> </td>
+																<td>
+																	<div class="form-group" id="GradeMessage">
+																	</div>
+																</td>
+															</tr>
+														<?php } ?>
+													</table>
+													<div class="form-group">
+														<input type="submit" class="btnRegister" value="Back" />
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>

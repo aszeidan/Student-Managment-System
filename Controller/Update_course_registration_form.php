@@ -10,6 +10,17 @@ require_once('../Model/Admin.php');
 $db = new DatabaseSMS();
 $Admin = new Admin($db);
 $result = array();
+if (
+    !$_POST["Classname"]
+    || !$_POST["semester"]
+    || !$_POST["Course"]
+    || !$_POST["teacher"]
+    || !$_POST["schedule"]
+) {
+    $result["Error"] = 1;
+    $result["Message"] = "empty value";
+    die(json_encode($result));
+}
 
 $semester = $Admin->getSemesters();
 $course = $Admin->getCourses();
@@ -33,7 +44,7 @@ $Admin->setSchedule($scheduleId);
 
 if ($Admin->updateClass() == true) {
     $result["Error"] = 0;
-    $result["Message"] = "Nothing Changed";
+    $result["Message"] = "Already Exist";
     die(json_encode($result));
 } else {
     $updateClass = $Admin->updateClass();

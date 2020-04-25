@@ -64,4 +64,3 @@ if ($Student->checkStudentIfExists() == true) {
     die(json_encode($result));
     
 }
-?>
