@@ -54,7 +54,7 @@ $class = $Admin->getClasses();
                         <div class=" register-form">
 
                             <div class="form-group">
-                                <table border ="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
+                                <table style="border=5;" class="table table-hover table-bordered width:fit content" id="Registration_table">
 
                                     <thead class="table-primary">
 
