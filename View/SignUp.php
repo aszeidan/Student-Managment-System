@@ -21,6 +21,11 @@ require_once('Header.php');
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Student</a>
                     </li>
                 </ul>
+                <div class="row col-md-2">
+                    <ul>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="#">Previous</a></li>
+                    </ul>
+                </div>
                 <form action="../Controller/Verify_SignUpTeacher.php" method="POST">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" name="teacher" aria-labelledby="home-tab">

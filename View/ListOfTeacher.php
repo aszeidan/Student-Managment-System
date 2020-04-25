@@ -43,12 +43,17 @@ $class = $Admin->getClasses();
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Table</a>
                     </li>
                 </ul>
+                <div class="row col-md-2">
+                    <ul>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="#">Previous</a></li>
+                    </ul>
+                </div>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class=" register-form">
 
                             <div class="form-group">
-                                <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
+                                <table border ="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
 
                                     <thead class="table-primary">
 

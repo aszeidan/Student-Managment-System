@@ -48,7 +48,7 @@ $Teacher = new Teacher($db);
                                 <h3 class="register-heading">Teacher Profile</h3>
 
                                 <form action="Insert_Teacher.php" method="POST">
-                                    <div class="row register-form mx-0 px-0">
+                                    <div class="row register-form mx-0 px-0 center">
                                         <div class="col-md-6">
 
                                             <div class="form-group">
