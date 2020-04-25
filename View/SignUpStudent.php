@@ -93,9 +93,10 @@ $class = $Admin->getClasses();
 
                                                 <thead class="table-primary">
 
-                                                    <th> Instructor </th>
+                                                    <th> Name </th>
                                                     <th> Phone Number</th>
                                                     <th> Email </th>
+                                                    <th> Major </th>
                                                     <th>Delete </th>
                                                     <th> Edit </th>
                                                 </thead>
@@ -104,9 +105,9 @@ $class = $Admin->getClasses();
                                                 for ($i = 0; $i < count($class); $i++) {
                                                 ?>
                                                     <tr>
-                                                        <td><?php echo $class[$i]['TFirstName'] . " " . $class[$i]['TLastName']; ?> </td>
-                                                        <td><?php echo $class[$i]['TMobileNum']; ?> </td>
-                                                        <td><?php echo $class[$i]['TEmail']; ?> </td>
+                                                        <td><?php echo $class[$i]['SFirstName'] . " " . $class[$i]['SLastName']; ?> </td>
+                                                        <td><?php echo $class[$i]['SPhone']; ?> </td>
+                                                        <td><?php echo $class[$i]['SEmail']; ?> </td>
                                                         <td id="delete"><a href="#" ; onclick="deleteClass(<?php echo $class[$i]['ClassId']; ?> )">Delete </a> </td>
                                                         <td><a href="../View/EditTeacher.php?id=<?php echo $class[$i]['ClassId']; ?>">Edit </a> </td>
                                                     </tr> <?php } ?>
