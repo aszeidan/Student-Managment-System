@@ -33,7 +33,7 @@ require_once('Header.php');
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="button" class="btnRegister" value="List Of Teachers" onClick="window.location.href='SignUp.php';" tabindex="2">
+                                    <input type="button" class="btnRegister" value="List Of Teachers" onClick="window.location.href='ListOfTeacher.php';" tabindex="2">
                                 </div>
                             </div>
                             <div class="col-md-6">
