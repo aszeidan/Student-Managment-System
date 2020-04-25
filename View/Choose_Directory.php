@@ -28,12 +28,12 @@ require_once('Header.php');
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="button" class="btnRegister" value="SignUp" onClick="window.location.href='SignUp.php';" tabindex="2">
+                                    <input type="button" class="btnRegister" value="SignUpStudent" onClick="window.location.href='SignUpStudent.php';" tabindex="2">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="button" class="btnRegister" value="List Of Teachers" onClick="window.location.href='ListOfTeacher.php';" tabindex="2">
+                                    <input type="button" class="btnRegister" value="SignUpTeacher" onClick="window.location.href='SignUpTeacher.php';" tabindex="2">
                                 </div>
                             </div>
                             <div class="col-md-6">
