@@ -174,7 +174,7 @@ class Admin
         return $result;
     }
 
-
+// check if the class has students registered on it.. 
     function isThereDependencies()
     {
         $query  = "SELECT * from registration where ClassId=" . $this->del_id;
@@ -187,6 +187,7 @@ class Admin
             return False;
         }
     }
+	
     function deleteClassById()
     {
         // to delete the registration of a student on the requested class
@@ -198,7 +199,43 @@ class Admin
         $result2 = $this->dbconnect->executeQuery();
         return $result2;
     }
+// Check if the teacher has enrolled to teach a class
+    function isThereTeacherDependencies()
+    {
+        $query  = "SELECT * from class where TeacherId=" . $this->del_id;
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
 
+        if (count($result) > 0) {
+            return True;
+        } else {
+            return False;
+        }
+    }
+	 function getAllTeachers()
+    {
+        $query =  'select * from teacher ';
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
+    }
+	function deleteTeacherById()
+    {
+        // to delete the teacher enrollement of a course 
+        $query1  = "Select * from class where TeacherId=" . $this->del_id;
+        $this->dbconnect->setQuery($query1);
+        $result1 = $this->dbconnect->executeQuery();
+		for($i=0; $i<=count($result1); $i++)
+		{
+			 $query2  = "DELETE from registration where ClassId=" . $result1[$i]['ClassId'];
+		 $this->dbconnect->setQuery($query2);
+        $result2 = $this->dbconnect->executeQuery();
+		}
+		$query3 =  "DELETE from teacher where TeacherId=" . $this->del_id;
+        $this->dbconnect->setQuery($query3);
+        $result3 = $this->dbconnect->executeQuery();
+        return $result3;
+    }
     function addClass()
     {
         $query =  "INSERT INTO class  (`ClassId`, `ClassName`, `SemesterId`, `CourseId`, `TeacherId`, `ScheduleId`) values (NULL,'" . $this->class . "','" . $this->semester . "','" . $this->course . "','" . $this->teacher . "','" . $this->schedule . "')";
