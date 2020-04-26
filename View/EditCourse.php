@@ -128,55 +128,17 @@ $class = $Admin->getClassById();
                                 </form>
                             </div>
                         </div>
-                    </div>
-                    <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <h3 class="register-heading">Table</h3>
-                        <div class=" register-form">
 
-                            <div class="form-group">
-                                <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
-
-                                    <thead class="table-primary">
-
-                                        <th> Class Name </th>
-                                        <th> Semester </th>
-                                        <th> Course </th>
-                                        <th> Instructor </th>
-                                        <th> Schedule </th>
-                                        <th>Delete </th>
-                                        <th> Edit </th>
-
-
-                                    </thead>
-                                    </span>
-                                    <?php
-                                    for ($i = 0; $i < count($class); $i++) {
-                                    ?>
-                                        <tr>
-                                            <td><?php echo $class[$i]['ClassName']; ?> </td>
-                                            <td><?php echo $class[$i]['SName']; ?> </td>
-                                            <td><?php echo $class[$i]['CourseName']; ?> </td>
-                                            <td><?php echo $class[$i]['TFirstName'] . " " . $class[$i]['TLastName']; ?> </td>
-                                            <td><?php echo $class[$i]['Time']; ?> </td>
-                                            <td id="delete"><a href="#" ; onclick="deleteClass(<?php echo $class[$i]['ClassId']; ?> )">Delete </a> </td>
-                                            <td><a href="../View/EditCourse.php?id=<?php echo $class[$i]['ClassId']; ?>">Edit </a> </td>
-                                        </tr> <?php } ?>
-                                </table>
-                            </div>
-
-                        </div>
                     </div>
 
                 </div>
             </div>
         </div>
-    </div>
-    </div>
 
 
+
     </div>
-    </div>
-    </div>
+
     <script>
         document.getElementById("editButton").addEventListener("click", function(event) {
             event.preventDefault();

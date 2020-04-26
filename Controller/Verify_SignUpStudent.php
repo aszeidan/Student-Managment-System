@@ -56,5 +56,4 @@ if ($Student->checkStudentIfExists() == true) {
     $result["Error"] = 0;
     $result["Message"] = "Successfully Added";
     die(json_encode($result));
-    
 }

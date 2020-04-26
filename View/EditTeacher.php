@@ -12,6 +12,11 @@ $db = new DatabaseSMS();
 $Teacher = new Teacher($db);
 $teacher = $Teacher->getAllTeachers();
 
+
+// $id = $_GET["id"];
+// $teacher->getId($id);
+// $teacher = $Teacher->getId();
+
 ?>
 <script>
     function deleteTeacher(TeacherId) {
@@ -46,12 +51,6 @@ $teacher = $Teacher->getAllTeachers();
             </div>
             <div class="col-md-9 register-right">
                 <ul class="nav nav-tabs nav-justified" id="myTab" name="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Instructor</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Table</a>
-                    </li>
                 </ul>
                 <div class="row col-md-2">
                     <ul>
@@ -63,28 +62,37 @@ $teacher = $Teacher->getAllTeachers();
                         <div class="tab-pane fade show active" id="home" role="tabpanel" name="teacher" aria-labelledby="home-tab">
                             <h3 class="register-heading">Apply as a Teacher</h3>
                             <div class="row register-form mx-0 px-0">
+                                <?php
+                                $TFirstName = $teacher[0]["TFirstName"];
+                                $TMiddleName = $teacher[0]["TMiddleName"];
+                                $TLastName = $teacher[0]["TLastName"];
+                                $TMobileNum = $teacher[0]["TMobileNum"];
+                                $TPassword = $teacher[0]["TPassword"];
+                                $TEmail = $teacher[0]["TEmail"];
+
+                                ?>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="First Name *" id="TFirstName" value="" />
+                                        <input type="text" class="form-control" placeholder="First Name *" id="TFirstName" value="<?php echo $TFirstName ?>" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Middle Name *" id="TMiddleName" value="" />
+                                        <input type="text" class="form-control" placeholder="Middle Name *" id="TMiddleName" value="<?php echo $TMiddleName ?>" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Last Name *" id="TLastName" value="" />
+                                        <input type="text" class="form-control" placeholder="Last Name *" id="TLastName" value="<?php echo $TLastName ?>" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
 
                                     <div class="form-group">
-                                        <input type="text" minlength="8" maxlength="8" id="TPhone" class="form-control" placeholder="Your Phone *" value="" />
+                                        <input type="text" minlength="8" maxlength="8" id="TPhone" class="form-control" placeholder="Your Phone *" value="<?php echo $TMobileNum ?>" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Your Email *" id="TEmail" value="" />
+                                        <input type="email" class="form-control" placeholder="Your Email *" id="TEmail" value="<?php echo $TEmail ?>" />
                                     </div>
                                     <div class="form-group">
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Password*" id="TPassword" aria-label=" Recipient's username" aria-describedby="button-addon2">
+                                            <input type="text" class="form-control" placeholder="Password*" id="TPassword" value="<?php echo $TPassword ?>" aria-label=" Recipient's username" aria-describedby="button-addon2">
                                             <div class="input-group-append">
                                                 <input class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'TPassword');" tabindex="2" type="button" id="button-addon1" />
                                             </div>
@@ -92,46 +100,13 @@ $teacher = $Teacher->getAllTeachers();
                                     </div>
                                     <div class="form-group" id="teacherMessage">
                                     </div>
-                                    <input type="button" onClick="createTeacher()" class="btnRegister" name="signUpTeacher" value="Register" />
+                                    <input type="button" onClick="createTeacher()" class="btnRegister" name="signUpTeacher" value="Edit" />
 
                                 </div>
 
                             </div>
                         </div>
-                        <div class="tab-pane fade show" id="profile" role="tabpanel" name="student" aria-labelledby="profile-tab">
-                            <h3 class="register-heading">Registered Instructors</h3>
-                            <div class="row register-form mx-0 px-0">
-                                <div class="col-md-6">
-                                    <div class=" register-form">
-
-                                        <div class="form-group">
-                                            <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
-                                                <thead class="table-primary">
-
-                                                    <th> Name </th>
-                                                    <th> Email</th>
-                                                    <th> PhoneNumber</th>
-                                                    <th> Delete </th>
-                                                    <th> Edit </th>
-                                                </thead>
-                                                </span>
-                                                <?php
-                                                for ($i = 0; $i < count($teacher); $i++) {
-                                                ?>
-                                                    <tr>
-                                                        <td><?php echo $teacher[$i]['TFirstName'] . " " . $teacher[$i]['TLastName']; ?> </td>
-                                                        <td><?php echo $teacher[$i]['TEmail']; ?> </td>
-                                                        <td><?php echo $teacher[$i]['TMobileNum']; ?> </td>
-                                                        <td id="delete"><a href="#" ; onclick="deleteTeacher(<?php echo $teacher[$i]['TeacherId']; ?> )">Delete </a> </td>
-                                                        <td><a href="../View/EditTeacher.php?TeacherId=<?php echo $teacher[$i]['TeacherId']; ?>">Edit </a> </td>
-                                                    </tr> <?php } ?>
-                                            </table>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    </div>
                 </form>
             </div>
 
@@ -159,7 +134,7 @@ $teacher = $Teacher->getAllTeachers();
                 TFirstName: $("#TFirstName").val(),
                 TMiddleName: $("#TMiddleName").val(),
                 TLastName: $("#TLastName").val(),
-                TMobileNum: $("#TPhone").val(),
+                TPhone: $("#TPhone").val(),
                 TPassword: $("#TPassword").val(),
                 TEmail: $("#TEmail").val()
             };

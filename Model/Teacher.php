@@ -39,9 +39,9 @@ class Teacher
     {
         $this->TLastName = $TLastName;
     }
-    function setTPhone($TPhone)
+    function setTPhone($TMobileNum)
     {
-        $this->TPhone = $TPhone;
+        $this->TPhone = $TMobileNum;
     }
     function setTEmail($TEmail)
     {
@@ -52,6 +52,20 @@ class Teacher
         $this->TPassword = password_hash($TPassword, PASSWORD_BCRYPT);
     }
 
+    function updateTeacher()
+    {
+        $query = "UPDATE `teacher` SET `TeacherId`='{$this->id}',
+        `TFirstName`='{$this->TFirstName}',
+        `TMiddleName`='{$this->TMiddleName}',
+        `TLastName`='{$this->TLastName}',
+        `TEmail`='{$this->TEmail}',
+        `TMobileNum`='{$this->TMobileNum}',
+        `TPassword`='{$this->TPassword}'
+         WHERE `teacher`.
+         `TeacherId` = {$this->id};";
+        $this->dbconnect->setQuery($query);
+        $this->dbconnect->executeQuery();
+    }
     function verifyLogin()
     {
         $query = "SELECT * FROM teacher WHERE 

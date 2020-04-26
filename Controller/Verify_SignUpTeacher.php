@@ -13,7 +13,7 @@ if (
     !isset($_POST["TFirstName"])
     || !isset($_POST["TMiddleName"])
     || !isset($_POST["TLastName"])
-    || !isset($_POST["TPhone"])
+    || !isset($_POST["TMobileNum"])
     || !isset($_POST["TPassword"])
     || !isset($_POST["TEmail"])
 
@@ -25,7 +25,7 @@ if (
     !$_POST["TFirstName"]
     || !$_POST["TMiddleName"]
     || !$_POST["TLastName"]
-    || !$_POST["TPhone"]
+    || !$_POST["TMobileNum"]
     || !$_POST["TPassword"]
     || !$_POST["TEmail"]
 ) {
@@ -37,14 +37,14 @@ if (
 $TFirstName = $_POST["TFirstName"];
 $TMiddleName = $_POST["TMiddleName"];
 $TLastName = $_POST["TLastName"];
-$TPhone = $_POST["TPhone"];
+$TMobileNum= $_POST["TMobileNum"];
 $TPassword = $_POST["TPassword"];
 $TEmail = $_POST["TEmail"];
 
 $Teacher->setTFirstName($TFirstName);
 $Teacher->setTmiddleName($TMiddleName);
 $Teacher->setTLastName($TLastName);
-$Teacher->setTPhone($TPhone);
+$Teacher->setTPhone($TMobileNum);
 $Teacher->setTPassword($TPassword);
 $Teacher->setTEmail($TEmail);
 
