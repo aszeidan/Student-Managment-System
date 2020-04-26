@@ -190,7 +190,7 @@ class Admin
 	
     function deleteClassById()
     {
-        // to delete the registration of a student on the requested class
+     // to delete the registration of a student on the requested class
         $query1  = "DELETE from registration where ClassId=" . $this->del_id;
         $query2 =  "DELETE from class where ClassId=" . $this->del_id;
         $this->dbconnect->setQuery($query1);
@@ -205,7 +205,6 @@ class Admin
         $query  = "SELECT * from class where TeacherId=" . $this->del_id;
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
-
         if (count($result) > 0) {
             return True;
         } else {
@@ -221,20 +220,20 @@ class Admin
     }
 	function deleteTeacherById()
     {
-        // to delete the teacher enrollement of a course 
-        $query1  = "Select * from class where TeacherId=" . $this->del_id;
+     //Delete the registration of the students to the course assigned to the teacher who want to delete
+		$query1 = "Delete From registration Where ClassId In (Select ClassId From class WHERE TeacherId=" .$this->del_id.")";
+	//Delete the class assigned to the course's class.
+		$query2 = "DELETE FROM class where TeacherId=" .$this->del_id;
+	//Delete the Teacher.
+		$query3 = "DELETE FROM teacher where TeacherId=" .$this->del_id;
         $this->dbconnect->setQuery($query1);
         $result1 = $this->dbconnect->executeQuery();
-		for($i=0; $i<=count($result1); $i++)
-		{
-			 $query2  = "DELETE from registration where ClassId=" . $result1[$i]['ClassId'];
-		 $this->dbconnect->setQuery($query2);
+        $this->dbconnect->setQuery($query2);
         $result2 = $this->dbconnect->executeQuery();
-		}
-		$query3 =  "DELETE from teacher where TeacherId=" . $this->del_id;
-        $this->dbconnect->setQuery($query3);
-        $result3 = $this->dbconnect->executeQuery();
+		$this->dbconnect->setQuery($query3);
+        $result3= $this->dbconnect->executeQuery();
         return $result3;
+		
     }
     function addClass()
     {

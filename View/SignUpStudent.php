@@ -47,7 +47,7 @@ $class = $Admin->getClasses();
                 <form action="../Controller/Verify_SignUpStudent.php" method="POST">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" name="Student" aria-labelledby="home-tab">
-                            <h3 class="register-heading">Apply as a Students</h3>
+                            <h3 class="register-heading">Apply as a Student</h3>
                             <div class="row register-form mx-0 px-0">
                                 <div class="col-md-6">
                                     <div class="form-group">

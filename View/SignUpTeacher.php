@@ -26,7 +26,7 @@ function deleteTeacher(TeacherId) {
                 } else { //if yes
                     var answer = confirm("This teacher has been enrolled to teach a class do you really want to delete it?");
                     if (answer) {
-
+						$.get("../Controller/Delete_Teacher_course_registration_form.php?TeacherId=" + TeacherId, function(data, status) {});
 					}
                 }
             } else {
@@ -48,10 +48,10 @@ function deleteTeacher(TeacherId) {
             <div class="col-md-9 register-right">
                 <ul class="nav nav-tabs nav-justified" id="myTab" name="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Instructor</a>
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Teachers</a>
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Instructors</a>
                     </li>
                 </ul>
                 <div class="row col-md-2">
