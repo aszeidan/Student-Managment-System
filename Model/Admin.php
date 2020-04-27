@@ -111,6 +111,14 @@ class Admin
         $result = $this->dbconnect->selectquery();
         return $result;
     }
+	
+	function getStudents()
+    {
+        $query = 'select * from student';
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
+    }
     function validateCourseExist($course)
     {
         $query = 'select * from course WHERE CourseId=' . $course;
@@ -211,13 +219,34 @@ class Admin
             return False;
         }
     }
-	 function getAllTeachers()
+	function deleteStudentById()
     {
-        $query =  'select * from teacher ';
+     //Delete the registration of the students 
+		$query1 = "Delete From registration Where StudentId=" .$this->del_id.")";
+	//Delete the Student.
+		$query3 = "DELETE FROM teacher where TeacherId=" .$this->del_id;
+        $this->dbconnect->setQuery($query1);
+        $result1 = $this->dbconnect->executeQuery();
+        $this->dbconnect->setQuery($query2);
+        $result2 = $this->dbconnect->executeQuery();
+		$this->dbconnect->setQuery($query3);
+        $result3= $this->dbconnect->executeQuery();
+        return $result3;
+		
+    }
+	// Check if the teacher has enrolled to teach a class
+    function isThereTeacherDependencies()
+    {
+        $query  = "SELECT * from class where TeacherId=" . $this->del_id;
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
-        return $result;
+        if (count($result) > 0) {
+            return True;
+        } else {
+            return False;
+        }
     }
+
 	function deleteTeacherById()
     {
      //Delete the registration of the students to the course assigned to the teacher who want to delete
@@ -244,7 +273,7 @@ class Admin
 
     function updateClass()
     {
-        $query = "UPDATE `class` SET `ClassName` = '{$this->class}', `SemesterId` = '{$this->semester}', `CourseId` = '{$this->course}', `TeacherId` = '{$this->teacher}', `ScheduleId` = '{$this->schedule}' WHERE `class`.`ClassId` = {$this->classId};";
+        $query = "UPDATE class SET ClassName = {$this->class}', `SemesterId` = '{$this->semester}', `CourseId` = '{$this->course}', `TeacherId` = '{$this->teacher}', `ScheduleId` = '{$this->schedule}' WHERE `class`.`ClassId` = {$this->classId};";
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
     }

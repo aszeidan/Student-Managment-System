@@ -20,8 +20,35 @@ $schedule = $Admin->getSchedules();
 
 $class = $Admin->getClasses();
 
-?>
+$student = $Admin->getStudents();
 
+?>
+<script>
+
+function deleteTeacher(StudentId) {
+        $.get("../Controller/Check_student_course_registration_form.php?StudentId=" + StudentId, function(data, status) {
+   
+            var myResult = data;
+            //check if the choosen class has student regsitered on it
+            //if no
+            if (myResult.error == 0) {
+                if (myResult.result == 1) {
+                    alert("The Teacher has been successufully deleted");
+
+                } else { //if yes
+                    var answer = confirm("This teacher has been enrolled to teach a class do you really want to delete it?");
+                    if (answer) {
+						$.get("../Controller/Delete_Teacher_course_registration_form.php?StudentId=" + StudentId, function(data, status) {});
+					}
+                }
+            } else {
+                alert("Error Try Again");
+            }
+		
+        });
+		
+    }
+</script>
 <body>
     <div class="container register">
         <div class="row">
@@ -97,20 +124,19 @@ $class = $Admin->getClasses();
                                                     <th> Name </th>
                                                     <th> Phone Number</th>
                                                     <th> Email </th>
-                                                    <th> Major </th>
                                                     <th>Delete </th>
                                                     <th> Edit </th>
                                                 </thead>
                                                 </span>
                                                 <?php
-                                                for ($i = 0; $i < count($class); $i++) {
+                                                for ($i = 0; $i < count($student); $i++) {
                                                 ?>
                                                     <tr>
-                                                        <td><?php echo $class[$i]['SFirstName'] . " " . $class[$i]['SLastName']; ?> </td>
-                                                        <td><?php echo $class[$i]['SPhone']; ?> </td>
-                                                        <td><?php echo $class[$i]['SEmail']; ?> </td>
-                                                        <td id="delete"><a href="#" ; onclick="deleteClass(<?php echo $class[$i]['ClassId']; ?> )">Delete </a> </td>
-                                                        <td><a href="../View/EditTeacher.php?id=<?php echo $class[$i]['ClassId']; ?>">Edit </a> </td>
+                                                        <td><?php echo $student[$i]['SFirstName'] . " " . $student[$i]['SLastName']; ?> </td>
+                                                        <td><?php echo $student[$i]['SPhoneNumber']; ?> </td>
+                                                        <td><?php echo $student[$i]['SEmail']; ?> </td>
+                                                        <td id="delete"><a href="#" ; onclick="deleteStudent(<?php echo $student[$i]['StudentID']; ?> )">Delete </a> </td>
+                                                        <td><a href="../View/EditStudent.php?StudentId=<?php echo $student[$i]['StudentID']; ?>">Edit </a> </td>
                                                     </tr> <?php } ?>
                                             </table>
                                         </div>
