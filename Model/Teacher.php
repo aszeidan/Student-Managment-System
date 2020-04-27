@@ -47,6 +47,10 @@ class Teacher
     {
         $this->TEmail = $TEmail;
     }
+    function getDeletedId($del_id)
+    {
+        return $this->del_id = $del_id;
+    }
     function setTPassword($TPassword)
     {
         $this->TPassword = password_hash($TPassword, PASSWORD_BCRYPT);
@@ -102,6 +106,32 @@ class Teacher
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;
+    }
+    function isThereDependencies()
+    {
+        $query  = "SELECT * from registration where TeacherId=". $this->del_id;
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+
+        if (count($result) > 0) {
+            return True;
+        } else {
+            return False;
+        }
+    }
+    function deleteTeacherById()
+    {
+        // to delete the registration of a student on the requested class
+        $query1  = "DELETE from registration where TeacherId=" . $this->del_id;
+        $query2 =  "DELETE from class where TeacherId=" . $this->del_id;
+        $query3 =  "DELETE from teacher where TeacherId=" . $this->del_id;
+        $this->dbconnect->setQuery($query1);
+        $result1 = $this->dbconnect->executeQuery();
+        $this->dbconnect->setQuery($query2);
+        $result2 = $this->dbconnect->executeQuery();
+        $this->dbconnect->setQuery($query3);
+        $result3 = $this->dbconnect->executeQuery();
+        return $result3;
     }
     function getTeacherClassById($semesterID)
     {
