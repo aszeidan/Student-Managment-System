@@ -8,8 +8,9 @@ $db = new DatabaseSMS();
 $result = array();
 
 if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType"])) {
-
-    die("Missing Parameters");
+    $result["Error"] = 1;
+    $result["Message"] = "missing parameter";
+    die(json_encode($result));
 }
 
 
@@ -62,6 +63,5 @@ if ($User->verifyLogin() == true) {
     die(json_encode($result));
 }
 } catch (Exception $e) {
-
     header("Location:../View/SignIn.php?result=" . $e->getMessage());
 }
