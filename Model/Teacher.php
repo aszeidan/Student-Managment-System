@@ -39,9 +39,9 @@ class Teacher
     {
         $this->TLastName = $TLastName;
     }
-    function setTPhone($TPhone)
+    function setTPhone($TMobileNum)
     {
-        $this->TPhone = $TPhone;
+        $this->TPhone = $TMobileNum;
     }
     function setTEmail($TEmail)
     {
@@ -56,6 +56,20 @@ class Teacher
         $this->TPassword = password_hash($TPassword, PASSWORD_BCRYPT);
     }
 
+    function updateTeacher()
+    {
+        $query = "UPDATE `teacher` SET `TeacherId`='{$this->id}',
+        `TFirstName`='{$this->TFirstName}',
+        `TMiddleName`='{$this->TMiddleName}',
+        `TLastName`='{$this->TLastName}',
+        `TEmail`='{$this->TEmail}',
+        `TMobileNum`='{$this->TMobileNum}',
+        `TPassword`='{$this->TPassword}'
+         WHERE `teacher`.
+         `TeacherId` = {$this->id};";
+        $this->dbconnect->setQuery($query);
+        $this->dbconnect->executeQuery();
+    }
     function verifyLogin()
     {
         $query = "SELECT * FROM teacher WHERE 
@@ -100,39 +114,7 @@ class Teacher
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
     }
-    function getAllTeachers()
-    {
-        $query =  'select * from teacher ';
-        $this->dbconnect->setQuery($query);
-        $result = $this->dbconnect->selectquery();
-        return $result;
-    }
-    function isThereDependencies()
-    {
-        $query  = "SELECT * from registration where TeacherId=". $this->del_id;
-        $this->dbconnect->setQuery($query);
-        $result = $this->dbconnect->selectquery();
-
-        if (count($result) > 0) {
-            return True;
-        } else {
-            return False;
-        }
-    }
-    function deleteTeacherById()
-    {
-        // to delete the registration of a student on the requested class
-        $query1  = "DELETE from registration where TeacherId=" . $this->del_id;
-        $query2 =  "DELETE from class where TeacherId=" . $this->del_id;
-        $query3 =  "DELETE from teacher where TeacherId=" . $this->del_id;
-        $this->dbconnect->setQuery($query1);
-        $result1 = $this->dbconnect->executeQuery();
-        $this->dbconnect->setQuery($query2);
-        $result2 = $this->dbconnect->executeQuery();
-        $this->dbconnect->setQuery($query3);
-        $result3 = $this->dbconnect->executeQuery();
-        return $result3;
-    }
+   
     function getTeacherClassById($semesterID)
     {
         $teacherId = $this->id;

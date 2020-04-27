@@ -1,38 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-
 require_once('Header.php');
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-require_once('../Model/DatabaseSMS.php');
-require_once('../Model/Student.php');
-$db = new DatabaseSMS();
-$Student = new Student($db);
-$Student = $Student->getAllStudents();
 ?>
-<script>
-function deleteStudent(StudentId) {
-        $.get("../Controller/Check_Student.php?id=" + StudentId, function(data, status) {
-            var myResult = data;
-			//check if the choosen Teacher gives courses
-			//if no
-            if (myResult.error == 0) {
-                if (myResult.result == 1) {
-                    alert("The Student is deleted");
-                } else { //if yes
-                    var answer = confirm("There are registered courses by this student,Are you sure you want to delete this student?");
-                    if (answer) {
-                        $.get("../Controller/Delete_Student.php?id=" + TeacherId, function(data, status) {});
-                    }
-                }
-            } else {
-                alert("Error Try Again");
-            }
-        });
-    }
- </script>   
 
 <body>
     <div class="container register">
@@ -45,21 +15,53 @@ function deleteStudent(StudentId) {
             <div class="col-md-9 register-right">
                 <ul class="nav nav-tabs nav-justified" id="myTab" name="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Student</a>
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Instructor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Table</a>
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Student</a>
                     </li>
                 </ul>
-                <div class="row col-md-2">
-				
-                    <ul>
-                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php">Previous</a></li>
-                    </ul>
-                </div>
-                <form action="../Controller/Verify_SignUpStudent.php" method="POST">
+                <form action="../Controller/Verify_SignUpTeacher.php" method="POST">
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="home" role="tabpanel" name="Student" aria-labelledby="home-tab">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" name="teacher" aria-labelledby="home-tab">
+                            <h3 class="register-heading">Apply as a Teacher</h3>
+                            <div class="row register-form mx-0 px-0">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="First Name *" id="TFirstName" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Middle Name *" id="TMiddleName" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Last Name *" id="TLastName" value="" />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                    <div class="form-group">
+                                        <input type="text" minlength="8" maxlength="8" id="TPhone" class="form-control" placeholder="Your Phone *" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" class="form-control" placeholder="Your Email *" id="TEmail" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control" placeholder="Password*" id="TPassword" aria-label=" Recipient's username" aria-describedby="button-addon2">
+                                            <div class="input-group-append">
+                                                <input class="btn btn-outline-primary" value="Generate" onClick="randomPassword(8,'TPassword');" tabindex="2" type="button" id="button-addon1" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="teacherMessage">
+                                    </div>
+                                    <input type="button" onClick="createTeacher()" class="btnRegister" name="signUpTeacher" value="Register" />
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade show" id="profile" role="tabpanel" name="student" aria-labelledby="profile-tab">
                             <h3 class="register-heading">Apply as a Student</h3>
                             <div class="row register-form mx-0 px-0">
                                 <div class="col-md-6">
@@ -91,43 +93,6 @@ function deleteStudent(StudentId) {
                                         </div>
                                         <input type="button" onClick="createStudent()" class="btnRegister" name="signUpStudent" value="Register" />
                                     </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade show" id="profile" role="tabpanel" name="student" aria-labelledby="profile-tab">
-                            <h3 class="register-heading">Registered Students</h3>
-                            <div class="row register-form mx-0 px-0">
-                                <div class="col-md-6">
-                                    <div class=" register-form">
-
-                                        <div class="form-group">
-                                            <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
-
-                                                <thead class="table-primary">
-
-                                                    <th> Name </th>
-                                                    <th> Phone Number</th>
-                                                    <th> Email </th>
-                                                    <th> Major </th>
-                                                    <th>Delete </th>
-                                                    <th> Edit </th>
-                                                </thead>
-                                                </span>
-                                                <?php
-                                                for ($i = 0; $i < count($class); $i++) {
-                                                ?>
-                                                    <tr>
-                                                        <td><?php echo $class[$i]['SFirstName'] . " " . $class[$i]['SLastName']; ?> </td>
-                                                        <td><?php echo $class[$i]['SPhone']; ?> </td>
-                                                        <td><?php echo $class[$i]['SEmail']; ?> </td>
-                                                        <td id="delete"><a href="#" ; onclick="deleteClass(<?php echo $class[$i]['ClassId']; ?> )">Delete </a> </td>
-                                                        <td><a href="../View/EditTeacher.php?id=<?php echo $class[$i]['ClassId']; ?>">Edit </a> </td>
-                                                    </tr> <?php } ?>
-                                            </table>
-                                        </div>
-
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -135,6 +100,7 @@ function deleteStudent(StudentId) {
             </div>
 
         </div>
+    </div>
     </div>
     <script>
         function randomPassword(length, id) {
@@ -152,7 +118,6 @@ function deleteStudent(StudentId) {
             document.getElementById("#loader").style.display = "inline";
         }
 
-
         function createStudent() {
             var data = {
                 SFirstName: $("#SFirstName").val(),
@@ -166,6 +131,24 @@ function deleteStudent(StudentId) {
                 $("#studentMessage").html(result.Message);
                 setTimeout(() => {
                     $("#studentMessage").html(" ");
+                }, 4000);
+            });
+
+        }
+
+        function createTeacher() {
+            var data = {
+                TFirstName: $("#TFirstName").val(),
+                TMiddleName: $("#TMiddleName").val(),
+                TLastName: $("#TLastName").val(),
+                TPhone: $("#TPhone").val(),
+                TPassword: $("#TPassword").val(),
+                TEmail: $("#TEmail").val()
+            };
+            $.post("../Controller/Verify_SignUpTeacher.php", data, function(result) {
+                $("#teacherMessage").html(result.Message);
+                setTimeout(() => {
+                    $("#teacherMessage").html(" ");
                 }, 4000);
             });
 

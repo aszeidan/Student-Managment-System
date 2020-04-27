@@ -84,6 +84,7 @@ $class = $Admin->getClasses();
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                         </ul>
+						
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">Registration Form </h3>
@@ -91,7 +92,7 @@ $class = $Admin->getClasses();
                                 <form action="../Controller/Verify_Insert_Course.php" method="POST" class="form" id="form">
                                     <div class="row col-md-2">
                                         <ul>
-                                            <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="#">Previous</a></li>
+                                            <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php">Previous</a></li>
                                         </ul>
                                     </div>
                                     <div class="row register-form mx-0 px-0 col-md-12">

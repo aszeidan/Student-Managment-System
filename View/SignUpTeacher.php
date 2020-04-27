@@ -7,32 +7,39 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require_once('../Model/DatabaseSMS.php');
-require_once('../Model/Teacher.php');
+require_once('../Model/Admin.php');
 $db = new DatabaseSMS();
-$teacher = new Teacher($db);
-$teacher = $Teacher->getAllTeachers();
+$Admin = new Admin($db);
+$teachers = $Admin->getAllTeachers();
+
 ?>
 <script>
+
 function deleteTeacher(TeacherId) {
-        $.get("../Controller/Check_Teacher.php?id=" + TeacherId, function(data, status) {
+        $.get("../Controller/Check_teacher_course_registration_form.php?TeacherId=" + TeacherId, function(data, status) {
+   
             var myResult = data;
-			//check if the choosen Teacher gives courses
-			//if no
+            //check if the choosen class has student regsitered on it
+            //if no
             if (myResult.error == 0) {
                 if (myResult.result == 1) {
-                    alert("The Teacher is deleted");
+                    alert("The Teacher has been successufully deleted");
+
                 } else { //if yes
-                    var answer = confirm("There are registered courses by this teacher,Are you sure you want to delete this teacher?");
+                    var answer = confirm("This teacher has been enrolled to teach a class do you really want to delete it?");
                     if (answer) {
-                        $.get("../Controller/Delete_Teacher.php?id=" + TeacherId, function(data, status) {});
-                    }
+						$.get("../Controller/Delete_Teacher_course_registration_form.php?TeacherId=" + TeacherId, function(data, status) {});
+					}
                 }
             } else {
                 alert("Error Try Again");
             }
+		
         });
+		
     }
- </script>   
+</script>
+
 <body>
     <div class="container register">
         <div class="row">
@@ -44,15 +51,15 @@ function deleteTeacher(TeacherId) {
             <div class="col-md-9 register-right">
                 <ul class="nav nav-tabs nav-justified" id="myTab" name="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Instructor</a>
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sign Up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Student</a>
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Instructors</a>
                     </li>
                 </ul>
                 <div class="row col-md-2">
                     <ul>
-                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="#">Previous</a></li>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/SignUpTeacher.php">Previous</a></li>
                     </ul>
                 </div>
                 <form action="../Controller/Verify_SignUpTeacher.php" method="POST">
@@ -103,25 +110,25 @@ function deleteTeacher(TeacherId) {
 
                                         <div class="form-group">
                                             <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
-                                            <thead class="table-primary">
+                                                <thead class="table-primary">
 
                                                     <th> Name </th>
                                                     <th> Email</th>
                                                     <th> PhoneNumber</th>
                                                     <th> Delete </th>
                                                     <th> Edit </th>
-                                            </thead>
-                                            </span>
-                                                    <?php
-                                                        for ($i = 0; $i < count($teacher); $i++) {
-                                                        ?>
-                                                        <tr>
-                                                            <td><?php echo $teacher[$i]['TFirstName'] . " " . $teacher[$i]['TLastName']; ?> </td>
-                                                            <td><?php echo $teacher[$i]['TEmail']; ?> </td>
-                                                            <td><?php echo $teacher[$i]['TMobileNum']; ?> </td>
-                                                            <td id="delete"><a href="#" ; onclick="deleteTeacher(<?php echo $teacher[$i]['TeacherId']; ?> )">Delete </a> </td>
-                                                            <td><a href="../View/EditTeacher.php?id=<?php echo $teacher[$i]['TeacherId']; ?>">Edit </a> </td>
-                                                        </tr> <?php } ?>
+                                                </thead>
+                                                </span>
+                                                <?php
+                                                for ($i = 0; $i < count($teacher); $i++) {
+                                                ?>
+                                                    <tr>
+                                                        <td><?php echo $teacher[$i]['TFirstName'] . " " . $teacher[$i]['TLastName']; ?> </td>
+                                                        <td><?php echo $teacher[$i]['TEmail']; ?> </td>
+                                                        <td><?php echo $teacher[$i]['TMobileNum']; ?> </td>
+                                                        <td id="delete"><a href="#" ; onclick="deleteTeacher(<?php echo $teacher[$i]['TeacherId']; ?> )">Delete </a> </td>
+                                                        <td><a href="../View/EditTeacher.php?TeacherId=<?php echo $teacher[$i]['TeacherId']; ?>">Edit </a> </td>
+                                                    </tr> <?php } ?>
                                             </table>
                                         </div>
 
@@ -156,7 +163,7 @@ function deleteTeacher(TeacherId) {
                 TFirstName: $("#TFirstName").val(),
                 TMiddleName: $("#TMiddleName").val(),
                 TLastName: $("#TLastName").val(),
-                TPhone: $("#TPhone").val(),
+                TMobileNum: $("#TPhone").val(),
                 TPassword: $("#TPassword").val(),
                 TEmail: $("#TEmail").val()
             };
