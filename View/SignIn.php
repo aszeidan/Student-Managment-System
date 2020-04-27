@@ -20,25 +20,26 @@ require_once('HeaderSignin.php');
                         <h3 class="register-heading">Sign In</h3>
                         <div class="row register-form mx-0 px-0 col-md-12">
                             <div class="centering col-md-6">
-                                <form action="../Controller/Verify_Login.php" method="POST">
+                                <form >
                                     <div class="form-group">
-                                        <select class="custom-select" name="loginType" required>
+                                        <select class="custom-select" id="loginType" required>
                                             <option value="student">Student Login</option>
                                             <option value="teacher">Teacher Login</option>
                                             <option value="admin">Admin Login</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-
-
-                                        <input type="text" class="form-control" placeholder="123@example.com" value="" name="uname" required />
+                                        <input type="text" class="form-control" placeholder="123@example.com" value="" id="uname" required />
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="123456" value="" name="psw" required />
+                                        <input type="password" class="form-control" placeholder="123456" value="" id="psw" required />
+                                    </div>
+                                    <div class="form-group" id="Message">
                                     </div>
                                     <div class="form-group">
-                                        <input type="submit" id="loginMessage" class="btnRegister" value="Login" onClick="createLogin()" />
+                                        <input type="button" id="loginMessage" class="btnRegister" value="Login" onClick="createLogin()" />
                                     </div>
+                                   
                                 </form>
                             </div>
                         </div>
@@ -54,14 +55,14 @@ require_once('HeaderSignin.php');
     <script>
         function createLogin() {
             var data = {
-                username: $("#uname").val(),
-                password: $("#psw").val(),
+                uname: $("#uname").val(),
+                psw: $("#psw").val(),
                 loginType: $("#loginType").val(),
             };
             $.post("../Controller/Verify_Login.php", data, function(result) {
-                $("#loginMessage").html(result.Message);
+                $("#Message").html(result.Message);
                 setTimeout(() => {
-                    $("#loginMessage").html(" ");
+                    $("#Message").html(" ");
                 }, 4000);
             });
 
