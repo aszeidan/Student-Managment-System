@@ -14,11 +14,13 @@ $teachers = $Admin->getAllTeachers();
 
 ?>
 <script>
+
 function deleteTeacher(TeacherId) {
         $.get("../Controller/Check_teacher_course_registration_form.php?TeacherId=" + TeacherId, function(data, status) {
+   
             var myResult = data;
-			//check if the choosen class has student regsitered on it
-			//if no
+            //check if the choosen class has student regsitered on it
+            //if no
             if (myResult.error == 0) {
                 if (myResult.result == 1) {
                     alert("The Teacher has been successufully deleted");
@@ -36,7 +38,8 @@ function deleteTeacher(TeacherId) {
         });
 		
     }
- </script>   
+</script>
+
 <body>
     <div class="container register">
         <div class="row">
@@ -107,25 +110,25 @@ function deleteTeacher(TeacherId) {
 
                                         <div class="form-group">
                                             <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
-                                            <thead class="table-primary">
+                                                <thead class="table-primary">
 
                                                     <th> Name </th>
                                                     <th> Email</th>
                                                     <th> PhoneNumber</th>
                                                     <th> Delete </th>
                                                     <th> Edit </th>
-                                            </thead>
-                                            </span>
-                                                    <?php
-                                                        for ($i = 0; $i < count($teachers); $i++) {
-                                                        ?>
-                                                        <tr>
-                                                            <td><?php echo $teachers[$i]['TFirstName'] . " " . $teachers[$i]['TLastName']; ?> </td>
-                                                            <td><?php echo $teachers[$i]['TEmail']; ?> </td>
-                                                            <td><?php echo $teachers[$i]['TMobileNum']; ?> </td>
-                                                            <td id="delete"><a href="#" ; onclick="deleteTeacher(<?php echo $teachers[$i]['TeacherId']; ?> )">Delete </a> </td>
-                                                            <td><a href="../View/EditCourse.php?id=<?php echo $teachers[$i]['TeacherId']; ?>">Edit </a> </td>
-                                                        </tr> <?php } ?>
+                                                </thead>
+                                                </span>
+                                                <?php
+                                                for ($i = 0; $i < count($teacher); $i++) {
+                                                ?>
+                                                    <tr>
+                                                        <td><?php echo $teacher[$i]['TFirstName'] . " " . $teacher[$i]['TLastName']; ?> </td>
+                                                        <td><?php echo $teacher[$i]['TEmail']; ?> </td>
+                                                        <td><?php echo $teacher[$i]['TMobileNum']; ?> </td>
+                                                        <td id="delete"><a href="#" ; onclick="deleteTeacher(<?php echo $teacher[$i]['TeacherId']; ?> )">Delete </a> </td>
+                                                        <td><a href="../View/EditTeacher.php?TeacherId=<?php echo $teacher[$i]['TeacherId']; ?>">Edit </a> </td>
+                                                    </tr> <?php } ?>
                                             </table>
                                         </div>
 
@@ -160,7 +163,7 @@ function deleteTeacher(TeacherId) {
                 TFirstName: $("#TFirstName").val(),
                 TMiddleName: $("#TMiddleName").val(),
                 TLastName: $("#TLastName").val(),
-                TPhone: $("#TPhone").val(),
+                TMobileNum: $("#TPhone").val(),
                 TPassword: $("#TPassword").val(),
                 TEmail: $("#TEmail").val()
             };
