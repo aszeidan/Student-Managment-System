@@ -65,7 +65,13 @@ class Student
             return false;
         }
     }
-
+    function getAllStudents()
+    {
+        $query =  'select * from student';
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
+    }
     function checkStudentIfExists()
     {
         $query = "SELECT * FROM student WHERE SEmail='"  . $this->SEmail . "' ";
