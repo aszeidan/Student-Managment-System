@@ -65,7 +65,6 @@ class Student
             return false;
         }
     }
-
     function checkStudentIfExists()
     {
         $query = "SELECT * FROM student WHERE SEmail='"  . $this->SEmail . "' ";

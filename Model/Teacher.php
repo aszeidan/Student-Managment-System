@@ -47,6 +47,10 @@ class Teacher
     {
         $this->TEmail = $TEmail;
     }
+    function getDeletedId($del_id)
+    {
+        return $this->del_id = $del_id;
+    }
     function setTPassword($TPassword)
     {
         $this->TPassword = password_hash($TPassword, PASSWORD_BCRYPT);

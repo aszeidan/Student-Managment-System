@@ -219,6 +219,36 @@ class Admin
         $result = $this->dbconnect->selectquery();
         return $result;
     }
+    function isThereStudentDependencies()
+    {
+        $query  = "SELECT * from registration where StudentId=" .$this->del_id;
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        if (count($result) > 0) {
+            return True;
+        } else {
+            return False;
+        }
+    }
+    function getAllStudents()
+    {
+        $query =  'select * from student ';
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
+    }
+    function deleteStudentById()
+    {
+     	//Delete the registration of the students.
+		$query1 = "DELETE FROM registration where StudentId=" .$this->del_id;
+	//Delete the student.
+		$query2 = "DELETE FROM student where StudentID=" .$this->del_id;
+        $this->dbconnect->setQuery($query1);
+        $result1 = $this->dbconnect->executeQuery();
+        $this->dbconnect->setQuery($query2);
+        $result2 = $this->dbconnect->executeQuery();
+        return $result2;
+    }
 	function deleteTeacherById()
     {
      //Delete the registration of the students to the course assigned to the teacher who want to delete

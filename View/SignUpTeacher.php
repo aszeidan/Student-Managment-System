@@ -10,7 +10,7 @@ require_once('../Model/DatabaseSMS.php');
 require_once('../Model/Admin.php');
 $db = new DatabaseSMS();
 $Admin = new Admin($db);
-$teachers = $Admin->getAllTeachers();
+$teacher = $Admin->getAllTeachers();
 
 ?>
 <script>
