@@ -111,14 +111,7 @@ class Admin
         $result = $this->dbconnect->selectquery();
         return $result;
     }
-	
-	function getStudents()
-    {
-        $query = 'select * from student';
-        $this->dbconnect->setQuery($query);
-        $result = $this->dbconnect->selectquery();
-        return $result;
-    }
+
     function validateCourseExist($course)
     {
         $query = 'select * from course WHERE CourseId=' . $course;
@@ -219,34 +212,13 @@ class Admin
             return False;
         }
     }
-	function deleteStudentById()
+	 function getAllTeachers()
     {
-     //Delete the registration of the students 
-		$query1 = "Delete From registration Where StudentId=" .$this->del_id.")";
-	//Delete the Student.
-		$query3 = "DELETE FROM teacher where TeacherId=" .$this->del_id;
-        $this->dbconnect->setQuery($query1);
-        $result1 = $this->dbconnect->executeQuery();
-        $this->dbconnect->setQuery($query2);
-        $result2 = $this->dbconnect->executeQuery();
-		$this->dbconnect->setQuery($query3);
-        $result3= $this->dbconnect->executeQuery();
-        return $result3;
-		
-    }
-	// Check if the teacher has enrolled to teach a class
-    function isThereTeacherDependencies()
-    {
-        $query  = "SELECT * from class where TeacherId=" . $this->del_id;
+        $query =  'select * from teacher ';
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
-        if (count($result) > 0) {
-            return True;
-        } else {
-            return False;
-        }
+        return $result;
     }
-
 	function deleteTeacherById()
     {
      //Delete the registration of the students to the course assigned to the teacher who want to delete
