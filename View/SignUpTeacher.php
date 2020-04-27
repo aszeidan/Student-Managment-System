@@ -9,29 +9,27 @@ error_reporting(E_ALL);
 require_once('../Model/DatabaseSMS.php');
 require_once('../Model/Teacher.php');
 $db = new DatabaseSMS();
-$Teacher = new Teacher($db);
+$teacher = new Teacher($db);
 $teacher = $Teacher->getAllTeachers();
-
 ?>
 <script>
 function deleteTeacher(TeacherId) {
-        $.get("../Controller/Check_course_registration_form.php?id=" + TeacherId, function(data, status) {
+        $.get("../Controller/Check_Teacher.php?id=" + TeacherId, function(data, status) {
             var myResult = data;
-			//check if the choosen class has student regsitered on it
+			//check if the choosen Teacher gives courses
 			//if no
             if (myResult.error == 0) {
                 if (myResult.result == 1) {
-                    alert("The class is deleted");
+                    alert("The Teacher is deleted");
                 } else { //if yes
-                    var answer = confirm("There are has been registred in this class, Are you sure you want to delete this class");
+                    var answer = confirm("There are registered courses by this teacher,Are you sure you want to delete this teacher?");
                     if (answer) {
-                        $.get("../Controller/Delete_course_registration_form.php?id=" + classID, function(data, status) {});
+                        $.get("../Controller/Delete_Teacher.php?id=" + TeacherId, function(data, status) {});
                     }
                 }
             } else {
                 alert("Error Try Again");
             }
-
         });
     }
  </script>   
@@ -122,7 +120,7 @@ function deleteTeacher(TeacherId) {
                                                             <td><?php echo $teacher[$i]['TEmail']; ?> </td>
                                                             <td><?php echo $teacher[$i]['TMobileNum']; ?> </td>
                                                             <td id="delete"><a href="#" ; onclick="deleteTeacher(<?php echo $teacher[$i]['TeacherId']; ?> )">Delete </a> </td>
-                                                            <td><a href="../View/EditCourse.php?id=<?php echo $teacher[$i]['TeacherId']; ?>">Edit </a> </td>
+                                                            <td><a href="../View/EditTeacher.php?id=<?php echo $teacher[$i]['TeacherId']; ?>">Edit </a> </td>
                                                         </tr> <?php } ?>
                                             </table>
                                         </div>
