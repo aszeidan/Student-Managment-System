@@ -13,11 +13,6 @@ $db = new DatabaseSMS();
 $Admin = new Admin($db);
 $Teachers = $Admin->getAllTeachers();
 
-
-// $id = $_GET["id"];
-// $teacher->getId($id);
-// $teacher = $Teacher->getId();
-
 ?>
 
 

@@ -23,31 +23,6 @@ $class = $Admin->getClasses();
 $student = $Admin->getAllStudents();
 
 ?>
-<script>
-    function deleteStudent(StudentId) {
-        $.get("../Controller/Check_student_course_registration_form.php?StudentId=" + StudentId, function(data, status) {
-
-            var myResult = data;
-            //check if the choosen class has student regsitered on it
-            //if no
-            if (myResult.error == 0) {
-                if (myResult.result == 1) {
-                    alert("The Teacher has been successufully deleted");
-
-                } else { //if yes
-                    var answer = confirm("This teacher has been enrolled to teach a class do you really want to delete it?");
-                    if (answer) {
-                        $.get("../Controller/Delete_Teacher_course_registration_form.php?StudentId=" + StudentId, function(data, status) {});
-                    }
-                }
-            } else {
-                alert("Error Try Again");
-            }
-
-        });
-
-    }
-</script>
 
 <body>
     <div class="container register">
@@ -58,25 +33,26 @@ $student = $Admin->getAllStudents();
                 <P>We look forward to welcoming you to our campus soon!​</P>
             </div>
             <div class="col-md-9 register-right">
-                <ul class="nav nav-tabs nav-justified" id="myTab" name="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Student</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Table</a>
-                    </li>
-                </ul>
                 <div class="row col-md-2">
 
                     <ul>
                         <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php">Previous</a></li>
                     </ul>
                 </div>
-                <form action="../Controller/Verify_SignUpStudent.php" method="POST">
+                <form>
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" name="Student" aria-labelledby="home-tab">
-                            <h3 class="register-heading">Apply as a Student</h3>
+                            <h3 class="register-heading">Edit Student</h3>
                             <div class="row register-form mx-0 px-0">
+                                <?php
+
+                                $SFirstName = $student[0]["SFirstName"];
+                                $SMiddleName = $student[0]["SMiddleName"];
+                                $SLastName = $student[0]["SLastName"];
+                                $SPhone = $student[0]["SPhone"];
+                                $SPassword = $student[0]["SPassword"];
+                                $SEmail = $student[0]["SEmail"];
+                                ?>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="First Name *" value="" id="SFirstName" />
@@ -104,44 +80,9 @@ $student = $Admin->getAllStudents();
                                         </div>
                                         <div class="form-group" id="studentMessage">
                                         </div>
-                                        <input type="button" onClick="createStudent()" class="btnRegister" name="signUpStudent" value="Register" />
+                                        <input type="button" onClick="updateStudent()" class="btnRegister" name="signUpStudent" value="Register" />
                                     </div>
 
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade show" id="profile" role="tabpanel" name="student" aria-labelledby="profile-tab">
-                            <h3 class="register-heading">Registered Students</h3>
-                            <div class="row register-form mx-0 px-0">
-                                <div class="col-md-6">
-                                    <div class=" register-form">
-
-                                        <div class="form-group">
-                                            <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
-
-                                                <thead class="table-primary">
-
-                                                    <th> Name </th>
-                                                    <th> Phone Number</th>
-                                                    <th> Email </th>
-                                                    <th>Delete </th>
-                                                    <th> Edit </th>
-                                                </thead>
-                                                </span>
-                                                <?php
-                                                for ($i = 0; $i < count($student); $i++) {
-                                                ?>
-                                                    <tr>
-                                                        <td><?php echo $student[$i]['SFirstName'] . " " . $student[$i]['SLastName']; ?> </td>
-                                                        <td><?php echo $student[$i]['SPhone']; ?> </td>
-                                                        <td><?php echo $student[$i]['SEmail']; ?> </td>
-                                                        <td id="delete"><a href="#" ; onclick="deleteStudent(<?php echo $student[$i]['StudentID']; ?> )">Delete </a> </td>
-                                                        <td><a href="../View/EditStudent.php?StudentID=<?php echo $student[$i]['StudentID']; ?>">Edit </a> </td>
-                                                    </tr> <?php } ?>
-                                            </table>
-                                        </div>
-
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -167,8 +108,9 @@ $student = $Admin->getAllStudents();
         }
 
 
-        function createStudent() {
+        function updateStudent() {
             var data = {
+                StudentID: <?php echo $_GET["StudentID"]; ?>,
                 SFirstName: $("#SFirstName").val(),
                 SMiddleName: $("#SMiddleName").val(),
                 SLastName: $("#SLastName").val(),
@@ -176,7 +118,7 @@ $student = $Admin->getAllStudents();
                 SPassword: $("#SPassword").val(),
                 SEmail: $("#SEmail").val()
             };
-            $.post("../Controller/Verify_SignUpStudent.php", data, function(result) {
+            $.post("../Controller/Update_Student.php", data, function(result) {
                 $("#studentMessage").html(result.Message);
                 setTimeout(() => {
                     $("#studentMessage").html(" ");
