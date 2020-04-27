@@ -39,7 +39,6 @@ $SPhone = $_POST["SPhone"];
 $SPassword = $_POST["SPassword"];
 $SEmail = $_POST["SEmail"];
 
-
 $Student->setSFirstName($SFirstName);
 $Student->setSmiddleName($SMiddleName);
 $Student->setSLastName($SLastName);
