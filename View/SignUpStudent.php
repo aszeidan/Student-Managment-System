@@ -7,20 +7,32 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require_once('../Model/DatabaseSMS.php');
-require_once('../Model/Admin.php');
+require_once('../Model/Student.php');
 $db = new DatabaseSMS();
-$Admin = new Admin($db);
-$semester = $Admin->getSemesters();
-
-$course = $Admin->getCourses();
-
-$teacher = $Admin->getTeachers();
-
-$schedule = $Admin->getSchedules();
-
-$class = $Admin->getClasses();
-
+$Student = new Student($db);
+$Student = $Student->getAllStudents();
 ?>
+<script>
+function deleteStudent(StudentId) {
+        $.get("../Controller/Check_Student.php?id=" + StudentId, function(data, status) {
+            var myResult = data;
+			//check if the choosen Teacher gives courses
+			//if no
+            if (myResult.error == 0) {
+                if (myResult.result == 1) {
+                    alert("The Student is deleted");
+                } else { //if yes
+                    var answer = confirm("There are registered courses by this student,Are you sure you want to delete this student?");
+                    if (answer) {
+                        $.get("../Controller/Delete_Student.php?id=" + TeacherId, function(data, status) {});
+                    }
+                }
+            } else {
+                alert("Error Try Again");
+            }
+        });
+    }
+ </script>   
 
 <body>
     <div class="container register">
