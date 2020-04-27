@@ -20,7 +20,7 @@ try{
 			
 			$output["result"]="0";
 		}else{
-			$deleteClass = $Admin->deleteTeacherById();
+			$Admin->deleteTeacherById();
 			$output["result"]="1";			
 		}
 }catch(Exception $e)
