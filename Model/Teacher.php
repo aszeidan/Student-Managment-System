@@ -96,13 +96,7 @@ class Teacher
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
     }
-    function getAllTeachers()
-    {
-        $query =  'select * from teacher ';
-        $this->dbconnect->setQuery($query);
-        $result = $this->dbconnect->selectquery();
-        return $result;
-    }
+   
     function getTeacherClassById($semesterID)
     {
         $teacherId = $this->id;
