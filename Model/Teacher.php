@@ -58,15 +58,26 @@ class Teacher
 
     function updateTeacher()
     {
-        $query = "UPDATE `teacher` SET `TeacherId`='{$this->id}',
+        if ($this->TPassword == "") {
+            $query = "UPDATE `teacher` SET
         `TFirstName`='{$this->TFirstName}',
         `TMiddleName`='{$this->TMiddleName}',
         `TLastName`='{$this->TLastName}',
         `TEmail`='{$this->TEmail}',
-        `TMobileNum`='{$this->TMobileNum}',
+        `TMobileNum`='{$this->TPhone}',
+         WHERE `teacher`.
+         `TeacherId` = {$this->id};";
+        } else {
+            $query = "UPDATE `teacher` SET
+        `TFirstName`='{$this->TFirstName}',
+        `TMiddleName`='{$this->TMiddleName}',
+        `TLastName`='{$this->TLastName}',
+        `TEmail`='{$this->TEmail}',
+        `TMobileNum`='{$this->TPhone}',
         `TPassword`='{$this->TPassword}'
          WHERE `teacher`.
          `TeacherId` = {$this->id};";
+        }
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
     }
@@ -114,7 +125,7 @@ class Teacher
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
     }
-   
+
     function getTeacherClassById($semesterID)
     {
         $teacherId = $this->id;
