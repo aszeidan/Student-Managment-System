@@ -175,7 +175,7 @@ class Admin
         return $result;
     }
 
-// check if the class has students registered on it.. 
+    // check if the class has students registered on it.. 
     function isThereDependencies()
     {
         $query  = "SELECT * from registration where ClassId=" . $this->del_id;
@@ -188,10 +188,10 @@ class Admin
             return False;
         }
     }
-	
+
     function deleteClassById()
     {
-     // to delete the registration of a student on the requested class
+        // to delete the registration of a student on the requested class
         $query1  = "DELETE from registration where ClassId=" . $this->del_id;
         $query2 =  "DELETE from class where ClassId=" . $this->del_id;
         $this->dbconnect->setQuery($query1);
@@ -200,7 +200,7 @@ class Admin
         $result2 = $this->dbconnect->executeQuery();
         return $result2;
     }
-// Check if the teacher has enrolled to teach a class
+    // Check if the teacher has enrolled to teach a class
     function isThereTeacherDependencies()
     {
         $query  = "SELECT * from class where TeacherId=" . $this->del_id;
@@ -212,7 +212,7 @@ class Admin
             return False;
         }
     }
-	 function getAllTeachers()
+    function getAllTeachers()
     {
         $query =  'select * from teacher ';
         $this->dbconnect->setQuery($query);
@@ -221,7 +221,7 @@ class Admin
     }
     function isThereStudentDependencies()
     {
-        $query  = "SELECT * from registration where StudentId=" .$this->del_id;
+        $query  = "SELECT * from registration where StudentId=" . $this->del_id;
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         if (count($result) > 0) {
@@ -239,32 +239,31 @@ class Admin
     }
     function deleteStudentById()
     {
-     	//Delete the registration of the students.
-		$query1 = "DELETE FROM registration where StudentId=" .$this->del_id;
-	//Delete the student.
-		$query2 = "DELETE FROM student where StudentID=" .$this->del_id;
+        //Delete the registration of the students.
+        $query1 = "DELETE FROM registration where StudentID=" . $this->del_id;
+        //Delete the student.
+        $query2 = "DELETE FROM student where StudentID=" . $this->del_id;
         $this->dbconnect->setQuery($query1);
         $result1 = $this->dbconnect->executeQuery();
         $this->dbconnect->setQuery($query2);
         $result2 = $this->dbconnect->executeQuery();
         return $result2;
     }
-	function deleteTeacherById()
+    function deleteTeacherById()
     {
-     //Delete the registration of the students to the course assigned to the teacher who want to delete
-		$query1 = "Delete From registration Where ClassId In (Select ClassId From class WHERE TeacherId=" .$this->del_id.")";
-	//Delete the class assigned to the course's class.
-		$query2 = "DELETE FROM class where TeacherId=" .$this->del_id;
-	//Delete the Teacher.
-		$query3 = "DELETE FROM teacher where TeacherId=" .$this->del_id;
+        //Delete the registration of the students to the course assigned to the teacher who want to delete
+        $query1 = "Delete From registration Where ClassId In (Select ClassId From class WHERE TeacherId=" . $this->del_id . ")";
+        //Delete the class assigned to the course's class.
+        $query2 = "DELETE FROM class where TeacherId=" . $this->del_id;
+        //Delete the Teacher.
+        $query3 = "DELETE FROM teacher where TeacherId=" . $this->del_id;
         $this->dbconnect->setQuery($query1);
         $result1 = $this->dbconnect->executeQuery();
         $this->dbconnect->setQuery($query2);
         $result2 = $this->dbconnect->executeQuery();
-		$this->dbconnect->setQuery($query3);
-        $result3= $this->dbconnect->executeQuery();
+        $this->dbconnect->setQuery($query3);
+        $result3 = $this->dbconnect->executeQuery();
         return $result3;
-		
     }
     function addClass()
     {

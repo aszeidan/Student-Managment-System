@@ -45,7 +45,6 @@ $Teacher = $Admin->getAllTeachers();
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                 <h3>Welcome To AG University</h3>
-                <P>We look forward to welcoming you to our campus soon!​</P>
             </div>
             <div class="col-md-9 register-right">
                 <ul class="nav nav-tabs nav-justified" id="myTab" name="myTab" role="tablist">
@@ -56,17 +55,14 @@ $Teacher = $Admin->getAllTeachers();
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Instructors</a>
                     </li>
                 </ul>
-                <div class="row col-md-2">
-                    <ul>
-                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/SignUpTeacher.php">Previous</a></li>
-                    </ul>
-                </div>
+
                 <form action="../Controller/Verify_SignUpTeacher.php" method="POST">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" name="teacher" aria-labelledby="home-tab">
                             <h3 class="register-heading">Apply as a Teacher</h3>
                             <div class="row register-form mx-0 px-0">
-                                <div class="col-md-6">
+
+                                <div class="col-md-6 ">
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="First Name *" id="TFirstName" value="" />
                                     </div>

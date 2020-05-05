@@ -17,7 +17,7 @@ session_start();
 
 ?>
 
-	<table border="5" class="table-hover table-bordered width:fit content" id="Registration_table">
+	<table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
 
         <thead class="table-primary">
 			<th> Course </th>

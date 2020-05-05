@@ -93,18 +93,18 @@ class Student
         `SLastName`='{$this->SLastName}',
         `SEmail`='{$this->SEmail}',
         `SPhone`='{$this->SPhone}',
-         WHERE `teacher`.
-         `StudentId` = {$this->id};";
+         WHERE `student`.
+         `StudentID` = {$this->id};";
         } else {
-            $query = "UPDASE `teacher` SES
+            $query = "UPDATE `student` SET
         `SFirstName`='{$this->SFirstName}',
         `SMiddleName`='{$this->SMiddleName}',
         `SLastName`='{$this->SLastName}',
         `SEmail`='{$this->SEmail}',
         `SPhone`='{$this->SPhone}',
         `SPassword`='{$this->SPassword}'
-         WHERE `teacher`.
-         `StudentId` = {$this->id};";
+         WHERE `student`.
+         `StudentID` = {$this->id};";
         }
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();

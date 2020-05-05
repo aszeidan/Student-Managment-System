@@ -86,7 +86,7 @@ $courses = $Teacher->getStudentByClass($_GET["ClassID"]);
 														for ($i = 0; $i < count($courses); $i++) {
 														?>
 															<tr>
-																<td><?php echo $courses[$i]['StudentId']; ?> </td>
+																<td><?php echo $courses[$i]['StudentID']; ?> </td>
 																<td><?php echo $courses[$i]['SFirstName'] . " " . $courses[$i]['SMiddleName'] . " " . $courses[$i]['SLastName']; ?> </td>
 																<?php
 																if ($courses[$i]['MidtermGrade'] != 0) { ?>
