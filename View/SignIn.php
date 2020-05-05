@@ -30,13 +30,14 @@ require_once('HeaderSignin.php');
                                     </div>
                                     <div class="form-group">
 
+
                                         <input type="text" class="form-control" placeholder="123@example.com" value="" name="uname" required />
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control" placeholder="123456" value="" name="psw" required />
                                     </div>
                                     <div class="form-group">
-                                        <input type="submit" class="btnRegister" value="Login" />
+                                        <input type="submit" id="loginMessage" class="btnRegister" value="Login" onClick="createLogin()" />
                                     </div>
                                 </form>
                             </div>
@@ -50,6 +51,23 @@ require_once('HeaderSignin.php');
     </div>
 
     </div>
+    <script>
+        function createLogin() {
+            var data = {
+                username: $("#uname").val(),
+                password: $("#psw").val(),
+                loginType: $("#loginType").val(),
+            };
+            $.post("../Controller/Verify_Login.php", data, function(result) {
+                $("#loginMessage").html(result.Message);
+                setTimeout(() => {
+                    $("#loginMessage").html(" ");
+                }, 4000);
+            });
+
+        }
+    </script>
+
     <?php
     require_once('Footer.php'); ?>
 

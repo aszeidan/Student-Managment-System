@@ -11,6 +11,9 @@ require_once('Header.php');
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                 <h3>Welcome To AG University</h3>
                 <P>We look forward to welcoming you to our campus soon!​</P>
+                <form action="../Controller/Logout.php" method="POST">
+                    <input type="submit" name="" value="SignOut" /><br />
+                </form>
             </div>
             <div class="col-md-9 register-right">
 
@@ -25,7 +28,27 @@ require_once('Header.php');
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="button" class="btnRegister" value="SignUp" onClick="window.location.href='SignUp.php';" tabindex="2">
+                                    <input type="button" class="btnRegister" value="SignUpStudent" onClick="window.location.href='SignUpStudent.php';" tabindex="2">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="button" class="btnRegister" value="SignUpTeacher" onClick="window.location.href='SignUpTeacher.php';" tabindex="2">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="button" class="btnRegister" value="Add Majors" onClick="window.location.href='SignUp.php';" tabindex="2">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="button" class="btnRegister" value="Add Semesters" onClick="window.location.href='SignUp.php';" tabindex="2">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="button" class="btnRegister" value="Course Offering" onClick="window.location.href='SignUp.php';" tabindex="2">
                                 </div>
                             </div>
 

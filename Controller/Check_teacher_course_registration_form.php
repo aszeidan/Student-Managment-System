@@ -10,16 +10,17 @@ try{
 	require_once('../Model/Admin.php');
 	$db = new DatabaseSMS();
 	$Admin = new Admin($db);
-	$del_id = $_GET['id'];
-	$Admin->getDeletedId($del_id);
+	$del_Teacher_id = $_GET['TeacherId'];
 
-	$depencies = $Admin->isThereDependencies();
+	$Admin->getDeletedId($del_Teacher_id);
+
+	$depencies = $Admin->isThereTeacherDependencies();
 	$output["error"]="0";
 		if($depencies){
 			
 			$output["result"]="0";
 		}else{
-			$deleteClass = $Admin->deleteClassById();
+			$Admin->deleteTeacherById();
 			$output["result"]="1";			
 		}
 }catch(Exception $e)

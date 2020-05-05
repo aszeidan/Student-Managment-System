@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+
 require_once('Header.php');
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -14,13 +15,16 @@ $Admin = new Admin($db);
 $semester = $Admin->getSemesters();
 $Teacher = new Teacher($db);
 
-$course = $Admin->getCourses();
-$teacherID = $Teacher->getId();
-
-$teacherClass = $Teacher->getTeacherClassById();
-
-
 ?>
+<script>
+    function getCoursesBySemester(SemesterId) {
+        var semesterID = $("#SemesterId").val();
+        $.get("../Controller/getCourseBySemester.php?SemesterId=" + semesterID, function(data, status) {
+
+            $("#classSemesterbyTeacher").html(data);
+        });
+    }
+</script>
 
 <body>
     <div class="register">
@@ -29,7 +33,7 @@ $teacherClass = $Teacher->getTeacherClassById();
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                 <h3>Welcome To Time Travel University</h3>
                 <P>We look forward to welcoming you to our campus soon!​</P>
-                <form action="SignIn.php" method="POST">
+                <form action="../Controller/Logout.php" method="POST">
                     <input type="submit" name="" value="SignOut" /><br />
                 </form>
             </div>
@@ -44,11 +48,11 @@ $teacherClass = $Teacher->getTeacherClassById();
                                 <h3 class="register-heading">Teacher Profile</h3>
 
                                 <form action="Insert_Teacher.php" method="POST">
-                                    <div class="row register-form mx-0 px-0">
+                                    <div class="row register-form mx-0 px-0 center">
                                         <div class="col-md-6">
 
                                             <div class="form-group">
-                                                <select class="custom-select" name="semester" required>
+                                                <select id="SemesterId" onChange="getCoursesBySemester()" class="custom-select" name="Semester" required>
                                                     <option disabled value="" selected hidden>Select Semester</option>
                                                     <?php
                                                     for ($i = 0; $i < count($semester); $i++) {
@@ -57,22 +61,7 @@ $teacherClass = $Teacher->getTeacherClassById();
                                                     <?php } ?>
                                                 </select>
                                             </div>
-                                            <div class="form-group">
-                                                <table border="5" class="table-hover table-bordered width:fit content" id="Registration_table">
-
-                                                    <thead class="table-primary">
-                                                        <th> Course </th>
-                                                        <th> Schedule </th>
-                                                    </thead>
-                                                    </span>
-                                                    <?php
-                                                    for ($i = 0; $i < count($teacherClass); $i++) {
-                                                    ?>
-                                                        <tr>
-                                                            <td><?php echo $teacherClass[$i]['CourseName']; ?> </td>
-                                                            <td><?php echo $teacherClass[$i]['Time']; ?> </td>
-                                                        </tr> <?php } ?>
-                                                </table>
+                                            <div id="classSemesterbyTeacher" class="form-group">
                                             </div>
 
                                         </div>
@@ -92,9 +81,9 @@ $teacherClass = $Teacher->getTeacherClassById();
         </div>
     </div>
 
-
     <?php
     require_once('Footer.php'); ?>
+
 
 </body>
 

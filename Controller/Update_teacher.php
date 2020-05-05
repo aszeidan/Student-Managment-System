@@ -2,18 +2,20 @@
 header("Content-Type: application/json; charset=UTF-8");
 session_start();
 $_SESSION = array();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 require_once('../Model/DatabaseSMS.php');
-$db = new DatabaseSMS();
 require_once('../Model/Teacher.php');
+$db = new DatabaseSMS();
 $Teacher = new Teacher($db);
 $result = array();
-
-
 if (
-    !isset($_POST["TFirstName"])
+    !isset($_POST["TeacherId"])
+    || !isset($_POST["TFirstName"])
     || !isset($_POST["TMiddleName"])
     || !isset($_POST["TLastName"])
-    || !isset($_POST["TMobileNum"])
+    || !isset($_POST["TPhone"])
     || !isset($_POST["TPassword"])
     || !isset($_POST["TEmail"])
 
@@ -22,25 +24,26 @@ if (
     $result["Message"] = "missing parameter";
     die(json_encode($result));
 } else if (
-    !$_POST["TFirstName"]
+    !$_POST["TeacherId"]
+    || !$_POST["TFirstName"]
     || !$_POST["TMiddleName"]
     || !$_POST["TLastName"]
-    || !$_POST["TMobileNum"]
-    || !$_POST["TPassword"]
+    || !$_POST["TPhone"]
     || !$_POST["TEmail"]
 ) {
     $result["Error"] = 1;
     $result["Message"] = "empty value";
     die(json_encode($result));
 }
-
+$TeacherId = $_POST['TeacherId'];
 $TFirstName = $_POST["TFirstName"];
 $TMiddleName = $_POST["TMiddleName"];
 $TLastName = $_POST["TLastName"];
-$TMobileNum= $_POST["TMobileNum"];
+$TMobileNum = $_POST["TPhone"];
 $TPassword = $_POST["TPassword"];
 $TEmail = $_POST["TEmail"];
 
+$Teacher->setTeacherId($TeacherId);
 $Teacher->setTFirstName($TFirstName);
 $Teacher->setTmiddleName($TMiddleName);
 $Teacher->setTLastName($TLastName);
@@ -48,19 +51,14 @@ $Teacher->setTPhone($TMobileNum);
 $Teacher->setTPassword($TPassword);
 $Teacher->setTEmail($TEmail);
 
-if ($Teacher->checkTeacherIfExists() == true) {
+
+if ($Teacher->updateTeacher() == true) {
     $result["Error"] = 0;
-    $result["Message"] = "This teacher is already registered";
+    $result["Message"] = "Already Exist";
     die(json_encode($result));
 } else {
-    $Teacher->addTeacher();
-    /*$to =$_POST["TEmail"];
-    $subject = "Password";
-    $txt = "Your password is : ".$_POST["TPassword"]. " ";
-    $headers = "From: password@studentstutorial.com" . "\r\n" .
-                "CC: somebodyelse@example.com";
-    mail($to,$subject,$txt,$headers);*/
+    $updateTeacher = $Teacher->updateTeacher();
     $result["Error"] = 0;
-    $result["Message"] = "Successfully Added";
+    $result["Message"] = "Successfully Edited";
     die(json_encode($result));
 }

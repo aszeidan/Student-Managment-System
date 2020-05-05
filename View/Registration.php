@@ -5,7 +5,6 @@ require_once('Header.php');
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
 require_once('../Model/DatabaseSMS.php');
 require_once('../Model/Admin.php');
 $db = new DatabaseSMS();
@@ -38,21 +37,23 @@ $class = $Admin->getClasses();
 			);
    });
 }); */
-
+// AJax function to delete class.
     function deleteClass(classID) {
         $.get("../Controller/Check_course_registration_form.php?id=" + classID, function(data, status) {
             var myResult = data;
+			//check if the choosen class has student regsitered on it
+			//if no
             if (myResult.error == 0) {
                 if (myResult.result == 1) {
                     alert("The class is deleted");
-                } else {
+                } else { //if yes
                     var answer = confirm("There are has been registred in this class, Are you sure you want to delete this class");
                     if (answer) {
                         $.get("../Controller/Delete_course_registration_form.php?id=" + classID, function(data, status) {});
                     }
                 }
             } else {
-                alert("Erro Try Again");
+                alert("Error Try Again");
             }
 
         });
@@ -66,7 +67,7 @@ $class = $Admin->getClasses();
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                 <h3>Welcome To Time Travel University</h3>
                 <P>We look forward to welcoming you to our campus soon!​</P>
-                <form action="SignIn.php" method="POST">
+                <form action="../View/Logout.php" method="POST">
                     <input type="submit" name="" value="SignOut" /><br />
                 </form>
             </div>
@@ -83,19 +84,25 @@ $class = $Admin->getClasses();
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                         </ul>
+						
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">Registration Form </h3>
 
-                                <form action="../Controller/Verify_Insert_Course.php" method="POST">
+                                <form action="../Controller/Verify_Insert_Course.php" method="POST" class="form" id="form">
+                                    <div class="row col-md-2">
+                                        <ul>
+                                            <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php">Previous</a></li>
+                                        </ul>
+                                    </div>
                                     <div class="row register-form mx-0 px-0 col-md-12">
                                         <div class="centering col-md-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" name="Classname" placeholder="Classname" value="" required>
+                                                <input type="text" class="form-control" id="Classname" name="Classname" placeholder="Classname" value="" required>
 
                                             </div>
                                             <div class="form-group">
-                                                <select class="custom-select" name="semester" required>
+                                                <select class="custom-select" name="semester" id="semester" required>
                                                     <option disabled value="" selected hidden>Select Semester</option>
                                                     <?php
                                                     for ($i = 0; $i < count($semester); $i++) {
@@ -105,7 +112,7 @@ $class = $Admin->getClasses();
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select class="custom-select" name="Course" required>
+                                                <select class="custom-select" name="Course" id="Course" required>
                                                     <option disabled value="" selected hidden>Select Course</option>
                                                     <?php
                                                     for ($i = 0; $i < count($course); $i++) {
@@ -115,7 +122,7 @@ $class = $Admin->getClasses();
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select class="custom-select" name="teacher" required>
+                                                <select class="custom-select" name="teacher" id="teacher" required>
                                                     <option disabled value="" selected hidden>Select Instructor</option>
                                                     <?php
                                                     for ($i = 0; $i < count($teacher); $i++) {
@@ -126,7 +133,7 @@ $class = $Admin->getClasses();
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select class="custom-select" name="schedule" required>
+                                                <select class="custom-select" name="schedule" id="schedule" required>
                                                     <option disabled value="" selected hidden>Schedule Time</option>
                                                     <?php
                                                     for ($i = 0; $i < count($schedule); $i++) {
@@ -136,17 +143,15 @@ $class = $Admin->getClasses();
 
                                                 </select>
                                             </div>
-                                            <?php if (isset($_GET["result"])) {
-                                                echo $_GET["result"];
-                                            } ?>
-                                            <input type="submit" class="btnRegister" value="Register" />
+                                            <div class="form-group" id="courseMessage">
+                                            </div>
+                                            <input type="submit" class="btnRegister" id="registerButton" value="Register" />
 
                                         </div>
 
                                     </div>
+                                </form>
                             </div>
-                            </form>
-
                         </div>
                     </div>
 
@@ -192,7 +197,25 @@ $class = $Admin->getClasses();
 
             </div>
         </div>
+        <script>
+            document.getElementById("registerButton").addEventListener("click", function(event) {
+                event.preventDefault();
+                var data = {
+                    Classname: $("#Classname").val(),
+                    semester: $("#semester").val(),
+                    Course: $("#Course").val(),
+                    teacher: $("#teacher").val(),
+                    schedule: $("#schedule").val(),
+                };
 
+                $.post("../Controller/Verify_Insert_Course.php", data, function(result) {
+                    $("#courseMessage").html(result.Message);
+                    setTimeout(() => {
+                        $("#courseMessage").html(" ");
+                    }, 4000);
+                });
+            });
+        </script>
 
         <?php
         require_once('Footer.php'); ?>

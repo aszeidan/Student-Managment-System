@@ -20,17 +20,17 @@ class DatabaseSMS
             die();
         }
     }
-    
+
     function setQuery($query)
     {
-        $this->query=$query;
+        $this->query = $query;
     }
 
 
     public function executeQuery()
     {
         $db_connection = $this->connectToDb();
-        $result = mysqli_query($db_connection,$this->query);
+        $result = mysqli_query($db_connection, $this->query);
 
         if ($result == false) {
             echo " Query Error" . mysqli_error($db_connection);
