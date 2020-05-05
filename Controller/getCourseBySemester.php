@@ -32,7 +32,7 @@ session_start();
 				<td><input type="file" name="fileToUpload" id="fileToUpload"></td>
 				<td>
 				
-					<form action="../Controller/upload.php?CourseId="<?php echo $teacherClass[$i]['CourseId']; ?> method="post" enctype="multipart/form-data">
+					<form action="../Controller/upload.php?CourseId=<?php echo $teacherClass[$i]['CourseId'];?>" method="post" enctype="multipart/form-data" >
 						Select File to Upload:
 						<input type="file" name="file">
 						<input type="submit" name="submit" value="Upload File" >
