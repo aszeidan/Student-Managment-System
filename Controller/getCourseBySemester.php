@@ -29,6 +29,7 @@ session_start();
 		?>			<tr>
 				<td id="RegistredStudents"><a href="../View/RegistredStudents.php?ClassID=<?php echo $teacherClass[$i]['ClassId']; ?>"><?php echo $teacherClass[$i]['ClassName']; ?> </a> </td>
 				<td><?php echo $teacherClass[$i]['Time']; ?> </td>
+				<td><input type="file" name="fileToUpload" id="fileToUpload"></td>
 				<td>
 				
 					<form action="../Controller/upload.php?CourseId=<?php echo $teacherClass[$i]['CourseId'];?>" method="post" enctype="multipart/form-data" >

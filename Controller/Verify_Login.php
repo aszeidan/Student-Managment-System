@@ -7,6 +7,13 @@ require_once("../Model/DatabaseSMS.php");
 $db = new DatabaseSMS();
 $result = array();
 
+if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType"])) {
+    $result["Error"] = 1;
+    $result["Message"] = "missing parameter";
+    die(json_encode($result));
+}
+
+
 $username = $_POST["uname"];
 $password = $_POST["psw"];
 $loginType = $_POST["loginType"];
@@ -15,7 +22,7 @@ switch ($loginType) {
     case "student":
         require_once('../Model/Student.php');
         $User = new Student($db);
-        $pageLocation = "Registration.php";
+        $pageLocation = "Student_Registration.php";
         break;
     case "teacher":
         require_once('../Model/Teacher.php');
@@ -72,6 +79,5 @@ if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType
     die(json_encode($result));
 }
 } catch (Exception $e) {
-
-    header("Location:../View/SignIn.php?Result=" . $e->getMessage());
+    header("Location:../View/SignIn.php?result=" . $e->getMessage());
 }
