@@ -1,13 +1,11 @@
 <?php
 
-
-session_start();
-$_SESSION = array();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 require_once("../Model/DatabaseSMS.php");
 $db = new DatabaseSMS();
+require_once('../Model/Teacher.php');
 $result = array();
 $Teacher = new Teacher($db);
 
@@ -17,6 +15,8 @@ $fileName = basename($_FILES["file"]["name"]);
 $targetFilePath = $targetDir . $fileName;
 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 $CourseId=$_GET["CourseId"];
+var_dump($CourseId);
+die();
 
 
 if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
