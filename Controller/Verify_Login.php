@@ -22,7 +22,7 @@ switch ($loginType) {
     case "student":
         require_once('../Model/Student.php');
         $User = new Student($db);
-        $pageLocation = "Registration.php";
+        $pageLocation = "Student_Registration.php";
         break;
     case "teacher":
         require_once('../Model/Teacher.php');
@@ -42,7 +42,22 @@ $User->setUsername($username);
 $User->setPassword($password);
 
 
-if ($User->verifyLogin() == true) {
+
+if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType"])) {
+
+    $result["Error"] = 1;
+    $result["Message"] = "missing parameter";
+    die(json_encode($result));
+}elseif (
+    !$_POST["uname"]
+    || !$_POST["psw"]
+    || !$_POST["loginType"]
+){
+    $result["Error"] = 1;
+    $result["Message"] = "empty value";
+    die(json_encode($result));
+}elseif($User->verifyLogin() == true){
+	
     if (isset($_POST["remember"])) {
 
         setcookie('email', $user_name, time() + 60 * 60 * 7);
@@ -57,7 +72,8 @@ if ($User->verifyLogin() == true) {
     $result["Message"] = "Success";
     header("Location:../View/" . $pageLocation);
     die(json_encode($result));
-} else {
+	
+}elseif($User->verifyLogin() == false){
     $result["Error"] = 0;
     $result["Message"] = "Invalid Username or Password";
     die(json_encode($result));

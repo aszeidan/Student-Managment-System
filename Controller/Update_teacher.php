@@ -11,23 +11,45 @@ $db = new DatabaseSMS();
 $Teacher = new Teacher($db);
 $result = array();
 if (
-    !$_POST["Classname"]
-    || !$_POST["semester"]
-    || !$_POST["Course"]
-    || !$_POST["teacher"]
-    || !$_POST["schedule"]
+    !isset($_POST["TeacherId"])
+    || !isset($_POST["TFirstName"])
+    || !isset($_POST["TMiddleName"])
+    || !isset($_POST["TLastName"])
+    || !isset($_POST["TPhone"])
+    || !isset($_POST["TPassword"])
+    || !isset($_POST["TEmail"])
+
+) {
+    $result["Error"] = 1;
+    $result["Message"] = "missing parameter";
+    die(json_encode($result));
+} else if (
+    !$_POST["TeacherId"]
+    || !$_POST["TFirstName"]
+    || !$_POST["TMiddleName"]
+    || !$_POST["TLastName"]
+    || !$_POST["TPhone"]
+    || !$_POST["TEmail"]
 ) {
     $result["Error"] = 1;
     $result["Message"] = "empty value";
     die(json_encode($result));
 }
-$_GET['TeacherId'];
+$TeacherId = $_POST['TeacherId'];
 $TFirstName = $_POST["TFirstName"];
 $TMiddleName = $_POST["TMiddleName"];
 $TLastName = $_POST["TLastName"];
-$TMobileNum = $_POST["TMobileNum"];
+$TMobileNum = $_POST["TPhone"];
 $TPassword = $_POST["TPassword"];
 $TEmail = $_POST["TEmail"];
+
+$Teacher->setTeacherId($TeacherId);
+$Teacher->setTFirstName($TFirstName);
+$Teacher->setTmiddleName($TMiddleName);
+$Teacher->setTLastName($TLastName);
+$Teacher->setTPhone($TMobileNum);
+$Teacher->setTPassword($TPassword);
+$Teacher->setTEmail($TEmail);
 
 
 if ($Teacher->updateTeacher() == true) {

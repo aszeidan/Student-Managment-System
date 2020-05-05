@@ -31,8 +31,6 @@ $courses = $Teacher->getStudentByClass($_GET["ClassID"]);
 
 			$("#GradeMessage").html(result.Message);
 
-			$("#GradeMessage").html(result.Message);
-
 			setTimeout(() => {
 				$("#GradeMessage").html(" ");
 			}, 4000);

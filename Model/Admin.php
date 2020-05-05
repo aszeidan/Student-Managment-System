@@ -21,6 +21,14 @@ class Admin
     {
         $this->password = $password;
     }
+	function setfirstName($firstName)
+    {
+        $this->username = $firstName;
+    }
+	function setLastName($lastName)
+    {
+        $this->username = $lastName;
+    }
     function setClass($class)
     {
         $this->class = $class;
@@ -111,6 +119,7 @@ class Admin
         $result = $this->dbconnect->selectquery();
         return $result;
     }
+
     function validateCourseExist($course)
     {
         $query = 'select * from course WHERE CourseId=' . $course;
@@ -274,7 +283,7 @@ class Admin
 
     function updateClass()
     {
-        $query = "UPDATE `class` SET `ClassName` = '{$this->class}', `SemesterId` = '{$this->semester}', `CourseId` = '{$this->course}', `TeacherId` = '{$this->teacher}', `ScheduleId` = '{$this->schedule}' WHERE `class`.`ClassId` = {$this->classId};";
+        $query = "UPDATE class SET ClassName = {$this->class}', `SemesterId` = '{$this->semester}', `CourseId` = '{$this->course}', `TeacherId` = '{$this->teacher}', `ScheduleId` = '{$this->schedule}' WHERE `class`.`ClassId` = {$this->classId};";
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
     }

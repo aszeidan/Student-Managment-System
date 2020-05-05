@@ -47,7 +47,7 @@ $Teacher = new Teacher($db);
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">Teacher Profile</h3>
 
-                                <form action="Insert_Teacher.php" method="POST">
+                                <form action="" method="POST">
                                     <div class="row register-form mx-0 px-0 center">
                                         <div class="col-md-6">
 

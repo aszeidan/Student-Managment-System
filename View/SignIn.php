@@ -4,7 +4,22 @@
 <?php
 require_once('HeaderSignin.php');
 ?>
+    <script>
+        function createLogin() {
+            var data = {
+                username: $("#uname").val(),
+                password: $("#psw").val(),
+                loginType: $("#loginType").val(),
+            };
+            $.post("../Controller/Verify_Login.php", data, function(result) {
+                $("#loginMessage").html(result.Message);
+                setTimeout(() => {
+                    $("#loginMessage").html(" ");
+                }, 4000);
+            });
 
+        }
+    </script>
 <body>
     <div class="register">
         <div class="row">
@@ -52,22 +67,7 @@ require_once('HeaderSignin.php');
     </div>
 
     </div>
-    <script>
-        function createLogin() {
-            var data = {
-                uname: $("#uname").val(),
-                psw: $("#psw").val(),
-                loginType: $("#loginType").val(),
-            };
-            $.post("../Controller/Verify_Login.php", data, function(result) {
-                $("#Message").html(result.Message);
-                setTimeout(() => {
-                    $("#Message").html(" ");
-                }, 4000);
-            });
 
-        }
-    </script>
 
     <?php
     require_once('Footer.php'); ?>
