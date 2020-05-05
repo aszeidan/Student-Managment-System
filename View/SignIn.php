@@ -6,9 +6,9 @@ require_once('HeaderSignin.php');
 ?>
     <script>
         function createLogin() {
-            var data = {
-                username: $("#uname").val(),
-                password: $("#psw").val(),
+            var  data = {
+                uname: $("#uname").val(),
+                psw: $("#psw").val(),
                 loginType: $("#loginType").val(),
             };
             $.post("../Controller/Verify_Login.php", data, function(result) {
