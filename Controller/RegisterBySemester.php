@@ -22,9 +22,6 @@ session_start();
     $StudentRegisteredCourses = $Student->getStudentRegisteredCoursesById();
     
 ?>
-    <input class="mr-3 mb-3" id="course" name="course" placeholder="Search (i.e. CSC202)">
-    <input type="submit" value="Search" class="btnSearch py-1 px-3" />
-
 
     <table class="table">
         <thead>
