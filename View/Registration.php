@@ -55,7 +55,7 @@ $class = $Admin->getClasses();
             } else {
                 alert("Error Try Again");
             }
-
+		location.reload();
         });
     }
 </script>

@@ -7,12 +7,6 @@ require_once("../Model/DatabaseSMS.php");
 $db = new DatabaseSMS();
 $result = array();
 
-if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType"])) {
-
-    die("Missing Parameters");
-}
-
-
 $username = $_POST["uname"];
 $password = $_POST["psw"];
 $loginType = $_POST["loginType"];
@@ -41,7 +35,22 @@ $User->setUsername($username);
 $User->setPassword($password);
 
 
-if ($User->verifyLogin() == true) {
+
+if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType"])) {
+
+    $result["Error"] = 1;
+    $result["Message"] = "missing parameter";
+    die(json_encode($result));
+}elseif (
+    !$_POST["uname"]
+    || !$_POST["psw"]
+    || !$_POST["loginType"]
+){
+    $result["Error"] = 1;
+    $result["Message"] = "empty value";
+    die(json_encode($result));
+}elseif($User->verifyLogin() == true){
+	
     if (isset($_POST["remember"])) {
 
         setcookie('email', $user_name, time() + 60 * 60 * 7);
@@ -56,12 +65,13 @@ if ($User->verifyLogin() == true) {
     $result["Message"] = "Success";
     header("Location:../View/" . $pageLocation);
     die(json_encode($result));
-} else {
+	
+}elseif($User->verifyLogin() == false){
     $result["Error"] = 0;
     $result["Message"] = "Invalid Username or Password";
     die(json_encode($result));
 }
 } catch (Exception $e) {
 
-    header("Location:../View/SignIn.php?result=" . $e->getMessage());
+    header("Location:../View/SignIn.php?Result=" . $e->getMessage());
 }
