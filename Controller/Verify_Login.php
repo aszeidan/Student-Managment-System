@@ -19,7 +19,7 @@ switch ($loginType) {
     case "student":
         require_once('../Model/Student.php');
         $User = new Student($db);
-        $pageLocation = "Registration.php";
+        $pageLocation = "Student_Registration.php";
         break;
     case "teacher":
         require_once('../Model/Teacher.php');
