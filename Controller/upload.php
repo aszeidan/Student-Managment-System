@@ -6,28 +6,29 @@ error_reporting(E_ALL);
 require_once("../Model/DatabaseSMS.php");
 $db = new DatabaseSMS();
 require_once('../Model/Teacher.php');
-$result = array();
+
 $Teacher = new Teacher($db);
 
 // File upload path
 $targetDir = "../uploads/";
-$fileName = basename($_FILES["file"]["name"]);
+$fileName = basename($_FILES["userfile"]["name"]);
 $targetFilePath = $targetDir . $fileName;
 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
-$CourseId=$_GET["CourseId"];
-var_dump($CourseId);
-die();
+$ClassID=$_GET["ClassID"];
 
 
-if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
+
+
+
+if(isset($_POST["submit"]) && !empty($_FILES["userfile"]["name"])){
     // Allow certain file formats
     $allowTypes = array('doc','ppt','pdf');
     if(in_array($fileType, $allowTypes)){
         // Upload file to server
-        if(move_uploaded_file($_FILES["file"]["tmp_name"], $targetFilePath)){
+        if(move_uploaded_file($_FILES["userfile"]["tmp_name"], $targetFilePath)){
             // Insert file name into database
-			$insert = $Teacher->insertFile($CourseId, $fileName);
-            if($insert){
+			$result = $Teacher->insertFile($ClassID, $fileName);
+            if($result){
                 $statusMsg = "The file ".$fileName. " has been uploaded successfully.";
             }else{
                 $statusMsg = "File upload failed, please try again.";
@@ -41,4 +42,5 @@ if(isset($_POST["submit"]) && !empty($_FILES["file"]["name"])){
 }else{
     $statusMsg = 'Please select a file to upload.';
 }
+header("Location:../View/RegistredStudents.php?ClassID=" .$ClassID);
 ?>

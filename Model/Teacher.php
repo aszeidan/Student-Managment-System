@@ -91,6 +91,8 @@ class Teacher
 
         if (count($result) > 0) {
             $this->id = $result[0]['TeacherId'];
+            $this->TFirstName = $result[0]['TFirstName'];
+            $this->TLastName = $result[0]['TLastName'];
             return true;
         } else {
             return false;
@@ -106,6 +108,15 @@ class Teacher
 		die($result);
         return $result; */
     }
+	 function getUserFirstName()
+    {
+        return $this->TFirstName;
+    }
+	 function getUserLastName()
+    {
+        return $this->TLastName;
+    }
+
 
     function checkTeacherIfExists()
     {
@@ -157,27 +168,35 @@ class Teacher
     {
         $query =  "UPDATE registration SET MidtermGrade=" . $SMidtermGrade . " WHERE RegistrationId=" . $RegistrationId;
         $this->dbconnect->setQuery($query);
-        $result = $this->dbconnect->selectquery();
+        $result = $this->dbconnect->executeQuery();
         return $result;
     }
     function setAssignemetGrade($SAssignemetGrade, $RegistrationId)
     {
         $query =  "UPDATE registration SET AssignemetGrade=" . $SAssignemetGrade . " WHERE RegistrationId=" . $RegistrationId;
         $this->dbconnect->setQuery($query);
-        $result = $this->dbconnect->selectquery();
+        $result = $this->dbconnect->executeQuery();
         return $result;
     }
     function setFinalGrade($SFinalGrade, $RegistrationId)
     {
         $query =  "UPDATE registration SET FinalGrade=" . $SFinalGrade . " WHERE RegistrationId=" . $RegistrationId;
         $this->dbconnect->setQuery($query);
-        $result = $this->dbconnect->selectquery();
+        $result = $this->dbconnect->executeQuery();
         return $result;
     }
 	
-	function insertFile($CourseId, $fileName)
+	function insertFile($ClassID, $fileName)
 	{
-		$query = "UPDATE course SET Coursefile=" .$fileName. " WHERE CourseId=" .$CourseId;
+		$query = "UPDATE course SET Coursefile='" .$fileName. "' WHERE CourseId=(SELECT CourseId from class where ClassId=" .$ClassID.")";
+		$this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->executeQuery();
+        return $result;
+	}
+	
+	function getCourseFile($ClassID)
+	{
+		$query="SELECT * from course WHERE CourseId=(SELECT CourseId from class where ClassId=" .$ClassID.")";
 		$this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;

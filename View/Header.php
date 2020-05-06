@@ -49,5 +49,5 @@ if (!((isset($_COOKIE['isLoggedIn']) && $_COOKIE['isLoggedIn'] == true) || isset
       </li>
 
     </ul>
-
+<h4 class="register-heading-name">Wlecome <?php echo $_SESSION["userName"] ; ?>!</h4>
 </nav>

@@ -66,6 +66,14 @@ class Student
     {
         $this->SPassword = password_hash($SPassword, PASSWORD_BCRYPT);
     }
+	 function getUserFirstName()
+    {
+        return $this->SFirstName;
+    }
+	 function getUserLastName()
+    {
+        return $this->SLastName;
+    }
 
     function verifyLogin()
     {

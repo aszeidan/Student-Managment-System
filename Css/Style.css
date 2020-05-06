@@ -216,6 +216,12 @@ body {
   margin-bottom: -15%;
   color: #495057;
 }
+.register-heading-name {
+  text-align: Left;
+  margin-left: 30%;
+
+  color: #0062cc;
+}
 
 .centering {
   margin-left: auto;
