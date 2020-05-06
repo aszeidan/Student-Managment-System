@@ -60,9 +60,12 @@ require_once('HeaderSignin.php');
                 loginType: $("#loginType").val(),
             };
             $.post("../Controller/Verify_Login.php", data, function(result) {
-                $("#loginMessage").html(result.Message);
+                $("#Message").html(result.Message);
+                if(result.Message=="Success"){
+                    window.location.href=result.location;
+                }
                 setTimeout(() => {
-                    $("#loginMessage").html(" ");
+                    $("#Message").html(" ");
                 }, 4000);
             });
 

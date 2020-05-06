@@ -12,6 +12,15 @@ if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType
     $result["Message"] = "missing parameter";
     die(json_encode($result));
 }
+elseif (
+    !$_POST["uname"]
+    || !$_POST["psw"]
+    || !$_POST["loginType"]
+){
+    $result["Error"] = 1;
+    $result["Message"] = "empty value";
+    die(json_encode($result));
+}
 
 
 $username = $_POST["uname"];
@@ -41,39 +50,17 @@ switch ($loginType) {
 $User->setUsername($username);
 $User->setPassword($password);
 
-
-
-if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType"])) {
-
-    $result["Error"] = 1;
-    $result["Message"] = "missing parameter";
-    die(json_encode($result));
-}elseif (
-    !$_POST["uname"]
-    || !$_POST["psw"]
-    || !$_POST["loginType"]
-){
-    $result["Error"] = 1;
-    $result["Message"] = "empty value";
-    die(json_encode($result));
-}elseif($User->verifyLogin() == true){
-	
-    if (isset($_POST["remember"])) {
-
-        setcookie('email', $user_name, time() + 60 * 60 * 7);
-        setcookie('pass', $passwordd, time() + 60 * 60 * 7);
-        setcookie('isLoggedIn', true, time() + 60 * 60 * 7);
-    }
+if($User->verifyLogin() == true){	
     $_SESSION["usern"] = $username;
     $_SESSION["pass"] = $password;
     $_SESSION["loginType"] = $loginType;
     $_SESSION["id"] = $User->getId();
     $result["Error"] = 0;
     $result["Message"] = "Success";
-    header("Location:../View/" . $pageLocation);
+    $result["location"]= $pageLocation;
     die(json_encode($result));
 	
-}elseif($User->verifyLogin() == false){
+}else{
     $result["Error"] = 0;
     $result["Message"] = "Invalid Username or Password";
     die(json_encode($result));
