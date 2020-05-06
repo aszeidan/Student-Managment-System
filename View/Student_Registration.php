@@ -10,7 +10,7 @@ $Admin = new Admin($db);
 $Student = new Student($db);
 
 $studentID = $_SESSION['id'];
-$Student->setId($studentID);
+$Student->setStudentId($studentID);
 $semester = $Admin->getSemesters();
 ?>
 
