@@ -38,6 +38,7 @@ $User->setPassword($password);
 
 
 
+
 if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType"])) {
 
     $result["Error"] = 1;
@@ -59,6 +60,7 @@ if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType
         setcookie('pass', $passwordd, time() + 60 * 60 * 7);
         setcookie('isLoggedIn', true, time() + 60 * 60 * 7);
     }
+
     $_SESSION["usern"] = $username;
     $_SESSION["pass"] = $password;
     $_SESSION["loginType"] = $loginType;
@@ -66,10 +68,10 @@ if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType
     $_SESSION["TeacherName"] = $User->getTFirstName()." ".$User->getTLastName();
     $result["Error"] = 0;
     $result["Message"] = "Success";
-    header("Location:../View/" . $pageLocation);
+    $result["location"]= $pageLocation;
     die(json_encode($result));
 	
-}elseif($User->verifyLogin() == false){
+}else{
     $result["Error"] = 0;
     $result["Message"] = "Invalid Username or Password";
     die(json_encode($result));
