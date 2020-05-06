@@ -10,8 +10,10 @@ require_once('../Model/DatabaseSMS.php');
 require_once('../Model/Teacher.php');
 $db = new DatabaseSMS();
 $Teacher = new Teacher($db);
-$courses = $Teacher->getStudentByClass($_GET["ClassID"]);
-
+$ClassID=$_GET["ClassID"];
+$courses = $Teacher->getStudentByClass($ClassID);
+$file = $Teacher->getCourseFile($ClassID);
+$targetDir = "../uploads/";
 ?>
 <script>
 //ajax function that save grades of each student enrolled on the choosen class
@@ -58,6 +60,21 @@ $courses = $Teacher->getStudentByClass($_GET["ClassID"]);
 						<div class="tab-content" id="myTabContent">
 							<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 								<h3 class="register-heading">Registred Students</h3>
+								
+								<form action="../Controller/upload.php?ClassID=<?php echo $ClassID; ?>" method="post" enctype="multipart/form-data" >
+								<?php
+								if ($file[0]["Coursefile"] != " ") { ?>
+								<a href="<?php echo $targetDir . $file[0]["Coursefile"]; ?>"> download course material</a>
+				
+								<?php
+								} else { ?>
+										Select File to Upload:
+									<input type="file" name="userfile">
+									<input type="submit" name="submit" value="Upload File" >
+								<?php
+								}?>
+								
+								</form>
 
 								<form action="../Controller/SaveGrades.php" method="POST">
 									<div class="row col-md-2">

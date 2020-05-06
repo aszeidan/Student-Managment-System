@@ -14,7 +14,8 @@ $db = new DatabaseSMS();
 $Admin = new Admin($db);
 $semester = $Admin->getSemesters();
 $Teacher = new Teacher($db);
-
+var_dump($_SESSION);
+die();
 ?>
 <script>
     function getCoursesBySemester(SemesterId) {
@@ -45,7 +46,7 @@ $Teacher = new Teacher($db);
                         </ul>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Teacher Profile</h3>
+                                <h3 class="register-heading">Teacher Profile <?php echo $_SESSION["TeacherName"] ; ?></h3>
 
                                 <form action="" method="POST">
                                     <div class="row register-form mx-0 px-0 center">
@@ -67,7 +68,8 @@ $Teacher = new Teacher($db);
                                         </div>
 
                                     </div>
-                                </form>
+                               
+
                             </div>
 
                         </div>

@@ -7,11 +7,6 @@ require_once("../Model/DatabaseSMS.php");
 $db = new DatabaseSMS();
 $result = array();
 
-if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType"])) {
-    $result["Error"] = 1;
-    $result["Message"] = "missing parameter";
-    die(json_encode($result));
-}
 
 
 $username = $_POST["uname"];
@@ -60,7 +55,7 @@ if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType
 	
     if (isset($_POST["remember"])) {
 
-        setcookie('email', $user_name, time() + 60 * 60 * 7);
+        setcookie('email', $username, time() + 60 * 60 * 7);
         setcookie('pass', $passwordd, time() + 60 * 60 * 7);
         setcookie('isLoggedIn', true, time() + 60 * 60 * 7);
     }
@@ -68,6 +63,7 @@ if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType
     $_SESSION["pass"] = $password;
     $_SESSION["loginType"] = $loginType;
     $_SESSION["id"] = $User->getId();
+    $_SESSION["TeacherName"] = $User->getTFirstName()." ".$User->getTLastName();
     $result["Error"] = 0;
     $result["Message"] = "Success";
     header("Location:../View/" . $pageLocation);
