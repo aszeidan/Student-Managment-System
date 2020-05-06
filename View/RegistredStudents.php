@@ -60,26 +60,29 @@ $targetDir = "../uploads/";
 						<div class="tab-content" id="myTabContent">
 							<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 								<h3 class="register-heading">Registred Students</h3>
-								
-								<form action="../Controller/upload.php?ClassID=<?php echo $ClassID; ?>" method="post" enctype="multipart/form-data" >
-								<?php
-								if ($file[0]["Coursefile"] != " ") { ?>
-								<a href="<?php echo $targetDir . $file[0]["Coursefile"]; ?>"> download course material</a>
-				
-								<?php
-								} else { ?>
-										Select File to Upload:
-									<input type="file" name="userfile">
-									<input type="submit" name="submit" value="Upload File" >
-								<?php
-								}?>
-								
-								</form>
-
+								<div class="row col-md-2">
+									
+								</div>
 								<form action="../Controller/SaveGrades.php" method="POST">
 									<div class="row col-md-2">
+									
+									
 										<ul>
 											<li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Teacher_Profile.php">Previous</a></li>
+											
+									<form action="../Controller/upload.php?ClassID=<?php echo $ClassID; ?>" method="post" enctype="multipart/form-data" >
+										<?php
+										if ($file[0]["Coursefile"] != " ") { ?>
+										<a href="<?php echo $targetDir . $file[0]["Coursefile"]; ?>"> download course material</a>
+						
+										<?php
+										} else { ?>
+												Select File to Upload:
+											<input type="file" name="userfile">
+											<input type="submit" name="submit" value="Upload File" >
+										<?php
+										}?>
+									</form>
 										</ul>
 									</div>
 									<div class=" register-form">
@@ -103,7 +106,7 @@ $targetDir = "../uploads/";
 														for ($i = 0; $i < count($courses); $i++) {
 														?>
 															<tr>
-																<td><?php echo $courses[$i]['StudentID']; ?> </td>
+																<td><?php echo $courses[$i]['StudentId']; ?> </td>
 																<td><?php echo $courses[$i]['SFirstName'] . " " . $courses[$i]['SMiddleName'] . " " . $courses[$i]['SLastName']; ?> </td>
 																<?php
 																if ($courses[$i]['MidtermGrade'] != 0) { ?>

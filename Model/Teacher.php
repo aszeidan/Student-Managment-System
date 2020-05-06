@@ -157,10 +157,9 @@ class Teacher
                                 join student on student.StudentId=registration.StudentId 
                                 join class on class.ClassId=registration.ClassId
                                 WHERE class.ClassId=' . $ClassID;
-
+		
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
-
         return $result;
     }
 
