@@ -26,9 +26,9 @@ class Student
     {
         return $this->id;
     }
-    function setId($Sid)
+    function setStudentId($StudentID)
     {
-        $this->id = $Sid;
+        $this->id = $StudentID;
     }
     function setSemesterId($Sid)
     {
@@ -222,4 +222,3 @@ class Student
         $this->dbconnect->executeQuery();
     }
 }
-?>
