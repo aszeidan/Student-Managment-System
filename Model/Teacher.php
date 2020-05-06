@@ -5,6 +5,8 @@ class Teacher
     private $dbconnect;
     private $username;
     private $password;
+    private $TFirstName;
+    private $TLastName;
     private $id;
 
     function  __construct($db)
@@ -81,6 +83,7 @@ class Teacher
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
     }
+    
     function verifyLogin()
     {
         $query = "SELECT * FROM teacher WHERE 
@@ -108,11 +111,11 @@ class Teacher
 		die($result);
         return $result; */
     }
-	 function getUserFirstName()
+    function getUserFirstName()
     {
         return $this->TFirstName;
     }
-	 function getUserLastName()
+    function getUserLastName()
     {
         return $this->TLastName;
     }
@@ -185,20 +188,20 @@ class Teacher
         $result = $this->dbconnect->executeQuery();
         return $result;
     }
-	
-	function insertFile($ClassID, $fileName)
-	{
-		$query = "UPDATE course SET Coursefile='" .$fileName. "' WHERE CourseId=(SELECT CourseId from class where ClassId=" .$ClassID.")";
-		$this->dbconnect->setQuery($query);
+
+    function insertFile($ClassID, $fileName)
+    {
+        $query = "UPDATE course SET Coursefile='" . $fileName . "' WHERE CourseId=(SELECT CourseId from class where ClassId=" . $ClassID . ")";
+        $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->executeQuery();
         return $result;
-	}
-	
-	function getCourseFile($ClassID)
-	{
-		$query="SELECT * from course WHERE CourseId=(SELECT CourseId from class where ClassId=" .$ClassID.")";
-		$this->dbconnect->setQuery($query);
+    }
+
+    function getCourseFile($ClassID)
+    {
+        $query = "SELECT * from course WHERE CourseId=(SELECT CourseId from class where ClassId=" . $ClassID . ")";
+        $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;
-	}
+    }
 }

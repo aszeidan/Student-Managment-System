@@ -37,12 +37,12 @@ $class = $Admin->getClasses();
 			);
    });
 }); */
-// AJax function to delete class.
+    // AJax function to delete class.
     function deleteClass(classID) {
         $.get("../Controller/Check_course_registration_form.php?id=" + classID, function(data, status) {
             var myResult = data;
-			//check if the choosen class has student regsitered on it
-			//if no
+            //check if the choosen class has student regsitered on it
+            //if no
             if (myResult.error == 0) {
                 if (myResult.result == 1) {
                     alert("The class is deleted");
@@ -55,7 +55,7 @@ $class = $Admin->getClasses();
             } else {
                 alert("Error Try Again");
             }
-		location.reload();
+            location.reload();
         });
     }
 </script>
@@ -84,7 +84,7 @@ $class = $Admin->getClasses();
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
                         </ul>
-						
+
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">Registration Form </h3>

@@ -113,21 +113,8 @@ body {
   margin-top: 10%;
 }
 
-.btnRegister {
-  float: right;
-  margin-top: 10%;
-  border: none;
-  border-radius: 1.5rem;
-  padding: 2%;
-  background: #0062cc;
-  color: #fff;
-  font-weight: 600;
-  width: 50%;
-  cursor: pointer;
-  background: #f8f9fa;
-  border-top-left-radius: 10% 50%;
-  border-bottom-left-radius: 10% 50%;
-}
+
+
 
 .register-left img {
   margin-top: 15%;
@@ -168,18 +155,7 @@ body {
   margin-top: 10%;
 }
 
-.btnRegister {
-  float: right;
-  margin-top: 10%;
-  border: none;
-  border-radius: 1.5rem;
-  padding: 2%;
-  background: #0062cc;
-  color: #fff;
-  font-weight: 600;
-  width: 50%;
-  cursor: pointer;
-}
+
 
 .register .nav-tabs {
   margin-top: 3%;
@@ -310,6 +286,13 @@ body {
   font-weight: 600;
   width: 50%;
   cursor: pointer;
+}
+.btnRegister:hover{
+  background-color:#016fff;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+
 }
 
 .register .nav-tabs {

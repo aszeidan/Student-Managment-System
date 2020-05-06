@@ -5,6 +5,8 @@ class Student
     private $dbconnect;
     private $username;
     private $password;
+    private $SFirstName;
+    private $SLastName;
     private $id;
     private $semsterId;
 
@@ -85,6 +87,8 @@ class Student
 
         if (count($result) > 0) {
             $this->id = $result[0]['StudentID'];
+            $this->SFirstName = $result[0]['SFirstName'];
+            $this->SLastName = $result[0]['SLastName'];
             return true;
         } else {
             return false;

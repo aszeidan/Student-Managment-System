@@ -5,6 +5,8 @@ class Admin
     private $dbconnect;
     private $username;
     private $password;
+    private $AFirstName;
+    private $ALastName;
     private $id;
 
     function  __construct($db)
@@ -21,13 +23,13 @@ class Admin
     {
         $this->password = $password;
     }
-	function setfirstName($firstName)
+    function setfirstName($firstName)
     {
-        $this->firstName = $firstName;
+        $this->AFirstName = $firstName;
     }
-	function setLastName($lastName)
+    function setLastName($lastName)
     {
-        $this->lastName = $lastName;
+        $this->ALastName = $lastName;
     }
     function setClass($class)
     {
@@ -302,13 +304,13 @@ class Admin
             return false;
         }
     }
-	 function getUserFirstName()
+    function getUserFirstName()
     {
-        return $this->firstName;
+        return $this->AFirstName;
     }
-	 function getUserLastName()
+    function getUserLastName()
     {
-        return $this->lastName;
+        return $this->ALastName;
     }
 
     function verifyLogin()
@@ -321,6 +323,8 @@ class Admin
 
         if (count($result) > 0) {
             $this->id = $result[0]['AdminId'];
+            $this->AFirstName = $result[0]['AFirstName'];
+            $this->ALastName = $result[0]['ALastName'];
             return true;
         } else {
             return false;
