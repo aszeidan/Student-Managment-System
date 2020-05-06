@@ -177,7 +177,7 @@ class Teacher
 	
 	function insertFile($CourseId, $fileName)
 	{
-		$query = "UPDATE course SET Coursefile=".$fileName." WHERE CourseId=".$CourseId;
+		$query = "UPDATE course SET Coursefile=" .$fileName. " WHERE CourseId=" .$CourseId;
 		$this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;

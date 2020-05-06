@@ -6,6 +6,7 @@ class Student
     private $username;
     private $password;
     private $id;
+    private $semsterId;
 
     function  __construct($db)
     {
@@ -24,6 +25,22 @@ class Student
     function getId()
     {
         return $this->id;
+    }
+    function setId($Sid)
+    {
+        $this->id = $Sid;
+    }
+    function setSemesterId($Sid)
+    {
+        $this->semesterId = $Sid;
+    }
+    function setClassId($Cid)
+    {
+        $this->classId = $Cid;
+    }
+    function setCourseCode($CCode)
+    {
+        $this->courseCode = $CCode;
     }
     function setSFirstName($SFirstName)
     {
@@ -47,7 +64,6 @@ class Student
     }
     function setSPassword($SPassword)
     {
-
         $this->SPassword = password_hash($SPassword, PASSWORD_BCRYPT);
     }
 
@@ -60,11 +76,28 @@ class Student
         $result = $this->dbconnect->selectquery();
 
         if (count($result) > 0) {
+            $this->id = $result[0]['StudentID'];
             return true;
         } else {
             return false;
         }
     }
+
+    function verifyNoTimeConflict($ScheduleId){
+        $query = 'SELECT * FROM registration join class on registration.ClassId = class.ClassId 
+                                                WHERE registration.StudentId =' . $this->id . '
+                                                AND class.SemesterId =' . $this->semesterId . '
+                                                AND class.ScheduleId =' . $ScheduleId;
+        $this->dbconnect->setQuery($query);
+        $this->dbconnect->executeQuery();
+        $result = $this->dbconnect->selectquery();
+        if (count($result) > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     function checkStudentIfExists()
     {
         $query = "SELECT * FROM student WHERE SEmail='"  . $this->SEmail . "' ";
@@ -84,6 +117,77 @@ class Student
         $this->dbconnect->executeQuery();
     }
 
+    function getStudentCoursesById()
+    {
+        $query1 = 'select ClassId from registration where StudentId = '. $this->id;
+        $query =  'select class.SemesterId, class.ScheduleId, class.ClassId, courseCode, TFirstName, TMiddleName, TLastName, schedule.Time from class 
+                                join course on course.CourseId=class.CourseId 
+                                join semester on semester.SemesterId=class.SemesterId
+                                join schedule on schedule.ScheduleId=class.ScheduleId 
+                                join teacher on teacher.TeacherId=class.TeacherId 
+                                WHERE class.SemesterId =' . $this->semesterId . '
+                                AND ClassId NOT IN (' . $query1. ')';
+
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;                
+    }
+
+    function getStudentRegisteredCoursesById()
+    {
+        $query =  'select registration.RegistrationId, courseCode, TFirstName, TMiddleName, TLastName, schedule.Time from registration 
+                                join class on registration.ClassId = class.ClassId
+                                join course on course.CourseId=class.CourseId 
+                                join semester on semester.SemesterId=class.SemesterId
+                                join schedule on schedule.ScheduleId=class.ScheduleId 
+                                join teacher on teacher.TeacherId=class.TeacherId 
+                                join student on student.StudentID = registration.StudentId
+                                WHERE student.StudentID =' . $this->id . '
+                                AND class.SemesterId =' . $this->semesterId;
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;                
+    }
+
+    // function getClassIdByCourse()
+    // {
+    //     $query =  'select classId from class 
+    //                             join course where course.CourseId=class.CourseId';
+    //     $this->dbconnect->setQuery($query);
+    //     $result = $this->dbconnect->selectquery();
+    //     return $result;                
+    // }
+
+    function addStudentCourse()
+    {                                                                               
+        $query =  "INSERT INTO `registration`(`StudentId`, `ClassId`) VALUES ('" . $this->id . "','" . $this->classId . "')";
+        $this->dbconnect->setQuery($query);
+        $this->dbconnect->executeQuery();
+    }
+
+    function dropStudentCourse($RegistrationId)
+    {                                                                               
+        $query =  'Delete from registration WHERE RegistrationId =' . $RegistrationId;
+        $this->dbconnect->setQuery($query);
+        $this->dbconnect->executeQuery();
+    }
+
+    function searchStudentCourse()
+    {
+        $query =  'select courseCode, TFirstName, TMiddleName, TLastName, schedule.Time from class 
+                                join course on course.CourseId=class.CourseId 
+                                join semester on semester.SemesterId=class.SemesterId
+                                join schedule on schedule.ScheduleId=class.ScheduleId 
+                                join teacher on teacher.TeacherId=class.TeacherId 
+                                join registration on registration.ClassId = class.ClassId
+                                join student on student.StudentID = registration.StudentId
+                                WHERE course.CourseCode ='. $this->courseCode .'
+                                AND student.StudentID =' . $this->id . '
+                                AND class.SemesterId =' . $this->semesterId;
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;                
+    }
     function updateStudent()
     {
         if ($this->SPassword == "") {
@@ -110,3 +214,4 @@ class Student
         $this->dbconnect->executeQuery();
     }
 }
+?>

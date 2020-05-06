@@ -21,6 +21,14 @@ class Admin
     {
         $this->password = $password;
     }
+	function setfirstName($firstName)
+    {
+        $this->username = $firstName;
+    }
+	function setLastName($lastName)
+    {
+        $this->username = $lastName;
+    }
     function setClass($class)
     {
         $this->class = $class;
