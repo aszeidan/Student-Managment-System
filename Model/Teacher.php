@@ -108,11 +108,11 @@ class Teacher
 		die($result);
         return $result; */
     }
-	 function getTFirstName()
+	 function getUserFirstName()
     {
         return $this->TFirstName;
     }
-	 function getTLastName()
+	 function getUserLastName()
     {
         return $this->TLastName;
     }

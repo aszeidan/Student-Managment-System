@@ -23,11 +23,11 @@ class Admin
     }
 	function setfirstName($firstName)
     {
-        $this->username = $firstName;
+        $this->firstName = $firstName;
     }
 	function setLastName($lastName)
     {
-        $this->username = $lastName;
+        $this->lastName = $lastName;
     }
     function setClass($class)
     {
@@ -302,6 +302,14 @@ class Admin
         } else {
             return false;
         }
+    }
+	 function getUserFirstName()
+    {
+        return $this->firstName;
+    }
+	 function getUserLastName()
+    {
+        return $this->lastName;
     }
 
     function verifyLogin()

@@ -14,8 +14,7 @@ $db = new DatabaseSMS();
 $Admin = new Admin($db);
 $semester = $Admin->getSemesters();
 $Teacher = new Teacher($db);
-var_dump($_SESSION);
-die();
+
 ?>
 <script>
     function getCoursesBySemester(SemesterId) {
@@ -38,15 +37,17 @@ die();
                     <input type="submit" name="" value="SignOut" /><br />
                 </form>
             </div>
-            <div class="col-md-9 register-right">
-
+			 
+            <div class="col-md-9 register-right">	
                 <div class="tab-content" id="myTabContent">
+				
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-                        </ul>
+                       
                         <div class="tab-content" id="myTabContent">
+						  
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Teacher Profile <?php echo $_SESSION["TeacherName"] ; ?></h3>
+                                <h3 class="register-heading">Teacher Profile</h3>
 
                                 <form action="" method="POST">
                                     <div class="row register-form mx-0 px-0 center">

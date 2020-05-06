@@ -65,7 +65,7 @@ if (!isset($_POST["uname"]) || !isset($_POST["psw"]) || !isset($_POST["loginType
     $_SESSION["pass"] = $password;
     $_SESSION["loginType"] = $loginType;
     $_SESSION["id"] = $User->getId();
-    $_SESSION["TeacherName"] = $User->getTFirstName()." ".$User->getTLastName();
+    $_SESSION["userName"] = $User->getUserFirstName()." ".$User->getUserLastName();
     $result["Error"] = 0;
     $result["Message"] = "Success";
     $result["location"]= $pageLocation;
