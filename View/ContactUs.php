@@ -2,7 +2,7 @@
 <html lang="en">
 
 <?php
-require_once('Header.php');
+require_once('HeaderSignin.php');
 ?>
 
 <body>
@@ -37,8 +37,7 @@ require_once('Header.php');
                                                 <div class="col-md-6">
                                                     <div class="md-form mb-0">
                                                         <div class="form-group">
-                                                            <input id="form_name" type="text" id="name" name="name" class="form-control" placeholder="Name" required="required" data-error="Name is required.">
-                                                            <label for="form_name">Name *</label>
+                                                            <input id="form_name" type="text" id="name" name="name" class="form-control" placeholder="Name*" required="required" data-error="Name is required.">
                                                             <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
@@ -49,8 +48,7 @@ require_once('Header.php');
                                                 <div class="col-md-6">
                                                     <div class="md-form mb-0">
                                                         <div class="form-group">
-                                                            <input id="form_email" type="email" name="email" class="form-control" placeholder="Email " required="required" data-error="Valid email is required.">
-                                                            <label for="form_email">Email *</label>
+                                                            <input id="form_email" type="email" name="email" class="form-control" placeholder="Email* " required="required" data-error="Valid email is required.">
                                                             <div class="help-block with-errors"></div>
                                                         </div>
 
@@ -65,16 +63,14 @@ require_once('Header.php');
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="md-form mb-0">
-                                                        <input type="text" id="subject" name="subject" class="form-control">
-                                                        <label for="subject" class="">Subject</label>
+                                                        <input type="text" id="subject" name="subject" class="form-control" placeholder="Subject">
                                                     </div>
 
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <div class="md-form mb-0">
-                                                            <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Phone">
-                                                            <label for="form_phone">Phone</label>
+                                                            <input id="form_phone" type="tel" name="phone" class="form-control" placeholder="Phone*" required="required" data-error="Valid phone# is required.">
                                                             <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
@@ -91,8 +87,7 @@ require_once('Header.php');
                                                     <div class="md-form">
                                                         <div class="form-group">
 
-                                                            <textarea id="form_message" name="message" class="form-control md-textarea" placeholder="Text" rows="2" required="required" data-error="Please, leave us a message."></textarea>
-                                                            <label for="form_message">Message *</label>
+                                                            <textarea id="form_message" name="message" class="form-control md-textarea" placeholder="Text message*" rows="2" required="required" data-error="Please, leave us a message."></textarea>
                                                             <div class="help-block with-errors"></div>
                                                         </div>
                                                     </div>
