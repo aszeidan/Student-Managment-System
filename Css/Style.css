@@ -259,12 +259,7 @@ body {
 
 .tooltip:hover .tooltiptext {
   visibility: visible;}
-.register-heading {
-  text-align: center;
-  margin-top: 8%;
-  margin-bottom: -15%;
-  color: #495057;
-}
+
 
 .centering {
   margin-left: auto;
@@ -324,27 +319,26 @@ body {
   border-bottom-left-radius: 1.5rem;
 }
 
-.register-heading {
-  text-align: center;
-  margin-top: 8%;
-  margin-bottom: -15%;
-  color: #495057;
-}
-
 .centering {
   margin-left: auto;
   margin-right: auto;
 }
-.table td,
-.table th {
-  width: fit-content;
+
+.page-footer {
+  font-weight: bold;
+  color: #383d41;
+  cursor: pointer;
 }
 
-.btnSearch {
-  border: none;
-  border-radius: 1.5rem;
-  background: #0062cc;
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+} 
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
 }

@@ -21,7 +21,7 @@ require_once('HeaderSignin.php');
                         <div class="row register-form mx-0 px-0 col-md-12">
                             <div class="centering col-md-6">
                                 <p> We are a group of college, a part of Park Innovation </p>
-								
+
                             </div>
                         </div>
                     </div>

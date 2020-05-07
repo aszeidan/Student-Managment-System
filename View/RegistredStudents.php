@@ -10,17 +10,17 @@ require_once('../Model/DatabaseSMS.php');
 require_once('../Model/Teacher.php');
 $db = new DatabaseSMS();
 $Teacher = new Teacher($db);
-$ClassID=$_GET["ClassID"];
+$ClassID = $_GET["ClassID"];
 $courses = $Teacher->getStudentByClass($ClassID);
 $file = $Teacher->getCourseFile($ClassID);
 $targetDir = "../uploads/";
 ?>
 <script>
-//ajax function that save grades of each student enrolled on the choosen class
+	//ajax function that save grades of each student enrolled on the choosen class
 	function saveGrades(RegistrationId) {
-		if ($("#SMidtermGrade_" + RegistrationId).val()>30 || $("#SAssignemetGrade_" + RegistrationId).val()>20 || $("#SFinalGrade_" + RegistrationId).val()){
+		if ($("#SMidtermGrade_" + RegistrationId).val() > 30 || $("#SAssignemetGrade_" + RegistrationId).val() > 20 || $("#SFinalGrade_" + RegistrationId).val()) {
 			alert("The Midterm Grade should be less than 30, Assignemet Grade should be less than 20, and the Final Grade should be less than 50");
-			}else{
+		} else {
 			var data = {
 				RegistrationId: RegistrationId,
 				SMidtermGrade: $("#SMidtermGrade_" + RegistrationId).val(),
@@ -36,7 +36,7 @@ $targetDir = "../uploads/";
 			setTimeout(() => {
 				$("#GradeMessage").html(" ");
 			}, 4000);
-		location.reload();
+			location.reload();
 
 		});
 	}
@@ -60,26 +60,13 @@ $targetDir = "../uploads/";
 						<div class="tab-content" id="myTabContent">
 							<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 								<h3 class="register-heading">Registred Students</h3>
-								
-								<form action="../Controller/upload.php?ClassID=<?php echo $ClassID; ?>" method="post" enctype="multipart/form-data" >
-								<?php
-								if ($file[0]["Coursefile"] != " ") { ?>
-								<a href="<?php echo $targetDir . $file[0]["Coursefile"]; ?>"> download course material</a>
-				
-								<?php
-								} else { ?>
-										Select File to Upload:
-									<input type="file" name="userfile">
-									<input type="submit" name="submit" value="Upload File" >
-								<?php
-								}?>
-								
-								</form>
+
+
 
 								<form action="../Controller/SaveGrades.php" method="POST">
 									<div class="row col-md-2">
 										<ul>
-											<li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Teacher_Profile.php">Previous</a></li>
+											<li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Teacher_Profile.php"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
 										</ul>
 									</div>
 									<div class=" register-form">
@@ -88,7 +75,20 @@ $targetDir = "../uploads/";
 											<div class="row register-form mx-0 px-0">
 												<div class="col-md-12">
 													<table border="5" class="table-hover table-bordered width:fit content" id="Registration_table">
+														<form action="../Controller/upload.php?ClassID=<?php echo $ClassID; ?>" method="post" enctype="multipart/form-data">
+															<?php
+															if ($file[0]["Coursefile"] != " ") { ?>
+																<a href="<?php echo $targetDir . $file[0]["Coursefile"]; ?>"> download course material</a>
 
+															<?php
+															} else { ?>
+																Select File to Upload:
+																<input type="file" name="userfile">
+																<input type="submit" name="submit" value="Upload File">
+															<?php
+															} ?>
+
+														</form>
 														<thead class="table-primary">
 															<th> Student Id </th>
 															<th> Student Name </th>
@@ -130,7 +130,7 @@ $targetDir = "../uploads/";
 																?>
 																<td><?php echo $courses[$i]['Grade']; ?> </td>
 
-																<td id="SaveGrades"><a href="#" ; onclick="saveGrades(<?php echo $courses[$i]['RegistrationId']; ?>)">Save </a> </td>
+																<td id="SaveGrades"><a href="#" ; onclick="saveGrades(<?php echo $courses[$i]['RegistrationId']; ?>)"><i class="fas fa-save" aria-hidden="true"></i></a> </td>
 																<td>
 																	<div class="form-group" id="GradeMessage">
 																	</div>

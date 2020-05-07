@@ -11,30 +11,40 @@ require_once('HeaderSignin.php');
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                 <h3>Welcome To Time Travel University</h3>
-                <p>If you’re looking for a transformative educational and life experience, AG is the right place for you. On this website you will find details on our admission policies and procedures, as well as the application process and deadlines.</p>
 
             </div>
             <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <h3 class="register-heading">Sign In</h3>
+                        <h3 class="register-heading"> SignIn
+                        </h3>
                         <div class="row register-form mx-0 px-0 col-md-12">
                             <div class="centering col-md-6">
                                 <form>
                                     <div class="form-group">
-                                        <select class="custom-select" id="loginType" required>
-                                            <option value="student">Student Login</option>
-                                            <option value="teacher">Teacher Login</option>
-                                            <option value="admin">Admin Login</option>
-                                        </select>
+                                        <div class="input-container">
+                                            <i class="fa fa-user icon"></i>
+                                            <select class="custom-select" id="loginType" required>
+                                                <option value="student">Student Login</option>
+                                                <option value="teacher">Teacher Login</option>
+                                                <option value="admin">Admin Login</option>
+                                            </select>
+                                        </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="123@example.com" value="" id="uname" required />
+                                        <div class="input-container">
+
+                                            <i class="fa fa-envelope icon"></i>
+                                            <input type="text" class="form-control" placeholder="123@example.com" value="" id="uname" required />
+                                        </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="123456" value="" id="psw" required />
+                                        <div class="input-container">
+                                            <i class="fa fa-key icon"></i>
+                                            <input type="password" class="form-control" placeholder="123456" value="" id="psw" required />
+                                        </div>
                                     </div>
                                     <div class="form-group" id="Message">
                                     </div>

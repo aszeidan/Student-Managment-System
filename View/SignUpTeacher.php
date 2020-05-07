@@ -121,8 +121,8 @@ $Teacher = $Admin->getAllTeachers();
                                                         <td><?php echo $Teacher[$i]['TFirstName'] . " " . $Teacher[$i]['TLastName']; ?> </td>
                                                         <td><?php echo $Teacher[$i]['TEmail']; ?> </td>
                                                         <td><?php echo $Teacher[$i]['TMobileNum']; ?> </td>
-                                                        <td id="delete"><a href="#" ; onclick="deleteTeacher(<?php echo $Teacher[$i]['TeacherId']; ?> )">Delete </a> </td>
-                                                        <td><a href="../View/EditTeacher.php?TeacherId=<?php echo $Teacher[$i]['TeacherId']; ?>">Edit </a> </td>
+                                                        <td id="delete"> <a href="#" ; onclick="deleteTeacher(<?php echo $Teacher[$i]['TeacherId']; ?> )"><i class="fa fa-trash" aria-hidden="true"></i> </a> </td>
+                                                        <td><a href="../View/EditTeacher.php?TeacherId=<?php echo $Teacher[$i]['TeacherId']; ?>"><i class="fa fa-edit" aria-hidden="true"></i> </a> </td>
                                                     </tr> <?php } ?>
                                             </table>
                                         </div>

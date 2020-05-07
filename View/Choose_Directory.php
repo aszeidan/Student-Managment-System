@@ -60,10 +60,6 @@ require_once('Header.php');
 
         </div>
     </div>
-
-    <?php
-    require_once('Footer.php'); ?>
-
 </body>
 
 </html>

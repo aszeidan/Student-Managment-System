@@ -69,7 +69,7 @@ $student = $Admin->getAllStudents();
                 <div class="row col-md-2">
 
                     <ul>
-                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php">Previous</a></li>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
                     </ul>
                 </div>
                 <form action="../Controller/Verify_SignUpStudent.php" method="POST">
@@ -135,8 +135,8 @@ $student = $Admin->getAllStudents();
                                                         <td><?php echo $student[$i]['SFirstName'] . " " . $student[$i]['SLastName']; ?> </td>
                                                         <td><?php echo $student[$i]['SPhone']; ?> </td>
                                                         <td><?php echo $student[$i]['SEmail']; ?> </td>
-                                                        <td id="delete"><a href="#" ; onclick="deleteStudent(<?php echo $student[$i]['StudentID']; ?> )">Delete </a> </td>
-                                                        <td><a href="../View/EditStudent.php?StudentID=<?php echo $student[$i]['StudentID']; ?>">Edit </a> </td>
+                                                        <td id="delete"><a href="#" ; onclick="deleteStudent(<?php echo $student[$i]['StudentID']; ?> )"><i class="fa fa-trash" aria-hidden="true"></i></a> </td>
+                                                        <td><a href="../View/EditStudent.php?StudentID=<?php echo $student[$i]['StudentID']; ?>"><i class="fa fa-edit" aria-hidden="true"></i> </a> </td>
                                                     </tr> <?php } ?>
                                             </table>
                                         </div>
