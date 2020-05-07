@@ -50,7 +50,7 @@ $student = $Admin->getAllStudents();
 </script>
 
 <body>
-    <div class="container register">
+    <div class="register">
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
@@ -133,7 +133,7 @@ $student = $Admin->getAllStudents();
                                                 ?>
                                                     <tr>
                                                         <td><?php echo $student[$i]['SFirstName'] . " " . $student[$i]['SLastName']; ?> </td>
-                                                        <td><?php echo $student[$i]['SPhoneNumber']; ?> </td>
+                                                        <td><?php echo $student[$i]['SPhone']; ?> </td>
                                                         <td><?php echo $student[$i]['SEmail']; ?> </td>
                                                         <td id="delete"><a href="#" ; onclick="deleteStudent(<?php echo $student[$i]['StudentID']; ?> )"><i class="fa fa-trash" aria-hidden="true"></i></a> </td>
                                                         <td><a href="../View/EditStudent.php?StudentID=<?php echo $student[$i]['StudentID']; ?>"><i class="fa fa-edit" aria-hidden="true"></i> </a> </td>

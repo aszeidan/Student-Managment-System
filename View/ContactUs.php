@@ -55,7 +55,7 @@ require_once('Header.php');
                                         <input type="text" id="subject" name="subject" class="form-control">
                                         <label for="subject" class="">Subject</label>
                                     </div>
-                                
+
                                 </div>
                             </div>
                             <!--Grid row-->
@@ -109,7 +109,7 @@ require_once('Header.php');
 
 
             <a class="btn btn-primary" onclick="document.getElementById('contact-form').submit();">Send</a>
-
+            <?php require_once('footer.php'); ?>
 </body>
 
 </html>

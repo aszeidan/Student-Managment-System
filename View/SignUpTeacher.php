@@ -40,7 +40,7 @@ $Teacher = $Admin->getAllTeachers();
 </script>
 
 <body>
-    <div class="container register">
+    <div class=" register">
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
@@ -55,6 +55,12 @@ $Teacher = $Admin->getAllTeachers();
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Instructors</a>
                     </li>
                 </ul>
+                <div class="row col-md-2">
+
+                    <ul>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
+                    </ul>
+                </div>
 
                 <form action="../Controller/Verify_SignUpTeacher.php" method="POST">
                     <div class="tab-content" id="myTabContent">

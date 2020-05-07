@@ -1,6 +1,4 @@
-body {
-  background-color: gray;
-}
+
 
 .register {
   background: -webkit-linear-gradient(left, #3931af, #00c6ff);
@@ -344,7 +342,7 @@ body {
 
 .page-footer {
   font-weight: bold;
-  color: #383d41;
+  color: white;
   cursor: pointer;
 }
 
@@ -355,7 +353,7 @@ body {
 } 
 .icon {
   padding: 10px;
-  background: dodgerblue;
+  background: #0062cc;
   color: white;
   min-width: 50px;
   text-align: center;
