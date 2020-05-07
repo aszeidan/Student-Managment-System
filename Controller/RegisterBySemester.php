@@ -16,7 +16,7 @@ session_start();
     $Student->setSemesterId($_GET["SemesterId"]);
     
     $studentID = $_SESSION['id'];
-    $Student->setId($studentID);
+    $Student->setStudentId($studentID);
 
     $StudentCourses = $Student->getStudentCoursesById();
     $StudentRegisteredCourses = $Student->getStudentRegisteredCoursesById();
