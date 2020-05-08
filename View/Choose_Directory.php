@@ -20,7 +20,7 @@ require_once('Header.php');
 
                 <form>
                     <div class="tab-pane fade show active" id="home" role="tabpanel" name="teacher" aria-labelledby="home-tab">
-                        <h3 class="register-heading">Welcome Admin! </h3>
+                        <h3 class="register-heading">Welcome <?php echo $_SESSION["userName"]; ?> </h3>
                         <div class="row register-form mx-0 px-0">
                             <div class="col-md-6">
                                 <div class="form-group">
