@@ -1,6 +1,4 @@
-body {
-  background-color: gray;
-}
+
 
 .register {
   background: -webkit-linear-gradient(left, #3931af, #00c6ff);
@@ -25,7 +23,25 @@ body {
   margin-bottom: 3%;
   cursor: pointer;
 }
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
 
+.social-link:hover,
+.social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
+}
 .register-right {
   background: #f8f9fa;
   border-top-left-radius: 10% 50%;
@@ -259,12 +275,7 @@ body {
 
 .tooltip:hover .tooltiptext {
   visibility: visible;}
-.register-heading {
-  text-align: center;
-  margin-top: 8%;
-  margin-bottom: -15%;
-  color: #495057;
-}
+
 
 .centering {
   margin-left: auto;
@@ -324,27 +335,26 @@ body {
   border-bottom-left-radius: 1.5rem;
 }
 
-.register-heading {
-  text-align: center;
-  margin-top: 8%;
-  margin-bottom: -15%;
-  color: #495057;
-}
-
 .centering {
   margin-left: auto;
   margin-right: auto;
 }
-.table td,
-.table th {
-  width: fit-content;
+
+.page-footer {
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
 }
 
-.btnSearch {
-  border: none;
-  border-radius: 1.5rem;
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+} 
+.icon {
+  padding: 10px;
   background: #0062cc;
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
+  color: white;
+  min-width: 50px;
+  text-align: center;
 }

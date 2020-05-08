@@ -19,7 +19,7 @@ if (!((isset($_COOKIE['isLoggedIn']) && $_COOKIE['isLoggedIn'] == true) || isset
 </head>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">Home</a>
+  <a class="navbar-brand" href="../View/Home.php">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -30,7 +30,7 @@ if (!((isset($_COOKIE['isLoggedIn']) && $_COOKIE['isLoggedIn'] == true) || isset
         <a class="nav-link" href="AboutUs.php"> About Us <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"> Contact Us</a>
+        <a class="nav-link" href="ContactUs.php"> Contact Us</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="SignIn.php"> Sign In</a>
@@ -49,7 +49,12 @@ if (!((isset($_COOKIE['isLoggedIn']) && $_COOKIE['isLoggedIn'] == true) || isset
       </li>
 
     </ul>
-    <h4 class="register-heading-name">Wlecome <?php echo $_SESSION["userName"]; ?>!</h4>
+    <h4 class="register-heading-name">Welcome <?php echo $_SESSION["userName"]; ?>
+      <svg class="bi bi-people-circle" width="1em" height="1em" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 008 15a6.987 6.987 0 005.468-2.63z" />
+        <path fill-rule="evenodd" d="M8 9a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
+        <path fill-rule="evenodd" d="M8 1a7 7 0 100 14A7 7 0 008 1zM0 8a8 8 0 1116 0A8 8 0 010 8z" clip-rule="evenodd" />
+      </svg></h4>
 
 
 

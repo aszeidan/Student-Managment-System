@@ -40,7 +40,7 @@ $Teacher = $Admin->getAllTeachers();
 </script>
 
 <body>
-    <div class="container register">
+    <div class=" register">
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
@@ -55,6 +55,12 @@ $Teacher = $Admin->getAllTeachers();
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Instructors</a>
                     </li>
                 </ul>
+                <div class="row col-md-2">
+
+                    <ul>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
+                    </ul>
+                </div>
 
                 <form action="../Controller/Verify_SignUpTeacher.php" method="POST">
                     <div class="tab-content" id="myTabContent">
@@ -121,8 +127,8 @@ $Teacher = $Admin->getAllTeachers();
                                                         <td><?php echo $Teacher[$i]['TFirstName'] . " " . $Teacher[$i]['TLastName']; ?> </td>
                                                         <td><?php echo $Teacher[$i]['TEmail']; ?> </td>
                                                         <td><?php echo $Teacher[$i]['TMobileNum']; ?> </td>
-                                                        <td id="delete"><a href="#" ; onclick="deleteTeacher(<?php echo $Teacher[$i]['TeacherId']; ?> )">Delete </a> </td>
-                                                        <td><a href="../View/EditTeacher.php?TeacherId=<?php echo $Teacher[$i]['TeacherId']; ?>">Edit </a> </td>
+                                                        <td id="delete"> <a href="#" ; onclick="deleteTeacher(<?php echo $Teacher[$i]['TeacherId']; ?> )"><i class="fa fa-trash" aria-hidden="true"></i> </a> </td>
+                                                        <td><a href="../View/EditTeacher.php?TeacherId=<?php echo $Teacher[$i]['TeacherId']; ?>"><i class="fa fa-edit" aria-hidden="true"></i> </a> </td>
                                                     </tr> <?php } ?>
                                             </table>
                                         </div>
