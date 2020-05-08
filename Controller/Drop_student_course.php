@@ -11,7 +11,7 @@ $db = new DatabaseSMS();
 $Student = new Student($db);
 
 $studentId = $_SESSION['id'];
-$Student->setId($studentId);
+$Student->setStudentId($studentId);
 
 $classId = $_GET['ClassId'];
 $Student->setClassId($classId);

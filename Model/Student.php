@@ -5,6 +5,8 @@ class Student
     private $dbconnect;
     private $username;
     private $password;
+    private $SFirstName;
+    private $SLastName;
     private $id;
     private $semsterId;
 
@@ -26,9 +28,9 @@ class Student
     {
         return $this->id;
     }
-    function setId($Sid)
+    function setStudentId($StudentID)
     {
-        $this->id = $Sid;
+        $this->id = $StudentID;
     }
     function setSemesterId($Sid)
     {
@@ -66,6 +68,14 @@ class Student
     {
         $this->SPassword = password_hash($SPassword, PASSWORD_BCRYPT);
     }
+	 function getUserFirstName()
+    {
+        return $this->SFirstName;
+    }
+	 function getUserLastName()
+    {
+        return $this->SLastName;
+    }
 
     function verifyLogin()
     {
@@ -77,6 +87,8 @@ class Student
 
         if (count($result) > 0) {
             $this->id = $result[0]['StudentID'];
+            $this->SFirstName = $result[0]['SFirstName'];
+            $this->SLastName = $result[0]['SLastName'];
             return true;
         } else {
             return false;
@@ -135,7 +147,7 @@ class Student
 
     function getStudentRegisteredCoursesById()
     {
-        $query =  'select registration.RegistrationId, courseCode, TFirstName, TMiddleName, TLastName, schedule.Time from registration 
+        $query =  'select registration.RegistrationId, course.Coursefile , courseCode, TFirstName, TMiddleName, TLastName, schedule.Time from registration 
                                 join class on registration.ClassId = class.ClassId
                                 join course on course.CourseId=class.CourseId 
                                 join semester on semester.SemesterId=class.SemesterId
@@ -197,21 +209,20 @@ class Student
         `SLastName`='{$this->SLastName}',
         `SEmail`='{$this->SEmail}',
         `SPhone`='{$this->SPhone}',
-         WHERE `teacher`.
-         `StudentId` = {$this->id};";
+         WHERE `student`.
+         `StudentID` = {$this->id};";
         } else {
-            $query = "UPDASE `teacher` SES
+            $query = "UPDATE `student` SET
         `SFirstName`='{$this->SFirstName}',
         `SMiddleName`='{$this->SMiddleName}',
         `SLastName`='{$this->SLastName}',
         `SEmail`='{$this->SEmail}',
         `SPhone`='{$this->SPhone}',
         `SPassword`='{$this->SPassword}'
-         WHERE `teacher`.
-         `StudentId` = {$this->id};";
+         WHERE `student`.
+         `StudentID` = {$this->id};";
         }
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
     }
 }
-?>

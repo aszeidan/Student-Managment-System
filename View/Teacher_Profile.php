@@ -31,19 +31,19 @@ $Teacher = new Teacher($db);
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-                <h3>Welcome To Time Travel University</h3>
+                <h3>Welcome To</h3>
+				<h3><b>Time Travel University</b></h3>
                 <P>We look forward to welcoming you to our campus soon!​</P>
-                <form action="../Controller/Logout.php" method="POST">
-                    <input type="submit" name="" value="SignOut" /><br />
-                </form>
             </div>
-            <div class="col-md-9 register-right">
 
+            <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">
+
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-                        </ul>
+
                         <div class="tab-content" id="myTabContent">
+
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                                 <h3 class="register-heading">Teacher Profile</h3>
 
@@ -67,7 +67,8 @@ $Teacher = new Teacher($db);
                                         </div>
 
                                     </div>
-                                </form>
+								</form>
+
                             </div>
 
                         </div>
@@ -80,11 +81,8 @@ $Teacher = new Teacher($db);
 
         </div>
     </div>
-
     <?php
     require_once('Footer.php'); ?>
-
-
 </body>
 
 </html>

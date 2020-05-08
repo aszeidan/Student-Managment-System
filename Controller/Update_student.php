@@ -30,7 +30,6 @@ if (
     || !$_POST["SMiddleName"]
     || !$_POST["SLastName"]
     || !$_POST["SPhone"]
-    || !$_POST["SPassword"]
     || !$_POST["SEmail"]
 ) {
     $result["Error"] = 1;
@@ -45,7 +44,7 @@ $SPhone = $_POST["SPhone"];
 $SPassword = $_POST["SPassword"];
 $SEmail = $_POST["SEmail"];
 
-
+$Student->setStudentId($StudentID);
 $Student->setSFirstName($SFirstName);
 $Student->setSmiddleName($SMiddleName);
 $Student->setSLastName($SLastName);

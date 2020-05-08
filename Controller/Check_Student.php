@@ -10,9 +10,8 @@ try{
 	require_once('../Model/Admin.php');
 	$db = new DatabaseSMS();
 	$Admin = new Admin($db);
-	$del_id = $_GET['StudentId'];
+	$del_id = $_GET['StudentID'];
     $Admin->getDeletedId($del_id);
-
 	$depencies = $Admin->isThereStudentDependencies();
 	$output["error"]="0";
 		if($depencies){			

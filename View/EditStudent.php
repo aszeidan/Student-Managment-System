@@ -25,7 +25,7 @@ $student = $Admin->getAllStudents();
 ?>
 
 <body>
-    <div class="container register">
+    <div class="register">
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
@@ -36,7 +36,7 @@ $student = $Admin->getAllStudents();
                 <div class="row col-md-2">
 
                     <ul>
-                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php">Previous</a></li>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
                     </ul>
                 </div>
                 <form>
@@ -46,31 +46,32 @@ $student = $Admin->getAllStudents();
                             <div class="row register-form mx-0 px-0">
                                 <?php
 
-                                $SFirstName = $student[0]["SFirstName"];
-                                $SMiddleName = $student[0]["SMiddleName"];
-                                $SLastName = $student[0]["SLastName"];
-                                $SPhone = $student[0]["SPhone"];
-                                $SPassword = $student[0]["SPassword"];
-                                $SEmail = $student[0]["SEmail"];
+                                $StudentID = $_GET['StudentID'];
+                                $SFirstName = $student[$StudentID]["SFirstName"];
+                                $SMiddleName = $student[$StudentID]["SMiddleName"];
+                                $SLastName = $student[$StudentID]["SLastName"];
+                                $SPhone = $student[$StudentID]["SPhone"];
+                                $SPassword = $student[$StudentID]["SPassword"];
+                                $SEmail = $student[$StudentID]["SEmail"];
                                 ?>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="First Name *" value="" id="SFirstName" />
+                                        <input type="text" class="form-control" placeholder="First Name *" value="<?php echo $SFirstName ?>" id="SFirstName" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Middle Name *" value="" id="SMiddleName" />
+                                        <input type="text" class="form-control" placeholder="Middle Name *" value="<?php echo $SMiddleName ?>" id="SMiddleName" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Last Name *" value="" id="SLastName" />
+                                        <input type="text" class="form-control" placeholder="Last Name *" value="<?php echo $SLastName ?>" id="SLastName" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Email *" value="" id="SEmail" />
+                                        <input type="email" class="form-control" placeholder="Email *" value="<?php echo $SEmail ?>" id="SEmail" />
                                     </div>
 
                                     <div class="form-group">
-                                        <input type="text" maxlength="8" minlength="8" class="form-control" placeholder="Phone *" value="" id="SPhone" />
+                                        <input type="text" maxlength="8" minlength="8" class="form-control" placeholder="Phone *" value="<?php echo $SPhone ?>" id="SPhone" />
                                     </div>
                                     <div class="form-group">
                                         <div class="input-group mb-3">
@@ -88,7 +89,6 @@ $student = $Admin->getAllStudents();
                         </div>
                 </form>
             </div>
-
         </div>
     </div>
     <script>
@@ -127,9 +127,8 @@ $student = $Admin->getAllStudents();
 
         }
     </script>
-    <?php
-    require_once('Footer.php'); ?>
-
 </body>
+<?php
+require_once('Footer.php'); ?>
 
 </html>

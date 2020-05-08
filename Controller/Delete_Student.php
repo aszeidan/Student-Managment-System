@@ -7,7 +7,7 @@ require_once('../Model/Admin.php');
 $db = new DatabaseSMS();
 $Admin = new Admin($db);
 // 3arafet new variable ta jeeb l id mn ledit page
-$del_id = $_GET['StudentId'];
+$del_id = $_GET['StudentID'];
 $Admin->getDeletedId($del_id);
 $Admin->deleteStudentById();
 ?>

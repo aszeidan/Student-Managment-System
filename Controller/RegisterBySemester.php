@@ -16,11 +16,11 @@ session_start();
     $Student->setSemesterId($_GET["SemesterId"]);
     
     $studentID = $_SESSION['id'];
-    $Student->setId($studentID);
+    $Student->setStudentId($studentID);
 
     $StudentCourses = $Student->getStudentCoursesById();
     $StudentRegisteredCourses = $Student->getStudentRegisteredCoursesById();
-    
+	$targetDir = "../uploads/";
 ?>
 
     <table class="table">
@@ -55,6 +55,7 @@ session_start();
                 <th scope="col">Course</th>
                 <th scope="col">Instructor</th>
                 <th scope="col">Course Time</th>
+				<th scope="col">Course Material</th>
             </tr>
         </thead>
         <tbody>
@@ -66,6 +67,7 @@ session_start();
                 <td><?php echo($registeredCourse['courseCode'])?></td>
                 <td><?php echo($registeredCourse['TFirstName'] . " " .$registeredCourse['TMiddleName'] . " " . $registeredCourse['TLastName'])?></td>
                 <td><?php echo($registeredCourse['Time'])?></td>
+                <td><a href="<?php echo $targetDir . $registeredCourse['Coursefile']; ?>"><h6 class="register-heading-name"><i class="fa fa-download" aria-hidden="true"></i></h6> </a></td>
             </tr>
             <?php }?>
         </tbody>

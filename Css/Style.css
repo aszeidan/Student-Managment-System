@@ -1,6 +1,4 @@
-body {
-  background-color: gray;
-}
+
 
 .register {
   background: -webkit-linear-gradient(left, #3931af, #00c6ff);
@@ -25,7 +23,25 @@ body {
   margin-bottom: 3%;
   cursor: pointer;
 }
+.social-link {
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  border-radius: 50%;
+  transition: all 0.3s;
+  font-size: 0.9rem;
+}
 
+.social-link:hover,
+.social-link:focus {
+  background: #ddd;
+  text-decoration: none;
+  color: #555;
+}
 .register-right {
   background: #f8f9fa;
   border-top-left-radius: 10% 50%;
@@ -113,21 +129,8 @@ body {
   margin-top: 10%;
 }
 
-.btnRegister {
-  float: right;
-  margin-top: 10%;
-  border: none;
-  border-radius: 1.5rem;
-  padding: 2%;
-  background: #0062cc;
-  color: #fff;
-  font-weight: 600;
-  width: 50%;
-  cursor: pointer;
-  background: #f8f9fa;
-  border-top-left-radius: 10% 50%;
-  border-bottom-left-radius: 10% 50%;
-}
+
+
 
 .register-left img {
   margin-top: 15%;
@@ -168,6 +171,121 @@ body {
   margin-top: 10%;
 }
 
+
+
+.register .nav-tabs {
+  margin-top: 3%;
+  border: none;
+  background: #0062cc;
+  border-radius: 1.5rem;
+  width: 28%;
+  float: right;
+}
+
+.register .nav-tabs .nav-link {
+  padding: 2%;
+  height: 34px;
+  font-weight: 600;
+  color: #fff;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+
+.register .nav-tabs .nav-link:hover {
+  border: none;
+}
+
+.register .nav-tabs .nav-link.active {
+  color: #0062cc;
+  border: 2px solid #0062cc;
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+
+.register-heading {
+  text-align: center;
+  margin-top: 8%;
+  margin-bottom: -15%;
+  color: #495057;
+}
+.register-heading-name {
+  text-align: Left;
+  margin-left: 30%;
+
+  color: #0062cc;
+}
+
+.centering {
+  margin-left: auto;
+  margin-right: auto;
+}
+.table td,
+.table th {
+  width: fit-content;
+}
+
+.register .nav-tabs {
+  margin-top: 3%;
+  border: none;
+  background: #0062cc;
+  border-radius: 1.5rem;
+  width: 28%;
+  float: right;
+}
+
+.register .nav-tabs .nav-link {
+  padding: 2%;
+  height: 34px;
+  font-weight: 600;
+  color: #fff;
+  border-top-right-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+
+.register .nav-tabs .nav-link:hover {
+  border: none;
+}
+
+.register .nav-tabs .nav-link.active {
+  color: #0062cc;
+  border: 2px solid #0062cc;
+  border-top-left-radius: 1.5rem;
+  border-bottom-left-radius: 1.5rem;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;}
+
+
+.centering {
+  margin-left: auto;
+  margin-right: auto;
+}
+.table td,
+.table th {
+  width: fit-content;
+}
+
 .btnRegister {
   float: right;
   margin-top: 10%;
@@ -180,50 +298,12 @@ body {
   width: 50%;
   cursor: pointer;
 }
-
-.register .nav-tabs {
-  margin-top: 3%;
-  border: none;
-  background: #0062cc;
-  border-radius: 1.5rem;
-  width: 28%;
-  float: right;
-}
-
-.register .nav-tabs .nav-link {
-  padding: 2%;
-  height: 34px;
-  font-weight: 600;
+.btnRegister:hover{
+  background-color:#016fff;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
   color: #fff;
-  border-top-right-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
-}
+  transform: translateY(-7px);
 
-.register .nav-tabs .nav-link:hover {
-  border: none;
-}
-
-.register .nav-tabs .nav-link.active {
-  color: #0062cc;
-  border: 2px solid #0062cc;
-  border-top-left-radius: 1.5rem;
-  border-bottom-left-radius: 1.5rem;
-}
-
-.register-heading {
-  text-align: center;
-  margin-top: 8%;
-  margin-bottom: -15%;
-  color: #495057;
-}
-
-.centering {
-  margin-left: auto;
-  margin-right: auto;
-}
-.table td,
-.table th {
-  width: fit-content;
 }
 
 .register .nav-tabs {
@@ -255,85 +335,26 @@ body {
   border-bottom-left-radius: 1.5rem;
 }
 
-.register-heading {
-  text-align: center;
-  margin-top: 8%;
-  margin-bottom: -15%;
-  color: #495057;
-}
-
 .centering {
   margin-left: auto;
   margin-right: auto;
 }
-.table td,
-.table th {
-  width: fit-content;
-}
 
-.btnRegister {
-  float: right;
-  margin-top: 10%;
-  border: none;
-  border-radius: 1.5rem;
-  padding: 2%;
-  background: #0062cc;
-  color: #fff;
-  font-weight: 600;
-  width: 50%;
+.page-footer {
+  font-weight: bold;
+  color: white;
   cursor: pointer;
 }
 
-.register .nav-tabs {
-  margin-top: 3%;
-  border: none;
+.input-container {
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+} 
+.icon {
+  padding: 10px;
   background: #0062cc;
-  border-radius: 1.5rem;
-  width: 28%;
-  float: right;
-}
-
-.register .nav-tabs .nav-link {
-  padding: 2%;
-  height: 34px;
-  font-weight: 600;
-  color: #fff;
-  border-top-right-radius: 1.5rem;
-  border-bottom-right-radius: 1.5rem;
-}
-
-.register .nav-tabs .nav-link:hover {
-  border: none;
-}
-
-.register .nav-tabs .nav-link.active {
-  color: #0062cc;
-  border: 2px solid #0062cc;
-  border-top-left-radius: 1.5rem;
-  border-bottom-left-radius: 1.5rem;
-}
-
-.register-heading {
+  color: white;
+  min-width: 50px;
   text-align: center;
-  margin-top: 8%;
-  margin-bottom: -15%;
-  color: #495057;
-}
-
-.centering {
-  margin-left: auto;
-  margin-right: auto;
-}
-.table td,
-.table th {
-  width: fit-content;
-}
-
-.btnSearch {
-  border: none;
-  border-radius: 1.5rem;
-  background: #0062cc;
-  color: #fff;
-  font-weight: 600;
-  cursor: pointer;
 }

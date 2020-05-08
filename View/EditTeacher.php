@@ -29,7 +29,7 @@ $Teachers = $Admin->getAllTeachers();
                 </ul>
                 <div class="row col-md-2">
                     <ul>
-                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="#">Previous</a></li>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="#"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
                     </ul>
                 </div>
                 <form>
@@ -38,12 +38,13 @@ $Teachers = $Admin->getAllTeachers();
                             <h3 class="register-heading">Apply as a Teacher</h3>
                             <div class="row register-form mx-0 px-0">
                                 <?php
-                                $TFirstName = $Teachers[0]["TFirstName"];
-                                $TMiddleName = $Teachers[0]["TMiddleName"];
-                                $TLastName = $Teachers[0]["TLastName"];
-                                $TMobileNum = $Teachers[0]["TMobileNum"];
-                                $TPassword = $Teachers[0]["TPassword"];
-                                $TEmail = $Teachers[0]["TEmail"];
+                                $TeacherId = $_GET['TeacherId'];
+                                $TFirstName = $Teachers[$TeacherId]["TFirstName"];
+                                $TMiddleName = $Teachers[$TeacherId]["TMiddleName"];
+                                $TLastName = $Teachers[$TeacherId]["TLastName"];
+                                $TMobileNum = $Teachers[$TeacherId]["TMobileNum"];
+                                $TPassword = $Teachers[$TeacherId]["TPassword"];
+                                $TEmail = $Teachers[$TeacherId]["TEmail"];
 
                                 ?>
                                 <div class="col-md-6">

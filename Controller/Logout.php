@@ -1,5 +1,5 @@
 <?php
 session_destroy();
 setcookie("isLoggedIn", false);
-header('Location: SignIn.php');
+header('Location: ../View/SignIn.php');
 exit;

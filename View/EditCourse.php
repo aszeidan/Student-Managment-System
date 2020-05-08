@@ -28,18 +28,10 @@ $class = $Admin->getClassById();
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                 <h3>Welcome To Time Travel University</h3>
                 <P>We look forward to welcoming you to our campus soon!​</P>
-                <form action="../View/Logout.php" method="POST">
-                    <input type="submit" name="" value="SignOut" /><br />
-                </form>
             </div>
             <div class="col-md-9 register-right">
                 <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Edit Form</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Table</a>
-                    </li>
+
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -50,7 +42,7 @@ $class = $Admin->getClassById();
                                 <form action="../Controller/Verify_Insert_Course.php" method="POST" class="form" id="form">
                                     <div class="row col-md-2">
                                         <ul>
-                                            <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="#">Previous</a></li>
+                                            <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="#"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
                                         </ul>
                                     </div>
                                     <div class="row register-form mx-0 px-0 col-md-12">
@@ -64,57 +56,71 @@ $class = $Admin->getClassById();
 
                                         <div class="centering col-md-6">
                                             <div class="form-group">
-                                                <input type="text" class="form-control" id="Classname" name="Classname" placeholder="Classname" value="<?php echo $className ?>" required>
+                                                <div class="input-container">
+                                                    <i class="far fa-building icon"></i>
+                                                    <input type="text" class="form-control" id="Classname" name="Classname" placeholder="Classname" value="<?php echo $className ?>" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-container">
+                                                    <i class="far fa-calendar icon"></i>
+                                                    <select class="custom-select" name="semester" id="semester" required>
+                                                        <option disabled value="" selected hidden>Select Semester</option>
+                                                        <?php
+                                                        for ($i = 0; $i < count($semester); $i++) {
+                                                        ?>
+                                                            <option <?php if ($semesterId == $semester[$i]["SemesterId"]) {
+                                                                        echo "selected";
+                                                                    } ?> value="<?php echo $semester[$i]["SemesterId"] ?>"><?php echo $semester[$i]["SName"] ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-container">
+                                                    <i class="fa fa-book icon"></i>
+                                                    <select class="custom-select" name="Course" id="Course" required>
+                                                        <option disabled value="" selected hidden>Select Course</option>
+                                                        <?php
+                                                        for ($i = 0; $i < count($course); $i++) {
+                                                        ?>
+                                                            <option <?php if ($courseId == $course[$i]["CourseId"]) {
+                                                                        echo "selected";
+                                                                    } ?> value="<?php echo $course[$i]["CourseId"] ?>"><?php echo $course[$i]["CourseName"] ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-container">
+                                                    <i class="fas fa-chalkboard-teacher icon"></i>
+                                                    <select class="custom-select" name="teacher" id="teacher" required>
+                                                        <option disabled value="" selected hidden>Select Instructor</option>
+                                                        <?php
+                                                        for ($i = 0; $i < count($teacher); $i++) {
+                                                        ?>
+                                                            <option <?php if ($teacherId == $teacher[$i]["TeacherId"]) {
+                                                                        echo "selected";
+                                                                    } ?> value="<?php echo $teacher[$i]["TeacherId"] ?>"><?php echo $teacher[$i]['TFirstName'] . " " . $teacher[$i]['TLastName'] ?></option>
+                                                        <?php } ?>
 
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="form-group">
-                                                <select class="custom-select" name="semester" id="semester" required>
-                                                    <option disabled value="" selected hidden>Select Semester</option>
-                                                    <?php
-                                                    for ($i = 0; $i < count($semester); $i++) {
-                                                    ?>
-                                                        <option <?php if ($semesterId == $semester[$i]["SemesterId"]) {
-                                                                    echo "selected";
-                                                                } ?> value="<?php echo $semester[$i]["SemesterId"] ?>"><?php echo $semester[$i]["SName"] ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <select class="custom-select" name="Course" id="Course" required>
-                                                    <option disabled value="" selected hidden>Select Course</option>
-                                                    <?php
-                                                    for ($i = 0; $i < count($course); $i++) {
-                                                    ?>
-                                                        <option <?php if ($courseId == $course[$i]["CourseId"]) {
-                                                                    echo "selected";
-                                                                } ?> value="<?php echo $course[$i]["CourseId"] ?>"><?php echo $course[$i]["CourseName"] ?></option>
-                                                    <?php } ?>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <select class="custom-select" name="teacher" id="teacher" required>
-                                                    <option disabled value="" selected hidden>Select Instructor</option>
-                                                    <?php
-                                                    for ($i = 0; $i < count($teacher); $i++) {
-                                                    ?>
-                                                        <option <?php if ($teacherId == $teacher[$i]["TeacherId"]) {
-                                                                    echo "selected";
-                                                                } ?> value="<?php echo $teacher[$i]["TeacherId"] ?>"><?php echo $teacher[$i]['TFirstName'] . " " . $teacher[$i]['TLastName'] ?></option>
-                                                    <?php } ?>
-
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <select class="custom-select" name="schedule" id="schedule" required>
-                                                    <option disabled value="" selected hidden>Schedule Time</option>
-                                                    <?php
-                                                    for ($i = 0; $i < count($schedule); $i++) {
-                                                    ?>
-                                                        <option <?php if ($scheduleId == $schedule[$i]["ScheduleId"]) {
-                                                                    echo "selected";
-                                                                } ?> value="<?php echo $schedule[$i]["ScheduleId"] ?>"><?php echo $schedule[$i]["Time"] ?></option>
-                                                    <?php } ?>
-                                                </select>
+                                                <div class="input-container">
+                                                    <i class="far fa-clock icon"></i>
+                                                    <select class="custom-select" name="schedule" id="schedule" required>
+                                                        <option disabled value="" selected hidden>Schedule Time</option>
+                                                        <?php
+                                                        for ($i = 0; $i < count($schedule); $i++) {
+                                                        ?>
+                                                            <option <?php if ($scheduleId == $schedule[$i]["ScheduleId"]) {
+                                                                        echo "selected";
+                                                                    } ?> value="<?php echo $schedule[$i]["ScheduleId"] ?>"><?php echo $schedule[$i]["Time"] ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <!-- <?php if (isset($_GET["result"])) {
                                                         echo $_GET["result"];
@@ -159,10 +165,8 @@ $class = $Admin->getClassById();
         });
     </script>
 
-    <?php
-    require_once('Footer.php');
-    ?>
-
 </body>
+<?php
+require_once('Footer.php'); ?>
 
 </html>

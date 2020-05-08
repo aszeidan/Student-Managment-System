@@ -5,6 +5,8 @@ class Admin
     private $dbconnect;
     private $username;
     private $password;
+    private $AFirstName;
+    private $ALastName;
     private $id;
 
     function  __construct($db)
@@ -21,17 +23,21 @@ class Admin
     {
         $this->password = $password;
     }
-	function setfirstName($firstName)
+    function setfirstName($firstName)
     {
-        $this->username = $firstName;
+        $this->AFirstName = $firstName;
     }
-	function setLastName($lastName)
+    function setLastName($lastName)
     {
-        $this->username = $lastName;
+        $this->ALastName = $lastName;
     }
     function setClass($class)
     {
         $this->class = $class;
+    }
+	function setMajor($major)
+    {
+        $this->major = $major;
     }
     function getId()
     {
@@ -96,7 +102,13 @@ class Admin
     {
         return $this->del_id = $del_id;
     }
-
+	 function getMajors()
+    {
+        $query = 'select * from majors';
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
+    }
     function getSemesters()
     {
         $query = 'select * from semester';
@@ -183,7 +195,7 @@ class Admin
         return $result;
     }
 
-// check if the class has students registered on it.. 
+    // check if the class has students registered on it.. 
     function isThereDependencies()
     {
         $query  = "SELECT * from registration where ClassId=" . $this->del_id;
@@ -196,10 +208,10 @@ class Admin
             return False;
         }
     }
-	
+
     function deleteClassById()
     {
-     // to delete the registration of a student on the requested class
+        // to delete the registration of a student on the requested class
         $query1  = "DELETE from registration where ClassId=" . $this->del_id;
         $query2 =  "DELETE from class where ClassId=" . $this->del_id;
         $this->dbconnect->setQuery($query1);
@@ -208,7 +220,7 @@ class Admin
         $result2 = $this->dbconnect->executeQuery();
         return $result2;
     }
-// Check if the teacher has enrolled to teach a class
+    // Check if the teacher has enrolled to teach a class
     function isThereTeacherDependencies()
     {
         $query  = "SELECT * from class where TeacherId=" . $this->del_id;
@@ -220,7 +232,7 @@ class Admin
             return False;
         }
     }
-	 function getAllTeachers()
+    function getAllTeachers()
     {
         $query =  'select * from teacher ';
         $this->dbconnect->setQuery($query);
@@ -229,7 +241,7 @@ class Admin
     }
     function isThereStudentDependencies()
     {
-        $query  = "SELECT * from registration where StudentId=" .$this->del_id;
+        $query  = "SELECT * from registration where StudentId=" . $this->del_id;
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         if (count($result) > 0) {
@@ -247,40 +259,44 @@ class Admin
     }
     function deleteStudentById()
     {
-     	//Delete the registration of the students.
-		$query1 = "DELETE FROM registration where StudentId=" .$this->del_id;
-	//Delete the student.
-		$query2 = "DELETE FROM student where StudentID=" .$this->del_id;
+        //Delete the registration of the students.
+        $query1 = "DELETE FROM registration where StudentID=" . $this->del_id;
+        //Delete the student.
+        $query2 = "DELETE FROM student where StudentID=" . $this->del_id;
         $this->dbconnect->setQuery($query1);
         $result1 = $this->dbconnect->executeQuery();
         $this->dbconnect->setQuery($query2);
         $result2 = $this->dbconnect->executeQuery();
         return $result2;
     }
-	function deleteTeacherById()
+    function deleteTeacherById()
     {
-     //Delete the registration of the students to the course assigned to the teacher who want to delete
-		$query1 = "Delete From registration Where ClassId In (Select ClassId From class WHERE TeacherId=" .$this->del_id.")";
-	//Delete the class assigned to the course's class.
-		$query2 = "DELETE FROM class where TeacherId=" .$this->del_id;
-	//Delete the Teacher.
-		$query3 = "DELETE FROM teacher where TeacherId=" .$this->del_id;
+        //Delete the registration of the students to the course assigned to the teacher who want to delete
+        $query1 = "Delete From registration Where ClassId In (Select ClassId From class WHERE TeacherId=" . $this->del_id . ")";
+        //Delete the class assigned to the course's class.
+        $query2 = "DELETE FROM class where TeacherId=" . $this->del_id;
+        //Delete the Teacher.
+        $query3 = "DELETE FROM teacher where TeacherId=" . $this->del_id;
         $this->dbconnect->setQuery($query1);
         $result1 = $this->dbconnect->executeQuery();
         $this->dbconnect->setQuery($query2);
         $result2 = $this->dbconnect->executeQuery();
-		$this->dbconnect->setQuery($query3);
-        $result3= $this->dbconnect->executeQuery();
+        $this->dbconnect->setQuery($query3);
+        $result3 = $this->dbconnect->executeQuery();
         return $result3;
-		
     }
     function addClass()
     {
         $query =  "INSERT INTO class  (`ClassId`, `ClassName`, `SemesterId`, `CourseId`, `TeacherId`, `ScheduleId`) values (NULL,'" . $this->class . "','" . $this->semester . "','" . $this->course . "','" . $this->teacher . "','" . $this->schedule . "')";
         $this->dbconnect->setQuery($query);
-        $this->dbconnect->selectquery();
+        $this->dbconnect->executeQuery();
     }
-
+	function addMajor()
+    {
+        $query =  "INSERT INTO majors  (`MajorId`, `MajorTitle`) values (NULL,'" . $this->major . "')";
+        $this->dbconnect->setQuery($query);
+        $this->dbconnect->executeQuery();
+    }
     function updateClass()
     {
         $query = "UPDATE class SET ClassName = {$this->class}', `SemesterId` = '{$this->semester}', `CourseId` = '{$this->course}', `TeacherId` = '{$this->teacher}', `ScheduleId` = '{$this->schedule}' WHERE `class`.`ClassId` = {$this->classId};";
@@ -303,6 +319,26 @@ class Admin
             return false;
         }
     }
+	function checkMajorIfExists()
+    {
+        $query = "SELECT * FROM majors WHERE MajorTitle='"  . $this->major ."'";
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        if (count($result) > 0) {
+            $this->majorId = $result[0]['MajorId'];
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function getUserFirstName()
+    {
+        return $this->AFirstName;
+    }
+    function getUserLastName()
+    {
+        return $this->ALastName;
+    }
 
     function verifyLogin()
     {
@@ -314,6 +350,8 @@ class Admin
 
         if (count($result) > 0) {
             $this->id = $result[0]['AdminId'];
+            $this->AFirstName = $result[0]['AFirstName'];
+            $this->ALastName = $result[0]['ALastName'];
             return true;
         } else {
             return false;

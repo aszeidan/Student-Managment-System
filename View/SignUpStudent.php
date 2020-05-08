@@ -32,12 +32,12 @@ $student = $Admin->getAllStudents();
             //if no
             if (myResult.error == 0) {
                 if (myResult.result == 1) {
-                    alert("The Teacher has been successufully deleted");
+                    alert("The Student has been successufully deleted");
 
                 } else { //if yes
-                    var answer = confirm("This teacher has been enrolled to teach a class do you really want to delete it?");
+                    var answer = confirm("This Student has been enrolled to teach a class do you really want to delete it?");
                     if (answer) {
-                        $.get("../Controller/Delete_Teacher_course_registration_form.php?StudentId=" + StudentId, function(data, status) {});
+                        $.get("../Controller/Delete_Student?StudentId=" + StudentId, function(data, status) {});
                     }
                 }
             } else {
@@ -50,11 +50,12 @@ $student = $Admin->getAllStudents();
 </script>
 
 <body>
-    <div class="container register">
+    <div class="register">
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-                <h3>Welcome To AG University</h3>
+                <h3>Welcome To</h3>
+				<h3><b>Time Travel University</b></h3>
                 <P>We look forward to welcoming you to our campus soon!​</P>
             </div>
             <div class="col-md-9 register-right">
@@ -69,7 +70,7 @@ $student = $Admin->getAllStudents();
                 <div class="row col-md-2">
 
                     <ul>
-                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php">Previous</a></li>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
                     </ul>
                 </div>
                 <form action="../Controller/Verify_SignUpStudent.php" method="POST">
@@ -133,10 +134,10 @@ $student = $Admin->getAllStudents();
                                                 ?>
                                                     <tr>
                                                         <td><?php echo $student[$i]['SFirstName'] . " " . $student[$i]['SLastName']; ?> </td>
-                                                        <td><?php echo $student[$i]['SPhone']; ?> </td>
+                                                        <td><?php echo $student[$i]['SPhoneNumber']; ?> </td>
                                                         <td><?php echo $student[$i]['SEmail']; ?> </td>
-                                                        <td id="delete"><a href="#" ; onclick="deleteStudent(<?php echo $student[$i]['StudentID']; ?> )">Delete </a> </td>
-                                                        <td><a href="../View/EditStudent.php?StudentID=<?php echo $student[$i]['StudentID']; ?>">Edit </a> </td>
+                                                        <td id="delete"><a href="#" ; onclick="deleteStudent(<?php echo $student[$i]['StudentID']; ?> )"><i class="fa fa-trash" aria-hidden="true"></i></a> </td>
+                                                        <td><a href="../View/EditStudent.php?StudentID=<?php echo $student[$i]['StudentID']; ?>"><i class="fa fa-edit" aria-hidden="true"></i> </a> </td>
                                                     </tr> <?php } ?>
                                             </table>
                                         </div>

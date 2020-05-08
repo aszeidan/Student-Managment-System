@@ -40,12 +40,12 @@ $Teacher = $Admin->getAllTeachers();
 </script>
 
 <body>
-    <div class="container register">
+    <div class=" register">
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-                <h3>Welcome To AG University</h3>
-                <P>We look forward to welcoming you to our campus soon!​</P>
+                <h3>Welcome To</h3>
+				<h3><b>Time Travel University</b></h3>
             </div>
             <div class="col-md-9 register-right">
                 <ul class="nav nav-tabs nav-justified" id="myTab" name="myTab" role="tablist">
@@ -57,16 +57,19 @@ $Teacher = $Admin->getAllTeachers();
                     </li>
                 </ul>
                 <div class="row col-md-2">
+
                     <ul>
-                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/SignUpTeacher.php">Previous</a></li>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
                     </ul>
                 </div>
+
                 <form action="../Controller/Verify_SignUpTeacher.php" method="POST">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" name="teacher" aria-labelledby="home-tab">
                             <h3 class="register-heading">Apply as a Teacher</h3>
                             <div class="row register-form mx-0 px-0">
-                                <div class="col-md-6">
+
+                                <div class="col-md-6 ">
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="First Name *" id="TFirstName" value="" />
                                     </div>
@@ -125,8 +128,8 @@ $Teacher = $Admin->getAllTeachers();
                                                         <td><?php echo $Teacher[$i]['TFirstName'] . " " . $Teacher[$i]['TLastName']; ?> </td>
                                                         <td><?php echo $Teacher[$i]['TEmail']; ?> </td>
                                                         <td><?php echo $Teacher[$i]['TMobileNum']; ?> </td>
-                                                        <td id="delete"><a href="#" ; onclick="deleteTeacher(<?php echo $Teacher[$i]['TeacherId']; ?> )">Delete </a> </td>
-                                                        <td><a href="../View/EditTeacher.php?TeacherId=<?php echo $Teacher[$i]['TeacherId']; ?>">Edit </a> </td>
+                                                        <td id="delete"> <a href="#" ; onclick="deleteTeacher(<?php echo $Teacher[$i]['TeacherId']; ?> )"><i class="fa fa-trash" aria-hidden="true"></i> </a> </td>
+                                                        <td><a href="../View/EditTeacher.php?TeacherId=<?php echo $Teacher[$i]['TeacherId']; ?>"><i class="fa fa-edit" aria-hidden="true"></i> </a> </td>
                                                     </tr> <?php } ?>
                                             </table>
                                         </div>
