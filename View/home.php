@@ -40,6 +40,7 @@ require_once('HeaderSignin.php');
   </a>
 </div>
 </div>
-
+  <?php
+  require_once('../View/Footer.php'); ?>
 </body>
 </html>

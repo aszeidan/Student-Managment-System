@@ -76,7 +76,7 @@ require_once('HeaderSignin.php');
     </div>
   </div>
   <?php
-  require_once('Footer.php'); ?>
+  require_once('../View/Footer.php'); ?>
 </body>
 
 </html>

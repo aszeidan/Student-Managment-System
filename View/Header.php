@@ -27,13 +27,13 @@ if (!((isset($_COOKIE['isLoggedIn']) && $_COOKIE['isLoggedIn'] == true) || isset
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="AboutUs.php"> About Us <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="../View/AboutUs.php"> About Us <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="ContactUs.php"> Contact Us</a>
+        <a class="nav-link" href="../View/ContactUs.php"> Contact Us</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="SignIn.php"> Sign In</a>
+        <a class="nav-link" href="../View/SignIn.php"> Sign In</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

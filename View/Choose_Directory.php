@@ -9,7 +9,8 @@ require_once('Header.php');
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-                <h3>Welcome To AG University</h3>
+                <h3>Welcome To</h3>
+				<h3><b>Time Travel University</b></h3>
                 <P>We look forward to welcoming you to our campus soon!​</P>
                 <form action="../Controller/Logout.php" method="POST">
                     <input type="submit" name="" value="SignOut" /><br />
@@ -38,7 +39,7 @@ require_once('Header.php');
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="button" class="btnRegister" value="Add Majors" onClick="window.location.href='SignUp.php';" tabindex="2">
+                                    <input type="button" class="btnRegister" value="Add Majors" onClick="window.location.href='AddMajors.php';" tabindex="2">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -60,6 +61,8 @@ require_once('Header.php');
 
         </div>
     </div>
+  <?php
+  require_once('Footer.php'); ?>
 </body>
 
 </html>

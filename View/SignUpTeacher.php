@@ -44,7 +44,8 @@ $Teacher = $Admin->getAllTeachers();
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-                <h3>Welcome To AG University</h3>
+                <h3>Welcome To</h3>
+				<h3><b>Time Travel University</b></h3>
             </div>
             <div class="col-md-9 register-right">
                 <ul class="nav nav-tabs nav-justified" id="myTab" name="myTab" role="tablist">
