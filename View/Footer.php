@@ -57,7 +57,7 @@
         <!-- Content -->
         <h6 class="text-uppercase font-weight-bold">Time Travel University</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>If you’re looking for a transformative educational and life experience, AG is the right place for you. On this website you will find details on our admission policies and procedures, as well as the application process and deadlines.</p>
+        <p>If you’re looking for a transformative educational and life experience, Time Travel University is the right place for you. On this website you will find details on our admission policies and procedures, as well as the application process and deadlines.</p>
 
 
       </div>

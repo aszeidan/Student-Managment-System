@@ -19,13 +19,13 @@ require_once('HeaderSignin.php');
 				<span>
 					<a href="https://park-innovation.com/?ref=lebanesetech" class="navbar-brand">
 					  <!-- Logo Image -->
-					  <img src="../images/Park-Innovation-avatar.jpg" width="100" alt="" class="d-inline-block align-middle mr-2">
+					  <img src="../images/Park-Innovation-avatar.jpg" width="100" alt="press to go to website" class="d-inline-block align-middle mr-2">
 					</a>
 				</span>
 				<span>
 					<a href="https://www.techgenies.com/" class="navbar-brand">
 					  <!-- Logo Image -->
-					  <img src="../images/Tech_genies.jpg" width="200" alt="" class="d-inline-block align-middle mr-2">
+					  <img src="../images/Tech_genies.jpg" width="200" alt="press to go to website" class="d-inline-block align-middle mr-2">
 					</a>
 				</span>
 			</div>
