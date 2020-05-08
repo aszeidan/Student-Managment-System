@@ -47,6 +47,10 @@
   border-top-left-radius: 10% 50%;
   border-bottom-left-radius: 10% 50%;
 }
+.register-rights {
+  border-top-left-radius: 10% 50%;
+  border-bottom-left-radius: 10% 50%;
+}
 
 .register-left img {
   margin-top: 15%;
@@ -86,6 +90,12 @@
   padding: 10%;
   margin-top: 10%;
   background: #f8f9fa;
+  border-top-left-radius: 10% 50%;
+  border-bottom-left-radius: 10% 50%;
+}
+.register .register-forms {
+  padding: 10%;
+  margin-top: 10%;
   border-top-left-radius: 10% 50%;
   border-bottom-left-radius: 10% 50%;
 }

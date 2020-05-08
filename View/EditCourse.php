@@ -164,9 +164,9 @@ $class = $Admin->getClassById();
             });
         });
     </script>
-
+    <?php
+    require_once('Footer.php'); ?>
 </body>
-<?php
-require_once('Footer.php'); ?>
+
 
 </html>

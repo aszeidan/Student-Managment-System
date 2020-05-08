@@ -66,9 +66,9 @@ $class = $Admin->getClasses();
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                 <h3>Welcome To</h3>
-				<h3><b>Time Travel University</b></h3>
+                <h3><b>Time Travel University</b></h3>
             </div>
-            <div class="col-md-9 register-right">
+            <div class="col-md-9 register-rights">
                 <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Instructor</a>
@@ -92,7 +92,7 @@ $class = $Admin->getClasses();
                                     </ul>
                                 </div>
                                 <form action="../Controller/Verify_Insert_Course.php" method="POST" class="form" id="form">
-                                    <div class="row register-form mx-0 px-0 col-md-12">
+                                    <div class="row register-forms mx-0 px-0 col-md-12">
                                         <div class="centering col-md-6">
                                             <div class="form-group">
                                                 <div class="input-container">
@@ -168,7 +168,7 @@ $class = $Admin->getClasses();
 
                     <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <h3 class="register-heading">Table</h3>
-                        <div class=" register-form">
+                        <div class=" register-forms">
 
                             <div class="form-group">
                                 <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
