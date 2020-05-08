@@ -131,9 +131,12 @@ $targetDir = "../uploads/";
 							<?php
 								
 							} else { ?>
-								
-								<input type="file" name="userfile">
-								<button class="btn"><i class="fa fa-upload"></i> Upload</button>
+								<a class="btn-floating peach-gradient mt-0 float-left">
+									<i class="fas fa-paperclip" aria-hidden="true"></i>
+									<input type="file" name="userfile">
+								</a>
+									<button class="btn"><i class="fa fa-upload"></i> Upload</button>
+													
 							<?php
 							} ?>
 
