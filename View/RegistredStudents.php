@@ -66,9 +66,6 @@ $targetDir = "../uploads/";
 								<form action="../Controller/SaveGrades.php" method="POST">
 									<div class="row col-md-2">
 									
-									
-										<ul>
-											<li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Teacher_Profile.php">Previous</a></li>
 											
 									<form action="../Controller/upload.php?ClassID=<?php echo $ClassID; ?>" method="post" enctype="multipart/form-data" >
 										<?php
@@ -83,6 +80,9 @@ $targetDir = "../uploads/";
 										<?php
 										}?>
 									</form>
+										<ul>
+											<li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Teacher_Profile.php">Previous</a></li>
+									
 										</ul>
 									</div>
 									<div class=" register-form">
