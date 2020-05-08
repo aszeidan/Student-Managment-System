@@ -147,7 +147,7 @@ class Student
 
     function getStudentRegisteredCoursesById()
     {
-        $query =  'select registration.RegistrationId, courseCode, TFirstName, TMiddleName, TLastName, schedule.Time from registration 
+        $query =  'select registration.RegistrationId, course.Coursefile , courseCode, TFirstName, TMiddleName, TLastName, schedule.Time from registration 
                                 join class on registration.ClassId = class.ClassId
                                 join course on course.CourseId=class.CourseId 
                                 join semester on semester.SemesterId=class.SemesterId

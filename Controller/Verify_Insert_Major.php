@@ -13,20 +13,20 @@ try {
     $result = array();
 
 
-    if (!isset($_POST["MajorName"])) 
+    if (!isset($_POST["MajorTitle"])) 
 	{
         $result["Error"] = 1;
         $result["Message"] ="Missing Parameter";
 
         die(json_encode($result));
-    } elseif (!$_POST["MajorName"])
+    } elseif (!$_POST["MajorTitle"])
 	{
         $result["Error"] = 1;
         $result["Message"] = "empty value";
         die(json_encode($result));
     }
 
-    $major = $_POST["MajorName"];
+    $major = $_POST["MajorTitle"];
 
     $Admin->setMajor($major);
 

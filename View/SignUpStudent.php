@@ -32,12 +32,12 @@ $student = $Admin->getAllStudents();
             //if no
             if (myResult.error == 0) {
                 if (myResult.result == 1) {
-                    alert("The Teacher has been successufully deleted");
+                    alert("The Student has been successufully deleted");
 
                 } else { //if yes
-                    var answer = confirm("This teacher has been enrolled to teach a class do you really want to delete it?");
+                    var answer = confirm("This Student has been enrolled to teach a class do you really want to delete it?");
                     if (answer) {
-                        $.get("../Controller/Delete_Teacher_course_registration_form.php?StudentId=" + StudentId, function(data, status) {});
+                        $.get("../Controller/Delete_Student?StudentId=" + StudentId, function(data, status) {});
                     }
                 }
             } else {
@@ -134,7 +134,7 @@ $student = $Admin->getAllStudents();
                                                 ?>
                                                     <tr>
                                                         <td><?php echo $student[$i]['SFirstName'] . " " . $student[$i]['SLastName']; ?> </td>
-                                                        <td><?php echo $student[$i]['SPhone']; ?> </td>
+                                                        <td><?php echo $student[$i]['SPhoneNumber']; ?> </td>
                                                         <td><?php echo $student[$i]['SEmail']; ?> </td>
                                                         <td id="delete"><a href="#" ; onclick="deleteStudent(<?php echo $student[$i]['StudentID']; ?> )"><i class="fa fa-trash" aria-hidden="true"></i></a> </td>
                                                         <td><a href="../View/EditStudent.php?StudentID=<?php echo $student[$i]['StudentID']; ?>"><i class="fa fa-edit" aria-hidden="true"></i> </a> </td>

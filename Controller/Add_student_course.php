@@ -20,6 +20,7 @@ $Student->setSemesterId($_GET['SemesterId']);
 
 $verify = $Student->verifyNoTimeConflict($_GET['ScheduleId']);
 
+
 if($verify){
     $Student->addStudentCourse();
     header('Location:../View/Student_Registration.php');

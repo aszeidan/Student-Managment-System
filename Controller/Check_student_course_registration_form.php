@@ -10,9 +10,9 @@ try{
 	require_once('../Model/Admin.php');
 	$db = new DatabaseSMS();
 	$Admin = new Admin($db);
-	$del_Student_id = $_GET['StudentID'];
+	$del_Student_id = $_GET['StudentId'];
 
-	$Admin->getDeletedId($del_Teacher_id);
+	$Admin->getDeletedId($del_Student_id);
 
 	$depencies = $Admin->isThereTeacherDependencies();
 	$output["error"]="0";
@@ -20,7 +20,7 @@ try{
 			
 			$output["result"]="0";
 		}else{
-			$deleteClass = $Admin->deleteTeacherById();
+			$deleteClass = $Admin->deleteStudentById();
 			$output["result"]="1";			
 		}
 }catch(Exception $e)
