@@ -96,13 +96,13 @@ $class = $Admin->getClasses();
                                         <div class="centering col-md-6">
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="far fa-building icon"></i>
+                                                    <i class="fa fa-building icon"></i>
                                                     <input type="text" class="form-control" id="Classname" name="Classname" placeholder="Classname" value="" required>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="far fa-calendar icon"></i>
+                                                    <i class="fa fa-calendar icon"></i>
                                                     <select class="custom-select" name="semester" id="semester" required>
                                                         <option disabled value="" selected hidden>Select Semester</option>
                                                         <?php
@@ -128,7 +128,7 @@ $class = $Admin->getClasses();
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="fas fa-chalkboard-teacher icon"></i>
+                                                    <i class="fa fa-chalkboard-teacher icon"></i>
                                                     <select class="custom-select" name="teacher" id="teacher" required>
                                                         <option disabled value="" selected hidden>Select Instructor</option>
                                                         <?php
@@ -142,7 +142,7 @@ $class = $Admin->getClasses();
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="far fa-clock icon"></i>
+                                                    <i class="fa fa-clock icon"></i>
                                                     <select class="custom-select" name="schedule" id="schedule" required>
                                                         <option disabled value="" selected hidden>Schedule Time</option>
                                                         <?php

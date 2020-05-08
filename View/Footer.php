@@ -9,7 +9,7 @@
 
         <!-- Grid column -->
         <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-          <h6 class="mb-0">Get connected with us on social networks!</h6>
+          <h4 class="mb-0">Get connected with us on social networks!</h4>
         </div>
 
         <!-- Grid column -->
@@ -17,7 +17,7 @@
 
           <!-- Facebook -->
           <a class="fb-ic">
-            <i class="fa fa-facebook-f white-text mr-4"> </i>
+            <i class="fa fa-facebook-f white-text mr-4 fa-1x"> </i>
           </a>
           <!-- Twitter -->
           <a class="tw-ic">
@@ -96,7 +96,7 @@
         <h6 class="text-uppercase font-weight-bold">Contact</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <p>
-          <i class="fa fa-home mr-3"></i> New York, NY 10012, US</p>
+          <i class="fa fa-map-marker mr-3"></i> New York, NY 10012, US</p>
         <p>
           <i class="fa fa-envelope mr-3"></i> info@example.com</p>
         <p>

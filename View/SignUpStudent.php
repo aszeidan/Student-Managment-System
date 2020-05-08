@@ -55,7 +55,7 @@ $student = $Admin->getAllStudents();
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                 <h3>Welcome To</h3>
-				<h3><b>Time Travel University</b></h3>
+                <h3><b>Time Travel University</b></h3>
                 <P>We look forward to welcoming you to our campus soon!​</P>
             </div>
             <div class="col-md-9 register-right">
@@ -76,7 +76,7 @@ $student = $Admin->getAllStudents();
                 <form action="../Controller/Verify_SignUpStudent.php" method="POST">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" name="Student" aria-labelledby="home-tab">
-                            <h3 class="register-heading">Apply as a Student</h3>
+                            <h3 class="register-headings">Apply as a Student</h3>
                             <div class="row register-form mx-0 px-0">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -112,7 +112,7 @@ $student = $Admin->getAllStudents();
                             </div>
                         </div>
                         <div class="tab-pane fade show" id="profile" role="tabpanel" name="student" aria-labelledby="profile-tab">
-                            <h3 class="register-heading">Registered Students</h3>
+                            <h3 class="register-headings">Registered Students</h3>
                             <div class="row register-form mx-0 px-0">
                                 <div class="col-md-6">
                                     <div class=" register-form">
