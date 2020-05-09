@@ -39,7 +39,7 @@ class Admin
     {
         $this->major = $major;
     }
-	function Semester($semester)
+	function setSemester($semester)
     {
         $this->semester = $semester;
     }
@@ -51,12 +51,12 @@ class Admin
     }
 
 
-    function setSemester($semester)
+    function setSemesterName($semester, $semesterYear)
     {
-        if (!filter_var($semester, FILTER_VALIDATE_INT)) {
+	if (!filter_var($semester, FILTER_VALIDATE_INT) || !filter_var($semester, FILTER_VALIDATE_INT) ) {
             throw new Exception('Invalid Input.');
         }
-        $result = $this->validateSemesterExist($semester);
+        $result = $this->validateSemesterExist($semester, $semesterYear);
         if (!count($result)) {
             throw new Exception('Semester Does not Exist.');
         }
@@ -122,13 +122,6 @@ class Admin
         $result = $this->dbconnect->selectquery();
         return $result;
     }
-    function validateSemesterExist($semester)
-    {
-        $query = 'select * from semester WHERE SemesterId=' . $semester;
-        $this->dbconnect->setQuery($query);
-        $result = $this->dbconnect->selectquery();
-        return $result;
-    }
 
     function getCourses()
     {
@@ -141,6 +134,13 @@ class Admin
     function validateCourseExist($course)
     {
         $query = 'select * from course WHERE CourseId=' . $course;
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
+    }
+	function validateSemesterExist($semester, $semesterYear)
+    {
+        $query = 'select * from semester WHERE SName=' . $semester."".$semesterYear;
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;
@@ -303,6 +303,13 @@ class Admin
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
     }
+	function addSemester()
+    {
+        $query =  "INSERT INTO semester  (`SemesterId`, `SName`) values (NULL,'" . $this->semester .$this->semesterYear. "')";
+
+        $this->dbconnect->setQuery($query);
+        $this->dbconnect->executeQuery();
+    }
     function updateClass()
     {
         $query = "UPDATE class SET ClassName = {$this->class}', `SemesterId` = '{$this->semester}', `CourseId` = '{$this->course}', `TeacherId` = '{$this->teacher}', `ScheduleId` = '{$this->schedule}' WHERE `class`.`ClassId` = {$this->classId};";
@@ -325,7 +332,18 @@ class Admin
             return false;
         }
     }
-	function checkMajorIfExists()
+	function checkSemesterIfExists()
+    {
+        $query = "SELECT * FROM semester WHERE SName=('". $this->semester ."".$this->semester."')";
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        if (count($result) > 0) {
+            $this->semesterId = $result[0]['SemesterId'];
+            return true;
+        } else {
+            return false;
+        }
+    }function checkMajorIfExists()
     {
         $query = "SELECT * FROM majors WHERE MajorTitle='"  . $this->major ."'";
         $this->dbconnect->setQuery($query);

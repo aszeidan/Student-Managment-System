@@ -29,20 +29,21 @@ try {
     $semester = $_POST["SemesterName"];
     $semesterYear = $_POST["SemesterYear"];
 
-    $Admin->setSemester($major);
-
+    $Admin->setSemesterName($semester, $semesterYear );
+	var_dump($Admin);
+	die();
 
     if ($Admin->checkSemesterIfExists() == true) {
         $result["Error"] = 0;
         $result["Message"] = "Already Exist";
         die(json_encode($result));
     } else {
-        $Admin->addMajor();
+        $Admin->addSemester();
         $result["Error"] = 0;
         $result["Message"] = "Successfully Added";
         die(json_encode($result));
     }
 } catch (Exception $e) {
 
-    header("Location:../View/AddMajors.php?result=" . $e->getMessage());
+    header("Location:../View/AddSemester.php?result=" . $e->getMessage());
 }

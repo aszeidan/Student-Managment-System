@@ -10,7 +10,7 @@ require_once('../Model/Admin.php');
 $db = new DatabaseSMS();
 $Admin = new Admin($db);
 
-$majors = $Admin->getMajors();
+$semester = $Admin->getSemesters();
 ?>
 
 <script>
@@ -80,9 +80,9 @@ $majors = $Admin->getMajors();
 														</select>
 													</div>
 											   </div>
-											   <div class="form-group" id="courseMessage">
+											   <div class="form-group" id="semesterMessage">
                                             </div>
-                                            <input type="submit" class="btnRegister" id="registerButton" value="Save" />
+                                            <input type="submit" class="btnRegister" id="addSemesterButton" value="Save" />
 
 										</div>
 									</div>
@@ -108,11 +108,11 @@ $majors = $Admin->getMajors();
                                     </thead>
                                     </span>
                                     <?php
-                                    for ($i = 0; $i < count($majors); $i++) {
+                                    for ($i = 0; $i < count($semester); $i++) {
                                     ?>
                                         <tr>
-                                            <td><?php echo $majors[$i]['MajorId']; ?> </td>
-                                            <td><?php echo $majors[$i]['MajorTitle']; ?> </td>
+                                            <td><?php echo $semester[$i]['SemesterId']; ?> </td>
+                                            <td><?php echo $semester[$i]['SName']; ?> </td>
                                         </tr> <?php } ?>
                                 </table>
                             </div>
@@ -125,17 +125,17 @@ $majors = $Admin->getMajors();
             </div>
         </div>
         <script>
-            document.getElementById("registerButton").addEventListener("click", function(event) {
+            document.getElementById("addSemesterButton").addEventListener("click", function(event) {
                 event.preventDefault();
                 var data = {
-                    MajorTitle: $("#SemesterName").val(),
-                    MajorTitle: $("#SemesterYear").val(),
+                    SemesterName: $("#SemesterName").val(),
+                    SemesterYear: $("#SemesterYear").val(),
                 };
 
-                $.post("../Controller/Verify_Insert_Major.php", data, function(result) {
-                    $("#courseMessage").html(result.Message);
+                $.post("../Controller/Verify_Insert_Semester.php", data, function(result) {
+                    $("#semesterMessage").html(result.Message);
                     setTimeout(() => {
-                        $("#majorMessage").html(" ");
+                        $("#semesterMessage").html(" ");
                     }, 4000);
                 });
             });
