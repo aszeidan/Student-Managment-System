@@ -39,6 +39,12 @@ class Admin
     {
         $this->major = $major;
     }
+	function Semester($semester)
+    {
+        $this->semester = $semester;
+    }
+	
+	
     function getId()
     {
         return $this->id;

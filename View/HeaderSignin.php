@@ -42,6 +42,6 @@
       </li>
 
     </ul>
-	Time Travel University
+	
 
 </nav>

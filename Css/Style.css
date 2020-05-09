@@ -114,6 +114,7 @@ body {
 }
 .register-rights {
   border-top-left-radius: 10% 50%;
+  color: #fff;
   border-bottom-left-radius: 10% 50%;
   font-family: "Times New Roman", Times, serif;
 }
