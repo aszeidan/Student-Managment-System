@@ -20,12 +20,16 @@ $Student->setSemesterId($_GET['SemesterId']);
 
 $verify = $Student->verifyNoTimeConflict($_GET['ScheduleId']);
 
+
 if($verify){
     $Student->addStudentCourse();
     header('Location:../View/Student_Registration.php');
 
 }else{
-    header('Location:../View/Student_Registration.php');
-    //Msg('Time Conflict');
+    echo "<script>
+    alert('You cannot add this course because of time conflict');
+    window.location.href='../View/Student_Registration.php';
+    </script>";
 }
 ?>
+

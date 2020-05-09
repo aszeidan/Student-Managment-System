@@ -28,9 +28,6 @@ $class = $Admin->getClassById();
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                 <h3>Welcome To Time Travel University</h3>
                 <P>We look forward to welcoming you to our campus soon!​</P>
-                <form action="../View/Logout.php" method="POST">
-                    <input type="submit" name="" value="SignOut" /><br />
-                </form>
             </div>
             <div class="col-md-9 register-right">
                 <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -167,9 +164,9 @@ $class = $Admin->getClassById();
             });
         });
     </script>
-
+    <?php
+    require_once('Footer.php'); ?>
 </body>
-<?php
-require_once('Footer.php'); ?>
+
 
 </html>

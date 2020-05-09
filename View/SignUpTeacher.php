@@ -40,11 +40,12 @@ $Teacher = $Admin->getAllTeachers();
 </script>
 
 <body>
-    <div class="container register">
+    <div class=" register">
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-                <h3>Welcome To AG University</h3>
+                <h3>Welcome To</h3>
+                <h3><b>Time Travel University</b></h3>
             </div>
             <div class="col-md-9 register-right">
                 <ul class="nav nav-tabs nav-justified" id="myTab" name="myTab" role="tablist">
@@ -55,11 +56,17 @@ $Teacher = $Admin->getAllTeachers();
                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Instructors</a>
                     </li>
                 </ul>
+                <div class="row col-md-2">
+
+                    <ul>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
+                    </ul>
+                </div>
 
                 <form action="../Controller/Verify_SignUpTeacher.php" method="POST">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" name="teacher" aria-labelledby="home-tab">
-                            <h3 class="register-heading">Apply as a Teacher</h3>
+                            <h3 class="register-headings">Apply as a Teacher</h3>
                             <div class="row register-form mx-0 px-0">
 
                                 <div class="col-md-6 ">
@@ -98,7 +105,7 @@ $Teacher = $Admin->getAllTeachers();
                             </div>
                         </div>
                         <div class="tab-pane fade show" id="profile" role="tabpanel" name="student" aria-labelledby="profile-tab">
-                            <h3 class="register-heading">Registered Instructors</h3>
+                            <h3 class="register-headings">Registered Instructors</h3>
                             <div class="row register-form mx-0 px-0">
                                 <div class="col-md-6">
                                     <div class=" register-form">

@@ -35,6 +35,10 @@ class Admin
     {
         $this->class = $class;
     }
+	function setMajor($major)
+    {
+        $this->major = $major;
+    }
     function getId()
     {
         return $this->id;
@@ -98,7 +102,13 @@ class Admin
     {
         return $this->del_id = $del_id;
     }
-
+	 function getMajors()
+    {
+        $query = 'select * from majors';
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
+    }
     function getSemesters()
     {
         $query = 'select * from semester';
@@ -279,9 +289,14 @@ class Admin
     {
         $query =  "INSERT INTO class  (`ClassId`, `ClassName`, `SemesterId`, `CourseId`, `TeacherId`, `ScheduleId`) values (NULL,'" . $this->class . "','" . $this->semester . "','" . $this->course . "','" . $this->teacher . "','" . $this->schedule . "')";
         $this->dbconnect->setQuery($query);
-        $this->dbconnect->selectquery();
+        $this->dbconnect->executeQuery();
     }
-
+	function addMajor()
+    {
+        $query =  "INSERT INTO majors  (`MajorId`, `MajorTitle`) values (NULL,'" . $this->major . "')";
+        $this->dbconnect->setQuery($query);
+        $this->dbconnect->executeQuery();
+    }
     function updateClass()
     {
         $query = "UPDATE class SET ClassName = {$this->class}', `SemesterId` = '{$this->semester}', `CourseId` = '{$this->course}', `TeacherId` = '{$this->teacher}', `ScheduleId` = '{$this->schedule}' WHERE `class`.`ClassId` = {$this->classId};";
@@ -299,6 +314,18 @@ class Admin
         $result = $this->dbconnect->selectquery();
         if (count($result) > 0) {
             $this->classId = $result[0]['ClassId'];
+            return true;
+        } else {
+            return false;
+        }
+    }
+	function checkMajorIfExists()
+    {
+        $query = "SELECT * FROM majors WHERE MajorTitle='"  . $this->major ."'";
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        if (count($result) > 0) {
+            $this->majorId = $result[0]['MajorId'];
             return true;
         } else {
             return false;
