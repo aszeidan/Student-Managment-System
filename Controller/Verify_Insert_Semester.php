@@ -30,8 +30,6 @@ try {
     $semesterYear = $_POST["SemesterYear"];
 
     $Admin->setSemesterName($semester, $semesterYear );
-	var_dump($Admin);
-	die();
 
     if ($Admin->checkSemesterIfExists() == true) {
         $result["Error"] = 0;

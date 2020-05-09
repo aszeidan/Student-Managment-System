@@ -53,14 +53,14 @@ class Admin
 
     function setSemesterName($semester, $semesterYear)
     {
-	if (!filter_var($semester, FILTER_VALIDATE_INT) || !filter_var($semester, FILTER_VALIDATE_INT) ) {
+	if (!filter_var($semesterYear, FILTER_VALIDATE_INT) ) {
             throw new Exception('Invalid Input.');
         }
         $result = $this->validateSemesterExist($semester, $semesterYear);
         if (!count($result)) {
             throw new Exception('Semester Does not Exist.');
         }
-        $this->semester = $semester;
+        $this->semester = $semester.$semesterYear;
     }
 
     function setCourse($course)
@@ -140,7 +140,8 @@ class Admin
     }
 	function validateSemesterExist($semester, $semesterYear)
     {
-        $query = 'select * from semester WHERE SName=' . $semester."".$semesterYear;
+
+        $query = 'select * from semester WHERE SName='.$semester."".$semesterYear;
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;
@@ -334,7 +335,8 @@ class Admin
     }
 	function checkSemesterIfExists()
     {
-        $query = "SELECT * FROM semester WHERE SName=('". $this->semester ."".$this->semester."')";
+		$semesterName= $this->semester."".$this->semester;
+        $query = "SELECT * FROM semester WHERE SName='". $semesterName."'";
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         if (count($result) > 0) {
