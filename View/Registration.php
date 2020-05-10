@@ -88,7 +88,7 @@ $class = $Admin->getClasses();
                                 <div class="row col-md-2">
 
                                     <ul>
-                                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
+                                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left" style="font-size:35px; color:white"></i></a></li>
                                     </ul>
                                 </div>
                                 <form action="../Controller/Verify_Insert_Course.php" method="POST" class="form" id="form">
@@ -128,7 +128,7 @@ $class = $Admin->getClasses();
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="fa fa-chalkboard-teacher icon"></i>
+                                                    <i class="fas fa-chalkboard-teacher aria-hidden='true' icon">&#xf51c;</i>
                                                     <select class="custom-select" name="teacher" id="teacher" required>
                                                         <option disabled value="" selected hidden>Select Instructor</option>
                                                         <?php
@@ -142,7 +142,7 @@ $class = $Admin->getClasses();
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="fa fa-clock icon"></i>
+                                                    <i class=" fa fa-clock-o aria-hidden='true' icon"></i>
                                                     <select class="custom-select" name="schedule" id="schedule" required>
                                                         <option disabled value="" selected hidden>Schedule Time</option>
                                                         <?php
@@ -171,7 +171,7 @@ $class = $Admin->getClasses();
                         <div class=" register-forms">
 
                             <div class="form-group">
-                                <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
+                                <table border="5" class="table table-hover table-bordered width:fit content" style="color:Black ; font-family:Times New Roman, Times, serif; font-size:18px;font-weight: bold" id="Registration_table">
 
                                     <thead class="table-primary">
 
@@ -195,8 +195,8 @@ $class = $Admin->getClasses();
                                             <td><?php echo $class[$i]['CourseName']; ?> </td>
                                             <td><?php echo $class[$i]['TFirstName'] . " " . $class[$i]['TLastName']; ?> </td>
                                             <td><?php echo $class[$i]['Time']; ?> </td>
-                                            <td id="delete"><a href="#" ; onclick="deleteClass(<?php echo $class[$i]['ClassId']; ?> )"><i class="fa fa-trash" aria-hidden="true"></i></a> </td>
-                                            <td><a href="../View/EditCourse.php?id=<?php echo $class[$i]['ClassId']; ?>"><i class="fa fa-edit" aria-hidden="true"></i></a> </td>
+                                            <td id="delete"><a href="#" ; onclick="deleteClass(<?php echo $class[$i]['ClassId']; ?> )"><i class="fa fa-trash icons" aria-hidden="true"></i></a> </td>
+                                            <td><a href="../View/EditCourse.php?id=<?php echo $class[$i]['ClassId']; ?>"><i class="fa fa-edit icons" aria-hidden="true"></i></a> </td>
                                         </tr> <?php } ?>
                                 </table>
                             </div>

@@ -237,6 +237,7 @@ body {
   margin-bottom: -12%;
   color: white;
   font-size: 60px;
+  font-size: 50px;
   font-family: "Times New Roman", Times, serif;
 }
 
@@ -404,6 +405,14 @@ body {
   min-width: 50px;
   text-align: center;
 }
+.icons {
+  
+  padding: 10px;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+}
+
 
 p{ 
   font-family: "Times New Roman", Times, serif;
@@ -411,5 +420,12 @@ p{
 
 }
  .fa{ 
-            font-size: 23px; 
+            font-size: 20px; 
         }
+
+h2{
+  
+  color: white;
+  font-size: 30px;
+  font-family: "Times New Roman", Times, serif;
+}
