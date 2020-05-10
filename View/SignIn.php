@@ -36,14 +36,14 @@ require_once('HeaderSignin.php');
                                         <div class="input-container">
 
                                             <i class="fa fa-envelope icon"></i>
-                                            <input type="text" class="form-control" placeholder="123@example.com" value="" id="uname" required />
+                                            <input type="text" class="form-control" placeholder="123@example.com" value="" id="uname" required="required" data-error="Enter Valid Email" />
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <div class="input-container">
                                             <i class="fa fa-key icon"></i>
-                                            <input type="password" class="form-control" placeholder="123456" value="" id="psw" required />
+                                            <input type="password" class="form-control" placeholder="123456" value="" id="psw" required="required" data-error="Enter Password" />
                                         </div>
                                     </div>
                                     <div class="form-group" id="Message">

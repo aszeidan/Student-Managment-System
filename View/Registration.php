@@ -128,7 +128,8 @@ $class = $Admin->getClasses();
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="fas fa-chalkboard-teacher aria-hidden='true' icon">&#xf51c;</i>
+                                                    <i class="fa fa-clock-o aria-hidden='true' icon"></i>
+                                                    <!-- <i class="fas fa-chalkboard-teacher aria-hidden='true' icon"></i> -->
                                                     <select class="custom-select" name="teacher" id="teacher" required>
                                                         <option disabled value="" selected hidden>Select Instructor</option>
                                                         <?php
@@ -142,7 +143,7 @@ $class = $Admin->getClasses();
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class=" fa fa-clock-o aria-hidden='true' icon"></i>
+                                                    <i class="fa fa-clock-o aria-hidden='true' icon"></i>
                                                     <select class="custom-select" name="schedule" id="schedule" required>
                                                         <option disabled value="" selected hidden>Schedule Time</option>
                                                         <?php
