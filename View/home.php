@@ -8,7 +8,10 @@ require_once('HeaderSignin.php');
 
 <body>
 	<div class="register">
-
+		<div class="col-md-3 register-left">
+                <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
+                <h3><b>Time Travel University</b></h3>
+            </div>
 		<div id="myCarousel" class="carousel slide" data-ride="carousel">
 			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
