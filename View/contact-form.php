@@ -8,12 +8,12 @@ require '../Model/PHPMailer/src/PHPMailer.php';
 require '../Model/PHPMailer/src/SMTP.php';
 
 //sender
-$smtpUsername = "aszeidan@hotmail.com";
-$smtpPassword = "joudjalal.com.123";
+$smtpUsername = "timetraveluniversity@hotmail.com";
+$smtpPassword = "TimeTravel@34";
 $emailFrom = $smtpUsername;
 $emailFromName = "Time Travel University";
 //receiver 
-$emailToNadine = "Nadine";
+$emailToNadine = "Amira Zeidan";
 $emailToNameNadine = "aszeidan@hotmail.com";
 
 $mail = new PHPMailer(true);
