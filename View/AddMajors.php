@@ -11,6 +11,7 @@ $db = new DatabaseSMS();
 $Admin = new Admin($db);
 
 $majors = $Admin->getMajors();
+
 ?>
 <body>
     <div class=" register">
