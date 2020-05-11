@@ -180,6 +180,16 @@ class Admin
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;
+    } 
+	function getClassesBySemester($semesterID)
+    {
+        $query = 'select * from class join course on course.CourseId=class.CourseId 
+                                join semester on semester.SemesterId=class.SemesterId
+                                join teacher on teacher.TeacherId=class.TeacherId
+                                join schedule on schedule.ScheduleId=class.ScheduleId WHERE class.SemesterId=' . $semesterID;
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
     }
 
     function getClassById()
@@ -309,7 +319,8 @@ class Admin
         $query = "UPDATE class SET ClassName = {$this->class}', `SemesterId` = '{$this->semester}', `CourseId` = '{$this->course}', `TeacherId` = '{$this->teacher}', `ScheduleId` = '{$this->schedule}' WHERE `class`.`ClassId` = {$this->classId};";
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
-    }
+    }  
+	
     function checkClassIfExists()
     {
         $query = "SELECT * FROM class WHERE ClassName='"  . $this->class . "' 
