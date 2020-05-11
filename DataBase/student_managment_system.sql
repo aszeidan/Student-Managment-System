@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 07, 2020 at 01:58 AM
--- Server version: 5.7.26
--- PHP Version: 7.2.18
+-- Generation Time: May 11, 2020 at 11:36 PM
+-- Server version: 8.0.18
+-- PHP Version: 7.3.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `AdminId` int(11) NOT NULL AUTO_INCREMENT,
   `AFirstName` varchar(255) NOT NULL,
   `AMiddleName` varchar(255) NOT NULL,
-  `ALastName` varchar(255) NOT NULL,
+  `ALastName` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `APhone` int(11) NOT NULL,
   `AEmail` varchar(255) NOT NULL,
   `APassword` varchar(255) NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`AdminId`, `AFirstName`, `AMiddleName`, `ALastName`, `APhone`, `AEmail`, `APassword`) VALUES
-(3, 'Amira', '', 'Zeidan', 0, 'aszeidan@hotmail.com', '123');
+(3, 'Amira', '', 'Zaidan', 0, 'aszeidan@hotmail.com', '123');
 
 -- --------------------------------------------------------
 
@@ -67,23 +67,16 @@ CREATE TABLE IF NOT EXISTS `class` (
   KEY `TeacherId` (`TeacherId`),
   KEY `SemesterId` (`SemesterId`),
   KEY `ClassId` (`ClassId`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=55 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `class`
 --
 
 INSERT INTO `class` (`ClassId`, `ClassName`, `SemesterId`, `CourseId`, `TeacherId`, `ScheduleId`) VALUES
-(2, 'csc101', 1, 3, 3, 3),
-(6, 'CA303', 1, 1, 3, 1),
-(8, 'CA303', 3, 3, 11, 2),
-(9, 'CA303', 1, 1, 6, 1),
-(10, 'CA303', 2, 2, 1, 2),
-(11, 'CA303', 1, 1, 9, 1),
-(12, 'CA303', 3, 3, 10, 3),
-(13, 'Ca103', 3, 2, 2, 3),
-(17, 'CA98', 2, 2, 3, 1),
-(18, 'CABO', 1, 1, 3, 1);
+(48, 'Java', 2, 1, 4, 1),
+(49, 'PHP', 1, 3, 4, 1),
+(52, 'PHP', 1, 3, 4, 4);
 
 -- --------------------------------------------------------
 
@@ -99,6 +92,7 @@ CREATE TABLE IF NOT EXISTS `course` (
   `CreditsNum` int(11) NOT NULL,
   `CourseDescription` varchar(255) NOT NULL,
   `Coursefile` varchar(255) NOT NULL,
+  `targetFileDirectory` varchar(255) NOT NULL,
   PRIMARY KEY (`CourseId`),
   KEY `CourseId` (`CourseId`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
@@ -107,11 +101,52 @@ CREATE TABLE IF NOT EXISTS `course` (
 -- Dumping data for table `course`
 --
 
-INSERT INTO `course` (`CourseId`, `CourseCode`, `CourseName`, `CreditsNum`, `CourseDescription`, `Coursefile`) VALUES
-(1, 'CSC201', 'Computer and Their uses', 3, 'mjrkiumjy', ''),
-(2, 'CSC301', 'Database', 3, 'spring 2020', ''),
-(3, 'CSC207', 'Networking', 3, 'fall 2020', ''),
-(4, 'csc304', 'Software Engineering', 3, 'fall 2020', '');
+INSERT INTO `course` (`CourseId`, `CourseCode`, `CourseName`, `CreditsNum`, `CourseDescription`, `Coursefile`, `targetFileDirectory`) VALUES
+(1, 'CSC201', 'Computer and Their uses', 3, 'mjrkiumjy', '9783642411144-c2.pdf', ''),
+(2, 'CSC301', 'Database', 3, 'spring 2020', '9783642411144-c2.pdf', ''),
+(3, 'CSC207', 'Networking', 3, 'fall 2020', '', ''),
+(4, 'csc304', 'Software Engineering', 3, 'fall 2020', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `grades`
+--
+
+DROP TABLE IF EXISTS `grades`;
+CREATE TABLE IF NOT EXISTS `grades` (
+  `GradeId` int(11) NOT NULL AUTO_INCREMENT,
+  `StudentID` int(11) NOT NULL,
+  `ClassId` int(11) NOT NULL,
+  `Grade` int(11) NOT NULL,
+  PRIMARY KEY (`GradeId`),
+  KEY `StudentID` (`StudentID`),
+  KEY `ClassId` (`ClassId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `majors`
+--
+
+DROP TABLE IF EXISTS `majors`;
+CREATE TABLE IF NOT EXISTS `majors` (
+  `MajorId` int(11) NOT NULL AUTO_INCREMENT,
+  `MajorTitle` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  PRIMARY KEY (`MajorId`),
+  KEY `MajorId` (`MajorId`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+--
+-- Dumping data for table `majors`
+--
+
+INSERT INTO `majors` (`MajorId`, `MajorTitle`) VALUES
+(2, 'Computing'),
+(3, 'Business'),
+(4, 'Bs'),
+(5, 'IT');
 
 -- --------------------------------------------------------
 
@@ -130,14 +165,7 @@ CREATE TABLE IF NOT EXISTS `registration` (
   PRIMARY KEY (`RegistrationId`),
   KEY `ClassId` (`ClassId`),
   KEY `StudentId` (`StudentId`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `registration`
---
-
-INSERT INTO `registration` (`RegistrationId`, `StudentId`, `ClassId`, `MidtermGrade`, `AssignemetGrade`, `FinalGrade`) VALUES
-(2, 1, 2, 0, 0, 0);
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -175,16 +203,17 @@ CREATE TABLE IF NOT EXISTS `semester` (
   `SName` varchar(255) NOT NULL,
   PRIMARY KEY (`SemesterId`),
   KEY `SemesterId` (`SemesterId`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `semester`
 --
 
 INSERT INTO `semester` (`SemesterId`, `SName`) VALUES
-(1, 'Fall'),
-(2, 'Spring'),
-(3, 'Summer');
+(1, 'Fall2020'),
+(2, 'Spring2020'),
+(4, 'Summer2020'),
+(5, 'Fall2022');
 
 -- --------------------------------------------------------
 
@@ -201,20 +230,19 @@ CREATE TABLE IF NOT EXISTS `student` (
   `SEmail` varchar(255) NOT NULL,
   `SPhone` int(11) NOT NULL,
   `SPassword` varchar(255) NOT NULL,
+  `MajorId` int(11) NOT NULL,
+  `SAddress` varchar(255) NOT NULL,
   PRIMARY KEY (`StudentID`),
-  UNIQUE KEY `StudentID` (`StudentID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  UNIQUE KEY `StudentID` (`StudentID`),
+  KEY `MajorId` (`MajorId`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`StudentID`, `SFirstName`, `SMiddleName`, `SLastName`, `SEmail`, `SPhone`, `SPassword`) VALUES
-(0, 'salim', 'hassan', 'zeidan', 'salimzeidan@hotmail.com', 70135757, '123'),
-(1, 'Daniel', 'Amer', 'Awde', 'danielawde9@gmail.com', 7065502, '$2y$10$CjqbQJ6UJkyqzqKhEk6svOXs.TZjoBn2eegRPEMWTUDvJNvSODA/S'),
-(2, 'Ghewa', 'Salim', 'Zeidan', 'gszeidan@hotmail.com', 71655502, ''),
-(3, 'amira', 'salim', 'zeidan', 'aszeidan@hotmail.com', 71135757, '$2y$10$FP8aYAMHy1UXNgmZPjwye.mBY9tsaaghimOPcYIFNbbvjd1/MErAe'),
-(5, 'salim', 'hassan', 'zeidan', 'salimzeidan@hotmail.com', 70135757, '123');
+INSERT INTO `student` (`StudentID`, `SFirstName`, `SMiddleName`, `SLastName`, `SEmail`, `SPhone`, `SPassword`, `MajorId`, `SAddress`) VALUES
+(3, 'llllll', 'lllll', 'llllll', 'kkkk@hotmail.com', 111111, '$2y$10$ymQuTMgPVQG3yutB.56ul.lDMRB.VFxoWGIT8OcB2mr8WkifONra2', 3, 'lllll');
 
 -- --------------------------------------------------------
 
@@ -233,25 +261,14 @@ CREATE TABLE IF NOT EXISTS `teacher` (
   `TPassword` varchar(255) NOT NULL,
   PRIMARY KEY (`TeacherId`),
   KEY `TeacherId` (`TeacherId`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `teacher`
 --
 
 INSERT INTO `teacher` (`TeacherId`, `TFirstName`, `TMiddleName`, `TLastName`, `TEmail`, `TMobileNum`, `TPassword`) VALUES
-(1, 'amira2', 'Salim42', 'Zeidan', 'aszeidan@hotmail.com', 71135757, '$2y$10$7q7C4MHHu7pIF.dXnf1z6.n1iXEiRR8foyRXvcOUHg/6fX/7vjM7q'),
-(2, 'amira2', 'Salim42', 'Zeidan', 'aszeidan@hotmail.com', 71135757, '$2y$10$Z8fd4ndcv2PWfGY55SZdFepw8pL6xwOjDpZ7qgFsi2flitPn6D0WG'),
-(3, 'Ihab', 'Kamal', 'Breich', 'ikbreich@hotmail.com', 79135757, '1234'),
-(4, 'amira2', 'Salim42', 'Zeidan', 'aszeidan@hotmail.com', 71135757, '$2y$10$7f8XZLzMIInuC7ookogzYO97JbUEhGVbXsn8Y7xjipu9VWWJP5t2K'),
-(5, 'AMIRA', 'SALIM', 'ZEIDAN', 'ghida@hotmail.com', 71135757, '$2y$10$4xnSH38xAN1hlWa52jQgKur.C5EbXgRUzaBy1LnDxCGcQOBQ7NCTu'),
-(6, 'AMIRA', 'SALIM', 'ZEIDAN', 'ghida@hotmail.com', 71135757, '$2y$10$lzPQCCmRxRTn5UY6DIEPeeiArBWDFuygae5TFz75X.pfwb6VP7rqa'),
-(7, 'AMIRA', 'SALIM', 'ZEIDAN', 'ghida@hotmail.com', 71135757, ')aD3!KLJ'),
-(8, 'AMIRA', 'SALIM', 'ZEIDAN', 'ghida@hotmail.com', 71135757, '$2y$10$5rlqvFcFphi0OIbMy9I.f.O2Jndr3O5fN4v.j32P6ST1XWO7Mudii'),
-(9, 'AMIRA', 'SALIM', 'ZEIDAN', 'ghida@hotmail.com', 71135757, '$2y$10$Dz6QgxIrxf0ldbJ0l7XiIu9A0bMGUBg26Z/xKZqBVORzk34x1Dnly'),
-(10, 'AMIRA', 'SALIM', 'ZEIDAN', 'ghida@hotmail.com', 71135757, '$2y$10$QcVKAIAHTq4fuK7FBwvOM.2dYhNXKEsswtxW0Sg2oIy/OBV9NF1vu'),
-(11, 'AMIRA', 'SALIM', 'ZEIDAN', 'ghida@hotmail.com', 71135757, '$2y$10$L9n6jBE55vUDkWr.aklOhOPXtc4zyMZ/5dlZMXZ4gfQ9O6wRsRi9O'),
-(12, 'amira', 'salim', 'zeidan', 'aszeidan@hotmail.com', 70135757, '123');
+(4, 'Saher', 'Monir', 'Jaafar', 'smj@hotmail.com', 3135757, '123456');
 
 --
 -- Constraints for dumped tables
@@ -267,11 +284,24 @@ ALTER TABLE `class`
   ADD CONSTRAINT `TeacherId` FOREIGN KEY (`TeacherId`) REFERENCES `teacher` (`TeacherId`);
 
 --
+-- Constraints for table `grades`
+--
+ALTER TABLE `grades`
+  ADD CONSTRAINT `GradeClassId` FOREIGN KEY (`ClassId`) REFERENCES `class` (`ClassId`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `StudnetID` FOREIGN KEY (`StudentID`) REFERENCES `student` (`StudentID`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+
+--
 -- Constraints for table `registration`
 --
 ALTER TABLE `registration`
   ADD CONSTRAINT `ClassId` FOREIGN KEY (`ClassId`) REFERENCES `class` (`ClassId`),
   ADD CONSTRAINT `StudentId` FOREIGN KEY (`StudentId`) REFERENCES `student` (`StudentID`);
+
+--
+-- Constraints for table `student`
+--
+ALTER TABLE `student`
+  ADD CONSTRAINT `MajorId` FOREIGN KEY (`MajorId`) REFERENCES `majors` (`MajorId`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
