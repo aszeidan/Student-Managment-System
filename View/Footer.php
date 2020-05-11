@@ -76,6 +76,19 @@
       </div>
       <!-- Grid column -->
 
+	<!-- Grid column -->
+      <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-md-0 mb-4">
+
+        <!-- Links -->
+        <h6 class="text-uppercase font-weight-bold">Special Thanks</h6>
+        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+        <p>Mr. Shadi Debain</p>
+		<p>Mr. Adham Ghannam</p>
+		<p>Mr. Samer Al Sayegh</p>
+
+
+      </div>
+      <!-- Grid column -->
       <!-- Grid column -->
       <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
 
@@ -93,19 +106,7 @@
 
       </div>
       <!-- Grid column -->
-	  <!-- Grid column -->
-      <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-md-0 mb-4">
-
-        <!-- Links -->
-        <h6 class="text-uppercase font-weight-bold">Special Thanks</h6>
-        <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>Mr. Shadi Debain</p>
-		<p>Mr. Adham Ghannam</p>
-		<p>Mr. Samer Al Sayegh</p>
-
-
-      </div>
-      <!-- Grid column -->
+	 
 
     </div>
     <!-- Grid row -->
