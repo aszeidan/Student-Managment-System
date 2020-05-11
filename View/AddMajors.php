@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
+
 require_once('Header.php');
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -11,6 +12,7 @@ $db = new DatabaseSMS();
 $Admin = new Admin($db);
 
 $majors = $Admin->getMajors();
+
 ?>
 <body>
     <div class=" register">

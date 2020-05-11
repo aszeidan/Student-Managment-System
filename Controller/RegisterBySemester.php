@@ -67,7 +67,13 @@ session_start();
                 <td><?php echo($registeredCourse['courseCode'])?></td>
                 <td><?php echo($registeredCourse['TFirstName'] . " " .$registeredCourse['TMiddleName'] . " " . $registeredCourse['TLastName'])?></td>
                 <td><?php echo($registeredCourse['Time'])?></td>
-                <td><a href="<?php echo $targetDir . $registeredCourse['Coursefile']; ?>"><h6 class="register-heading-name"><i class="fa fa-download" aria-hidden="true"></i></h6> </a></td>
+                <td>
+				<?php if($registeredCourse['Coursefile']!= ""){ ?> 
+				<a href="<?php echo $targetDir . $registeredCourse['Coursefile']; ?>"><h6 class="register-heading-name"><i class="fa fa-download" aria-hidden="true"></i></h6> </a></td>
+					
+				<?php }else{ ?>
+					still not available
+			<?php } ?>
             </tr>
             <?php }?>
         </tbody>

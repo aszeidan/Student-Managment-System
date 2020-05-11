@@ -53,14 +53,7 @@ class Admin
 
     function setSemesterName($semester, $semesterYear)
     {
-	if (!filter_var($semesterYear, FILTER_VALIDATE_INT) ) {
-            throw new Exception('Invalid Input.');
-        }
-        $result = $this->validateSemesterExist($semester, $semesterYear);
-        if (!count($result)) {
-            throw new Exception('Semester Does not Exist.');
-        }
-        $this->semester = $semester.$semesterYear;
+        $this->semesterName = $semester.$semesterYear;
     }
 
     function setCourse($course)
@@ -187,6 +180,16 @@ class Admin
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;
+    } 
+	function getClassesBySemester($semesterID)
+    {
+        $query = 'select * from class join course on course.CourseId=class.CourseId 
+                                join semester on semester.SemesterId=class.SemesterId
+                                join teacher on teacher.TeacherId=class.TeacherId
+                                join schedule on schedule.ScheduleId=class.ScheduleId WHERE class.SemesterId=' . $semesterID;
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
     }
 
     function getClassById()
@@ -306,7 +309,7 @@ class Admin
     }
 	function addSemester()
     {
-        $query =  "INSERT INTO semester  (`SemesterId`, `SName`) values (NULL,'" . $this->semester .$this->semesterYear. "')";
+        $query =  "INSERT INTO semester  (`SemesterId`, `SName`) values (NULL,'" . $this->semesterName ."')";
 
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
@@ -316,7 +319,8 @@ class Admin
         $query = "UPDATE class SET ClassName = {$this->class}', `SemesterId` = '{$this->semester}', `CourseId` = '{$this->course}', `TeacherId` = '{$this->teacher}', `ScheduleId` = '{$this->schedule}' WHERE `class`.`ClassId` = {$this->classId};";
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
-    }
+    }  
+	
     function checkClassIfExists()
     {
         $query = "SELECT * FROM class WHERE ClassName='"  . $this->class . "' 
@@ -335,7 +339,7 @@ class Admin
     }
 	function checkSemesterIfExists()
     {
-		$semesterName= $this->semester."".$this->semester;
+		$semesterName= $this->semesterName;
         $query = "SELECT * FROM semester WHERE SName='". $semesterName."'";
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
