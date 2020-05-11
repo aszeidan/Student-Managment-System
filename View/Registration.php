@@ -172,7 +172,7 @@ $class = $Admin->getClasses();
                         <div class=" register-forms">
 
                             <div class="form-group">
-                                <table border="5" class="table table-hover table-bordered width:fit content" style="color:Black ; font-family:Times New Roman, Times, serif; font-size:18px;font-weight: bold" id="Registration_table">
+                                <table border="5" class="table table-hover table-bordered width:fit content" style="color:white ; font-family:Times New Roman, Times, serif; font-size:18px;font-weight: bold" id="Registration_table">
 
                                     <thead class="table-primary">
 

@@ -13,9 +13,8 @@ $smtpPassword = "TimeTravel@34";
 $emailFrom = $smtpUsername;
 $emailFromName = "Time Travel University";
 //receiver 
-$emailToNadine = "Amira Zeidan";
-$emailToNameNadine = "aszeidan@hotmail.com";
-
+$emailToAmira = "Amira Zeidan";
+$emailToNameAmira = "aszeidan@hotmail.com";
 $mail = new PHPMailer(true);
 
 
@@ -59,7 +58,7 @@ try {
     $mail->Username = $smtpUsername;
     $mail->Password = $smtpPassword;
     $mail->setFrom($emailFrom, $emailFromName);
-    $mail->addAddress($emailToNadine, $emailToNameNadine);
+    $mail->addAddress($emailToAmira, $emailToNameAmira);
 
     $mail->Subject = 'Time Travel University Website Contact Form Message';
 
@@ -78,8 +77,6 @@ try {
     $responseArray = array('type' => 'danger', 'message' => $e->getMessage());
     // $responseArray = array('type' => 'danger', 'message' => $mail->ErrorInfo);
 }
-
-
 
 
 // if requested by AJAX request return JSON response

@@ -345,12 +345,13 @@ body {
   cursor: pointer;
 }
 .btnRegister:hover{
-  background-color:#016fff;
+  background-color: white;
   box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
-  color: #fff;
+  color: #0062cc;
   transform: translateY(-7px);
-
 }
+
+
 
 .register .nav-tabs {
   margin-top: 3%;

@@ -8,7 +8,7 @@ require_once('HeaderSignin.php');
 <body>
     <div id="divAllContent" class=" register py-5">
         <div class="container">
-            <form id="contact-form" method="POST" action="contact-form" role="form">
+            <form id="contact-form" method="POST" action="../Controller/contact-form" role="form">
                 <div class="controls">
                     <div class="centering col-md-12">
                         <!--Section: Contact v.2-->
@@ -118,9 +118,8 @@ require_once('HeaderSignin.php');
 
             // init the validator
             $('#contact-form').validator();
-
-
             // when the form is submitted
+            
             $('#contact-form').on('submit', function(e) {
 
                 // if the validator does not prevent form submit
