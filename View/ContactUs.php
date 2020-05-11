@@ -117,8 +117,6 @@ require_once('HeaderSignin.php');
         $(function() {
 
             // init the validator
-
-
             $('#contact-form').validator();
 
 
