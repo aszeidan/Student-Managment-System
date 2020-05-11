@@ -46,11 +46,11 @@ $Teacher = new Teacher($db);
                     </style>
                 </form>
             </div>
-			 <div class="col-md-9 register-right">
+			 <div class="col-md-9 register-rights">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <h3 class="register-headings"> Teacher Profile</h3>
-                        <div class="row register-form mx-0 px-0 col-md-12">
+                        <h3 class="register-heading"> Teacher Profile</h3>
+                        <div class="row register-forms mx-0 px-0 col-md-12">
                             <div class="centering col-md-6">
                                 
 								<form action="" method="">

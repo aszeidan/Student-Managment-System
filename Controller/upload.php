@@ -15,8 +15,7 @@ $fileName = basename($_FILES["userfile"]["name"]);
 $targetFilePath = $targetDir . $fileName;
 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 $ClassID=$_GET["ClassID"];
-
-
+$Teacher->insertFile($ClassID, $fileName);
 
 
 
@@ -28,6 +27,8 @@ if(isset($_POST["submit"]) && !empty($_FILES["userfile"]["name"])){
         if(move_uploaded_file($_FILES["userfile"]["tmp_name"], $targetFilePath)){
             // Insert file name into database
 			$result = $Teacher->insertFile($ClassID, $fileName);
+			var_dump($result);
+			die();
             if($result){
                 $statusMsg = "The file ".$fileName. " has been uploaded successfully.";
             }else{

@@ -52,19 +52,19 @@ $targetDir = "../uploads/";
 				<P>We look forward to welcoming you to our campus soon!​</P>
 			</div>
 
-			<div class="col-md-9 register-right">
+			<div class="col-md-9 register-rights">
 				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-					<h3 class="register-headings">Registred Students</h3>
+					<h3 class="register-heading">Registred Students</h3>
 					<div class="row col-md-2">
 
 						<ul>
-							<li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Teacher_Profile.php"><i class="fa fa-arrow-left" style="font-size:35px;"></i></a></li>
+							<li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Teacher_Profile.php"><i class="fa fa-arrow-left" style="font-size:35px; color:white"></i></a></li>
 						</ul>
 					</div>
 
 					<form action="../Controller/SaveGrades.php" method="POST">
 				
-						<div class=" register-form">
+						<div class=" register-forms">
 							<div class="col-md-12">
 								<table border="5" class="table-hover table-bordered width:fit content" id="Registration_table">
 
@@ -127,18 +127,26 @@ $targetDir = "../uploads/";
 						<?php
 						if ($file[0]["Coursefile"] != "") { ?>
 							<a href="<?php echo $targetDir . $file[0]["Coursefile"]; ?>">
-								<h6 class="register-heading-name"> Download the Course Material : <i class="fa fa-download" aria-hidden="true"></i></h6>
+								<h6 class="register-heading-name"> Download the Course Material : <i class="fa fa-downloads" aria-hidden="true"></i></h6>
 							</a>
 
 						<?php
 
 						} else { ?>
-							<a class="btn-floating peach-gradient mt-0 float-left">
-								<i class="fas fa-paperclip" aria-hidden="true"></i>
-								<input type="file" name="userfile">
-							</a>
-							<button class="btn"><i class="fa fa-upload"></i> Upload</button>
-
+							<div class="row col-md-12">
+								<div class="col-md-6">
+									<a class="btn-floating peach-gradient mt-0 ">
+										<i class="fa fa-paperclip" aria-hidden="true"></i>
+										<input type="file" name="userfile">
+									</a>
+									
+								</div>
+								<div class="col-md-6">
+								<a class="btn-floating peach-gradient mt-0 ">
+									<button class="btn" style="color:white; margin-top:-10px;"><i class="fa fa-upload icons"></i> Upload Material</button>
+									</a>
+								</div>
+							</div>
 						<?php
 						} ?>
 
