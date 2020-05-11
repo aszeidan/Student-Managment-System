@@ -37,6 +37,7 @@ require_once('HeaderSignin.php');
 
                                             <i class="fa fa-envelope icon"></i>
                                             <input type="text" class="form-control" placeholder="123@example.com" value="" id="uname" required="required" data-error="Enter Valid Email" />
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
 

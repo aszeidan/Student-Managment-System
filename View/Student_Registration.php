@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once('Header.php');
 
 require_once('../Model/Student.php');
@@ -28,21 +28,22 @@ $semester = $Admin->getSemesters();
 </script>
 
 <body>
-<div class="container">
-    <h2 class="py-3">Drop/Add Courses</h2>
+    <div class="registration">
+        <h2 class="py-3">Drop/Add Courses</h2>
 
-    <div>
-        <select class="mb-3" id="SemesterId" onChange="getCoursesBySemester()" name="Semester" required>
-            <option disabled value="" selected hidden>Select Semester</option>
+        <div>
+            <select class="mb-3" id="SemesterId" onChange="getCoursesBySemester()" name="Semester" required>
+                <option disabled value="" selected hidden>Select Semester</option>
                 <?php
                 for ($i = 0; $i < count($semester); $i++) {
                 ?>
-                <option value="<?php echo $semester[$i]["SemesterId"] ?>"><?php echo $semester[$i]["SName"] ?></option>
+                    <option value="<?php echo $semester[$i]["SemesterId"] ?>"><?php echo $semester[$i]["SName"] ?></option>
                 <?php } ?>
-        </select>
+            </select>
+        </div>
+        <div id="classSemester">
+        </div>
     </div>
-    <div id="classSemester">
-    </div>
-</div>
 </body>
+
 </html>

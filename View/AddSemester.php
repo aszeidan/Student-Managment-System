@@ -14,9 +14,7 @@ $semester = $Admin->getSemesters();
 ?>
 
 <script>
-
-
-    $(document).ready(function () {
+    $(document).ready(function() {
         var d = new Date();
         for (var i = 0; i <= 40; i++) {
             var option = "<option value=" + parseInt(d.getFullYear() + i) + ">" + parseInt(d.getFullYear() + i) + "</option>"
@@ -24,13 +22,14 @@ $semester = $Admin->getSemesters();
         }
     });
 </script>
+
 <body>
     <div class="register">
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                 <h3>Welcome To</h3>
-				<h3><b>Time Travel University</b></h3>
+                <h3><b>Time Travel University</b></h3>
             </div>
             <div class="col-md-9 register-rights">
                 <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -52,40 +51,40 @@ $semester = $Admin->getSemesters();
                                 <div class="row col-md-2">
 
                                     <ul>
-                                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
+                                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left icons" style="font-size:35px"></i></a></li>
                                     </ul>
                                 </div>
                                 <form action="../Controller/Verify_Insert_Major.php" method="POST" class="form" id="form">
                                     <div class="row register-forms mx-0 px-0 col-md-12">
-										<div class="centering col-md-6">
-											 <div class="form-group">
-													<div class="input-container">
-														<i class="fa fa-list"></i>
-														<select class="custom-select" name="SemesterName" id="SemesterName" required>
-															<option disabled value="" selected hidden>Select semester</option>
-															
-																<option value="Fall">Fall</option>
-																<option value="Spring">Spring</option>
-																<option value="Summer">Summer</option>
-														   
-														</select>
-													</div>
-											   </div>
-											   <div class="form-group">
-													<div class="input-container">
-														<i class="fa fa-list"></i>
-														<select class="custom-select" name="SemesterYear" id="SemesterYear" required>
-															<option disabled value="" selected hidden>Select year</option>
-														   
-														</select>
-													</div>
-											   </div>
-											   <div class="form-group" id="semesterMessage">
+                                        <div class="centering col-md-6">
+                                            <div class="form-group">
+                                                <div class="input-container">
+                                                    <i class="fa fa-list icon"></i>
+                                                    <select class="custom-select" name="SemesterName" id="SemesterName" required>
+                                                        <option disabled value="" selected hidden>Select semester</option>
+
+                                                        <option value="Fall">Fall</option>
+                                                        <option value="Spring">Spring</option>
+                                                        <option value="Summer">Summer</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="input-container">
+                                                    <i class="fa fa-list icon"></i>
+                                                    <select class="custom-select" name="SemesterYear" id="SemesterYear" required>
+                                                        <option disabled value="" selected hidden>Select year</option>
+
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" id="semesterMessage">
                                             </div>
                                             <input type="submit" class="btnRegister" id="addSemesterButton" value="Save" />
 
-										</div>
-									</div>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                         </div>
@@ -93,7 +92,7 @@ $semester = $Admin->getSemesters();
 
                     <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <h3 class="register-heading">Table</h3>
-                        <div class=" register-form">
+                        <div class=" register-forms">
 
                             <div class="form-group">
                                 <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
@@ -102,11 +101,7 @@ $semester = $Admin->getSemesters();
 
                                         <th> Semester Id </th>
                                         <th> Semester Name </th>
-                                        
-
-
                                     </thead>
-                                    </span>
                                     <?php
                                     for ($i = 0; $i < count($semester); $i++) {
                                     ?>
