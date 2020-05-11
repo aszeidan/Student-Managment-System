@@ -48,11 +48,11 @@ $semester = $Admin->getSemesters();
 
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-heading">Add Semester </h3>
+                                <h3 class="register-headings">Add Semester </h3>
                                 <div class="row col-md-2">
 
                                     <ul>
-                                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
+                                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left icons" style="font-size:35px"></i></a></li>
                                     </ul>
                                 </div>
                                 <form action="../Controller/Verify_Insert_Major.php" method="POST" class="form" id="form">
@@ -92,8 +92,8 @@ $semester = $Admin->getSemesters();
                     </div>
 
                     <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <h3 class="register-heading">Table</h3>
-                        <div class=" register-form">
+                        <h3 class="register-headings">Table</h3>
+                        <div class=" register-forms">
 
                             <div class="form-group">
                                 <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
