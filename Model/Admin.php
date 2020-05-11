@@ -262,7 +262,7 @@ class Admin
     }
     function getAllStudents()
     {
-        $query =  'select * from student ';
+        $query =  'select * from student join majors on majors.MajorId= student.MajorId ';
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;

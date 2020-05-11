@@ -50,7 +50,7 @@ $Teacher = new Teacher($db);
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-headings">Teacher Profile</h3>
-                        <div class="col-md-9 register-right">
+                        <div class="col-md-12 register-right">
                             <div class="row register-form mx-0 px-0 center">
                                 <div class="col-md-6">
 
@@ -76,8 +76,7 @@ $Teacher = new Teacher($db);
                 </div>
             </form>
 
-        </div>
-    </div>
+
     <?php
     require_once('Footer.php'); ?>
     </div>

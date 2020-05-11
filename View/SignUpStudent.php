@@ -11,7 +11,7 @@ require_once('../Model/Admin.php');
 $db = new DatabaseSMS();
 $Admin = new Admin($db);
 $semester = $Admin->getSemesters();
-
+$majors = $Admin->getMajors();
 $course = $Admin->getCourses();
 
 $teacher = $Admin->getTeachers();
@@ -46,7 +46,9 @@ $student = $Admin->getAllStudents();
 
         });
 
-    }
+    };
+	
+	
 </script>
 
 <body>
@@ -87,9 +89,25 @@ $student = $Admin->getAllStudents();
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Last Name *" value="" id="SLastName" />
+                                    </div> 
+									<div class="form-group">
+										<input type="text" class="form-control" placeholder="Address *" value="" id="SAddress" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
+									<div class="form-group">
+										<div class="input-container">
+                                                    <i class="glyphicon glyphicon-lock"></i>
+                                                    <select class="custom-select" name="SMajor" id="SMajor" required>
+                                                        <option disabled value="" selected hidden>Select Major</option>
+                                                        <?php
+                                                        for ($i = 0; $i < count($majors); $i++) {
+                                                        ?>
+                                                            <option value="<?php echo $majors[$i]["MajorId"] ?>"><?php echo $majors[$i]["MajorTitle"] ?></option>
+                                                        <?php } ?>
+                                                    </select>
+                                         </div>
+                                    </div>
                                     <div class="form-group">
                                         <input type="email" class="form-control" placeholder="Email *" value="" id="SEmail" />
                                     </div>
@@ -125,6 +143,8 @@ $student = $Admin->getAllStudents();
                                                     <th> Name </th>
                                                     <th> Phone Number</th>
                                                     <th> Email </th>
+                                                    <th> Address </th>
+                                                    <th> Major </th>
                                                     <th>Delete </th>
                                                     <th> Edit </th>
                                                 </thead>
@@ -134,8 +154,10 @@ $student = $Admin->getAllStudents();
                                                 ?>
                                                     <tr>
                                                         <td><?php echo $student[$i]['SFirstName'] . " " . $student[$i]['SLastName']; ?> </td>
-                                                        <td><?php echo $student[$i]['SPhoneNumber']; ?> </td>
+                                                        <td><?php echo $student[$i]['SPhone']; ?> </td>
                                                         <td><?php echo $student[$i]['SEmail']; ?> </td>
+                                                        <td><?php echo $student[$i]['SAddress']; ?> </td>
+                                                        <td><?php echo $student[$i]['MajorTitle']; ?> </td>
                                                         <td id="delete"><a href="#" ; onclick="deleteStudent(<?php echo $student[$i]['StudentID']; ?> )"><i class="fa fa-trash" aria-hidden="true"></i></a> </td>
                                                         <td><a href="../View/EditStudent.php?StudentID=<?php echo $student[$i]['StudentID']; ?>"><i class="fa fa-edit" aria-hidden="true"></i> </a> </td>
                                                     </tr> <?php } ?>
@@ -173,6 +195,8 @@ $student = $Admin->getAllStudents();
                 SFirstName: $("#SFirstName").val(),
                 SMiddleName: $("#SMiddleName").val(),
                 SLastName: $("#SLastName").val(),
+                SAddress: $("#SAddress").val(),
+                SMajor: $("#SMajor").val(),
                 SPhone: $("#SPhone").val(),
                 SPassword: $("#SPassword").val(),
                 SEmail: $("#SEmail").val()
@@ -184,7 +208,13 @@ $student = $Admin->getAllStudents();
                 }, 4000);
             });
 
-        }
+        };
+</script>
+<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+<script>
+		$('#prefill').datepicker({
+
+			});
     </script>
     <?php
     require_once('Footer.php'); ?>

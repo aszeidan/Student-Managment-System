@@ -56,6 +56,14 @@ class Student
     {
         $this->SLastName = $SLastName;
     }
+	function setAddress($SAddress)
+    {
+        $this->SAddress = $SAddress;
+    }
+	function setMajor($SMajor)
+    {
+        $this->SMajor = $SMajor;
+    }
     function setSPhone($SPhone)
     {
         $this->SPhone = $SPhone;
@@ -124,7 +132,8 @@ class Student
 
     function addStudent()
     {
-        $query =  "INSERT INTO student( `SFirstName`, `SMiddleName`, `SLastName`, `SEmail`, `SPhone`, `SPassword`)  values ('" . $this->SFirstName . "','" . $this->SMiddleName . "','" . $this->SLastName . "','" . $this->SEmail . "','" . $this->SPhone . "','" . $this->SPassword . "')";
+        $query =  "INSERT INTO student( `SFirstName`, `SMiddleName`, `SLastName`, `SEmail`, `SPhone`, `SPassword`, `MajorId`, `SAddress` ) 
+		values ('" . $this->SFirstName . "','" . $this->SMiddleName . "','" . $this->SLastName . "','" . $this->SEmail . "','" . $this->SPhone . "','" . $this->SPassword . "'," .$this->SMajor . ",'" . $this->SAddress . "')";
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
     }

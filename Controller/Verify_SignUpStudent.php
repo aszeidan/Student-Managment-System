@@ -13,9 +13,12 @@ $db = new DatabaseSMS();
 $Student = new Student($db);
 $result = array();
 
+
 if (
     !isset($_POST["SFirstName"])
     || !isset($_POST["SMiddleName"])
+    || !isset($_POST["SAddress"])
+    || !isset($_POST["SMajor"])
     || !isset($_POST["SLastName"])
     || !isset($_POST["SPhone"])
     || !isset($_POST["SPassword"])
@@ -29,6 +32,8 @@ if (
     !$_POST["SFirstName"]
     || !$_POST["SMiddleName"]
     || !$_POST["SLastName"]
+    || !$_POST["SAddress"]
+    || !$_POST["SMajor"]
     || !$_POST["SPhone"]
     || !$_POST["SPassword"]
     || !$_POST["SEmail"]
@@ -40,13 +45,18 @@ if (
 $SFirstName = $_POST["SFirstName"];
 $SMiddleName = $_POST["SMiddleName"];
 $SLastName = $_POST["SLastName"];
+$SAddress= $_POST["SAddress"];
+$SMajor= $_POST["SMajor"];
 $SPhone = $_POST["SPhone"];
 $SPassword = $_POST["SPassword"];
 $SEmail = $_POST["SEmail"];
 
+
 $Student->setSFirstName($SFirstName);
 $Student->setSmiddleName($SMiddleName);
 $Student->setSLastName($SLastName);
+$Student->setAddress($SAddress);
+$Student->setMajor($SMajor);
 $Student->setSPhone($SPhone);
 $Student->setSPassword($SPassword);
 $Student->setSEmail($SEmail);
@@ -57,6 +67,7 @@ if ($Student->checkStudentIfExists() == true) {
     die(json_encode($result));
 } else {
     $Student->addStudent();
+
 
 //sender
 $smtpUsername = "timetraveluniversity@hotmail.com";
