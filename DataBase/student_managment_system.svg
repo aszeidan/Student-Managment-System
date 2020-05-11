@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg
+PUBLIC "-//W3C//DTD SVG 1.1//EN"
+       "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg viewBox="24 -8 770 657" width="746px" height="665px" xmlns="http://www.w3.org/2000/svg" version="1.1">
+   <line x1="39" y1="289" x2="29" y2="289" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="34" y1="399" x2="44" y2="399" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="29" y1="289" x2="34" y2="399" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="31.5" y1="289" x2="35.035533905933" y2="292.53553390593" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="31.5" y1="289" x2="35.035533905933" y2="285.46446609407" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="39" y1="399" x2="35.464466094067" y2="402.53553390593" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="39" y1="399" x2="35.464466094067" y2="395.46446609407" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="132" y1="329" x2="142" y2="329" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="655" y1="317" x2="665" y2="317" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="142" y1="329" x2="655" y2="317" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="139.5" y1="329" x2="135.96446609407" y2="332.53553390593" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="139.5" y1="329" x2="135.96446609407" y2="325.46446609407" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="660" y1="317" x2="656.46446609407" y2="320.53553390593" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="660" y1="317" x2="656.46446609407" y2="313.46446609407" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="132" y1="269" x2="142" y2="269" style="stroke:#c00;stroke-width:1;"/>
+   <line x1="335" y1="376" x2="345" y2="376" style="stroke:#c00;stroke-width:1;"/>
+   <line x1="142" y1="269" x2="335" y2="376" style="stroke:#c00;stroke-width:1;"/>
+   <line x1="139.5" y1="269" x2="135.96446609407" y2="272.53553390593" style="stroke:#c00;stroke-width:2;"/>
+   <line x1="139.5" y1="269" x2="135.96446609407" y2="265.46446609407" style="stroke:#c00;stroke-width:2;"/>
+   <line x1="340" y1="376" x2="336.46446609407" y2="379.53553390593" style="stroke:#c00;stroke-width:2;"/>
+   <line x1="340" y1="376" x2="336.46446609407" y2="372.46446609407" style="stroke:#c00;stroke-width:2;"/>
+   <line x1="132" y1="309" x2="142" y2="309" style="stroke:#0bf;stroke-width:1;"/>
+   <line x1="426" y1="512" x2="436" y2="512" style="stroke:#0bf;stroke-width:1;"/>
+   <line x1="142" y1="309" x2="426" y2="512" style="stroke:#0bf;stroke-width:1;"/>
+   <line x1="139.5" y1="309" x2="135.96446609407" y2="312.53553390593" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="139.5" y1="309" x2="135.96446609407" y2="305.46446609407" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="431" y1="512" x2="427.46446609407" y2="515.53553390593" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="431" y1="512" x2="427.46446609407" y2="508.46446609407" style="stroke:#0bf;stroke-width:2;"/>
+   <line x1="344" y1="283" x2="334" y2="283" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="142" y1="229" x2="132" y2="229" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="334" y1="283" x2="142" y2="229" style="stroke:#bbb;stroke-width:1;"/>
+   <line x1="336.5" y1="283" x2="340.03553390593" y2="286.53553390593" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="336.5" y1="283" x2="340.03553390593" y2="279.46446609407" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="137" y1="229" x2="140.53553390593" y2="232.53553390593" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="137" y1="229" x2="140.53553390593" y2="225.46446609407" style="stroke:#bbb;stroke-width:2;"/>
+   <line x1="425" y1="263" x2="435" y2="263" style="stroke:#cb0;stroke-width:1;"/>
+   <line x1="633" y1="121" x2="643" y2="121" style="stroke:#cb0;stroke-width:1;"/>
+   <line x1="435" y1="263" x2="633" y2="121" style="stroke:#cb0;stroke-width:1;"/>
+   <line x1="432.5" y1="263" x2="428.96446609407" y2="266.53553390593" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="432.5" y1="263" x2="428.96446609407" y2="259.46446609407" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="638" y1="121" x2="634.46446609407" y2="124.53553390593" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="638" y1="121" x2="634.46446609407" y2="117.46446609407" style="stroke:#cb0;stroke-width:2;"/>
+   <line x1="319" y1="106" x2="309" y2="106" style="stroke:#c00;stroke-width:1;"/>
+   <line x1="142" y1="229" x2="132" y2="229" style="stroke:#c00;stroke-width:1;"/>
+   <line x1="309" y1="106" x2="142" y2="229" style="stroke:#c00;stroke-width:1;"/>
+   <line x1="311.5" y1="106" x2="315.03553390593" y2="109.53553390593" style="stroke:#c00;stroke-width:2;"/>
+   <line x1="311.5" y1="106" x2="315.03553390593" y2="102.46446609407" style="stroke:#c00;stroke-width:2;"/>
+   <line x1="137" y1="229" x2="140.53553390593" y2="232.53553390593" style="stroke:#c00;stroke-width:2;"/>
+   <line x1="137" y1="229" x2="140.53553390593" y2="225.46446609407" style="stroke:#c00;stroke-width:2;"/>
+   <line x1="457" y1="86" x2="467" y2="86" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="633" y1="121" x2="643" y2="121" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="467" y1="86" x2="633" y2="121" style="stroke:#b0b;stroke-width:1;"/>
+   <line x1="464.5" y1="86" x2="460.96446609407" y2="89.535533905933" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="464.5" y1="86" x2="460.96446609407" y2="82.464466094067" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="638" y1="121" x2="634.46446609407" y2="124.53553390593" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="638" y1="121" x2="634.46446609407" y2="117.46446609407" style="stroke:#b0b;stroke-width:2;"/>
+   <line x1="754" y1="261" x2="764" y2="261" style="stroke:#333;stroke-width:1;"/>
+   <line x1="756" y1="48" x2="746" y2="48" style="stroke:#333;stroke-width:1;"/>
+   <line x1="764" y1="261" x2="756" y2="48" style="stroke:#333;stroke-width:1;"/>
+   <line x1="761.5" y1="261" x2="757.96446609407" y2="264.53553390593" style="stroke:#333;stroke-width:2;"/>
+   <line x1="761.5" y1="261" x2="757.96446609407" y2="257.46446609407" style="stroke:#333;stroke-width:2;"/>
+   <line x1="751" y1="48" x2="754.53553390593" y2="51.535533905933" style="stroke:#333;stroke-width:2;"/>
+   <line x1="751" y1="48" x2="754.53553390593" y2="44.464466094067" style="stroke:#333;stroke-width:2;"/>
+   <rect width="111" height="20" x="43" y="7" style="fill:#007;stroke:black;"/>
+   <text width="111" height="20" x="48" y="21" style="fill:#fff;" font-family="Arial" font-size="16px"> admin</text>
+   <rect width="111" height="20" x="43" y="27" style="fill:#aea;stroke:black;"/>
+   <text width="111" height="20" x="48" y="41" style="fill:black;" font-family="Arial" font-size="16px">AdminId</text>
+   <rect width="111" height="20" x="43" y="47" style="fill:none;stroke:black;"/>
+   <text width="111" height="20" x="48" y="61" style="fill:black;" font-family="Arial" font-size="16px">AFirstName</text>
+   <rect width="111" height="20" x="43" y="67" style="fill:none;stroke:black;"/>
+   <text width="111" height="20" x="48" y="81" style="fill:black;" font-family="Arial" font-size="16px">AMiddleName</text>
+   <rect width="111" height="20" x="43" y="87" style="fill:none;stroke:black;"/>
+   <text width="111" height="20" x="48" y="101" style="fill:black;" font-family="Arial" font-size="16px">ALastName</text>
+   <rect width="111" height="20" x="43" y="107" style="fill:none;stroke:black;"/>
+   <text width="111" height="20" x="48" y="121" style="fill:black;" font-family="Arial" font-size="16px">APhone</text>
+   <rect width="111" height="20" x="43" y="127" style="fill:none;stroke:black;"/>
+   <text width="111" height="20" x="48" y="141" style="fill:black;" font-family="Arial" font-size="16px">AEmail</text>
+   <rect width="111" height="20" x="43" y="147" style="fill:none;stroke:black;"/>
+   <text width="111" height="20" x="48" y="161" style="fill:black;" font-family="Arial" font-size="16px">APassword</text>
+   <rect width="93" height="20" x="39" y="199" style="fill:#007;stroke:black;"/>
+   <text width="93" height="20" x="44" y="213" style="fill:#fff;" font-family="Arial" font-size="16px"> class</text>
+   <rect width="93" height="20" x="39" y="219" style="fill:#aea;stroke:black;"/>
+   <text width="93" height="20" x="44" y="233" style="fill:black;" font-family="Arial" font-size="16px">ClassId</text>
+   <rect width="93" height="20" x="39" y="239" style="fill:none;stroke:black;"/>
+   <text width="93" height="20" x="44" y="253" style="fill:black;" font-family="Arial" font-size="16px">ClassName</text>
+   <rect width="93" height="20" x="39" y="259" style="fill:none;stroke:black;"/>
+   <text width="93" height="20" x="44" y="273" style="fill:black;" font-family="Arial" font-size="16px">SemesterId</text>
+   <rect width="93" height="20" x="39" y="279" style="fill:none;stroke:black;"/>
+   <text width="93" height="20" x="44" y="293" style="fill:black;" font-family="Arial" font-size="16px">CourseId</text>
+   <rect width="93" height="20" x="39" y="299" style="fill:none;stroke:black;"/>
+   <text width="93" height="20" x="44" y="313" style="fill:black;" font-family="Arial" font-size="16px">TeacherId</text>
+   <rect width="93" height="20" x="39" y="319" style="fill:none;stroke:black;"/>
+   <text width="93" height="20" x="44" y="333" style="fill:black;" font-family="Arial" font-size="16px">ScheduleId</text>
+   <rect width="142" height="20" x="44" y="369" style="fill:#007;stroke:black;"/>
+   <text width="142" height="20" x="49" y="383" style="fill:#fff;" font-family="Arial" font-size="16px"> course</text>
+   <rect width="142" height="20" x="44" y="389" style="fill:#aea;stroke:black;"/>
+   <text width="142" height="20" x="49" y="403" style="fill:black;" font-family="Arial" font-size="16px">CourseId</text>
+   <rect width="142" height="20" x="44" y="409" style="fill:none;stroke:black;"/>
+   <text width="142" height="20" x="49" y="423" style="fill:black;" font-family="Arial" font-size="16px">CourseCode</text>
+   <rect width="142" height="20" x="44" y="429" style="fill:none;stroke:black;"/>
+   <text width="142" height="20" x="49" y="443" style="fill:black;" font-family="Arial" font-size="16px">CourseName</text>
+   <rect width="142" height="20" x="44" y="449" style="fill:none;stroke:black;"/>
+   <text width="142" height="20" x="49" y="463" style="fill:black;" font-family="Arial" font-size="16px">CreditsNum</text>
+   <rect width="142" height="20" x="44" y="469" style="fill:none;stroke:black;"/>
+   <text width="142" height="20" x="49" y="483" style="fill:black;" font-family="Arial" font-size="16px">CourseDescription</text>
+   <rect width="142" height="20" x="44" y="489" style="fill:none;stroke:black;"/>
+   <text width="142" height="20" x="49" y="503" style="fill:black;" font-family="Arial" font-size="16px">Coursefile</text>
+   <rect width="142" height="20" x="44" y="509" style="fill:none;stroke:black;"/>
+   <text width="142" height="20" x="49" y="523" style="fill:black;" font-family="Arial" font-size="16px">targetFileDirectory</text>
+   <rect width="81" height="20" x="344" y="213" style="fill:#007;stroke:black;"/>
+   <text width="81" height="20" x="349" y="227" style="fill:#fff;" font-family="Arial" font-size="16px"> grades</text>
+   <rect width="81" height="20" x="344" y="233" style="fill:#aea;stroke:black;"/>
+   <text width="81" height="20" x="349" y="247" style="fill:black;" font-family="Arial" font-size="16px">GradeId</text>
+   <rect width="81" height="20" x="344" y="253" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="349" y="267" style="fill:black;" font-family="Arial" font-size="16px">StudentID</text>
+   <rect width="81" height="20" x="344" y="273" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="349" y="287" style="fill:black;" font-family="Arial" font-size="16px">ClassId</text>
+   <rect width="81" height="20" x="344" y="293" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="349" y="307" style="fill:black;" font-family="Arial" font-size="16px">Grade</text>
+   <rect width="81" height="20" x="665" y="18" style="fill:#007;stroke:black;"/>
+   <text width="81" height="20" x="670" y="32" style="fill:#fff;" font-family="Arial" font-size="16px"> majors</text>
+   <rect width="81" height="20" x="665" y="38" style="fill:#aea;stroke:black;"/>
+   <text width="81" height="20" x="670" y="52" style="fill:black;" font-family="Arial" font-size="16px">MajorId</text>
+   <rect width="81" height="20" x="665" y="58" style="fill:none;stroke:black;"/>
+   <text width="81" height="20" x="670" y="72" style="fill:black;" font-family="Arial" font-size="16px">MajorTitle</text>
+   <rect width="138" height="20" x="319" y="36" style="fill:#007;stroke:black;"/>
+   <text width="138" height="20" x="324" y="50" style="fill:#fff;" font-family="Arial" font-size="16px"> registration</text>
+   <rect width="138" height="20" x="319" y="56" style="fill:#aea;stroke:black;"/>
+   <text width="138" height="20" x="324" y="70" style="fill:black;" font-family="Arial" font-size="16px">RegistrationId</text>
+   <rect width="138" height="20" x="319" y="76" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="324" y="90" style="fill:black;" font-family="Arial" font-size="16px">StudentId</text>
+   <rect width="138" height="20" x="319" y="96" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="324" y="110" style="fill:black;" font-family="Arial" font-size="16px">ClassId</text>
+   <rect width="138" height="20" x="319" y="116" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="324" y="130" style="fill:black;" font-family="Arial" font-size="16px">MidtermGrade</text>
+   <rect width="138" height="20" x="319" y="136" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="324" y="150" style="fill:black;" font-family="Arial" font-size="16px">AssignemetGrade</text>
+   <rect width="138" height="20" x="319" y="156" style="fill:none;stroke:black;"/>
+   <text width="138" height="20" x="324" y="170" style="fill:black;" font-family="Arial" font-size="16px">FinalGrade</text>
+   <rect width="90" height="20" x="665" y="287" style="fill:#007;stroke:black;"/>
+   <text width="90" height="20" x="670" y="301" style="fill:#fff;" font-family="Arial" font-size="16px"> schedule</text>
+   <rect width="90" height="20" x="665" y="307" style="fill:#aea;stroke:black;"/>
+   <text width="90" height="20" x="670" y="321" style="fill:black;" font-family="Arial" font-size="16px">ScheduleId</text>
+   <rect width="90" height="20" x="665" y="327" style="fill:none;stroke:black;"/>
+   <text width="90" height="20" x="670" y="341" style="fill:black;" font-family="Arial" font-size="16px">Time</text>
+   <rect width="92" height="20" x="345" y="346" style="fill:#007;stroke:black;"/>
+   <text width="92" height="20" x="350" y="360" style="fill:#fff;" font-family="Arial" font-size="16px"> semester</text>
+   <rect width="92" height="20" x="345" y="366" style="fill:#aea;stroke:black;"/>
+   <text width="92" height="20" x="350" y="380" style="fill:black;" font-family="Arial" font-size="16px">SemesterId</text>
+   <rect width="92" height="20" x="345" y="386" style="fill:none;stroke:black;"/>
+   <text width="92" height="20" x="350" y="400" style="fill:black;" font-family="Arial" font-size="16px">SName</text>
+   <rect width="111" height="20" x="643" y="91" style="fill:#007;stroke:black;"/>
+   <text width="111" height="20" x="648" y="105" style="fill:#fff;" font-family="Arial" font-size="16px"> student</text>
+   <rect width="111" height="20" x="643" y="111" style="fill:#aea;stroke:black;"/>
+   <text width="111" height="20" x="648" y="125" style="fill:black;" font-family="Arial" font-size="16px">StudentID</text>
+   <rect width="111" height="20" x="643" y="131" style="fill:none;stroke:black;"/>
+   <text width="111" height="20" x="648" y="145" style="fill:black;" font-family="Arial" font-size="16px">SFirstName</text>
+   <rect width="111" height="20" x="643" y="151" style="fill:none;stroke:black;"/>
+   <text width="111" height="20" x="648" y="165" style="fill:black;" font-family="Arial" font-size="16px">SMiddleName</text>
+   <rect width="111" height="20" x="643" y="171" style="fill:none;stroke:black;"/>
+   <text width="111" height="20" x="648" y="185" style="fill:black;" font-family="Arial" font-size="16px">SLastName</text>
+   <rect width="111" height="20" x="643" y="191" style="fill:none;stroke:black;"/>
+   <text width="111" height="20" x="648" y="205" style="fill:black;" font-family="Arial" font-size="16px">SEmail</text>
+   <rect width="111" height="20" x="643" y="211" style="fill:none;stroke:black;"/>
+   <text width="111" height="20" x="648" y="225" style="fill:black;" font-family="Arial" font-size="16px">SPhone</text>
+   <rect width="111" height="20" x="643" y="231" style="fill:none;stroke:black;"/>
+   <text width="111" height="20" x="648" y="245" style="fill:black;" font-family="Arial" font-size="16px">SPassword</text>
+   <rect width="111" height="20" x="643" y="251" style="fill:none;stroke:black;"/>
+   <text width="111" height="20" x="648" y="265" style="fill:black;" font-family="Arial" font-size="16px">MajorId</text>
+   <rect width="111" height="20" x="643" y="271" style="fill:none;stroke:black;"/>
+   <text width="111" height="20" x="648" y="285" style="fill:black;" font-family="Arial" font-size="16px">Birthdate</text>
+   <rect width="110" height="20" x="436" y="482" style="fill:#007;stroke:black;"/>
+   <text width="110" height="20" x="441" y="496" style="fill:#fff;" font-family="Arial" font-size="16px"> teacher</text>
+   <rect width="110" height="20" x="436" y="502" style="fill:#aea;stroke:black;"/>
+   <text width="110" height="20" x="441" y="516" style="fill:black;" font-family="Arial" font-size="16px">TeacherId</text>
+   <rect width="110" height="20" x="436" y="522" style="fill:none;stroke:black;"/>
+   <text width="110" height="20" x="441" y="536" style="fill:black;" font-family="Arial" font-size="16px">TFirstName</text>
+   <rect width="110" height="20" x="436" y="542" style="fill:none;stroke:black;"/>
+   <text width="110" height="20" x="441" y="556" style="fill:black;" font-family="Arial" font-size="16px">TMiddleName</text>
+   <rect width="110" height="20" x="436" y="562" style="fill:none;stroke:black;"/>
+   <text width="110" height="20" x="441" y="576" style="fill:black;" font-family="Arial" font-size="16px">TLastName</text>
+   <rect width="110" height="20" x="436" y="582" style="fill:none;stroke:black;"/>
+   <text width="110" height="20" x="441" y="596" style="fill:black;" font-family="Arial" font-size="16px">TEmail</text>
+   <rect width="110" height="20" x="436" y="602" style="fill:none;stroke:black;"/>
+   <text width="110" height="20" x="441" y="616" style="fill:black;" font-family="Arial" font-size="16px">TMobileNum</text>
+   <rect width="110" height="20" x="436" y="622" style="fill:none;stroke:black;"/>
+   <text width="110" height="20" x="441" y="636" style="fill:black;" font-family="Arial" font-size="16px">TPassword</text>
+</svg>

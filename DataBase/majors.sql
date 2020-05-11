@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: May 08, 2020 at 07:42 PM
+-- Generation Time: May 11, 2020 at 04:59 PM
 -- Server version: 8.0.18
 -- PHP Version: 7.3.12
 
@@ -32,16 +32,19 @@ DROP TABLE IF EXISTS `majors`;
 CREATE TABLE IF NOT EXISTS `majors` (
   `MajorId` int(11) NOT NULL AUTO_INCREMENT,
   `MajorTitle` varchar(255) COLLATE utf8mb4_bin NOT NULL,
-  PRIMARY KEY (`MajorId`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+  PRIMARY KEY (`MajorId`),
+  KEY `MajorId` (`MajorId`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 --
 -- Dumping data for table `majors`
 --
 
 INSERT INTO `majors` (`MajorId`, `MajorTitle`) VALUES
-(1, ''),
-(2, 'Computing');
+(2, 'Computing'),
+(3, 'Business'),
+(4, 'Bs'),
+(5, 'IT');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
