@@ -54,11 +54,11 @@ $targetDir = "../uploads/";
 
 			<div class="col-md-9 register-right">
 				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-					<h3 class="register-heading">Registred Students</h3>
+					<h3 class="register-headings">Registred Students</h3>
 					<div class="row col-md-2">
 
 						<ul>
-							<li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Teacher_Profile.php"><i class="fa fa-arrow-left" style="font-size:35px; color:white"></i></a></li>
+							<li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Teacher_Profile.php"><i class="fa fa-arrow-left" style="font-size:35px;"></i></a></li>
 						</ul>
 					</div>
 
