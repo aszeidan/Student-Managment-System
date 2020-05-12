@@ -35,9 +35,12 @@ class Admin
     {
         $this->class = $class;
     }
-	function setMajor($major)
+	function setMajor($major, $MajorDescription)
     {
         $this->major = $major;
+        $this->MajorDescription = $MajorDescription;
+		
+		
     }
 	function setSemester($semester)
     {
@@ -303,7 +306,7 @@ class Admin
     }
 	function addMajor()
     {
-        $query =  "INSERT INTO majors  (`MajorId`, `MajorTitle`) values (NULL,'" . $this->major . "')";
+        $query =  "INSERT INTO majors  (`MajorId`, `MajorTitle`, `MajorDescription`) values (NULL,'" . $this->major . "','" . $this->MajorDescription . "')";
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
     }

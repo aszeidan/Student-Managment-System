@@ -16,6 +16,14 @@ class Guest
         return $result;
 
 	}
+	 function getMajors()
+    {
+        $query = 'select * from majors';
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
+    }
+    
 	
 	
 }

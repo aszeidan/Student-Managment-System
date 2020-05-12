@@ -13,7 +13,7 @@ try {
     $result = array();
 
 
-    if (!isset($_POST["MajorTitle"])) 
+    if (!isset($_POST["MajorTitle"]) || !isset($_POST["MajorDescription"])) 
 	{
         $result["Error"] = 1;
         $result["Message"] ="Missing Parameter";
@@ -27,14 +27,16 @@ try {
     }
 
     $major = $_POST["MajorTitle"];
+    $MajorDescription = addslashes($_POST["MajorDescription"]);
 
-    $Admin->setMajor($major);
+    $Admin->setMajor($major ,$MajorDescription);
 
 
     if ($Admin->checkMajorIfExists() == true) {
         $result["Error"] = 0;
         $result["Message"] = "Already Exist";
         die(json_encode($result));
+		header("Location:../View/AddMajors.php");
     } else {
         $Admin->addMajor();
         $result["Error"] = 0;
