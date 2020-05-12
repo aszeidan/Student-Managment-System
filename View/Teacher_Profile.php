@@ -71,7 +71,7 @@ $Teacher = new Teacher($db);
 					</div>
 				</div>
 			</div>
-
+		</div>
     <?php
     require_once('Footer.php'); ?>
     </div>
