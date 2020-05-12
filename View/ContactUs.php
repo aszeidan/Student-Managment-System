@@ -17,7 +17,7 @@ require_once('HeaderSignin.php');
                             <!--Section heading-->
                             <h2 class="register-heading h1-responsive font-weight-bold text-center my-4">Contact Us</h2>
                             <!--Section description-->
-                            <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+                            <p class="text-center w-responsive mx-auto mb-5 text-white">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
                                 a matter of hours to help you.</p>
                             <div class="row" style="margin-left: 149px;">
                                 <!--Grid column-->

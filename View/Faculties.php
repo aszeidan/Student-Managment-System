@@ -25,8 +25,8 @@ $majors = $Guest->getMajors();
 	
 	  <?php for ($i = 0; $i < count($majors); $i++){?>
         <div class="col-lg-5">
-          <h4 class="font-weight-light"><?php echo $majors[$i]['MajorTitle']; ?></h4>
-          <p class="font-italic"><?php echo $majors[$i]['MajorDescription']; ?></p>
+          <h4 class="font-weight-light text-white"><?php echo $majors[$i]['MajorTitle']; ?></h4>
+          <p class="font-italic text-white"><?php echo $majors[$i]['MajorDescription']; ?></p>
         </div>
 		
 	  <?php }?>

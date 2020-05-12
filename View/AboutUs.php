@@ -11,7 +11,7 @@ require_once('HeaderSignin.php');
       <div class="row mb-4">
         <div class="col-lg-5">
           <h2 class="display-4 font-weight-light">Our Team</h2>
-          <p class="font-italic">We are all very different. We were born in different places, at different times, we love different music, food, movies. But we have something that unites us all. It is CODING. Its our heart. We are not just a team, we are a family.</p>
+          <p class="font-italic text-white">We are all very different. We were born in different places, at different times, we love different music, food, movies. But we have something that unites us all. It is CODING. Its our heart. We are not just a team, we are a family.</p>
         </div>
         <div class="col-lg-1"></div>
         <div class="col-lg-6">
