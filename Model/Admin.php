@@ -70,6 +70,18 @@ class Admin
         }
         $this->course = $course;
     }
+	function setCourseCode($CourseCode)
+    { 
+        $this->CourseCode = $CourseCode;
+    }
+	function setCourseName($CourseName)
+    {
+        $this->CourseName = $CourseName;
+    }
+	function setCourseDescription($CourseDescription)
+    {
+        $this->CourseDescription = $CourseDescription;
+    }
 
     function setTeacher($teacher)
     {
@@ -134,6 +146,14 @@ class Admin
         $result = $this->dbconnect->selectquery();
         return $result;
     }
+	function validateIfCourseExist($CourseCode)
+    {
+        $query = "select * from course WHERE CourseCode='" . $CourseCode . "'";
+	
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        return $result;
+    }
 	function validateSemesterExist($semester, $semesterYear)
     {
 
@@ -172,6 +192,19 @@ class Admin
         $this->dbconnect->setQuery($query);
         $result = $this->dbconnect->selectquery();
         return $result;
+    }
+	function  checkIfCourseExist()
+    {
+        
+        $query = "SELECT * FROM course WHERE CourseCode='"  . $this->CourseCode ."'";
+        $this->dbconnect->setQuery($query);
+        $result = $this->dbconnect->selectquery();
+        if (count($result) > 0) {
+            $this->CourseId = $result[0]['CourseId'];
+            return true;
+        } else {
+            return false;
+        }
     }
 
     function getClasses()
@@ -304,6 +337,12 @@ class Admin
         $this->dbconnect->setQuery($query);
         $this->dbconnect->executeQuery();
     }
+	function addCourse()
+    {
+        $query =  "INSERT INTO course(`CourseId`, `CourseCode`, `CourseName`, `CourseDescription`) VALUES (Null,'" . $this->CourseCode . "','" . $this->CourseName . "','" . $this->CourseDescription . "')";
+        $this->dbconnect->setQuery($query);
+        $this->dbconnect->executeQuery();
+    }
 	function addMajor()
     {
         $query =  "INSERT INTO majors  (`MajorId`, `MajorTitle`, `MajorDescription`) values (NULL,'" . $this->major . "','" . $this->MajorDescription . "')";
@@ -352,7 +391,8 @@ class Admin
         } else {
             return false;
         }
-    }function checkMajorIfExists()
+    }
+	function checkMajorIfExists()
     {
         $query = "SELECT * FROM majors WHERE MajorTitle='"  . $this->major ."'";
         $this->dbconnect->setQuery($query);
