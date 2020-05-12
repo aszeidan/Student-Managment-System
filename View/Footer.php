@@ -14,28 +14,10 @@
 
         <!-- Grid column -->
         <div class="col-md-6 col-lg-7 text-center text-md-right">
-
-          <!-- Facebook -->
-          <a class="fb-ic">
-            <i class="fa fa-facebook-f white-text mr-4 fa-1x"> </i>
-          </a>
-          <!-- Twitter -->
-          <a class="tw-ic">
-            <i class="fa fa-twitter white-text mr-4"> </i>
-          </a>
-          <!--GitHub -->
-          <a class="gi-ic">
-            <i class="fa fa-github white-text mr-4"> </i>
-          </a>
-          <!--Linkedin -->
-          <a class="li-ic">
-            <i class="fa fa-linkedin white-text mr-4"> </i>
-          </a>
-          <!--Instagram-->
-          <a class="ins-ic">
-            <i class="fa fa-instagram white-text"> </i>
-          </a>
-
+              <li class="list-inline-item"><a href="https://www.facebook.com/ParkInnovation/" class="social-link"><i class="fa fa-facebook "></i></a></li>
+              <li class="list-inline-item"><a href="https://twitter.com/parkinnovation" class="social-link"><i class="fa fa-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="https://www.instagram.com/parkinnovation/" class="social-link"><i class="fa fa-instagram "></i></a></li>
+              <li class="list-inline-item"><a href="https://www.linkedin.com/company/park-innovation" class="social-link"><i class="fa fa-linkedin "></i></a></li>
         </div>
         <!-- Grid column -->
 
@@ -98,11 +80,11 @@
         <p>
           <i class="fa fa-map-marker mr-3"></i> Beyrouth Lebanon
         <p>
-          <i class="fa fa-envelope mr-3"></i> info@example.com</p>
+          <i class="fa fa-envelope mr-3"></i> TimeTravel@hotmail.com</p>
         <p>
-          <i class="fa fa-phone mr-3"></i> + 01 234 567 88</p>
+          <i class="fa fa-phone mr-3"></i> + 961 76 948 713</p>
         <p>
-          <i class="fa fa-print mr-3"></i> + 01 234 567 89</p>
+          <i class="fa fa-print mr-3"></i> + 961 71 135 757</p>
 
       </div>
       <!-- Grid column -->
