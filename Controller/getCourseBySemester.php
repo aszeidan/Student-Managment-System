@@ -27,7 +27,7 @@ session_start();
 		<?php
 		for ($i = 0; $i < count($teacherClass); $i++) {
 		?>			<tr>
-				<td id="RegistredStudents"><a href="../View/RegistredStudents.php?ClassID=<?php echo $teacherClass[$i]['ClassId']; ?>"><?php echo $teacherClass[$i]['ClassName']; ?> </a> </td>
+				<td id="RegistredStudents"><a href="../View/RegistredStudents.php?ClassID=<?php echo $teacherClass[$i]['ClassId']; ?>"><i class="fa fa-book icons">  <?php echo $teacherClass[$i]['ClassName']; ?></i> </a> </td>
 				<td><?php echo $teacherClass[$i]['Time']; ?> </td>
 
 			</tr> <?php } ?>

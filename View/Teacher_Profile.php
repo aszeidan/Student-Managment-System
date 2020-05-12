@@ -46,16 +46,15 @@ $Teacher = new Teacher($db);
                     </style>
                 </form>
             </div>
-            <form action="" method="">
+			 <div class="col-md-9 register-rights">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                        <h3 class="register-headings">Teacher Profile</h3>
-                        <div class="col-md-12 register-right">
-                            <div class="row register-form mx-0 px-0 center">
-                                <div class="col-md-6">
-
-                                    <div class="form-group">
-                                        <select id="SemesterId" onChange="getCoursesBySemester()" class="custom-select" name="Semester" required>
+                        <h3 class="register-heading"> Teacher Profile</h3>
+                        <div class="row register-forms mx-0 px-0 col-md-12">
+                            <div class="centering col-md-6">
+                                
+								<form action="" method="">
+								<select id="SemesterId" onChange="getCoursesBySemester()" class="custom-select" name="Semester" required>
                                             <option disabled value="" selected hidden>Select Semester</option>
                                             <?php
                                             for ($i = 0; $i < count($semester); $i++) {
@@ -63,20 +62,16 @@ $Teacher = new Teacher($db);
                                                 <option value="<?php echo $semester[$i]["SemesterId"] ?>"><?php echo $semester[$i]["SName"] ?></option>
                                             <?php } ?>
                                         </select>
-                                    </div>
+                                   
                                     <div id="classSemesterbyTeacher" class="form-group">
                                     </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </form>
-
-
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
     <?php
     require_once('Footer.php'); ?>
     </div>

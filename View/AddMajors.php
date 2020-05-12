@@ -54,6 +54,12 @@ $majors = $Admin->getMajors();
                                                     <input type="text" class="form-control" id="MajorTitle" name="MajorTitle" placeholder="MajorTitle" value="" required>
                                                 </div>
                                             </div>
+											<div class="form-group">
+                                                <div class="input-container">
+                                                    <i class="fa fa-exclamation icons"></i>
+                                                    <textarea type="text" class="form-control" id="MajorDescription" name="MajorDescription" placeholder="MajorDescription" value="" required></textarea>
+                                                </div>
+                                            </div>
                                             <div class="form-group" id="majorMessage">
                                             </div>
                                             <input type="submit" class="btnRegister" id="registerButton" value="Register" />
@@ -77,6 +83,7 @@ $majors = $Admin->getMajors();
 
                                         <th> Major Id </th>
                                         <th> Major Name </th>
+                                        <th> Major Description </th>
                                         
 
 
@@ -88,6 +95,8 @@ $majors = $Admin->getMajors();
                                         <tr>
                                             <td><?php echo $majors[$i]['MajorId']; ?> </td>
                                             <td><?php echo $majors[$i]['MajorTitle']; ?> </td>
+                                            <td><?php echo $majors[$i]['MajorDescription']; ?> </td>
+											
                                         </tr> <?php } ?>
                                 </table>
                             </div>
@@ -104,6 +113,7 @@ $majors = $Admin->getMajors();
                 event.preventDefault();
                 var data = {
                     MajorTitle: $("#MajorTitle").val(),
+                    MajorDescription: $("#MajorDescription").val(),
                 };
 
                 $.post("../Controller/Verify_Insert_Major.php", data, function(result) {

@@ -12,38 +12,45 @@ try {
     $Admin = new Admin($db);
     $result = array();
 
-
-    if (!isset($_POST["MajorTitle"]) || !isset($_POST["MajorDescription"])) 
-	{
+    if (
+        !isset($_POST["CourseCode"])
+        || !isset($_POST["CourseName"])
+        || !isset($_POST["CourseDescription"])
+    ) {
         $result["Error"] = 1;
-        $result["Message"] ="Missing Parameter";
+        $result["Message"] ="Missing Paramaeter";
 
         die(json_encode($result));
-    } elseif (!$_POST["MajorTitle"])
-	{
+    } elseif (
+        !$_POST["CourseCode"]
+        || !$_POST["CourseName"]
+        || !$_POST["CourseDescription"]
+    ) {
         $result["Error"] = 1;
         $result["Message"] = "empty value";
         die(json_encode($result));
     }
 
-    $major = $_POST["MajorTitle"];
-    $MajorDescription = addslashes($_POST["MajorDescription"]);
+    $CourseCode = $_POST["CourseCode"];
+    $CourseName = $_POST["CourseName"];
+    $CourseDescription = $_POST["CourseDescription"];
+	
+    $Admin->setCourseCode($CourseCode);
+    $Admin->setCourseName($CourseName);
+    $Admin->setCourseDescription($CourseDescription);
 
-    $Admin->setMajor($major ,$MajorDescription);
 
-
-    if ($Admin->checkMajorIfExists() == true) {
+    if ($Admin->checkIfCourseExist() == true) {
         $result["Error"] = 0;
         $result["Message"] = "Already Exist";
         die(json_encode($result));
-		header("Location:../View/AddMajors.php");
     } else {
-        $Admin->addMajor();
+        $Admin->addCourse();
         $result["Error"] = 0;
         $result["Message"] = "Successfully Added";
         die(json_encode($result));
     }
 } catch (Exception $e) {
 
-    header("Location:../View/AddMajors.php?result=" . $e->getMessage());
+    header("Location:../View/AddCourse.php?result=" . $e->getMessage());
 }

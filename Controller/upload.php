@@ -16,11 +16,7 @@ $targetFilePath = $targetDir . $fileName;
 $fileType = pathinfo($targetFilePath,PATHINFO_EXTENSION);
 $ClassID=$_GET["ClassID"];
 
-
-
-
-
-if(isset($_POST["submit"]) && !empty($_FILES["userfile"]["name"])){
+if(!empty($_FILES["userfile"]["name"])){
     // Allow certain file formats
     $allowTypes = array('doc','ppt','pdf');
     if(in_array($fileType, $allowTypes)){
