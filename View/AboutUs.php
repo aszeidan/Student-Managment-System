@@ -37,8 +37,6 @@ require_once('HeaderSignin.php');
           <div class="bg-white rounded shadow-sm py-5 px-4"><img src="../images/AmiraZaidan.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
             <h5 class="mb-0">Amira Zaidan </h5><span class="small text-uppercase text-muted">BS. Computer Science</span>
             <ul class="social mb-0 list-inline mt-3">
-              <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f "></i></a></li>
-              <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
               <li class="list-inline-item"><a href="https://https://www.instagram.com/belle_ame_fashion1/" class="social-link"><i class="fa fa-instagram"></i></a></li>
               <li class="list-inline-item"><a href="https://linkedin.com/in/amira-s-zeidan-9ba0b0160" class="social-link"><i class="fa fa-linkedin"></i></a></li>
             </ul>
@@ -51,8 +49,6 @@ require_once('HeaderSignin.php');
           <div class="bg-white rounded shadow-sm py-5 px-4"><img src="../images/GhidaShaaban.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
             <h5 class="mb-0">Ghida Shaaban</h5><span class="small text-uppercase text-muted"> MS. Statistics</span>
             <ul class="social mb-0 list-inline mt-3">
-              <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-facebook-f " aria-hidden="true"></i></a></li>
-              <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
                 <li class="list-inline-item"><a href="https://https://www.instagram.com/ghida.shaaban/" class="social-link"><i class="fa fa-instagram"></i></a></li>
               <li class="list-inline-item"><a href="linkedin.com/in/ghidashaabann" class="social-link"><i class="fa fa-linkedin"></i></a></li>
             </ul>
@@ -66,8 +62,7 @@ require_once('HeaderSignin.php');
             <h5 class="mb-0">Ihab Breich</h5><span class="small text-uppercase text-muted">BS. Computer Science</span>
             <ul class="social mb-0 list-inline mt-3">
               <li class="list-inline-item"><a href="https://www.facebook.com/ihab.breich.5/timeline?lst=1666338536%3A100007344398323%3A1588845665" class="social-link"><i class="fa fa-facebook-f "></i></a></li>
-              <li class="list-inline-item"><a href="#" class="social-link"><i class="fa fa-twitter"></i></a></li>
-               <li class="list-inline-item"><a href="https://https://www.instagram.com/ihab_breich/" class="social-link"><i class="fa fa-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="https://https://www.instagram.com/ihab_breich/" class="social-link"><i class="fa fa-instagram"></i></a></li>
               <li class="list-inline-item"><a href="https://linkedin.com/in/ihab-breich-639507162" class="social-link"><i class="fa fa-linkedin"></i></a></li>
             </ul>
           </div>
