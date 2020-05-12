@@ -143,7 +143,7 @@ $targetDir = "../uploads/";
 								</div>
 								<div class="col-md-6">
 								<a class="btn-floating peach-gradient mt-0 ">
-									<button class="btn" style="color:white; margin-top:-10px;"><i class="fa fa-upload icons"></i> Upload Material</button>
+									<button class="btn" id="submit" style="color:white; margin-top:-10px;"><i class="fa fa-upload icons"></i> Upload Material</button>
 									</a>
 								</div>
 							</div>
