@@ -109,11 +109,11 @@ $targetDir = "../uploads/";
 											?>
 											<td><?php echo $courses[$i]['Grade']; ?> </td>
 
-											<td id="SaveGrades"><a href="#" ; onclick="saveGrades(<?php echo $courses[$i]['RegistrationId']; ?>)"><i class="fas fa-save" aria-hidden="true"></i></a> </td>
-											<td>
+											<td id="SaveGrades"><a href="#" ; onclick="saveGrades(<?php echo $courses[$i]['RegistrationId']; ?>)"><i class="fa fa-save icons" aria-hidden="true"></i></a> </td>
+										
 												<div class="form-group" id="GradeMessage">
 												</div>
-											</td>
+										
 										</tr>
 									<?php } ?>
 								</table>
