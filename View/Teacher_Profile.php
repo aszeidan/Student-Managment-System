@@ -53,7 +53,7 @@ $Teacher = new Teacher($db);
                         <div class="row register-forms mx-0 px-0 col-md-12">
                             <div class="centering col-md-6">
                                 
-								<form action="" method="">
+								<form >
 								<select id="SemesterId" onChange="getCoursesBySemester()" class="custom-select" name="Semester" required>
                                             <option disabled value="" selected hidden>Select Semester</option>
                                             <?php
