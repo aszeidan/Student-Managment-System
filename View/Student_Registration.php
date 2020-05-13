@@ -31,7 +31,7 @@ $semester = $Admin->getSemesters();
 </script>
 
 <body>
-<div class="register">
+    <div class="register">
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
@@ -50,26 +50,35 @@ $semester = $Admin->getSemesters();
                     </style>
                 </form>
             </div>
-			 <div class="col-md-9 register-rights">
+
+
+
+            <div class="col-md-9 register-rights">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading"> Drop/Add Courses</h3>
                         <div class="row register-forms mx-0 px-0 col-md-12">
-                            <div class="centering col-md-6">
-                                
-            <form>
-            <select class="mb-3" id="SemesterId" onChange="getCoursesBySemester()" name="Semester" required>
-                <option disabled value="" selected hidden>Select Semester</option>
-                <?php
-                for ($i = 0; $i < count($semester); $i++) {
-                ?>
-                    <option value="<?php echo $semester[$i]["SemesterId"] ?>"><?php echo $semester[$i]["SName"] ?></option>
-                <?php } ?>
-            </select>
+                            <div class="ml-5 col-md-3">
+                                <div class="form-group">
+                                    <div class="input-container">
+                                        <select class="custom-select" id="SemesterId" onChange="getCoursesBySemester()" name="Semester" required>
+                                            <option disabled value="" selected hidden>Select Semester</option>
+                                            <?php
+                                            for ($i = 0; $i < count($semester); $i++) {
+                                            ?>
+                                                <option value="<?php echo $semester[$i]["SemesterId"] ?>"><?php echo $semester[$i]["SName"] ?></option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="centering col-md-9" id="classSemester">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div id="classSemester" >
-        </div>
-        </form>
     </div>
 </body>
 

@@ -7,6 +7,11 @@ class DatabaseSMS
     private $dbPassword = '';
     private $dbName = 'student_managment_system';
 
+    /*    
+    private $dbUser = 'id13621074_nadine';
+    private $dbPassword = '5r#bGpg123asd';
+    private $dbName = 'id13621074_student_managment_system';
+*/
     public function __construct()
     {
     }

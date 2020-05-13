@@ -9,15 +9,15 @@
 
         <!-- Grid column -->
         <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-          <h4 class="mb-0">Get connected with us on social networks!</h4>
+          <h5 class="mb-0">Get connected with us on social networks!</h5>
         </div>
 
         <!-- Grid column -->
         <div class="col-md-6 col-lg-7 text-center text-md-right">
-              <li class="list-inline-item"><a href="https://www.facebook.com/ParkInnovation/" class="social-link"><i class="fa fa-facebook "></i></a></li>
-              <li class="list-inline-item"><a href="https://twitter.com/parkinnovation" class="social-link"><i class="fa fa-twitter"></i></a></li>
-              <li class="list-inline-item"><a href="https://www.instagram.com/parkinnovation/" class="social-link"><i class="fa fa-instagram "></i></a></li>
-              <li class="list-inline-item"><a href="https://www.linkedin.com/company/park-innovation" class="social-link"><i class="fa fa-linkedin "></i></a></li>
+          <li class="list-inline-item"><a href="https://www.facebook.com/ParkInnovation/" class="social-link"><i class="fa fa-facebook "></i></a></li>
+          <li class="list-inline-item"><a href="https://twitter.com/parkinnovation" class="social-link"><i class="fa fa-twitter"></i></a></li>
+          <li class="list-inline-item"><a href="https://www.instagram.com/parkinnovation/" class="social-link"><i class="fa fa-instagram "></i></a></li>
+          <li class="list-inline-item"><a href="https://www.linkedin.com/company/park-innovation" class="social-link"><i class="fa fa-linkedin "></i></a></li>
         </div>
         <!-- Grid column -->
 
@@ -58,15 +58,15 @@
       </div>
       <!-- Grid column -->
 
-	<!-- Grid column -->
+      <!-- Grid column -->
       <div class="col-md-4 col-lg-2 col-xl-2 mx-auto mb-md-0 mb-4">
 
         <!-- Links -->
         <h6 class="text-uppercase font-weight-bold">Special Thanks</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
         <p>Mr. Shadi Debain</p>
-		<p>Mr. Adham Ghannam</p>
-		<p>Mr. Samer Al Sayegh</p>
+        <p>Mr. Adham Ghannam</p>
+        <p>Mr. Samer Al Sayegh</p>
 
 
       </div>
@@ -79,16 +79,16 @@
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 40px;">
         <p>
           <i class="fa fa-map-marker mr-3"></i> Beyrouth Lebanon
-        <p>
-          <i class="fa fa-envelope mr-3"></i> TimeTravel@hotmail.com</p>
-        <p>
-          <i class="fa fa-phone mr-3"></i> + 961 76 948 713</p>
-        <p>
-          <i class="fa fa-print mr-3"></i> + 961 71 135 757</p>
+          <p>
+            <i class="fa fa-envelope mr-3"></i> TimeTravel@hotmail.com</p>
+          <p>
+            <i class="fa fa-phone mr-3"></i> + 961 76 948 713</p>
+          <p>
+            <i class="fa fa-print mr-3"></i> + 961 71 135 757</p>
 
       </div>
       <!-- Grid column -->
-	 
+
 
     </div>
     <!-- Grid row -->

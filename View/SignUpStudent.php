@@ -47,8 +47,6 @@ $student = $Admin->getAllStudents();
         });
 
     };
-	
-	
 </script>
 
 <body>
@@ -60,7 +58,7 @@ $student = $Admin->getAllStudents();
                 <h3><b>Time Travel University</b></h3>
                 <P>We look forward to welcoming you to our campus soon!​</P>
             </div>
-            <div class="col-md-9 register-right">
+            <div class="col-md-9 register-rights">
                 <ul class="nav nav-tabs nav-justified" id="myTab" name="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Student</a>
@@ -72,14 +70,14 @@ $student = $Admin->getAllStudents();
                 <div class="row col-md-2">
 
                     <ul>
-                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left" style="font-size:35px; color:white"></i></a></li>
                     </ul>
                 </div>
                 <form action="../Controller/Verify_SignUpStudent.php" method="POST">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" name="Student" aria-labelledby="home-tab">
-                            <h3 class="register-headings">Apply as a Student</h3>
-                            <div class="row register-form mx-0 px-0">
+                            <h3 class="register-heading">Apply as a Student</h3>
+                            <div class="row register-forms mx-0 px-0">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="First Name *" value="" id="SFirstName" />
@@ -89,24 +87,24 @@ $student = $Admin->getAllStudents();
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="Last Name *" value="" id="SLastName" />
-                                    </div> 
-									<div class="form-group">
-										<input type="text" class="form-control" placeholder="Address *" value="" id="SAddress" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Address *" value="" id="SAddress" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-									<div class="form-group">
-										<div class="input-container">
-                                                    <i class="glyphicon glyphicon-lock"></i>
-                                                    <select class="custom-select" name="SMajor" id="SMajor" required>
-                                                        <option disabled value="" selected hidden>Select Major</option>
-                                                        <?php
-                                                        for ($i = 0; $i < count($majors); $i++) {
-                                                        ?>
-                                                            <option value="<?php echo $majors[$i]["MajorId"] ?>"><?php echo $majors[$i]["MajorTitle"] ?></option>
-                                                        <?php } ?>
-                                                    </select>
-                                         </div>
+                                    <div class="form-group">
+                                        <div class="input-container">
+                                            <i class="glyphicon glyphicon-lock"></i>
+                                            <select class="custom-select" name="SMajor" id="SMajor" required>
+                                                <option disabled value="" selected hidden>Select Major</option>
+                                                <?php
+                                                for ($i = 0; $i < count($majors); $i++) {
+                                                ?>
+                                                    <option value="<?php echo $majors[$i]["MajorId"] ?>"><?php echo $majors[$i]["MajorTitle"] ?></option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <input type="email" class="form-control" placeholder="Email *" value="" id="SEmail" />
@@ -130,25 +128,27 @@ $student = $Admin->getAllStudents();
                             </div>
                         </div>
                         <div class="tab-pane fade show" id="profile" role="tabpanel" name="student" aria-labelledby="profile-tab">
-                            <h3 class="register-headings">Registered Students</h3>
-                            <div class="row register-form mx-0 px-0">
+                            <h3 class="register-heading">Registered Students</h3>
+                            <div class="row register-forms mx-0 px-0">
                                 <div class="col-md-6">
-                                    <div class=" register-form">
+                                    <div class=" register-forms">
 
                                         <div class="form-group">
-                                            <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
+                                            <table class="table table-hover" id="Registration_table" style="color:white">
+                                                <thead>
+                                                    <tr>
 
-                                                <thead class="table-primary">
+                                                        <th scope="col">Student Name</th>
+                                                        <th scope="col">Phone Number</th>
+                                                        <th scope="col"> Email </th>
+                                                        <th scope="col">Address</th>
+                                                        <th scope="col">Major</th>
+                                                        <th scope="col">Delete </th>
+                                                        <th scope="col">Edit </th>
 
-                                                    <th> Name </th>
-                                                    <th> Phone Number</th>
-                                                    <th> Email </th>
-                                                    <th> Address </th>
-                                                    <th> Major </th>
-                                                    <th>Delete </th>
-                                                    <th> Edit </th>
+
+                                                    </tr>
                                                 </thead>
-                                                </span>
                                                 <?php
                                                 for ($i = 0; $i < count($student); $i++) {
                                                 ?>
@@ -158,8 +158,8 @@ $student = $Admin->getAllStudents();
                                                         <td><?php echo $student[$i]['SEmail']; ?> </td>
                                                         <td><?php echo $student[$i]['SAddress']; ?> </td>
                                                         <td><?php echo $student[$i]['MajorTitle']; ?> </td>
-                                                        <td id="delete"><a href="#" ; onclick="deleteStudent(<?php echo $student[$i]['StudentID']; ?> )"><i class="fa fa-trash" aria-hidden="true"></i></a> </td>
-                                                        <td><a href="../View/EditStudent.php?StudentID=<?php echo $student[$i]['StudentID']; ?>"><i class="fa fa-edit" aria-hidden="true"></i> </a> </td>
+                                                        <td id="delete"><a href="#" ; onclick="deleteStudent(<?php echo $student[$i]['StudentID']; ?> )"><i class="fa fa-user-times icons" aria-hidden="true"></i></a> </td>
+                                                        <td><a href="../View/EditStudent.php?StudentID=<?php echo $student[$i]['StudentID']; ?>"><i class="fa fa-user-edit icons" aria-hidden="true"></i> </a> </td>
                                                     </tr> <?php } ?>
                                             </table>
                                         </div>
@@ -209,12 +209,12 @@ $student = $Admin->getAllStudents();
             });
 
         };
-</script>
-<script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
-<script>
-		$('#prefill').datepicker({
+    </script>
+    <script src="http://code.jquery.com/ui/1.11.0/jquery-ui.js"></script>
+    <script>
+        $('#prefill').datepicker({
 
-			});
+        });
     </script>
     <?php
     require_once('Footer.php'); ?>

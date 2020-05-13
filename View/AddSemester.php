@@ -95,21 +95,22 @@ $semester = $Admin->getSemesters();
                         <div class=" register-forms">
 
                             <div class="form-group">
-                                <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
-
-                                    <thead class="table-primary">
-
-                                        <th> Semester Id </th>
-                                        <th> Semester Name </th>
-                                    </thead>
-                                    <?php
-                                    for ($i = 0; $i < count($semester); $i++) {
-                                    ?>
+                                <table class="table table-hover" id="Registration_table" style="color:white">
+                                    <thead>
                                         <tr>
-                                            <td><?php echo $semester[$i]['SemesterId']; ?> </td>
-                                            <td><?php echo $semester[$i]['SName']; ?> </td>
-                                        </tr> <?php } ?>
-                                </table>
+                                            <th scope="col">Semester Id</th>
+                                            <th scope="col"> Semester Name</th>
+                        
+                                        </tr>
+                                    </thead>
+                                 
+                                        for ($i = 0; $i < count($semester); $i++) {
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $semester[$i]['SemesterId']; ?> </td>
+                                                <td><?php echo $semester[$i]['SName']; ?> </td>
+                                            </tr> <?php } ?>
+                                    </table>
                             </div>
 
                         </div>

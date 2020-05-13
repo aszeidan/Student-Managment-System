@@ -53,18 +53,18 @@ $class = $Admin->getClasses();
                         <div class=" register-form">
 
                             <div class="form-group">
-                                <table style="border=5;" class="table table-hover table-bordered width:fit content" id="Registration_table">
+                                <table class="table table-hover" id="Registration_table" style="color:white">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Teacher's Name</th>
+                                            <th scope="col">Teacher's Email</th>
+                                            <th scope="col"> Teacher's PhoneNumber</th>
+                                            <th scope="col"> Courses/Semester</th>
+                                            <th scope="col"> Delete </th>
+                                            <th scope="col">Edit</th>
 
-                                    <thead class="table-primary">
-
-                                        <th> Teacher's Name </th>
-                                        <th> Teacher's Email</th>
-                                        <th> Teacher's PhoneNumber</th>
-                                        <th> Courses/Semester</th>
-                                        <th> Delete </th>
-                                        <th> Edit </th>
+                                        </tr>
                                     </thead>
-                                    </span>
                                     <?php
                                     for ($i = 0; $i < count($class); $i++) {
                                     ?>

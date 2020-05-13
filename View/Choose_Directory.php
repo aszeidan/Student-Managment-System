@@ -26,7 +26,7 @@ require_once('Header.php');
             <div class="col-md-9 register-rights">
                 <form>
                     <div class="tab-pane fade show active" id="home" role="tabpanel" name="teacher" aria-labelledby="home-tab">
-                        <h3 class="register-headings">Welcome <?php echo $_SESSION["userName"]; ?> </h3>
+                        <h3 class="register-heading">Welcome <?php echo $_SESSION["userName"]; ?> </h3>
                         <div class="row register-forms mx-0 px-0">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -58,7 +58,7 @@ require_once('Header.php');
                                     <input type="button" class="btnRegister" value="Course Offering" onClick="window.location.href='CourseOffering.php';" tabindex="2">
                                 </div>
                             </div>
-							<div class="col-md-3">
+                            <div class="col-md-3">
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">

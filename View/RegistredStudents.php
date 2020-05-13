@@ -63,21 +63,23 @@ $targetDir = "../uploads/";
 					</div>
 
 					<form action="../Controller/SaveGrades.php" method="POST">
-				
+
 						<div class=" register-forms">
 							<div class="col-md-12">
-								<table border="5" class="table-hover table-bordered width:fit content" id="Registration_table">
+								<table class="table table-hover" id="Registration_table" style="color:white">
+									<thead>
+										<tr>
+											<th scope="col">Student Id </th>
+											<th scope="col">Student Name</th>
+											<th scope="col">Midterm grade 30% </th>
+											<th scope="col">Assignemet Grade 20%</th>
+											<th scope="col"> Final Grade 50%</th>
+											<th scope="col">Grade </th>
+											<th scope="col">Save </th>
 
-									<thead class="table-primary">
-										<th> Student Id </th>
-										<th> Student Name </th>
-										<th> Midterm grade 30% </th>
-										<th> Assignemet Grade 20%</th>
-										<th> Final Grade 50% </th>
-										<th> Grade </th>
-										<th> Save </th>
+										</tr>
 									</thead>
-									</span>
+
 									<?php
 									for ($i = 0; $i < count($courses); $i++) {
 									?>
@@ -110,10 +112,10 @@ $targetDir = "../uploads/";
 											<td><?php echo $courses[$i]['Grade']; ?> </td>
 
 											<td id="SaveGrades"><a href="#" ; onclick="saveGrades(<?php echo $courses[$i]['RegistrationId']; ?>)"><i class="fa fa-save icons" aria-hidden="true"></i></a> </td>
-										
-												<div class="form-group" id="GradeMessage">
-												</div>
-										
+
+											<div class="form-group" id="GradeMessage">
+											</div>
+
 										</tr>
 									<?php } ?>
 								</table>
@@ -127,7 +129,7 @@ $targetDir = "../uploads/";
 						<?php
 						if ($file[0]["Coursefile"] != "") { ?>
 							<a href="<?php echo $targetDir . $file[0]["Coursefile"]; ?>">
-								<h6 class="register-heading-name"> Download the Course Material : <i class="fa fa-downloads" aria-hidden="true"></i></h6>
+								<h6 class="register-heading-name" style="color:white"> Download the Course Material : <i class="fa fa-download icons" aria-hidden="true"></i></h6>
 							</a>
 
 						<?php
@@ -139,11 +141,11 @@ $targetDir = "../uploads/";
 										<i class="fa fa-paperclip" aria-hidden="true"></i>
 										<input type="file" name="userfile">
 									</a>
-									
+
 								</div>
 								<div class="col-md-6">
-								<a class="btn-floating peach-gradient mt-0 ">
-									<button class="btn" id="submit" style="color:white; margin-top:-10px;"><i class="fa fa-upload icons"></i> Upload Material</button>
+									<a class="btn-floating peach-gradient mt-0 ">
+										<button class="btn" id="submit" style="color:white; margin-top:-10px;"><i class="fa fa-upload icons"></i> Upload Material</button>
 									</a>
 								</div>
 							</div>

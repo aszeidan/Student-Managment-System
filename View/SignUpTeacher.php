@@ -111,16 +111,18 @@ $Teacher = $Admin->getAllTeachers();
                                     <div class=" register-form">
 
                                         <div class="form-group">
-                                            <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
-                                                <thead class="table-primary">
+                                            <table class="table table-hover" id="Registration_table" style="color:white">
+                                                <thead>
+                                                    <tr>
 
-                                                    <th> Name </th>
-                                                    <th> Email</th>
-                                                    <th> PhoneNumber</th>
-                                                    <th> Delete </th>
-                                                    <th> Edit </th>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col"> Email </th>
+                                                        <th scope="col">Phone Number</th>
+                                                        <th scope="col">Delete </th>
+                                                        <th scope="col">Edit </th>
+
+                                                    </tr>
                                                 </thead>
-                                                </span>
                                                 <?php
                                                 for ($i = 0; $i < count($Teacher); $i++) {
                                                 ?>
