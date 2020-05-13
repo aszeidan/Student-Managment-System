@@ -11,7 +11,7 @@ require_once('HeaderSignin.php');
       <div class="row mb-4">
         <div class="col-lg-5">
           <h2 class="display-4 font-weight-light">Our Team</h2>
-          <p class="font-italic text-white">We are all very different. We were born in different places, at different times, we love different music, food, movies. But we have something that unites us all. It is CODING. Its our heart. We are not just a team, we are a family.</p>
+          <p class="font-italic text-white" style="font-family:Times New Roman, Times, serif; size:16px">We, as individuals, are all very distinct. We come from different backgrounds, but we have something that unites us all.That is coding .It is truly meticulous how what you might perceive as arrangement of functions, loops, numbers..is what able to form a bond between people.! </p>
         </div>
         <div class="col-lg-1"></div>
         <div class="col-lg-6">
@@ -49,7 +49,7 @@ require_once('HeaderSignin.php');
           <div class="bg-white rounded shadow-sm py-5 px-4"><img src="../images/GhidaShaaban.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
             <h5 class="mb-0">Ghida Shaaban</h5><span class="small text-uppercase text-muted"> MS. Statistics</span>
             <ul class="social mb-0 list-inline mt-3">
-                <li class="list-inline-item"><a href="https://https://www.instagram.com/ghida.shaaban/" class="social-link"><i class="fa fa-instagram"></i></a></li>
+              <li class="list-inline-item"><a href="https://https://www.instagram.com/ghida.shaaban/" class="social-link"><i class="fa fa-instagram"></i></a></li>
               <li class="list-inline-item"><a href="linkedin.com/in/ghidashaabann" class="social-link"><i class="fa fa-linkedin"></i></a></li>
             </ul>
           </div>

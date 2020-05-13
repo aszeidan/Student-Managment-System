@@ -65,9 +65,9 @@ $class = $Admin->getClasses();
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-                <h3>Welcome To</h3>
-                <h3><b>Time Travel University</b></h3>
-            </div>
+                <h3 style="font-family:Times New Roman, Times, serif; size:16px">Welcome To</h3>
+                <h3 style="font-family:Times New Roman, Times, serif; size:16px"><b>Time Travel University</b></h3>
+    
             <div class="col-md-9 register-rights">
                 <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                     <li class="nav-item">
@@ -100,13 +100,13 @@ $class = $Admin->getClasses();
                                                     <input type="text" class="form-control" id="CourseCode" name="CourseCode" placeholder="CourseCode" value="" required>
                                                 </div>
                                             </div>
-											<div class="form-group">
+                                            <div class="form-group">
                                                 <div class="input-container">
                                                     <i class="fa fa-building icon"></i>
                                                     <input type="text" class="form-control" id="CourseName" name="CourseName" placeholder="CourseName" value="" required>
                                                 </div>
                                             </div>
-											<div class="form-group">
+                                            <div class="form-group">
                                                 <div class="input-container">
                                                     <i class="fa fa-building icon"></i>
                                                     <input type="text" class="form-control" id="CourseDescription" name="CourseDescription" placeholder="CourseDescription" value="" required>

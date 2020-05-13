@@ -36,8 +36,8 @@ $class = $Admin->getClasses();
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-                <h3>Welcome To</h3>
-                <h3><b>Time Travel University</b></h3>
+                <h3 style="font-family:Times New Roman, Times, serif; size:16px">Welcome To</h3>
+                <h3 style="font-family:Times New Roman, Times, serif; size:16px"><b>Time Travel University</b></h3>
             </div>
             <div class="col-md-9 register-rights">
                 <div class="tab-content" id="myTabContent">
@@ -57,30 +57,30 @@ $class = $Admin->getClasses();
                             </div>
                         </div>
                     </div>
-                        <div class=" register-forms">
-						<div>
-								<select class="custom-select" id="SemesterId" onChange="getCoursesBySemester()" name="Semester" required>
-									<option disabled value="" selected hidden>Select Semester</option>
-										<?php
-										for ($i = 0; $i < count($semester); $i++) {
-										?>
-										<option value="<?php echo $semester[$i]["SemesterId"] ?>"><?php echo $semester[$i]["SName"] ?></option>
-										<?php } ?>
-								</select>
-							</div>
-                            <div class="form-group">
-								<div id="classSemesterbySemester" class="form-group">
-								</div>
-                            </div>
-
+                    <div class=" register-forms">
+                        <div>
+                            <select class="custom-select" id="SemesterId" onChange="getCoursesBySemester()" name="Semester" required>
+                                <option disabled value="" selected hidden>Select Semester</option>
+                                <?php
+                                for ($i = 0; $i < count($semester); $i++) {
+                                ?>
+                                    <option value="<?php echo $semester[$i]["SemesterId"] ?>"><?php echo $semester[$i]["SName"] ?></option>
+                                <?php } ?>
+                            </select>
                         </div>
-                    
+                        <div class="form-group">
+                            <div id="classSemesterbySemester" class="form-group">
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
 
 
             </div>
         </div>
-   
+
 
         <?php
         require_once('Footer.php'); ?>

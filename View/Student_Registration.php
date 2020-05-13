@@ -35,9 +35,9 @@ $semester = $Admin->getSemesters();
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-                <h3>Welcome To</h3>
-                <h3><b>Time Travel University</b></h3>
-                <P>We look forward to welcoming you to our campus soon!​</P>
+                <h3 style="font-family:Times New Roman, Times, serif; size:16px">Welcome To</h3>
+                <h3 style="font-family:Times New Roman, Times, serif; size:16px"><b>Time Travel University</b></h3>
+
                 <form action="../Controller/Logout.php" method="POST">
                     <input class="signout" type="submit" name="" value="SignOut" style="background:white; color:#0062cc; cursor:pointer" /><br />
                     <style>
@@ -79,6 +79,7 @@ $semester = $Admin->getSemesters();
                 </div>
             </div>
         </div>
+        <?php require_once('Footer.php'); ?>
     </div>
 </body>
 

@@ -14,13 +14,14 @@ $Admin = new Admin($db);
 $majors = $Admin->getMajors();
 
 ?>
+
 <body>
     <div class=" register">
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-                <h3>Welcome To</h3>
-				<h3><b>Time Travel University</b></h3>
+                <h3 style="font-family:Times New Roman, Times, serif; size:16px">Welcome To</h3>
+                <h3 style="font-family:Times New Roman, Times, serif; size:16px"><b>Time Travel University</b></h3>
             </div>
             <div class="col-md-9 register-rights">
                 <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -38,7 +39,7 @@ $majors = $Admin->getMajors();
 
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-headings">Add Major </h3>
+                                <h3 class="register-heading">Add Major </h3>
                                 <div class="row col-md-2">
 
                                     <ul>
@@ -54,7 +55,7 @@ $majors = $Admin->getMajors();
                                                     <input type="text" class="form-control" id="MajorTitle" name="MajorTitle" placeholder="MajorTitle" value="" required>
                                                 </div>
                                             </div>
-											<div class="form-group">
+                                            <div class="form-group">
                                                 <div class="input-container">
                                                     <i class="fa fa-exclamation icons"></i>
                                                     <textarea type="text" class="form-control" id="MajorDescription" name="MajorDescription" placeholder="MajorDescription" value="" required></textarea>
@@ -73,22 +74,20 @@ $majors = $Admin->getMajors();
                     </div>
 
                     <div class="tab-pane fade show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <h3 class="register-headings">Table</h3>
+                        <h3 class="register-heading">Table</h3>
                         <div class=" register-forms">
 
                             <div class="form-group">
-                                <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
+                                <table class="table table-hover" id="Registration_table" style="color:white">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Major Id</th>
+                                            <th scope="col">Major Name</th>
+                                            <th scope="col"> Major Description </th>
 
-                                    <thead class="table-primary">
-
-                                        <th> Major Id </th>
-                                        <th> Major Name </th>
-                                        <th> Major Description </th>
-                                        
-
-
+                                        </tr>
                                     </thead>
-                                    </span>
+
                                     <?php
                                     for ($i = 0; $i < count($majors); $i++) {
                                     ?>
@@ -96,7 +95,7 @@ $majors = $Admin->getMajors();
                                             <td><?php echo $majors[$i]['MajorId']; ?> </td>
                                             <td><?php echo $majors[$i]['MajorTitle']; ?> </td>
                                             <td><?php echo $majors[$i]['MajorDescription']; ?> </td>
-											
+
                                         </tr> <?php } ?>
                                 </table>
                             </div>

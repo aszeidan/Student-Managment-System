@@ -29,9 +29,9 @@ $student = $Admin->getAllStudents();
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-                <h3>Welcome To AG University</h3>
-                <P>We look forward to welcoming you to our campus soon!​</P>
-            </div>
+                <h3 style="font-family:Times New Roman, Times, serif; size:16px">Welcome To</h3>
+                <h3 style="font-family:Times New Roman, Times, serif; size:16px"><b>Time Travel University</b></h3>
+           
             <div class="col-md-9 register-rights">
                 <div class="row col-md-2">
 

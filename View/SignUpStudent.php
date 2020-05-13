@@ -54,9 +54,8 @@ $student = $Admin->getAllStudents();
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-                <h3>Welcome To</h3>
-                <h3><b>Time Travel University</b></h3>
-                <P>We look forward to welcoming you to our campus soon!​</P>
+                <h3 style="font-family:Times New Roman, Times, serif; size:16px">Welcome To</h3>
+                <h3 style="font-family:Times New Roman, Times, serif; size:16px"><b>Time Travel University</b></h3>
             </div>
             <div class="col-md-9 register-rights">
                 <ul class="nav nav-tabs nav-justified" id="myTab" name="myTab" role="tablist">
@@ -159,7 +158,7 @@ $student = $Admin->getAllStudents();
                                                         <td><?php echo $student[$i]['SAddress']; ?> </td>
                                                         <td><?php echo $student[$i]['MajorTitle']; ?> </td>
                                                         <td id="delete"><a href="#" ; onclick="deleteStudent(<?php echo $student[$i]['StudentID']; ?> )"><i class="fa fa-user-times icons" aria-hidden="true"></i></a> </td>
-                                                        <td><a href="../View/EditStudent.php?StudentID=<?php echo $student[$i]['StudentID']; ?>"><i class="fa fa-user-edit icons" aria-hidden="true"></i> </a> </td>
+                                                        <td><a href="../View/EditStudent.php?StudentID=<?php echo $student[$i]['StudentID']; ?>"><i class="fa fa-user-edit icons"></i> </a> </td>
                                                     </tr> <?php } ?>
                                             </table>
                                         </div>

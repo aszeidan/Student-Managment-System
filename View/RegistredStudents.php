@@ -47,11 +47,9 @@ $targetDir = "../uploads/";
 		<div class="row">
 			<div class="col-md-3 register-left">
 				<img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-				<h3>Welcome To</h3>
-				<h3><b>Time Travel University</b></h3>
-				<P>We look forward to welcoming you to our campus soon!​</P>
+				<h3 style="font-family:Times New Roman, Times, serif; size:16px">Welcome To</h3>
+				<h3 style="font-family:Times New Roman, Times, serif; size:16px"><b>Time Travel University</b></h3>
 			</div>
-
 			<div class="col-md-9 register-rights">
 				<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 					<h3 class="register-heading">Registred Students</h3>

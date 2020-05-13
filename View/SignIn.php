@@ -10,9 +10,9 @@ require_once('HeaderSignin.php');
         <div class="row">
             <div class="col-md-3 register-left">
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-                <h3>Welcome To</h3>
-                <h3><b>Time Travel University</b></h3>
-                <P>We look forward to welcoming you to our campus soon!​</P>
+                <h3 style="font-family:Times New Roman, Times, serif; size:16px">Welcome To</h3>
+                <h3 style="font-family:Times New Roman, Times, serif; size:16px"><b>Time Travel University</b></h3>
+                <P style="font-family:Times New Roman, Times, serif; size:16px">We look forward to welcoming you to our campus soon!​</P>
             </div>
             <div class="col-md-9 register-rights">
                 <div class="tab-content" id="myTabContent">
@@ -37,7 +37,7 @@ require_once('HeaderSignin.php');
 
                                             <i class="fa fa-envelope icon"></i>
                                             <input type="text" class="form-control " placeholder="123@example.com" value="" id="uname" required="required" data-error="Enter Valid Email" />
-											<div class="help-block with-errors"></div>
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
 
@@ -45,7 +45,7 @@ require_once('HeaderSignin.php');
                                         <div class="input-container">
                                             <i class="fa fa-key icon"></i>
                                             <input type="password" class="form-control " placeholder="123456" value="" id="psw" required="required" data-error="Enter Password" />
-											<div class="help-block with-errors"></div>
+                                            <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
                                     <div class="form-group" id="Message">
@@ -66,7 +66,7 @@ require_once('HeaderSignin.php');
         <?php
         require_once('Footer.php'); ?>
     </div>
-	
+
 
     <script>
         function createLogin() {

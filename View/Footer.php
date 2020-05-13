@@ -9,7 +9,7 @@
 
         <!-- Grid column -->
         <div class="col-md-6 col-lg-5 text-center text-md-left mb-4 mb-md-0">
-          <h5 class="mb-0">Get connected with us on social networks!</h5>
+          <h5 class="mb-0" style="font-family:Times New Roman, Times, serif; size:16px">Get connected with us on social networks!</h5>
         </div>
 
         <!-- Grid column -->
@@ -39,7 +39,7 @@
         <!-- Content -->
         <h6 class="text-uppercase font-weight-bold">Time Travel University</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>If you’re looking for a transformative educational and life experience, Time Travel University is the right place for you. On this website you will find details on our admission policies and procedures, as well as the application process and deadlines.</p>
+        <p style="font-family:Times New Roman, Times, serif; size:16px">If you’re looking for a transformative educational and life experience, Time Travel University is the right place for you. On this website you will find details on our admission policies and procedures, as well as the application process and deadlines.</p>
 
 
       </div>
@@ -51,7 +51,7 @@
         <!-- Links -->
         <h6 class="text-uppercase font-weight-bold">Products</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>
+        <p style="font-family:Times New Roman, Times, serif; size:16px">
           We are looking forward to welcoming you to our campus soon!
         </p>
 
@@ -64,9 +64,9 @@
         <!-- Links -->
         <h6 class="text-uppercase font-weight-bold ">Special Thanks</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-        <p>Mr. Shadi Debain</p>
-        <p>Mr. Adham Ghannam</p>
-        <p>Mr. Samer Al Sayegh</p>
+        <p style="font-family:Times New Roman, Times, serif; size:16px">Mr. Shadi Debain</p>
+        <p style="font-family:Times New Roman, Times, serif; size:16px">Mr. Adham Ghannam</p>
+        <p style="font-family:Times New Roman, Times, serif; size:16px">Mr. Samer Al-Sayegh</p>
 
 
       </div>
@@ -77,13 +77,13 @@
         <!-- Links -->
         <h6 class="text-uppercase font-weight-bold">Contact</h6>
         <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 40px;">
-        <p>
+        <p style="font-family:Times New Roman, Times, serif; size:16px">
           <i class="fa fa-map-marker mr-3"></i> Beyrouth Lebanon
-          <p>
-            <i class="fa fa-envelope mr-3"></i> TimeTravel@hotmail.com</p>
-          <p>
+          <p style="font-family:Times New Roman, Times, serif; size:16px">
+            <i class="fa fa-envelope mr-3"></i>TimeTravel@hotmail.com</p>
+          <p style="font-family:Times New Roman, Times, serif; size:16px">
             <i class="fa fa-phone mr-3"></i> + 961 76 948 713</p>
-          <p>
+          <p style="font-family:Times New Roman, Times, serif; size:16px">
             <i class="fa fa-print mr-3"></i> + 961 71 135 757</p>
 
       </div>

@@ -7,14 +7,13 @@ require_once('HeaderSignin.php');
 ?>
 
 <body>
-	<div class="register">
+	<div class="register" style=" background: -webkit-linear-gradient(right, #3931af, #00c6ff);">
 		<div class="row">
 			<div class="col-md-4 register-left" style="margin-top:8px">
-				<img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
-				<h3>Welcome To</h3>
-				<h3><b>Time Travel University</b></h3>
-				<P>We look forward to welcoming you to our campus soon!
-					We look forward to welcoming you to our campus soon!​We look forward to welcoming you to our campus soon!​</P>
+				<img src="/images/logo-final-2.png" alt="" />
+				<h3 style="font-family:Times New Roman, Times, serif; size:16px">Welcome To</h3>
+				<h3 style="font-family:Times New Roman, Times, serif; size:16px"><b>Time Travel University</b></h3>
+				<P style="font-family:Times New Roman, Times, serif; size:16px">The Time Traveler team in the Middle East works to provide the most pleasant exposure.Our vast experience comes from the variety in our team. The divergency in our teammates'assets accumulate across a broad spectrum of services.</p>
 			</div>
 			<div class="col-md-1 register-left">
 
