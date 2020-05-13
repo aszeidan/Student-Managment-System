@@ -47,7 +47,7 @@ $semester = $Admin->getSemesters();
 
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <h3 class="register-headings">Add Semester </h3>
+                                <h3 class="register-heading">Add Semester </h3>
                                 <div class="row col-md-2">
 
                                     <ul>
@@ -59,7 +59,7 @@ $semester = $Admin->getSemesters();
                                         <div class="centering col-md-6">
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="fa fa-list icon"></i>
+                                                    <i class="fa fa-graduation-cap icon" aria-hidden="true"></i>
                                                     <select class="custom-select" name="SemesterName" id="SemesterName" required>
                                                         <option disabled value="" selected hidden>Select semester</option>
 
@@ -72,7 +72,7 @@ $semester = $Admin->getSemesters();
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="fa fa-list icon"></i>
+                                                    <i class="fa fa-calendar icon" aria-hidden="true"></i>
                                                     <select class="custom-select" name="SemesterYear" id="SemesterYear" required>
                                                         <option disabled value="" selected hidden>Select year</option>
 
@@ -100,17 +100,17 @@ $semester = $Admin->getSemesters();
                                         <tr>
                                             <th scope="col">Semester Id</th>
                                             <th scope="col"> Semester Name</th>
-                        
+
                                         </tr>
                                     </thead>
-                                 
-                                        for ($i = 0; $i < count($semester); $i++) {
-                                        ?>
-                                            <tr>
-                                                <td><?php echo $semester[$i]['SemesterId']; ?> </td>
-                                                <td><?php echo $semester[$i]['SName']; ?> </td>
-                                            </tr> <?php } ?>
-                                    </table>
+                                    <?php
+                                    for ($i = 0; $i < count($semester); $i++) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $semester[$i]['SemesterId']; ?> </td>
+                                            <td><?php echo $semester[$i]['SName']; ?> </td>
+                                        </tr> <?php } ?>
+                                </table>
                             </div>
 
                         </div>

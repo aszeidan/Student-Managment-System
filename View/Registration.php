@@ -102,7 +102,7 @@ $class = $Admin->getClasses();
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="fa fa-calendar icon"></i>
+                                                    <i class="fa fa-graduation-cap icon"></i>
                                                     <select class="custom-select" name="semester" id="semester" required>
                                                         <option disabled value="" selected hidden>Select Semester</option>
                                                         <?php
@@ -115,7 +115,7 @@ $class = $Admin->getClasses();
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="fa fa-book icon"></i>
+                                                    <i class="fa fa-book icon" aria-hidden="true"></i>
                                                     <select class="custom-select" name="Course" id="Course" required>
                                                         <option disabled value="" selected hidden>Select Course</option>
                                                         <?php
@@ -128,7 +128,7 @@ $class = $Admin->getClasses();
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="fa fa-user aria-hidden='true' icon"></i>
+                                                    <i class="fa fa-user icon" aria-hidden="true"></i>
                                                     <!-- <i class="fas fa-chalkboard-teacher aria-hidden='true' icon"></i> -->
                                                     <select class="custom-select" name="teacher" id="teacher" required>
                                                         <option disabled value="" selected hidden>Select Instructor</option>
@@ -143,7 +143,7 @@ $class = $Admin->getClasses();
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="fa fa-clock-o aria-hidden='true' icon"></i>
+                                                    <i class="fa fa-calendar icon" aria-hidden="true"></i>
                                                     <select class="custom-select" name="schedule" id="schedule" required>
                                                         <option disabled value="" selected hidden>Schedule Time</option>
                                                         <?php
