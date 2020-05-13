@@ -27,9 +27,7 @@ $targetDir = "../uploads/";
 				SAssignemetGrade: $("#SAssignemetGrade_" + RegistrationId).val(),
 				SFinalGrade: $("#SFinalGrade_" + RegistrationId).val(),
 			};
-		}
-
-		$.post("../Controller/SaveGrades.php", data, function(result, status) {
+			$.post("../Controller/SaveGrades.php", data, function(result, status) {
 
 			$("#GradeMessage").html(result.Message);
 
@@ -39,6 +37,9 @@ $targetDir = "../uploads/";
 			location.reload();
 
 		});
+		}
+
+		
 	}
 </script>
 

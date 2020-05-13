@@ -30,25 +30,36 @@ $Teachers = $Admin->getAllTeachers();
                 <ul>
                     <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/SigUpTeacher.php"><i class="fa fa-arrow-left" style="font-size:35px; color:white"></i></a></li>
                 </ul>
-            </div>
-            <form>
-                <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane fade show active" id="home" role="tabpanel" name="teacher" aria-labelledby="home-tab">
-                        <h3 class="register-heading">Edit Teacher</h3>
-                        <div class="row register-forms mx-0 px-0">
-                            <?php
-                            $TeacherId = $_GET['TeacherId'];
-                            $TFirstName = $Teachers[$TeacherId]["TFirstName"];
-                            $TMiddleName = $Teachers[$TeacherId]["TMiddleName"];
-                            $TLastName = $Teachers[$TeacherId]["TLastName"];
-                            $TMobileNum = $Teachers[$TeacherId]["TMobileNum"];
-                            $TPassword = $Teachers[$TeacherId]["TPassword"];
-                            $TEmail = $Teachers[$TeacherId]["TEmail"];
+                <div class="row col-md-2">
+                    <ul>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/SignUpTeacher.php"><i class="fa fa-arrow-left" style="font-size:35px; color:white"></i></a></li>
+                    </ul>
+                </div>
+                <form>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="home" role="tabpanel" name="teacher" aria-labelledby="home-tab">
+                            <h3 class="register-heading">Apply as a Teacher</h3>
+                            <div class="row register-forms mx-0 px-0">
+                                <?php
+                                $TeacherId = $_GET['TeacherId'];
+                                $TFirstName = $Teachers[$TeacherId]["TFirstName"];
+                                $TMiddleName = $Teachers[$TeacherId]["TMiddleName"];
+                                $TLastName = $Teachers[$TeacherId]["TLastName"];
+                                $TMobileNum = $Teachers[$TeacherId]["TMobileNum"];
+                                $TPassword = $Teachers[$TeacherId]["TPassword"];
+                                $TEmail = $Teachers[$TeacherId]["TEmail"];
 
-                            ?>
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="First Name *" id="TFirstName" value="<?php echo $TFirstName ?>" />
+                                ?>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="First Name *" id="TFirstName" value="<?php echo $TFirstName ?>" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Middle Name *" id="TMiddleName" value="<?php echo $TMiddleName ?>" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Last Name *" id="TLastName" value="<?php echo $TLastName ?>" />
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control" placeholder="Middle Name *" id="TMiddleName" value="<?php echo $TMiddleName ?>" />

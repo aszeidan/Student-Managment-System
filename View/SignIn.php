@@ -48,12 +48,14 @@ require_once('HeaderSignin.php');
                                             <div class="help-block with-errors"></div>
                                         </div>
                                     </div>
+                                    <div  class="form-group">
+                                    <input type="checkbox" id="check" check="checked" value="1"> Remember me
+                                    </div>
                                     <div class="form-group" id="Message">
                                     </div>
                                     <div class="form-group">
                                         <input type="button" id="loginMessage" class="btnRegister" value="Login" onClick="createLogin()" />
                                     </div>
-
                                 </form>
                             </div>
                         </div>
@@ -74,6 +76,7 @@ require_once('HeaderSignin.php');
                 uname: $("#uname").val(),
                 psw: $("#psw").val(),
                 loginType: $("#loginType").val(),
+                remember: $("#remember").val(),
             };
             $.post("../Controller/Verify_Login.php", data, function(result) {
                 $("#Message").html(result.Message);
