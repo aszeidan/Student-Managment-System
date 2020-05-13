@@ -15,7 +15,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="../View/home.php"> Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
@@ -26,10 +26,10 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="../View/SignIn.php"> Sign In</a>
-      </li> <li class="nav-item">
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="../View/Faculties.php"> Acadamics</a>
       </li>
 
     </ul>
-    Time Travel University
 </nav>

@@ -32,18 +32,18 @@ $student = $Admin->getAllStudents();
                 <h3>Welcome To AG University</h3>
                 <P>We look forward to welcoming you to our campus soon!​</P>
             </div>
-            <div class="col-md-9 register-right">
+            <div class="col-md-9 register-rights">
                 <div class="row col-md-2">
 
                     <ul>
-                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/SignUpStudent.php"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
                     </ul>
                 </div>
                 <form>
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" name="Student" aria-labelledby="home-tab">
                             <h3 class="register-heading">Edit Student</h3>
-                            <div class="row register-form mx-0 px-0">
+                            <div class="row register-forms mx-0 px-0">
                                 <?php
 
                                 $StudentID = $_GET['StudentID'];

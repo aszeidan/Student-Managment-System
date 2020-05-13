@@ -102,7 +102,7 @@ $class = $Admin->getClasses();
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="fa fa-calendar icon"></i>
+                                                    <i class="fa fa-graduation-cap icon"></i>
                                                     <select class="custom-select" name="semester" id="semester" required>
                                                         <option disabled value="" selected hidden>Select Semester</option>
                                                         <?php
@@ -115,7 +115,7 @@ $class = $Admin->getClasses();
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="fa fa-book icon"></i>
+                                                    <i class="fa fa-book icon" aria-hidden="true"></i>
                                                     <select class="custom-select" name="Course" id="Course" required>
                                                         <option disabled value="" selected hidden>Select Course</option>
                                                         <?php
@@ -128,7 +128,7 @@ $class = $Admin->getClasses();
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="fa fa-clock-o aria-hidden='true' icon"></i>
+                                                    <i class="fa fa-user icon" aria-hidden="true"></i>
                                                     <!-- <i class="fas fa-chalkboard-teacher aria-hidden='true' icon"></i> -->
                                                     <select class="custom-select" name="teacher" id="teacher" required>
                                                         <option disabled value="" selected hidden>Select Instructor</option>
@@ -143,7 +143,7 @@ $class = $Admin->getClasses();
                                             </div>
                                             <div class="form-group">
                                                 <div class="input-container">
-                                                    <i class="fa fa-clock-o aria-hidden='true' icon"></i>
+                                                    <i class="fa fa-calendar icon" aria-hidden="true"></i>
                                                     <select class="custom-select" name="schedule" id="schedule" required>
                                                         <option disabled value="" selected hidden>Schedule Time</option>
                                                         <?php
@@ -172,21 +172,18 @@ $class = $Admin->getClasses();
                         <div class=" register-forms">
 
                             <div class="form-group">
-                                <table border="5" class="table table-hover table-bordered width:fit content" style="color:white ; font-family:Times New Roman, Times, serif; font-size:18px;font-weight: bold" id="Registration_table">
-
-                                    <thead class="table-primary">
-
-                                        <th> Class Name </th>
-                                        <th> Semester </th>
-                                        <th> Course </th>
-                                        <th> Instructor </th>
-                                        <th> Schedule </th>
-                                        <th>Delete </th>
-                                        <th> Edit </th>
-
-
+                                <table class="table table-hover" id="Registration_table" style="color:white">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Class Name</th>
+                                            <th scope="col"> Semester</th>
+                                            <th scope="col">Course</th>
+                                            <th scope="col">Instructor</th>
+                                            <th scope="col">Schedule</th>
+                                            <th scope="col">Delete</th>
+                                            <th scope="col">Edit </th>
+                                        </tr>
                                     </thead>
-                                    </span>
                                     <?php
                                     for ($i = 0; $i < count($class); $i++) {
                                     ?>

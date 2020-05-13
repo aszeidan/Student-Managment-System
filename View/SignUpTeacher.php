@@ -47,7 +47,7 @@ $Teacher = $Admin->getAllTeachers();
                 <h3>Welcome To</h3>
                 <h3><b>Time Travel University</b></h3>
             </div>
-            <div class="col-md-9 register-right">
+            <div class="col-md-9 register-rights">
                 <ul class="nav nav-tabs nav-justified" id="myTab" name="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Sign Up</a>
@@ -59,15 +59,15 @@ $Teacher = $Admin->getAllTeachers();
                 <div class="row col-md-2">
 
                     <ul>
-                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left" style="font-size:35px"></i></a></li>
+                        <li style='display: unset;position: absolute;margin: 72px;margin-left: 78px;margin-bottom: 79px;'><a href="../View/Choose_Directory.php"><i class="fa fa-arrow-left" style="font-size:35px; color:white"></i></a></li>
                     </ul>
                 </div>
 
                 <form action="../Controller/Verify_SignUpTeacher.php" method="POST">
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="home" role="tabpanel" name="teacher" aria-labelledby="home-tab">
-                            <h3 class="register-headings">Apply as a Teacher</h3>
-                            <div class="row register-form mx-0 px-0">
+                            <h3 class="register-heading">Apply as a Teacher</h3>
+                            <div class="row register-forms mx-0 px-0">
 
                                 <div class="col-md-6 ">
                                     <div class="form-group">
@@ -105,22 +105,24 @@ $Teacher = $Admin->getAllTeachers();
                             </div>
                         </div>
                         <div class="tab-pane fade show" id="profile" role="tabpanel" name="student" aria-labelledby="profile-tab">
-                            <h3 class="register-headings">Registered Instructors</h3>
-                            <div class="row register-form mx-0 px-0">
+                            <h3 class="register-heading">Registered Instructors</h3>
+                            <div class="row register-forms mx-0 px-0">
                                 <div class="col-md-6">
-                                    <div class=" register-form">
+                                    <div class=" register-forms">
 
                                         <div class="form-group">
-                                            <table border="5" class="table table-hover table-bordered width:fit content" id="Registration_table">
-                                                <thead class="table-primary">
+                                            <table class="table table-hover" id="Registration_table" style="color:white">
+                                                <thead>
+                                                    <tr>
 
-                                                    <th> Name </th>
-                                                    <th> Email</th>
-                                                    <th> PhoneNumber</th>
-                                                    <th> Delete </th>
-                                                    <th> Edit </th>
+                                                        <th scope="col">Name</th>
+                                                        <th scope="col"> Email </th>
+                                                        <th scope="col">Phone Number</th>
+                                                        <th scope="col">Delete </th>
+                                                        <th scope="col">Edit </th>
+
+                                                    </tr>
                                                 </thead>
-                                                </span>
                                                 <?php
                                                 for ($i = 0; $i < count($Teacher); $i++) {
                                                 ?>
@@ -128,8 +130,8 @@ $Teacher = $Admin->getAllTeachers();
                                                         <td><?php echo $Teacher[$i]['TFirstName'] . " " . $Teacher[$i]['TLastName']; ?> </td>
                                                         <td><?php echo $Teacher[$i]['TEmail']; ?> </td>
                                                         <td><?php echo $Teacher[$i]['TMobileNum']; ?> </td>
-                                                        <td id="delete"> <a href="#" ; onclick="deleteTeacher(<?php echo $Teacher[$i]['TeacherId']; ?> )"><i class="fa fa-trash" aria-hidden="true"></i> </a> </td>
-                                                        <td><a href="../View/EditTeacher.php?TeacherId=<?php echo $Teacher[$i]['TeacherId']; ?>"><i class="fa fa-edit" aria-hidden="true"></i> </a> </td>
+                                                        <td id="delete"> <a href="#" ; onclick="deleteTeacher(<?php echo $Teacher[$i]['TeacherId']; ?> )"><i class="fa fa-user-times icons" aria-hidden="true"></i> </a> </td>
+                                                        <td><a href="../View/EditTeacher.php?TeacherId=<?php echo $Teacher[$i]['TeacherId']; ?>"><i class="fa fa-user-edit icons"></i> </a> </td>
                                                     </tr> <?php } ?>
                                             </table>
                                         </div>

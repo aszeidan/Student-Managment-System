@@ -33,7 +33,6 @@ $Teacher = new Teacher($db);
                 <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt="" />
                 <h3>Welcome To</h3>
                 <h3><b>Time Travel University</b></h3>
-                <P>We look forward to welcoming you to our campus soon!​</P>
                 <form action="../Controller/Logout.php" method="POST">
                     <input class="signout" type="submit" name="" value="SignOut" style="background:white; color:#0062cc; cursor:pointer" /><br />
                     <style>
@@ -46,34 +45,35 @@ $Teacher = new Teacher($db);
                     </style>
                 </form>
             </div>
-			 <div class="col-md-9 register-rights">
+
+            <div class="col-md-9 register-rights">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading"> Teacher Profile</h3>
                         <div class="row register-forms mx-0 px-0 col-md-12">
                             <div class="centering col-md-6">
-                                
-								<form >
-								<select id="SemesterId" onChange="getCoursesBySemester()" class="custom-select" name="Semester" required>
-                                            <option disabled value="" selected hidden>Select Semester</option>
-                                            <?php
-                                            for ($i = 0; $i < count($semester); $i++) {
-                                            ?>
-                                                <option value="<?php echo $semester[$i]["SemesterId"] ?>"><?php echo $semester[$i]["SName"] ?></option>
-                                            <?php } ?>
-                                        </select>
-                                   
+
+                                <form>
+                                    <select id="SemesterId" onChange="getCoursesBySemester()" class="custom-select" name="Semester" required>
+                                        <option disabled value="" selected hidden>Select Semester</option>
+                                        <?php
+                                        for ($i = 0; $i < count($semester); $i++) {
+                                        ?>
+                                            <option value="<?php echo $semester[$i]["SemesterId"] ?>"><?php echo $semester[$i]["SName"] ?></option>
+                                        <?php } ?>
+                                    </select>
+
                                     <div id="classSemesterbyTeacher" class="form-group">
                                     </div>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-    <?php
-    require_once('Footer.php'); ?>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <?php
+        require_once('Footer.php'); ?>
     </div>
 </body>
 
